@@ -4,10 +4,18 @@ import App from './App';
 import { store } from './helpers';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter } from 'react-router-dom';
+
+//css
+import './assets/styles/baseStyle.css'
+import './assets/styles/loginStyle.css'
+import './assets/styles/formStyle.css'
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

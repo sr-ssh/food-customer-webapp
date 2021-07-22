@@ -1,0 +1,64 @@
+.loginForm {
+    margin-top: 25vh;
+    height: 40vh;
+    z-index: 2;
+}
+
+.login-input{
+    width: 90%;
+}
+
+.verification-btn {
+    max-height: 6vh;
+    font-size: 0.9rem;
+    width: 25vw;
+    border-radius: 11px;
+    border:none;
+    font-weight: bold;
+    color: var(--red-one);
+    background-color: var(--red-two);
+}
+
+.verification-btn.btn-check:checked + .verification-btn.btn-primary, .verification-btn.btn-check:active + .verification-btn.btn-primary, .verification-btn.btn-primary:active, .verification-btn.btn-primary.active, .verification-btn.show > .verification-btn.btn-primary.dropdown-toggle {
+    color: var(--red-one);
+    background-color: var(--red-two);
+}
+
+.verification-btn.btn-check:focus + .verification-btn.btn-primary, .verification-btn.btn-primary:focus {
+    color: var(--red-one);
+    background-color: var(--red-two);
+    border-color: var(--red-one);
+    box-shadow: 0 0 0 0.25rem rgb(244 67 54 / 50%);
+}
+
+.verification-btn.btn-primary:hover {
+    color: var(--red-one);
+    background-color: var(--red-two);
+    border-color: none
+}
+
+.login-btn {
+    background-color: var(--red-one);
+    border: none;
+    border-radius: 11px;
+    font-weight: bold;
+    position: relative;
+    top: 18vh;
+    height: 7vh;
+    color: var(--body-bachground);
+}
+
+.login-btn.btn-check:checked + .login-btn.btn-primary, .login-btn.btn-check:active + .login-btn.btn-primary, .login-btn.btn-primary:active, .login-btn.btn-primary.active, .login-btn.show > .login-btn.btn-primary.dropdown-toggle {
+    background-color: var(--red-one);
+}
+
+.login-btn.btn-check:focus + .login-btn.btn-primary, .login-btn.btn-primary:focus {
+    background-color: var(--red-one);
+    border-color: none;
+    box-shadow: 0 0 0 0.25rem rgb(244 67 54 / 50%);
+}
+
+.login-btn.btn-primary:hover {
+    background-color: var(--red-one);
+    border-color: none
+}
