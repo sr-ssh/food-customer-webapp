@@ -1,7 +1,7 @@
 :root{
     --body-bachground: #ffffff;
     --background-one: #f8f3ef;
-    --background-two: #4e4b4c;
+    --background-two: #4e4c4b;
     --background-three: #c7c2bf;
     --red-one: #f44336;
     --red-two: #f4c7c3;
@@ -24,7 +24,7 @@ body{
 #back-up {
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -2;
     position: absolute;
     border-left: 368px solid var(--background-two);
     border-right: 368px solid var(--background-two);
@@ -38,7 +38,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 0;
+    z-index: -1;
     position: absolute;
     top: 77px;
     left: 0;
@@ -50,7 +50,7 @@ body{
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: -2;
     border-right: 763px solid var(--background-three);
     border-bottom: 50vh solid var(--background-three);
 }

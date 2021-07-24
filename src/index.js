@@ -10,6 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './assets/styles/baseStyle.css'
 import './assets/styles/loginStyle.css'
 import './assets/styles/formStyle.css'
+import './assets/styles/mainStyle.css'
 
 ReactDOM.render(
   <Provider store={store}>
