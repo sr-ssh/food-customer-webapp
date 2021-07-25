@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
+import { Detail } from './detail';
 import { ToggleButton } from './toggleButton';
 
 export const Products = () => {
@@ -31,6 +32,7 @@ export const Products = () => {
   </Carousel.Item>
 </Carousel>
     <ToggleButton></ToggleButton>
+    <Detail></Detail>
         </div>
     )
 }

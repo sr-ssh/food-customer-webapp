@@ -81,3 +81,22 @@
     margin-top: 9%;
 
 }
+.div--container__detail{
+    margin-top: .9rem;
+    height: 15vh;
+}
+.col--container__title{
+    font-weight: 700;
+    text-align: center;
+}
+.col--container__price{
+    font-weight: 700;
+    text-align: center;
+}
+.span--container__detailtext{
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 100;
+    font-size: .7rem;
+    color: #666666;
+}
