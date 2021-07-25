@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Button, Row, Col } from 'react-bootstrap';
 import Sidebar from 'react-sidebar'
+import { history } from '../../helpers';
 
 //icons
 import menuIcon from './../../assets/images/base/menu.svg'
@@ -42,7 +43,7 @@ export const Main = () => {
                     </Row>
                     <Row className="justify-content-center ms-0">
                         <Col xs={3}>
-                            <Button type="button" className="main-add-btn border-0 p-2">
+                            <Button type="button" className="main-add-btn border-0 p-2" onClick={() => history.push('/order')}>
                                 <img src={addIcon} height="64px" alt="menu-icon"/>
                             </Button>
                         </Col>
