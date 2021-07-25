@@ -3,6 +3,7 @@
     width: 100%;
     height: 100vh;
     position: relative;
+    overflow: auto; 
 }
 .navbar--order{
     position : absolute;
@@ -18,4 +19,25 @@
 .me-auto--order >p{
     display: inline-block;
     font-weight: 800;
+}
+.section--container__textlist{
+    margin-top: 5rem;
+    width: 100%;
+    height: 2rem;
+}
+.ul--container__order{
+    list-style-type: none;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    margin-left: 6rem;
+}
+.li--order{
+    list-style-type: none;
+    display: inline-block;
+    margin-left: .6rem;
+    margin-right: 1rem;
+    font-size: .8rem;
+    font-weight: 400;
+    color: #9B9591;
 }
