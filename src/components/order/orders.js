@@ -2,13 +2,14 @@ import React from 'react';
 
 //components
 import { Header } from './../base/ordersHeader'
+import {Products} from "./products"
 
 export const orders = () => {
     return (
         <>
         <div className="div--container__orders">
         <Header/>
-        <section className="section--container__textlist">
+        <section className="section--container__textlist-order">
             <ul className="ul--container__order">
                 <li className="li--order">پیش غذا</li>
                 <li className="li--order">پیتزا</li>
@@ -17,6 +18,7 @@ export const orders = () => {
                 <li className="li--order">سس</li>
             </ul>
         </section>
+        <Products/>
         </div>
         </>
     )
