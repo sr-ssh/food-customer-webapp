@@ -1,0 +1,21 @@
+.div--container__orders{
+    background-color: #F9F3EE;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.navbar--order{
+    position : absolute;
+    top: 1rem;
+    right: 18rem;
+    background-color: #F9F3EE
+}
+
+.me-auto--order{
+    padding: 0 !important;
+    font-weight: 400;
+}
+.me-auto--order >p{
+    display: inline-block;
+    font-weight: 800;
+}
