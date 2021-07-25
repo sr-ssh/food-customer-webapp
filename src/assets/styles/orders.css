@@ -100,3 +100,30 @@
     font-size: .7rem;
     color: #666666;
 }
+.div--container__addButton{
+    font-size: 4rem;
+    color: #F8F2ED;
+    text-align: center;
+    width: 65%;
+    margin-right: 17.5%;
+    height: 4rem;
+    border-radius: 500px;
+    background-color: #F24333;
+}
+.div--container__minuseButton{
+    font-size: 4rem;
+    color: #F8F2ED;
+    text-align: center;
+    width: 65%;
+    margin-right: 17.5%;
+    height: 4rem;
+    border-radius: 500px;
+    background-color: #F24333;
+}
+.col--container__addButton{
+    background-color: cyan;
+}
+.col--container__minuseButton{
+    background-color: cyan;
+}
+    

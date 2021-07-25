@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
+import { ControlButton } from './controlButton';
 import { Detail } from './detail';
 import { ToggleButton } from './toggleButton';
 
@@ -33,6 +34,7 @@ export const Products = () => {
 </Carousel>
     <ToggleButton></ToggleButton>
     <Detail></Detail>
+    <ControlButton></ControlButton>
         </div>
     )
 }
