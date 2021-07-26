@@ -13,6 +13,11 @@
   src: url("./../fonts/ir_sans.ttf");
 }
 
+/* set scrollBar widht to 0 to dont't show scrollbar on scroll */
+::-webkit-scrollbar {
+  width: 0;
+}
+
 body {
   font-family: "IranSans";
   background-color: var(--body-bachground);
@@ -37,12 +42,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: -1;
-  position: absolute;
+  z-index: 0;
+  position: fixed;
   top: 77px;
   left: 0;
   right: 0;
   border-radius: 0 100px 0 100px;
+  overflow-y: hidden;
 }
 
 #back-down {

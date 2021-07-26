@@ -51,7 +51,7 @@
 .main-icon-cards-pass {
   background-color: var(--red-one);
   border: none;
-  margin-left: 0.25rem !important;
+  margin-right: 0.5rem !important;
 }
 .main-text-card-description-order {
   font-size: 12px;
@@ -64,4 +64,11 @@
   margin-bottom: 0.7rem;
   border-radius: 8px;
   background-color: #f44336;
+}
+.main-scroll-card-order {
+  position: absolute;
+  height: 80%;
+  width: 100%;
+  top: 0;
+  overflow-y: auto;
 }
