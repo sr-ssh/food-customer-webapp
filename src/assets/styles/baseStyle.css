@@ -1,118 +1,117 @@
-:root{
-    --body-bachground: #ffffff;
-    --background-one: #f8f3ef;
-    --background-two: #4e4c4b;
-    --background-three: #c7c2bf;
-    --red-one: #f44336;
-    --red-two: #f4c7c3;
-    --text-grey: #868381;
+:root {
+  --body-bachground: #ffffff;
+  --background-one: #f8f3ef;
+  --background-two: #4e4c4b;
+  --background-three: #c7c2bf;
+  --red-one: #f44336;
+  --red-two: #f4c7c3;
+  --text-grey: #868381;
 }
 
 @font-face {
-    font-family: 'IranSans';
-    src: url('./../fonts/ir_sans.ttf');  
+  font-family: "IranSans";
+  src: url("./../fonts/ir_sans.ttf");
 }
 
-
-body{
-    font-family: 'IranSans';
-    background-color: var(--body-bachground);
-    margin: 0;
-    padding: 0;
+body {
+  font-family: "IranSans";
+  background-color: var(--body-bachground);
+  margin: 0;
+  padding: 0;
 }
 
 #back-up {
-    top: 0;
-    left: 0;
-    z-index: -2;
-    position: absolute;
-    border-left: 368px solid var(--background-two);
-    border-right: 368px solid var(--background-two);
-    border-top: 50vh solid var(--background-two);
+  top: 0;
+  left: 0;
+  z-index: -2;
+  position: absolute;
+  border-left: 368px solid var(--background-two);
+  border-right: 368px solid var(--background-two);
+  border-top: 50vh solid var(--background-two);
 }
 
 #back-center {
-    height: 83%;
-    min-height: 83vh;
-    background: var(--background-one);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: -1;
-    position: absolute;
-    top: 77px;
-    left: 0;
-    right: 0;
-    border-radius: 0 100px 0 100px;
+  height: 83%;
+  min-height: 83vh;
+  background: var(--background-one);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  position: absolute;
+  top: 77px;
+  left: 0;
+  right: 0;
+  border-radius: 0 100px 0 100px;
 }
 
 #back-down {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: -2;
-    border-right: 763px solid var(--background-three);
-    border-bottom: 50vh solid var(--background-three);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -2;
+  border-right: 763px solid var(--background-three);
+  border-bottom: 50vh solid var(--background-three);
 }
 
-.logo{
-    position: absolute;
-    top: 28px;
-    left: 22px;
+.logo {
+  position: absolute;
+  top: 28px;
+  left: 22px;
 }
 
 .mzLogo {
-    max-height: 20vh;
+  max-height: 20vh;
 }
 
-.inputs{
-    font-size: 12px;
-    color: var(--text-grey);
-    font-family: 'IranSans';
-    font-weight: bold;
+.inputs {
+  font-size: 12px;
+  color: var(--text-grey);
+  font-family: "IranSans";
+  font-weight: bold;
 }
 
-
-.navbar-brand{
-    font-size: 14px;
-    transform: translateX(-50%);
-    left: 50%;
-    position: absolute;
+.navbar-brand {
+  font-size: 14px;
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
 }
 
-.my-nav{
-    background-color: var(--red-two);
-    
+.my-nav {
+  background-color: var(--red-two);
 }
 
 .navbar-expand .navbar-nav .nav-link {
-    padding-left: 1.5rem;
+  padding-left: 1.5rem;
 }
 
-
-.form-control:focus{
-    box-shadow: none;
+.form-control:focus {
+  box-shadow: none;
 }
 
 .search-input {
-    width: 90%;
-    padding-right: 10px;
-    height: calc(1.5em + 0.75rem + 1px);
-    font-size: 14px;
-    border-radius: 10px;
-    border: none;
+  width: 90%;
+  padding-right: 10px;
+  height: calc(1.5em + 0.75rem + 1px);
+  font-size: 14px;
+  border-radius: 10px;
+  border: none;
 }
 
 .alert {
-    position: absolute;
-    bottom: 26vh;
-    z-index: 1050;
+  position: absolute;
+  bottom: 26vh;
+  z-index: 1050;
 }
 
 .no-result-filter {
-    height: 75vh;
+  height: 75vh;
 }
 
 .header-title {
-    position: absolute;
+  position: absolute;
+}
+.mt-6 {
+  margin-top: 4rem !important;
 }

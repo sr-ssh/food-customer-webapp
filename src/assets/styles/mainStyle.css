@@ -1,21 +1,66 @@
-.main-add-btn{
-    background-color: var(--red-one);
-    border-radius: 100%;
-    position: relative;
-    top: 60vh;
+.main-add-btn {
+  background-color: var(--red-one);
+  border-radius: 100%;
+  position: relative;
+  top: 60vh;
 }
 
-.main-add-btn.btn-check:checked + .main-add-btn.btn-primary, .main-add-btn.btn-check:active + .main-add-btn.btn-primary, .main-add-btn.btn-primary:active, .main-add-btn.btn-primary.active, .main-add-btn.show > .main-add-btn.btn-primary.dropdown-toggle {
-    background-color: var(--red-one);
+.main-add-btn.btn-check:checked + .main-add-btn.btn-primary,
+.main-add-btn.btn-check:active + .main-add-btn.btn-primary,
+.main-add-btn.btn-primary:active,
+.main-add-btn.btn-primary.active,
+.main-add-btn.show > .main-add-btn.btn-primary.dropdown-toggle {
+  background-color: var(--red-one);
 }
 
-.main-add-btn.btn-check:focus + .main-add-btn.btn-primary, .main-add-btn.btn-primary:focus {
-    background-color: var(--red-one);
-    border-color: none;
-    box-shadow: 0 0 0 0.25rem rgb(244 67 54 / 50%);
+.main-add-btn.btn-check:focus + .main-add-btn.btn-primary,
+.main-add-btn.btn-primary:focus {
+  background-color: var(--red-one);
+  border-color: none;
+  box-shadow: 0 0 0 0.25rem rgb(244 67 54 / 50%);
 }
 
 .main-add-btn.btn-primary:hover {
-    background-color: var(--red-one);
-    border-color: none
+  background-color: var(--red-one);
+  border-color: none;
+}
+.main-card-order {
+  border-radius: 0.7rem;
+}
+.main-icon-cards {
+  border-radius: 50%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+.img-fluid {
+  max-width: 100%;
+  height: 40px;
+  padding: 3px;
+}
+.main-text-card-queue-condition {
+  color: var(--red-one);
+  font-size: 13px;
+  padding: 0;
+  margin: 0;
+}
+.main-icon-cards-pass {
+  background-color: var(--red-one);
+  border: none;
+  margin-left: 0.25rem !important;
+}
+.main-text-card-description-order {
+  font-size: 12px;
+  color: var(--text-grey);
+}
+.main-card-btn-order-detail {
+  font-size: 14px;
+  padding: 0.7rem;
+  border: none;
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
+  background-color: #f44336;
 }
