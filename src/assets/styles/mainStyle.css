@@ -1,8 +1,9 @@
 .main-add-btn {
   background-color: var(--red-one);
   border-radius: 100%;
-  position: relative;
-  top: 60vh;
+  position: fixed;
+  top: 77vh;
+  box-shadow: 0 0 0.8rem var(--red-one);
 }
 
 .main-add-btn.btn-check:checked + .main-add-btn.btn-primary,
