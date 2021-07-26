@@ -4,6 +4,7 @@ import { ControlButton } from './controlButton';
 import { Detail } from './detail';
 import { ToggleButton } from './toggleButton';
 import pizza from '../../assets/images/order/picc_pizza.png'
+import { Dialog } from './dialog';
 
 export const Products = () => {
     return (
@@ -36,6 +37,7 @@ export const Products = () => {
     <ToggleButton></ToggleButton>
     <Detail></Detail>
     <ControlButton></ControlButton>
+    <Dialog></Dialog>
         </div>
     )
 }

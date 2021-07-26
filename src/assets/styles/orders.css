@@ -159,9 +159,30 @@
     width: 70%;
     margin-top: 1rem;
     margin-left: 15%;
+    
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     filter: invert(100%);
+}
+
+/* ------------------------------------- DIALOG IN ORDER --------------------------------------- */
+
+.div--container__dialog-order{
+    margin: 30px;
+    margin-bottom: 0;
+    height: 3.5rem;
+    border-radius: 10px;
+    background-color: #F24333;
+}
+.col--container__dialog-order{
+    height: 100%;
+    margin-top: 1rem;
+    text-align: center;
+}
+.span--container__dialogo-order{
+    color: #F9F3EE;
+    font-size: 1rem;
+    font-weight: bold;
 }
