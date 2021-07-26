@@ -44,7 +44,7 @@ body {
   align-items: center;
   z-index: 0;
   position: fixed;
-  top: 77px;
+  top: 65px;
   left: 0;
   right: 0;
   border-radius: 0 100px 0 100px;
@@ -62,7 +62,7 @@ body {
 
 .logo {
   position: absolute;
-  top: 28px;
+  top: 12px;
   left: 22px;
 }
 
@@ -120,4 +120,8 @@ body {
 }
 .mt-6 {
   margin-top: 4rem !important;
+}
+.bg-ren-one {
+  background-color: var(--red-one) !important;
+  color: #fff !important;
 }

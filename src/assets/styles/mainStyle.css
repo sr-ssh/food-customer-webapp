@@ -59,11 +59,21 @@
 }
 .main-card-btn-order-detail {
   font-size: 14px;
-  padding: 0.7rem;
+  padding: 0.8rem 0.7rem;
   border: none;
   margin-bottom: 0.7rem;
   border-radius: 8px;
-  background-color: #f44336;
+  color: var(--red-one);
+  background-color: var(--red-two);
+}
+.main-card-btn-order-checkout {
+  font-size: 14px;
+  padding: 0.8rem 0.7rem;
+  border: none;
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
+
+  background-color: var(--red-one);
 }
 .main-scroll-card-order {
   position: absolute;

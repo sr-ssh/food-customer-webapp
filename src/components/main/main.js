@@ -8,6 +8,7 @@ import menuIcon from './../../assets/images/base/menu.svg'
 import logo from './../../assets/images/base/happy-pizza.png'
 import addIcon from './../../assets/images/main/add.svg'
 import waitingIcon from './../../assets/images/main/waiting.svg'
+import peymentIcon from './../../assets/images/main/peyment.svg'
 import deliveryIcon from './../../assets/images/main/delivery.svg'
 import coookingIcon from './../../assets/images/main/coooking.svg'
 import chefIcon from './../../assets/images/main/chef.svg'
@@ -45,7 +46,59 @@ export const Main = () => {
                     <div id="back-up"></div>
                     <div id="back-center">
                         <div className="main-scroll-card-order">
-                            <Container className="mb-auto mt-5 d-flex flex-column">
+                            <Container className="mb-auto mt-6 d-flex flex-column">
+                                <Card className=" main-card-order border-0  ">
+                                    <Card.Body className="main-card-order p-1 bg-white">
+                                        <Row className="px-1 " >
+                                            <Col className="d-flex p-2 mx-2 align-items-center justify-content-start flex-row">
+
+                                                <div className="main-icon-cards ms-2 border border-1 border-dark">
+                                                    <img className="img-fluid" src={deliveryIcon} height="35px" alt="deliveryIcon" />
+                                                </div>
+                                                <div className=" main-icon-cards ms-2 border border-1 border-dark">
+                                                    <img className="img-fluid" src={coookingIcon} height="35px" alt="coookingIcon" />
+                                                </div>
+                                                <div className=" main-icon-cards ms-2 border border-1 border-dark">
+                                                    <img className="img-fluid" src={chefIcon} height="35px" alt="chefIcon" />
+                                                </div>
+                                                <div className="main-icon-cards ms-2 border border-1 border-dark">
+                                                    <img className="img-fluid" src={waitingIcon} alt="deliveryIcon" />
+                                                </div>
+
+                                                <p className="me-auto  main-text-card-queue-condition fw-bold">در انتظار پرداخت</p>
+
+                                                <div className="main-icon-cards main-icon-cards-pass me-1">
+                                                    <img className="img-fluid" src={peymentIcon} alt="deliveryIcon" />
+                                                </div>
+
+                                            </Col>
+                                        </Row>
+                                        <Row className="d-flex flex-column mx-2 mt-2">
+                                            <Col className="p-0 py-2">
+                                                <span className="ps-2 ">یکشنبه</span>
+                                                <span className="ps-2 "> 3 مرداد</span>
+                                                <span className="ps-2 ">12:15</span>
+                                            </Col>
+                                            <Col className="p-0 py-2">
+                                                <p className="main-text-card-description-order fw-bold">لطفا از طریق دکمه پرداخت نسبت به نهایی کردن سفارش خود اقدام کنید.</p>
+                                            </Col>
+                                        </Row>
+                                        <Row className="mx-1 g-0">
+                                            {/* <Col className="d-flex flex-row"> */}
+                                            <Col>
+                                                <Button className="col-11  main-card-btn-order-detail ">
+                                                    <span className="">جزییات سفارش</span>
+                                                </Button>
+                                            </Col>
+                                            <Col>
+                                                <Button className="col-11 me-2 main-card-btn-order-checkout ">
+                                                    <span className="">پرداخت</span>
+                                                </Button>
+                                            </Col>
+                                            {/* </Col> */}
+                                        </Row>
+                                    </Card.Body>
+                                </Card>
                                 <Card className="mt-4 main-card-order border-0 ">
                                     <Card.Body className="main-card-order p-1 bg-white">
                                         <Row className="px-1 " >
@@ -65,6 +118,9 @@ export const Main = () => {
                                                 <div className="main-icon-cards main-icon-cards-pass ms-1">
                                                     <img className="img-fluid" src={waitingdoneIcon} alt="deliveryIcon" />
                                                 </div>
+                                                <div className="main-icon-cards main-icon-cards-pass me-1">
+                                                    <img className="img-fluid" src={peymentIcon} alt="deliveryIcon" />
+                                                </div>
 
                                             </Col>
                                         </Row>
@@ -80,7 +136,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-ren-one">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -108,6 +164,9 @@ export const Main = () => {
                                                 <div className="main-icon-cards main-icon-cards-pass">
                                                     <img className="img-fluid" src={waitingdoneIcon} alt="deliveryIcon" />
                                                 </div>
+                                                <div className="main-icon-cards main-icon-cards-pass me-1">
+                                                    <img className="img-fluid" src={peymentIcon} alt="deliveryIcon" />
+                                                </div>
 
                                             </Col>
                                         </Row>
@@ -123,7 +182,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-ren-one">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -152,6 +211,9 @@ export const Main = () => {
                                                 <div className="main-icon-cards main-icon-cards-pass">
                                                     <img className="img-fluid" src={waitingdoneIcon} alt="deliveryIcon" />
                                                 </div>
+                                                <div className="main-icon-cards main-icon-cards-pass me-1">
+                                                    <img className="img-fluid" src={peymentIcon} alt="deliveryIcon" />
+                                                </div>
 
                                             </Col>
                                         </Row>
@@ -168,7 +230,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-ren-one">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -197,6 +259,9 @@ export const Main = () => {
                                                 <div className="main-icon-cards main-icon-cards-pass">
                                                     <img className="img-fluid" src={waitingdoneIcon} alt="deliveryIcon" />
                                                 </div>
+                                                <div className="main-icon-cards main-icon-cards-pass me-1">
+                                                    <img className="img-fluid" src={peymentIcon} alt="deliveryIcon" />
+                                                </div>
 
                                             </Col>
                                         </Row>
@@ -212,7 +277,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-ren-one">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -233,7 +298,7 @@ export const Main = () => {
                             <Col xs={9}>
                                 <img className="logo" src={logo} alt="logo" width="190px" />
                             </Col>
-                            <Col xs={3} className="mt-4 me-3" onClick={() => setIsOpen(!isOpen)}>
+                            <Col xs={3} className="mt-2 me-3" onClick={() => setIsOpen(!isOpen)}>
                                 <img src={menuIcon} height="34px" alt="menu-icon" className="mt-2" />
                             </Col>
                         </Row>
