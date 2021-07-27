@@ -122,3 +122,9 @@ body {
 .nav--link--header--back {
   font-size: 13px;
 }
+.txt--color--red--one {
+  color: var(--red-one);
+}
+.rounded-4 {
+  border-radius: 14px;
+}

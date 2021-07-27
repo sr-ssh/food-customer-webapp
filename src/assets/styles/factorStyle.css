@@ -19,7 +19,7 @@
 }
 .factor--text--details {
   font-size: 13px !important;
-  color: #868381 !important;
+  color: var(--text-grey) !important;
   margin-right: 0.2rem !important;
 }
 .factor-inputs {

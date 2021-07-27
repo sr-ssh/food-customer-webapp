@@ -1,0 +1,43 @@
+.order--details--page {
+  height: auto;
+  min-height: 100vh;
+  background: var(--background-one);
+}
+.card--title--order-details {
+  color: var(--red-one);
+  font-size: 1.1rem;
+}
+.order--detailes--order {
+  font-size: 1rem;
+  color: var(--text-grey);
+}
+.order--detailes--order--cards {
+  color: var(--text-grey);
+}
+.orderdetails--Container {
+  border-radius: 11px;
+}
+.orderdetails--Container--bg {
+  background-color: var(--red-two) !important;
+}
+.text--order--details {
+  font-size: 14px;
+}
+.border-top-red {
+  border-top: 1px solid var(--red-one);
+  margin-right: 0vw;
+}
+.orderdetails--flex th {
+  font-size: 12px;
+  color: var(--red-one);
+  font-weight: normal;
+}
+
+.orderdetails--flex td {
+  color: var(--text-color-two);
+  font-size: 14px;
+  font-weight: 600;
+}
+.order--details--text--footer-cards--order {
+  font-size: 14px;
+}

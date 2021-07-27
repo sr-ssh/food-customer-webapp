@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Table, Form, Card, Button } from 'react-bootstrap';
-import { Header } from '../base/factorHeader'
+import { Header } from '../base/header2'
 
 
 
