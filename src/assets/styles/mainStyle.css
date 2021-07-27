@@ -2,7 +2,7 @@
   background-color: var(--red-one);
   border-radius: 100%;
   position: fixed;
-  top: 77vh;
+  top: 80vh;
   box-shadow: 0 0 0.8rem var(--red-one);
 }
 
@@ -77,7 +77,7 @@
 }
 .main-scroll-card-order {
   position: absolute;
-  height: 80%;
+  height: 72%;
   width: 100%;
   top: 0;
   overflow-y: auto;

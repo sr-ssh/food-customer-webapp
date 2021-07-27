@@ -12,6 +12,7 @@ import './assets/styles/loginStyle.css'
 import './assets/styles/formStyle.css'
 import './assets/styles/mainStyle.css'
 import './assets/styles/orders.css'
+import './assets/styles/factor.css'
 
 ReactDOM.render(
   <Provider store={store}>

@@ -136,7 +136,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-ren-one">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-re">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -182,7 +182,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-ren-one">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-re">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -230,7 +230,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-ren-one">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-re">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -277,7 +277,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-ren-one">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-re">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -287,12 +287,7 @@ export const Main = () => {
                                 </Card>
                             </Container>
                         </div>
-
-
-
-
                     </div>
-                    <div id="back-down"></div>
                     <Container fluid className="p-0 d-flex flex-column ms-0 align-items-around">
                         <Row className="mb-4 pe-3 mt-0 ms-0">
                             <Col xs={9}>

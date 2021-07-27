@@ -36,8 +36,8 @@ body {
 }
 
 #back-center {
-  height: 83%;
-  min-height: 83vh;
+  height: 100%;
+  min-height: 100vh;
   background: var(--background-one);
   display: flex;
   justify-content: center;
@@ -49,15 +49,6 @@ body {
   right: 0;
   border-radius: 0 100px 0 100px;
   overflow-y: hidden;
-}
-
-#back-down {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -2;
-  border-right: 763px solid var(--background-three);
-  border-bottom: 50vh solid var(--background-three);
 }
 
 .logo {
@@ -121,7 +112,13 @@ body {
 .mt-6 {
   margin-top: 4rem !important;
 }
-.bg-ren-one {
+.bg-red-one {
   background-color: var(--red-one) !important;
   color: #fff !important;
+}
+.navbar--factor {
+  background-color: var(--background-two);
+}
+.nav--link--header--back {
+  font-size: 13px;
 }

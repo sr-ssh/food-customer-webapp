@@ -1,0 +1,51 @@
+.factor-page {
+  height: 100%;
+  min-height: 100vh;
+  background-color: var(--background-one) !important;
+}
+
+.factor-page-container {
+  height: 100%;
+  min-height: 85vh;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+.my-custom-scrollbar {
+  position: relative;
+  height: auto;
+  overflow: auto;
+}
+.factor--text--details {
+  font-size: 13px !important;
+  color: #868381 !important;
+  margin-right: 0.2rem !important;
+}
+.factor-inputs {
+  font-size: 11px;
+  /* color: var(--text-grey); */
+  font-family: "IranSans";
+  font-weight: bold;
+}
+.factor-description-input {
+  font-size: 11px;
+  color: var(--text-grey);
+  font-family: "IranSans";
+  font-weight: bold;
+  width: 47%;
+}
+.description-text-container {
+  border-radius: 15px;
+  height: 15vh;
+  min-height: 35vh;
+}
+.factor--btn--checkout--order {
+  font-size: 14px;
+  padding: 0.8rem 0.7rem;
+  border: none;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  color: var(--red-one);
+  background-color: var(--red-two);
+}
