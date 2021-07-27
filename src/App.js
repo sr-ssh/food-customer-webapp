@@ -15,7 +15,8 @@ function App() {
     <Router history={history}>
       <Switch>
         <Route exact path="/" component={Login} />
-        <PrivateRoute path="/main" component={Main}></PrivateRoute>
+        <Route exact path="/order" component={orders} />
+        {/* <PrivateRoute path="/main" component={Main}></PrivateRoute> */}
         <PrivateRoute path="/order" component={orders}></PrivateRoute>
         <Redirect from="*" to="/" />
       </Switch>

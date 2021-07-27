@@ -7,8 +7,8 @@
 }
 .navbar--order{
     position : absolute;
-    top: 1rem;
-    right: 18rem;
+    top: .5rem;
+    right: 20rem;
     background-color: #F9F3EE
 }
 
@@ -21,7 +21,7 @@
     font-weight: 800;
 }
 .section--container__textlist-order{
-    margin-top: 5rem;
+    margin-top: 4.2rem;
     width: 100%;
     height: 2rem;
 }
@@ -100,30 +100,89 @@
     font-size: .7rem;
     color: #666666;
 }
+
+
+.col--container__addButton{
+    height: 8vh;
+}
 .div--container__addButton{
-    font-size: 4rem;
+    position: relative;
+    font-size: 2rem;
     color: #F8F2ED;
     text-align: center;
-    width: 65%;
-    margin-right: 17.5%;
-    height: 4rem;
+    width: 47%;
+    height: 3.8rem;
+    margin-right: 50%;
     border-radius: 500px;
     background-color: #F24333;
+}
+.div--container__addButton>img{
+    margin-top: 15%;
+}
+
+.col--container__minuseButton{
+    height: 8vh;
 }
 .div--container__minuseButton{
-    font-size: 4rem;
+    position: relative;
+    font-size: 2rem;
     color: #F8F2ED;
     text-align: center;
-    width: 65%;
-    margin-right: 17.5%;
-    height: 4rem;
+    width: 47%;
+    height: 3.8rem;
+    margin-right: 0%;
     border-radius: 500px;
+    background-color: #F4C7C2;
+}
+.div--container__minuseButton>img{
+    margin-top: 15%;
+}
+.col--container__productPrice{
+    text-align: center;
+    position: relative;
+}
+.span--container__price{
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ transform: translate(-50%, -50%);
+ font-size: 30px;
+ font-weight: 800;   
+}
+
+.carousal--product{
+        width:25rem;
+        height:15rem;
+        margin: auto;
+}
+.carousal--item__prouduct{
+    width: 70%;
+    margin-top: 1rem;
+    margin-left: 15%;
+    
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%);
+}
+
+/* ------------------------------------- DIALOG IN ORDER --------------------------------------- */
+
+.div--container__dialog-order{
+    margin: 30px;
+    margin-bottom: 0;
+    height: 3.5rem;
+    border-radius: 10px;
     background-color: #F24333;
 }
-.col--container__addButton{
-    background-color: cyan;
+.col--container__dialog-order{
+    height: 100%;
+    margin-top: 1rem;
+    text-align: center;
 }
-.col--container__minuseButton{
-    background-color: cyan;
+.span--container__dialogo-order{
+    color: #F9F3EE;
+    font-size: 1rem;
+    font-weight: bold;
 }
-    
