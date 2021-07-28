@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Table, Form, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 
 // Components
@@ -206,14 +206,14 @@ export const OldAddress = () => {
                 <Container fluid className="m-0 d-flex flex-column ms-0 align-items-center justify-content-end main-add-address ">
                     <Row className="m-0 mb-2 ">
                         <Col className="col-12 px-0">
-                            <Button className=" d-flex flex-row justify-content-center align-items-center main-card-btn-order-detail ">
+                            <Button className=" d-flex flex-row justify-content-center align-items-center btn--checkout--order btn--red--two">
                                 <img className="mx-2" src={addIcon} height="25px" alt="edit-icon" /><span className="mx-3 ">آدرس جدید</span>
                             </Button>
                         </Col>
                     </Row>
                     <Row className="m-0 mb-2 w-100  ">
                         <Col className="col-12 px-0">
-                            <Button className="col-12 py-3 d-flex flex-row justify-content-between align-items-center main-card-btn-order-checkout">
+                            <Button className="col-12 py-3 d-flex flex-row justify-content-between align-items-center btn--add--new--address btn--red--one">
                                 <span className="pe-2">پرداخت</span>
                                 <span className="ps-2"> 230 تومان</span>
                             </Button>

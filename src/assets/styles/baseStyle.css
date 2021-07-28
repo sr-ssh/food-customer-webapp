@@ -112,9 +112,13 @@ body {
 .mt-6 {
   margin-top: 4rem !important;
 }
-.bg-red-one {
+.btn--red--one {
   background-color: var(--red-one) !important;
   color: #fff !important;
+}
+.btn--red--two {
+  background-color: var(--red-two) !important;
+  color: var(--red-one) !important;
 }
 .navbar--factor {
   background-color: var(--background-two);

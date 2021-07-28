@@ -46,8 +46,8 @@ export const Main = () => {
                     <div id="back-up"></div>
                     <div id="back-center">
                         <div className="main-scroll-card-order">
-                            <Container className="mb-auto mt-6 d-flex flex-column">
-                                <Card className=" main-card-order border-0  ">
+                            <Container className="mb-auto mt-5 d-flex flex-column">
+                                <Card className="mt-4 main-card-order border-0">
                                     <Card.Body className="main-card-order p-1 bg-white">
                                         <Row className="px-1 " >
                                             <Col className="d-flex p-2 mx-2 align-items-center justify-content-start flex-row">
@@ -86,12 +86,12 @@ export const Main = () => {
                                         <Row className="mx-1 g-0">
                                             {/* <Col className="d-flex flex-row"> */}
                                             <Col>
-                                                <Button className="col-11  main-card-btn-order-detail ">
+                                                <Button className="col-11  main-card-btn-order-detail btn--red--two ">
                                                     <span className="">جزییات سفارش</span>
                                                 </Button>
                                             </Col>
                                             <Col>
-                                                <Button className="col-11 me-2 main-card-btn-order-checkout ">
+                                                <Button className="col-11 me-2 main-card-btn-order-checkout btn--red--one ">
                                                     <span className="">پرداخت</span>
                                                 </Button>
                                             </Col>
@@ -99,7 +99,7 @@ export const Main = () => {
                                         </Row>
                                     </Card.Body>
                                 </Card>
-                                <Card className="mt-4 main-card-order border-0 ">
+                                <Card className="mt-4 main-card-order border-0">
                                     <Card.Body className="main-card-order p-1 bg-white">
                                         <Row className="px-1 " >
                                             <Col className="d-flex p-2 mx-2 align-items-center justify-content-start flex-row">
@@ -136,7 +136,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-re">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail btn--red--one">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -144,7 +144,7 @@ export const Main = () => {
                                         </Row>
                                     </Card.Body>
                                 </Card>
-                                <Card className="mt-4 main-card-order border-0  ">
+                                <Card className="mt-4 main-card-order border-0">
                                     <Card.Body className="main-card-order p-1 bg-white">
                                         <Row className="px-1 " >
                                             <Col className="d-flex p-2 mx-2 align-items-center justify-content-start flex-row">
@@ -182,7 +182,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-re">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail btn--red--one">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -190,7 +190,7 @@ export const Main = () => {
                                         </Row>
                                     </Card.Body>
                                 </Card>
-                                <Card className="mt-4 main-card-order border-0 ">
+                                <Card className="mt-4 main-card-order border-0">
                                     <Card.Body className="main-card-order p-1 bg-white">
                                         <Row className="px-1 " >
                                             <Col className="d-flex p-2 mx-2 align-items-center justify-content-start flex-row">
@@ -230,7 +230,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-re">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail btn--red--one">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>
@@ -238,7 +238,7 @@ export const Main = () => {
                                         </Row>
                                     </Card.Body>
                                 </Card>
-                                <Card className="mt-4 main-card-order border-0 ">
+                                <Card className="mt-4 main-card-order border-0">
                                     <Card.Body className="main-card-order p-1 bg-white">
                                         <Row className="px-1 " >
                                             <Col className="d-flex p-2 mx-2 align-items-center justify-content-start flex-row">
@@ -277,7 +277,7 @@ export const Main = () => {
                                         </Row>
                                         <Row className="mx-1 g-0">
                                             <Col>
-                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail bg-re">
+                                                <Button className="col-12 d-flex flex-row justify-content-between align-items-center main-card-btn-order-detail btn--red--one">
                                                     <span className="pe-2">جزییات سفارش</span>
                                                     <span className="ps-2"> 230 تومان</span>
                                                 </Button>

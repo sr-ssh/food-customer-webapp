@@ -41,3 +41,10 @@
 .order--details--text--footer-cards--order {
   font-size: 14px;
 }
+.order--details--btn--checkout--order {
+  font-size: 14px;
+  padding: 0.8rem 0.7rem;
+  border: none;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+}

@@ -33,3 +33,17 @@
   height: auto;
   padding-top: 1rem;
 }
+.btn--add--new--address {
+  font-size: 14px;
+  padding: 0.8rem 0.7rem;
+  border: none;
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
+}
+.btn--checkout--order {
+  font-size: 14px;
+  padding: 0.8rem 0.7rem;
+  border: none;
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
+}

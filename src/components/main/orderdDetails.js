@@ -237,7 +237,7 @@ export const OrderDetails = () => {
                             </Row>
                             <Row className="m-0 mt-2 align-self-center w-100">
                                 <Col className="col-12 px-2">
-                                    <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order bg-red-one">
+                                    <Button className="col-12 d-flex flex-row justify-content-between align-items-center order--details--btn--checkout--order btn--red--one">
                                         <span className="pe-2">پرداخت</span>
                                         <span className="ps-2"> 230 تومان</span>
                                     </Button>

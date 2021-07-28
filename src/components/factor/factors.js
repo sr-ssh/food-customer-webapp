@@ -68,7 +68,7 @@ export const Factor = () => {
                     </Row>
                     <Row className="mt-auto align-self-center w-100">
                         <Col className="col-12 px-0">
-                            <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order bg-red-one">
+                            <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one ">
                                 <span className="pe-2">پرداخت</span>
                                 <span className="ps-2"> 230 تومان</span>
                             </Button>

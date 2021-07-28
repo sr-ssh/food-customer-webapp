@@ -63,8 +63,6 @@
   border: none;
   margin-bottom: 0.7rem;
   border-radius: 8px;
-  color: var(--red-one);
-  background-color: var(--red-two);
 }
 .main-card-btn-order-checkout {
   font-size: 14px;
@@ -72,8 +70,6 @@
   border: none;
   margin-bottom: 0.7rem;
   border-radius: 8px;
-
-  background-color: var(--red-one);
 }
 .main-scroll-card-order {
   position: absolute;
