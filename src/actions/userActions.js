@@ -59,7 +59,7 @@ function appInfo() {
                 res => {
                     console.log("user entered")
                     console.log(res)
-                    dispatch(alertActions.success(res));
+                    dispatch(alertActions.success(res.message));
                 },
                 error => {
                     console.log("occure error");
