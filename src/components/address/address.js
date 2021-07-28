@@ -1,18 +1,18 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 
 // Components
 import { Header } from '../base/header2'
-import { OldAddress } from "./oldAddress"
-
+// import { OldAddress } from "./oldAddress"
+import { NewAddress } from "./newAddress"
 
 export const Address = () => {
     return (
         <>
-            <div className="old--address--page">
+            <div className="address--page">
                 <Header title="آدرس" backLink="" backtext="خانه" />
-                <OldAddress />
+                <NewAddress />
+                {/* <OldAddress /> */}
             </div>
         </>
 
