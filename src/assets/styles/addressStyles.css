@@ -1,0 +1,35 @@
+.old--address--page {
+  height: auto;
+  min-height: 100vh;
+  background: var(--background-one);
+}
+.old--address-card {
+  border-radius: 10px;
+}
+#old--address-scroller-container {
+  height: 70%;
+  min-height: 70vh;
+  position: fixed;
+  top: 62px;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  overflow-y: hidden;
+}
+#old--address-scroller-container-cards {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  overflow-y: auto;
+}
+.container-add-btn {
+  background: var(--background-one);
+}
+.main-add-address {
+  background: var(--background-one);
+  position: fixed;
+  bottom: 0;
+  height: auto;
+  padding-top: 1rem;
+}

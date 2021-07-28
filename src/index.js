@@ -14,6 +14,7 @@ import './assets/styles/mainStyle.css'
 import './assets/styles/orders.css'
 import './assets/styles/factorStyle.css'
 import './assets/styles/orderdetailsStyle.css'
+import './assets/styles/addressStyles.css'
 
 ReactDOM.render(
   <Provider store={store}>
