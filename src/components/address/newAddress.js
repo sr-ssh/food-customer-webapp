@@ -14,6 +14,10 @@ export const NewAddress = () => {
     const dispatch = useDispatch()
     const addressData = useSelector(state => state.newAddress);
 
+    const addressHandler = e => {
+        setAddress({ ...address, address: e.target.value })
+    }
+
     const formHandler = (e) => {
         e.preventDefault()
         dispatch(addressActions.newAddress(address));
@@ -26,7 +30,7 @@ export const NewAddress = () => {
                         <Card className="border-0 bg-transparent text-light" style={{ height: "57vh" }} >
                             <Card.Title className="pe-2 card--title--new--address">موقعیت تان را انتخاب  کنید</Card.Title>
                             <Card.Body className="p-0">
-                                <Map />
+                                <Map setAddress={setAddress} />
                             </Card.Body>
                         </Card>
                     </Col>
@@ -36,7 +40,7 @@ export const NewAddress = () => {
                         <Form.Group controlId="description">
                             <Form.Label className="pe-2">لطفا آدرس دقیق را بنویسید</Form.Label>
                             <Card className="border-0 bg-transparent" >
-                                <Form.Control as="textarea" name="description" className="new--address--exact--text-container" />
+                                <Form.Control as="textarea" name="description" onChange={addressHandler} className="new--address--exact--text-container" />
                             </Card>
                         </Form.Group>
                     </Col>

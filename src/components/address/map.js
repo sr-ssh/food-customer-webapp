@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import L from "leaflet";
 
@@ -9,10 +9,22 @@ const markerIcon = new L.Icon({
     iconSize: [33, 45]
 });
 
-export const Map = () => {
+export const Map = ({ setAddress }) => {
 
-    const position = [36.288269, 59.615676];
-    const [location, setLocation] = useState();
+    const [position, setPosition] = useState({ lat: 36.29658807406395, lng: 59.60598574310335 })
+    const markerRef = useRef()
+    const eventHandlers = useMemo(
+        () => ({
+            dragend() {
+                const marker = markerRef.current
+                if (marker != null) {
+                    setPosition(marker.getLatLng())
+                    setAddress((prevState) => ({ ...prevState, lat: marker.getLatLng().lat, lng: marker.getLatLng().lng }))
+                }
+            }
+        }), [],
+    )
+
     return (
         <>
             <div className="map">
@@ -25,6 +37,8 @@ export const Map = () => {
                         draggable={true}
                         position={position}
                         icon={markerIcon}
+                        ref={markerRef}
+                        eventHandlers={eventHandlers}
                     >
                     </Marker>
                 </MapContainer>
