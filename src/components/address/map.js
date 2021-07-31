@@ -7,6 +7,8 @@ import { Button } from 'react-bootstrap';
 import "../../assets/styles/leaflet.css"
 
 
+// YOUR_API_KEY_GOES_BELOW
+const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
 export const Map = ({ setAddress }) => {
 
@@ -62,7 +64,7 @@ export const Map = ({ setAddress }) => {
                 <NeshanMap
 
                     options={{
-                        key: 'web.tMF764SuTx99dhfRVHTDgFrizf6jbzSLlLPwTIzx',
+                        key: API_KEY,
                         center: position,
                         maptype: 'dreamy',
                         zoom: ZOME_LEVEL
