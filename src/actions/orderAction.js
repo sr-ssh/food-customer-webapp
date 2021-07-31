@@ -5,7 +5,7 @@ import { orderService } from '../services';
 function getProduct(body) {
     return dispatch => {
         dispatch(request(orderConstant.GET_PRODUCT_ORDER_REQUEST));
-        orderService.getUser(body).then(
+        orderService.getProduct(body).then(
                 data => {
                     dispatch(success(orderConstant.GET_PRODUCT_ORDER_SUCCESS, data))
                 },
