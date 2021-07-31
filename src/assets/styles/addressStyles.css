@@ -1,4 +1,4 @@
-.old--address--page {
+.address--page {
   height: auto;
   min-height: 100vh;
   background: var(--background-one);
@@ -46,4 +46,39 @@
   border: none;
   margin-bottom: 0.7rem;
   border-radius: 8px;
+}
+.new--address--container {
+  height: 85vh;
+  overflow: hidden;
+}
+.card--title--new--address {
+  font-size: 11px;
+  color: var(--text-grey);
+  font-family: "IranSans";
+  font-weight: bold;
+}
+.new--address--inputs {
+  font-size: 11px;
+  font-family: "IranSans";
+  font-weight: bold;
+}
+.new--address--description-input {
+  font-size: 11px;
+  color: var(--text-grey);
+  font-family: "IranSans";
+  font-weight: bold;
+  width: 47%;
+}
+.new--address--exact--text-container {
+  border-radius: 15px;
+  height: 10vh;
+  min-height: 25vh;
+}
+.map {
+  height: 53vh;
+}
+.loader--map {
+  position: absolute;
+  right: 45%;
+  top: 50%;
 }

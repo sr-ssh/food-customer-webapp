@@ -1,18 +1,36 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { Row, Alert } from 'react-bootstrap';
+
 
 
 // Components
 import { Header } from '../base/header2'
-import { OldAddress } from "./oldAddress"
-
+// import { OldAddress } from "./oldAddress"
+import { NewAddress } from "./newAddress"
 
 export const Address = () => {
+
+    let alertMessage = useSelector(state => state.alert.message);
+    let alerType = useSelector(state => state.alert.type)
+
     return (
         <>
-            <div className="old--address--page">
+            <div className="address--page">
                 <Header title="آدرس" backLink="" backtext="خانه" />
-                <OldAddress />
+                {
+                    alertMessage &&
+                    <>
+                        <div className="modal-backdrop show"></div>
+                        <Row className="justify-content-center text-center ">
+                            <Alert variant={alerType}>
+                                {alertMessage}
+                            </Alert>
+                        </Row>
+                    </>
+                }
+                <NewAddress />
+                {/* <OldAddress /> */}
             </div>
         </>
 

@@ -7,6 +7,7 @@ import PrivateRoute from './components/base/privateRoute';
 //routes
 import { Login } from './components/login';
 import { Main } from './components/main/main';
+import { Address } from './components/address/address';
 import { orders } from './components/order/orders';
 
 
@@ -15,8 +16,9 @@ function App() {
     <Router history={history}>
       <Switch>
         <Route exact path="/" component={Login} />
-        {/* <Route exact path="/order" component={orders} /> */}
+        <Route exact path="/order" component={orders} />
         <PrivateRoute path="/main" component={Main}></PrivateRoute>
+        <PrivateRoute path="/address" component={Address}></PrivateRoute>
         <PrivateRoute path="/order" component={orders}></PrivateRoute>
         <Redirect from="*" to="/" />
       </Switch>

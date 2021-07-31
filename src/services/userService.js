@@ -78,10 +78,10 @@ function appInfo() {
         .post(`${baseRoute}/app/info`, requestOptions.body, {headers: requestOptions.headers})
         .then(res => {
             console.log("res.user >> "); 
-            console.log(res.data.data);
+            console.log(res.data);
             if(res.data.success)
                 history.push('/main');
-            return res.data.data
+            return res.data
         })
         .catch(function (error) {
             if (error.response) {

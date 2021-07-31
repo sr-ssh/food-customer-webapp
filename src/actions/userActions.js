@@ -14,26 +14,26 @@ export const userActions = {
 function login(body) {
     return dispatch => {
         dispatch(request({ body }));
-        
+
         userService.login(body)
             .then(
                 user => {
                     console.log("user into userAction");
 
-                    if(user === undefined) {
+                    if (user === undefined) {
                         dispatch(alertActions.error('ارتباط با سرور برقرار نیست'));
                         dispatch(failure("ارتباط با سرور برقرار نیست"))
                     }
-                    else if(user.success){
+                    else if (user.success) {
                         console.log("user entered")
                         dispatch(success(user));
                         dispatch(alertActions.success(user.message));
                         history.push('/dashboard');
-                    }else if(user.success === false) {
+                    } else if (user.success === false) {
                         dispatch(alertActions.error(user.message));
                         dispatch(failure(user.message))
                     }
-                        
+
                     setTimeout(() => {
                         dispatch(alertActions.clear());
                     }, 1500);
@@ -57,9 +57,19 @@ function appInfo() {
         userService.appInfo()
             .then(
                 res => {
-                    console.log("user entered")
-                    console.log(res)
-                    dispatch(alertActions.success(res));
+                    if (res === undefined) {
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'));
+                    }
+                    else if (res.success) {
+                        console.log("user entered")
+                        dispatch(alertActions.success(res.message));
+                    } else if (res.success === false) {
+                        dispatch(alertActions.error(res.message));
+                    }
+
+                    setTimeout(() => {
+                        dispatch(alertActions.clear());
+                    }, 1500);
                 },
                 error => {
                     console.log("occure error");
@@ -68,6 +78,7 @@ function appInfo() {
                 }
             );
     };
+
 
 }
 
@@ -80,15 +91,15 @@ function verificationCode(mobile) {
                 res => {
                     console.log("user into userAction");
                     console.log(res)
-                    if(res === undefined) {
+                    if (res === undefined) {
                         dispatch(alertActions.error('ارتباط با سرور برقرار نیست'));
                         dispatch(failure('ارتباط با سرور برقرار نیست'))
                     }
-                    else if(res.success){
+                    else if (res.success) {
                         console.log("verification code sent")
                         dispatch(success(res));
                         dispatch(alertActions.success(res.message));
-                    } else if(res.success === false) {
+                    } else if (res.success === false) {
                         dispatch(alertActions.error(res.message));
                         dispatch(failure(res.message))
                     } else {
@@ -99,7 +110,7 @@ function verificationCode(mobile) {
                     setTimeout(() => {
                         dispatch(alertActions.clear());
                     }, 1500);
-                    
+
                 },
                 error => {
                     dispatch(failure(error.toString()));
