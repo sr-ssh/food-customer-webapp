@@ -84,18 +84,18 @@ export const Main = () => {
                                             </Col>
                                         </Row>
                                         <Row className="mx-1 g-0">
-                                            {/* <Col className="d-flex flex-row"> */}
-                                            <Col>
-                                                <Button className="col-11  main-card-btn-order-detail btn--red--two ">
-                                                    <span className="">جزییات سفارش</span>
-                                                </Button>
+                                            <Col className="d-flex flex-row">
+                                                <Col>
+                                                    <Button className="col-11  main-card-btn-order-detail btn--red--two ">
+                                                        <span className="">جزییات سفارش</span>
+                                                    </Button>
+                                                </Col>
+                                                <Col>
+                                                    <Button className="col-11 me-2 main-card-btn-order-checkout btn btn-danger btn--red--one ">
+                                                        <span className="">پرداخت</span>
+                                                    </Button>
+                                                </Col>
                                             </Col>
-                                            <Col>
-                                                <Button className="col-11 me-2 main-card-btn-order-checkout btn--red--one ">
-                                                    <span className="">پرداخت</span>
-                                                </Button>
-                                            </Col>
-                                            {/* </Col> */}
                                         </Row>
                                     </Card.Body>
                                 </Card>
