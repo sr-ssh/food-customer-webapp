@@ -6,6 +6,8 @@
   --red-one: #f44336;
   --red-two: #f4c7c3;
   --text-grey: #868381;
+  --btn-active-one: #f87f77;
+  --btn-active-two: #c4a3a0;
 }
 
 @font-face {
@@ -112,14 +114,30 @@ body {
 .mt-6 {
   margin-top: 4rem !important;
 }
+
 .btn--red--one {
   background-color: var(--red-one) !important;
   color: #fff !important;
+}
+.btn--red--one:active,
+.btn--red--one:focus {
+  background-color: var(--btn-active-one);
+  box-shadow: 0 0 0.5rem var(--red-one);
+}
+.btn--red--one:focus:active {
+  box-shadow: none;
 }
 .btn--red--two {
   background-color: var(--red-two) !important;
   color: var(--red-one) !important;
 }
+.btn--red--two:active,
+.btn--red--two:focus,
+.btn--red--two:focus:active {
+  background-color: var(--btn-active-two);
+  box-shadow: none;
+}
+
 .navbar--factor {
   background-color: var(--background-two);
 }

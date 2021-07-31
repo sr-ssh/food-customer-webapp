@@ -159,6 +159,7 @@
   left: 0;
 }
 .leaflet-control {
+  display: none;
   float: left;
   clear: both;
 }
@@ -262,11 +263,14 @@
 /* visual tweaks */
 
 .leaflet-container {
+  height: inherit !important;
+  width: inherit !important;
   background: #ddd;
   outline: 0;
 }
 .leaflet-container a {
   color: #0078a8;
+  display: none;
 }
 .leaflet-container a.leaflet-active {
   outline: 2px solid orange;

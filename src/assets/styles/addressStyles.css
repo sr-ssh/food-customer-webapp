@@ -82,3 +82,40 @@
   right: 45%;
   top: 50%;
 }
+.icon--location--detection {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 5%;
+  right: 8px;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: var(--red-one);
+  padding: 0.4rem;
+  z-index: 1000;
+  cursor: pointer;
+}
+.icon--location--detection:hover,
+.icon--location--detection:active,
+.icon--location--detection:focus {
+  box-shadow: none;
+  background-color: var(--red-one);
+}
+
+.tooltip--location--detection {
+  font-size: 12px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 5%;
+  right: 50px;
+  height: 35px;
+  border-radius: 12px;
+  background-color: var(--red-one);
+  /* padding: 0.4rem; */
+  z-index: 950;
+  transition: 0.5s;
+}
