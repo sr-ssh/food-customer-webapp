@@ -12,7 +12,7 @@ const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
 export const Map = ({ setAddress }) => {
 
-    const [position, setPosition] = useState({ lat: 36.297920, lng: 59.605933 })
+    const [position, setPosition] = useState({ lat: 36.297920, long: 59.605933 })
     const [mapPropeties, setMapPropeties] = useState()
     const [alerts, setAlert] = useState({});
     const target = useRef();
@@ -37,7 +37,7 @@ export const Map = ({ setAddress }) => {
                 setAlert(null);
             }, 2000)
 
-            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
+            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, long: e.latlng.lng }))
             mapPropeties.myMap.flyTo(e.latlng, ZOME_LEVEL)
             mapPropeties.marker.setLatLng(e.latlng);
 
@@ -81,7 +81,7 @@ export const Map = ({ setAddress }) => {
 
                         myMap.on('click', function (e) {
                             marker.setLatLng(e.latlng)
-                            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
+                            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, long: e.latlng.lng }))
 
                         });
                     }}

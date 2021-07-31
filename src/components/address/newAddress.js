@@ -9,7 +9,7 @@ import { addressActions } from '../../actions/addressActions';
 
 export const NewAddress = () => {
 
-    const [address, setAddress] = useState({ lat: "", lng: "", address: "" });
+    const [address, setAddress] = useState({ lat: "", long: "", address: "" });
 
     const dispatch = useDispatch()
     const addressData = useSelector(state => state.newAddress);
