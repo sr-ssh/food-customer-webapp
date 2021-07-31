@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import {SERVER_LOCAL_SAEID,SERVER_LOCAL } from '../config';
+import {SERVER_LOCAL_SAEID,SERVER_URL } from '../config';
 import { handleResponse , handleError } from '../helpers/util';
 import { authHeader } from '../helpers';
 
