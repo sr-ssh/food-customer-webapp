@@ -7,6 +7,7 @@ export default combineReducers({
     register,
     verificationCode,
     alert,
+    getProduct,
     newAddress,
     getAddresses
 })

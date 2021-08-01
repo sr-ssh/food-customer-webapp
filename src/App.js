@@ -16,10 +16,11 @@ function App() {
     <Router history={history}>
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route exact path="/order" component={orders} />
         <PrivateRoute path="/main" component={Main}></PrivateRoute>
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
-        <PrivateRoute path="/order" component={orders}></PrivateRoute>
+        {/* please dont change the Order */}
+        <Route exact path="/order" component={orders} />
+        {/* <PrivateRoute path="/order" component={orders}></PrivateRoute> */}
         <Redirect from="*" to="/" />
       </Switch>
     </Router>
