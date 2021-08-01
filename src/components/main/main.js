@@ -299,7 +299,7 @@ export const Main = () => {
                         </Row>
                         <Row>
                             <Col className="d-flex justify-content-center ">
-                                <Button type="button" className="main-add-btn border-0 p-2 mt-4" onClick={() => history.push('/order')}>
+                                <Button type="button" className="main-add-btn border-0 p-2 mt-4" onClick={() => history.push('/address')}>
                                     <img src={addIcon} height="40px" alt="menu-icon" />
                                 </Button>
                             </Col>

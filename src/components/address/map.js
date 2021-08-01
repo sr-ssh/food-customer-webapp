@@ -12,7 +12,7 @@ const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
 export const Map = ({ setAddress }) => {
 
-    const [position, setPosition] = useState({ lat: 36.297920, long: 59.605933 })
+    const [position, setPosition] = useState({ lat: 36.297920, lng: 59.605933 })
     const [mapPropeties, setMapPropeties] = useState()
     const [alerts, setAlert] = useState({});
     const target = useRef();
@@ -45,7 +45,6 @@ export const Map = ({ setAddress }) => {
 
         // ON locationerror set Userlocate state of null
         mapPropeties.myMap?.on('locationerror', e => {
-            alert(e.message);
             alertHandler("خطا در دریافت موقعیت شما!", true);
             setTimeout(() => {
                 setAlert(null);
@@ -58,11 +57,7 @@ export const Map = ({ setAddress }) => {
     return (
         <>
             <div className="map">
-
-
-
                 <NeshanMap
-
                     options={{
                         key: API_KEY,
                         center: position,

@@ -11,14 +11,31 @@ axios.interceptors.request.use(request => {
 })
 
 export const addressService = {
-    newAddress
+    newAddress,
+    getAddresses
 };
 
+function getAddresses() {
+    console.log("into addressService");
+    return axios
+        .get(`${baseRoute}/location`)
+        .then(res => {
+            console.log("res.user >> ");
+            console.log(res.data.data);
+            return res.data
+        })
+        .catch(function (error) {
+            if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+            }
+        });
+}
 
 function newAddress(body) {
     console.log("into addressService");
     return axios
-        .post(`${baseRoute}/login`, body)
+        .post(`${baseRoute}/location`, body)
         .then(res => {
             console.log("res.user >> ");
             console.log(res.data.data);

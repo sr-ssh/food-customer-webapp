@@ -49,9 +49,9 @@ export const NewAddress = () => {
                     <Col className="col-12 px-0">
                         <Button type="submit" className="col-12 py-3 d-flex flex-row justify-content-center align-items-center btn--add--new--address btn--red--one" onClick={formHandler}>
                             {
-                                addressData.loading ? <Spinner animation="grow" variant="light" />
-                                    :
-                                    <span className="ps-2">ادامه</span>
+                                addressData.loading ?
+                                    <Spinner animation="grow" variant="light" />
+                                    : <span className="ps-2">ادامه</span>
                             }
                         </Button>
                     </Col>
