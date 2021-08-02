@@ -28,7 +28,7 @@ export const Products = () => {
 
   const [title, setTitle] = useState('')
 
-  console.log(productSize);
+  console.log(getProduct);
 
 
   const handleSelect = (selectedIndex, e) => {
@@ -36,7 +36,7 @@ export const Products = () => {
   };
 
 
-  useEffect(() => dispatch(orderAction.getProduct()), [dispatch])
+  // useEffect(() => dispatch(orderAction.getProduct()), [dispatch])
 
 
   return (
