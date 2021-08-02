@@ -88,12 +88,11 @@ export const Map = ({ setAddress }) => {
                         < img src={loctionicon} height="25px" alt="loction_icon" />
                     </Button>
                 </div>
-                <div className="w-100 tooltip--location--detection" style={{ display: !alerts?.status ? "flex" : "none" }}>
+                <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
                     {
-                        !alerts?.loader ? <LoaderRed /> : null
+                        alerts?.loader ? <LoaderRed /> : null
                     }
-                    {/* {alerts?.text} */}
-                    در حال دریافت موقعیت...
+                    {alerts?.text}
                 </div>
 
             </div>

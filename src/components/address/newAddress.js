@@ -50,7 +50,7 @@ export const NewAddress = () => {
                     <Col className="col-12 px-0">
                         <Button type="submit" className="col-12 py-3 d-flex flex-row justify-content-center align-items-center btn--add--new--address btn--red--one" onClick={formHandler}>
                             {
-                                !addressData.loading ?
+                                addressData.loading ?
                                     <LoaderRed />
                                     : <span className="ps-2">ادامه</span>
                             }
