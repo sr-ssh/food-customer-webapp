@@ -1,188 +1,172 @@
-.div--container__orders{
-    background-color: #F9F3EE;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: auto; 
+.div--container__orders {
+  background-color: #f9f3ee;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: auto;
 }
-.navbar--order{
-    position : absolute;
-    top: .5rem;
-    right: 20rem;
-    background-color: #F9F3EE
-}
-
-.me-auto--order{
-    padding: 0 !important;
-    font-weight: 400;
-}
-.me-auto--order >p{
-    display: inline-block;
-    font-weight: 800;
-}
-.section--container__textlist-order{
-    margin-top: 4.2rem;
-    width: 100%;
-    height: 2rem;
-}
-.ul--container__order{
-    list-style-type: none;
-    text-align: center;
-    width: 100%;
-    padding: 0;
-    margin-left: 6rem;
-}
-.li--order{
-    list-style-type: none;
-    display: inline-block;
-    margin-left: .6rem;
-    margin-right: 1rem;
-    font-size: .8rem;
-    font-weight: 400;
-    color: #9B9591;
-}
-.div--container__product{
-    margin-top: 1rem;
-}
-.div--container__togglebutton{
-    background-color: #F4C7C2;
-    height: 2.1rem;
-    margin-top: 1rem;
-    border-radius: 8px;
-    width: 30%;
-    margin-right: 35%;
-    position: relative;
-
-}
-.div--container__togglebutton-child{
-    position: absolute;
-    top: 10%;
-    height: 80%;
-    background-color: #F9F3EE;
-    width: 48%;
-    margin-right: 2%;
-    border-radius: 8px;
-    
-}
-.div--container__togglebutton-child−text{
-    color: #EC5E4E;
-    position: absolute;
-    font-size: .7rem;
-    font-weight: 800;
-    margin-right: 15%;
-    margin-top: 10%;
-}
-.div--container__togglebutton-text{
-    position: absolute;
-    color: #4E4D49;
-    font-size: .7rem;
-    font-weight: 800;
-    margin-right: 60%;
-    margin-top: 9%;
-
-}
-.div--container__detail{
-    margin-top: .9rem;
-    height: 15vh;
-}
-.col--container__title{
-    font-weight: 700;
-    text-align: center;
-}
-.col--container__price{
-    font-weight: 700;
-    text-align: center;
-}
-.span--container__detailtext{
-    text-align: center;
-    margin-top: 1rem;
-    font-weight: 100;
-    font-size: .7rem;
-    color: #666666;
+.navbar--order {
+  position: absolute;
+  top: 0.5rem;
+  right: 20rem;
+  background-color: #f9f3ee;
 }
 
-
-.col--container__addButton{
-    height: 8vh;
+.me-auto--order {
+  padding: 0 !important;
+  font-weight: 400;
 }
-.div--container__addButton{
-    position: relative;
-    font-size: 2rem;
-    color: #F8F2ED;
-    text-align: center;
-    width: 47%;
-    height: 3.8rem;
-    margin-right: 50%;
-    border-radius: 500px;
-    background-color: #F24333;
+.me-auto--order > p {
+  display: inline-block;
+  font-weight: 800;
 }
-.div--container__addButton>img{
-    margin-top: 15%;
+.section--container__textlist-order {
+  margin-top: 4.2rem;
+  width: 100%;
+  height: 2rem;
 }
-
-.col--container__minuseButton{
-    height: 8vh;
+.ul--container__order {
+  list-style-type: none;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  margin-left: 6rem;
 }
-.div--container__minuseButton{
-    position: relative;
-    font-size: 2rem;
-    color: #F8F2ED;
-    text-align: center;
-    width: 47%;
-    height: 3.8rem;
-    margin-right: 0%;
-    border-radius: 500px;
-    background-color: #F4C7C2;
+.li--order {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 0.6rem;
+  margin-right: 1rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #9b9591;
 }
-.div--container__minuseButton>img{
-    margin-top: 15%;
+.div--container__product {
+  margin-top: 1rem;
 }
-.col--container__productPrice{
-    text-align: center;
-    position: relative;
-}
-.span--container__price{
- position: absolute;
- left: 50%;
- top: 50%;
- transform: translate(-50%, -50%);
- font-size: 30px;
- font-weight: 800;   
+.div--container__togglebutton {
+  background-color: #f4c7c2;
+  height: 2.1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  width: 35%;
+  position: relative;
 }
 
-.carousal--product{
-        width:25rem;
-        height:15rem;
-        margin: auto;
+.div--container__togglebutton-text {
+  color: #4e4d49;
+  font-size: 0.7rem;
+  font-weight: 800;
+  cursor: pointer;
 }
-.carousal--item__prouduct{
-    width: 70%;
-    margin-top: 1rem;
-    margin-left: 15%;
-    
+
+.active-opstion {
+  background-color: #f9f3ee;
+  color: #ec5e4e !important;
+  padding: 0.3rem;
+  border-radius: 5px;
+}
+
+.div--container__detail {
+  margin-top: 0.9rem;
+  height: 15vh;
+}
+.col--container__title {
+  font-weight: 700;
+  text-align: center;
+}
+.col--container__price {
+  font-weight: 700;
+  text-align: center;
+}
+.span--container__detailtext {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 100;
+  font-size: 0.7rem;
+  color: #666666;
+}
+
+.col--container__addButton {
+  height: 8vh;
+}
+.div--container__addButton {
+  position: relative;
+  font-size: 2rem;
+  color: #f8f2ed;
+  text-align: center;
+  width: 47%;
+  height: 3.8rem;
+  margin-right: 50%;
+  border-radius: 500px;
+  background-color: #f24333;
+}
+.div--container__addButton > img {
+  margin-top: 15%;
+}
+
+.col--container__minuseButton {
+  height: 8vh;
+}
+.div--container__minuseButton {
+  position: relative;
+  font-size: 2rem;
+  color: #f8f2ed;
+  text-align: center;
+  width: 47%;
+  height: 3.8rem;
+  margin-right: 0%;
+  border-radius: 500px;
+  background-color: #f4c7c2;
+}
+.div--container__minuseButton > img {
+  margin-top: 15%;
+}
+.col--container__productPrice {
+  text-align: center;
+  position: relative;
+}
+.span--container__price {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.carousal--product {
+  width: 25rem;
+  height: 15rem;
+  margin: auto;
+}
+.carousal--item__prouduct {
+  width: 70%;
+  margin-top: 1rem;
+  margin-left: 15%;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    filter: invert(100%);
+  filter: invert(100%);
 }
 
 /* ------------------------------------- DIALOG IN ORDER --------------------------------------- */
 
-.div--container__dialog-order{
-    margin: 30px;
-    margin-bottom: 0;
-    height: 3.5rem;
-    border-radius: 10px;
-    background-color: #F24333;
+.div--container__dialog-order {
+  margin: 30px;
+  margin-bottom: 0;
+  height: 3.5rem;
+  border-radius: 10px;
+  background-color: #f24333;
 }
-.col--container__dialog-order{
-    height: 100%;
-    margin-top: 1rem;
-    text-align: center;
+.col--container__dialog-order {
+  height: 100%;
+  margin-top: 1rem;
+  text-align: center;
 }
-.span--container__dialogo-order{
-    color: #F9F3EE;
-    font-size: 1rem;
-    font-weight: bold;
+.span--container__dialogo-order {
+  color: #f9f3ee;
+  font-size: 1rem;
+  font-weight: bold;
 }
