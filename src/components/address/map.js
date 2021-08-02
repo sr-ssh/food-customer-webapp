@@ -37,7 +37,7 @@ export const Map = ({ setAddress }) => {
                 setAlert(null);
             }, 2000)
 
-            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, long: e.latlng.lng }))
+            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
             mapPropeties.myMap.flyTo(e.latlng, ZOME_LEVEL)
             mapPropeties.marker.setLatLng(e.latlng);
 
@@ -61,7 +61,7 @@ export const Map = ({ setAddress }) => {
                     options={{
                         key: API_KEY,
                         center: position,
-                        maptype: 'dreamy',
+                        maptype: 'dreamy-gold',
                         zoom: ZOME_LEVEL
                     }}
                     onInit={(L, myMap) => {
@@ -76,7 +76,7 @@ export const Map = ({ setAddress }) => {
 
                         myMap.on('click', function (e) {
                             marker.setLatLng(e.latlng)
-                            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, long: e.latlng.lng }))
+                            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
 
                         });
                     }}
@@ -87,10 +87,10 @@ export const Map = ({ setAddress }) => {
                         < img src={loctionicon} height="25px" alt="loction_icon" />
                     </Button>
                 </div>
-
-                <div className="tooltip--location--detection" style={{ transform: alerts?.status ? "translateX(0px)" : "translateX(30px)" }}>
+                {/* style={{ transform: alerts?.status ? "translateX(0px)" : "translateX(30px)" }} */}
+                {/* <div className="w-100 tooltip--location--detection">
                     {alerts?.text}
-                </div>
+                </div> */}
 
             </div>
 

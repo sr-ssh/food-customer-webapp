@@ -110,12 +110,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 5%;
-  right: 50px;
+  top: 6%;
+  right: 0;
   height: 35px;
-  border-radius: 12px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
   background-color: var(--red-one);
-  /* padding: 0.4rem; */
   z-index: 950;
   transition: 0.5s;
 }

@@ -9,7 +9,7 @@ import { addressActions } from '../../actions/addressActions';
 
 export const NewAddress = () => {
 
-    const [address, setAddress] = useState({ lat: "", long: "", address: "" });
+    const [address, setAddress] = useState({ lat: "", lng: "", address: "" });
 
     const dispatch = useDispatch()
     const addressData = useSelector(state => state.newAddress);
@@ -21,6 +21,7 @@ export const NewAddress = () => {
     const formHandler = (e) => {
         e.preventDefault()
         dispatch(addressActions.newAddress(address));
+
     }
     return (
         <>
