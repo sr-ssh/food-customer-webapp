@@ -1,13 +1,31 @@
 import { orderConstant } from "../constants";
 
-export const getProduct = (state = {}, action) => {
+
+
+const initialState = {
+  products: [],
+  loading: false
+}
+
+
+export const getProduct = (state = initialState, action) => {
   switch (action.type) {
     case orderConstant.GET_PRODUCT_ORDER_REQUEST:
-      return {loading: true};
+      return {
+        ...state,
+        loading: true
+      }
     case orderConstant.GET_PRODUCT_ORDER_SUCCESS:
-      return {items:action.data};
+      return {
+        ...state,
+        loading: false,
+        products: action.data
+      }
     case orderConstant.GET_PRODUCT_ORDER_FAILURE:
-      return {};
+      return {
+        err: action.error,
+        loading: false
+      }
     default:
       return state;
   }

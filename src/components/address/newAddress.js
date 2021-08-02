@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col, Card, Form, Button, Spinner } from 'react-bootstrap';
-
+import { LoaderRed } from '../base/loader-bg-red'
 import { Map } from "./map";
 import { addressActions } from '../../actions/addressActions';
 
@@ -9,7 +9,9 @@ import { addressActions } from '../../actions/addressActions';
 
 export const NewAddress = () => {
 
-    const [address, setAddress] = useState({ lat: "", long: "", address: "" });
+    const [address, setAddress] = useState({ lat: "", lng: "", address: "" });
+    const [validate, setValidate] = useState(false);
+
 
     const dispatch = useDispatch()
     const addressData = useSelector(state => state.newAddress);
@@ -20,7 +22,14 @@ export const NewAddress = () => {
 
     const formHandler = (e) => {
         e.preventDefault()
-        dispatch(addressActions.newAddress(address));
+        if (address.lat && address.lng) {
+            dispatch(addressActions.newAddress(address));
+            setValidate(false)
+        }
+        else
+            setValidate(true)
+
+
     }
     return (
         <>
@@ -29,7 +38,7 @@ export const NewAddress = () => {
                     <Col className="p-0 " style={{ height: "57vh" }}>
                         <Card className="border-0 bg-transparent text-light" style={{ height: "57vh" }} >
                             <Card.Title className="pe-2 card--title--new--address">موقعیت تان را انتخاب  کنید</Card.Title>
-                            <Card.Body className="p-0">
+                            <Card.Body className={`p-0 card--map ${validate ? "border border-danger" : null} `}>
                                 <Map setAddress={setAddress} />
                             </Card.Body>
                         </Card>
@@ -50,7 +59,7 @@ export const NewAddress = () => {
                         <Button type="submit" className="col-12 py-3 d-flex flex-row justify-content-center align-items-center btn--add--new--address btn--red--one" onClick={formHandler}>
                             {
                                 addressData.loading ?
-                                    <Spinner animation="grow" variant="light" />
+                                    <LoaderRed />
                                     : <span className="ps-2">ادامه</span>
                             }
                         </Button>

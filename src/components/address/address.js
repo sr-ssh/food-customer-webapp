@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Alert, Col, Spinner, Container } from 'react-bootstrap';
+import { Row, Alert, Container } from 'react-bootstrap';
 
 import { addressActions } from '../../actions';
-
+import { LoaderWhite } from '../base/loader-bg-white'
 // Components
 import { Header } from '../base/header2'
 import { OldAddress } from "./oldAddress"
@@ -25,23 +25,17 @@ export const Address = () => {
                 {
                     alertMessage &&
                     <>
-
                         <Row className="justify-content-center text-center ">
                             <Alert variant={alerType}>
                                 {alertMessage}
                             </Alert>
-                        </Row>.
-
+                        </Row>
                     </>
                 }
                 {
                     addresses.loading ?
-                        <Container>
-                            <Row>
-                                <Col className="col-3 mt-2 m-auto ">
-                                    <Spinner className="m-auto d-block" animation="border" />
-                                </Col>
-                            </Row>
+                        <Container className="d-flex justify-content-center align-items-center mt-4">
+                            <LoaderWhite />
                         </Container>
                         : null
                 }
@@ -52,8 +46,6 @@ export const Address = () => {
                             : <NewAddress />
                         : null
                 }
-
-
             </div>
         </>
 

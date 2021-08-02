@@ -16,6 +16,7 @@ import './assets/styles/factorStyle.css'
 import './assets/styles/orderdetailsStyle.css'
 import './assets/styles/addressStyles.css'
 import './assets/styles/leaflet.css'
+import './assets/styles/loaderStyle.css'
 
 
 

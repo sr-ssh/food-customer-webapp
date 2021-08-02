@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { orderAction } from '../../actions/orderAction';
+
+//  Components
 import { ControlButton } from './controlButton';
 import { Detail } from './detail';
 import { ToggleButton } from './toggleButton';
-import pizza from '../../assets/images/order/picc_pizza.png'
 import { Dialog } from './dialog';
-import { useDispatch, useSelector } from 'react-redux';
-import { orderAction } from '../../actions/orderAction';
+
+// Assets
+import pizza from '../../assets/images/order/picc_pizza.png'
+
 
 
 const data = [

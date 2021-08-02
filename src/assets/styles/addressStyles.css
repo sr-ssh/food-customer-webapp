@@ -3,6 +3,9 @@
   min-height: 100vh;
   background: var(--background-one);
 }
+.card--map {
+  border-radius: 14px;
+}
 .old--address-card {
   border-radius: 10px;
 }
@@ -105,17 +108,17 @@
 }
 
 .tooltip--location--detection {
-  font-size: 12px;
+  font-size: 15px;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 5%;
-  right: 50px;
-  height: 35px;
-  border-radius: 12px;
+  top: 20px;
+  right: 0;
+  height: 42px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
   background-color: var(--red-one);
-  /* padding: 0.4rem; */
   z-index: 950;
   transition: 0.5s;
 }
