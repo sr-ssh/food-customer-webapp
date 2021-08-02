@@ -3,7 +3,6 @@ import { Container, Row ,Col} from 'react-bootstrap';
 
 
 export const Detail = (props) => {
-    console.log(props)
     return (
         <>
         <div className="div--container__detail">

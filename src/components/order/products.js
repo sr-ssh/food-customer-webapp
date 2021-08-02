@@ -10,9 +10,9 @@ import { orderAction } from '../../actions/orderAction';
 
 
 const data = [
-  {title:'نان سیر',img:pizza,price:"30",description:"سیر . خمیر تازه . اویشن"},
-  {title:'پپرونی',img:"https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg",price:"45",description:"گوشت گوساله . پنیر . قارچ . فلفل دلمه ای . پیازجه"},
-  {title:'رست بیف',img:"https://iranmakimah.com/wp-content/uploads/2021/01/phut_0.jpg",price:"25",description:"کالباس پپرونی . پنیر . قارچ . فلفل دلمه ای"}
+  {title:'نان سیر',img:pizza,price:"30",number:0,description:"سیر . خمیر تازه . اویشن"},
+  {title:'پپرونی',img:"https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg",price:"45",number:0,description:"گوشت گوساله . پنیر . قارچ . فلفل دلمه ای . پیازجه"},
+  {title:'رست بیف',img:"https://iranmakimah.com/wp-content/uploads/2021/01/phut_0.jpg",price:"25",number:0,description:"کالباس پپرونی . پنیر . قارچ . فلفل دلمه ای"}
 ]
 
 export const Products = () => {
@@ -20,25 +20,31 @@ export const Products = () => {
   const getProduct = useSelector(state => state.getProduct)
   const [index, setIndex] = useState(0);
   const [number , setNumber] = useState(0)
-  const [price , setPrice] = useState('')
-  const [orderList,setOrderList] = useState([])
-
+  const [orderList,setOrderList] = useState([...data])
+  
   // function toFarsiNumber(n) {
-  //   const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-  
-  //   return n
-  //     .toString()
-  //     .split('')
-  //     .map(x => farsiDigits[x])
-  //     .join('');
-  // }
-  
-  
-  
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-  
+    //   const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    
+    //   return n
+    //     .toString()
+    //     .split('')
+    //     .map(x => farsiDigits[x])
+    //     .join('');
+    // }
+    
+    
+    
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+      setNumber(0)
+    };
+    
+    const handleOrderList = function(index,type){
+      setOrderList( orderList.map((item,i)=>{
+        if(item===orderList[index])return type ==='+' ? {...item,number:item.number+1} : {...item,number:item.number-1}
+        return item
+      }))
+    }
   
   useEffect(()=>dispatch(orderAction.getProduct()),[dispatch])
 
@@ -60,8 +66,8 @@ export const Products = () => {
 </Carousel>
     <ToggleButton></ToggleButton>
     <Detail detail={data[index]}></Detail>
-    <ControlButton data={data[index]} number = {number} setNumber = {setNumber} orderList= {orderList} setOrderList = {setOrderList}></ControlButton>
-    <Dialog orderList={orderList}></Dialog>
+    <ControlButton index={index} handleOrderList={handleOrderList} data={data[index]} number = {orderList[index].number} setNumber = {setNumber} orderList= {orderList} setOrderList = {setOrderList}></ControlButton>
+    <Dialog orderList={orderList[index]}></Dialog>
         </div>
     )
 }
