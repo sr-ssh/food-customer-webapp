@@ -4,6 +4,7 @@ import NeshanMap from 'react-neshan-map-leaflet'
 import markericon from "../../assets/images/address/marker.svg";
 import loctionicon from "../../assets/images/address/loction.svg";
 import { Button } from 'react-bootstrap';
+import { LoaderRed } from '../base/loader-bg-red'
 import "../../assets/styles/leaflet.css"
 
 
@@ -20,22 +21,22 @@ export const Map = ({ setAddress }) => {
 
 
 
-    let alertHandler = (txt, status) => {
-        setAlert({ text: txt, status: status })
+    let alertHandler = (txt, status, loader) => {
+        setAlert({ text: txt, status: status, loader: loader })
     }
 
     let locateUserHandler = () => {
         // Call mapPropeties.locate() for find Usre Location 
         mapPropeties.myMap?.locate();
-        alertHandler("در حال دریافت موقعیت...", true);
+        alertHandler("در حال دریافت موقعیت...", true, true);
 
         // ON locationfound set Userlocate state of latlng result
         mapPropeties.myMap.on('locationfound', e => {
 
-            alertHandler("موقعیت شما یافت شد", true);
+            alertHandler("موقعیت شما یافت شد", true, false);
             setTimeout(() => {
                 setAlert(null);
-            }, 2000)
+            }, 3000)
 
             setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
             mapPropeties.myMap.flyTo(e.latlng, ZOME_LEVEL)
@@ -45,10 +46,10 @@ export const Map = ({ setAddress }) => {
 
         // ON locationerror set Userlocate state of null
         mapPropeties.myMap?.on('locationerror', e => {
-            alertHandler("خطا در دریافت موقعیت شما!", true);
+            alertHandler("خطا در دریافت موقعیت شما!", true, false);
             setTimeout(() => {
                 setAlert(null);
-            }, 2000)
+            }, 3000)
         });
     }
 
@@ -87,10 +88,12 @@ export const Map = ({ setAddress }) => {
                         < img src={loctionicon} height="25px" alt="loction_icon" />
                     </Button>
                 </div>
-                {/* style={{ transform: alerts?.status ? "translateX(0px)" : "translateX(30px)" }} */}
-                {/* <div className="w-100 tooltip--location--detection">
+                <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
+                    {
+                        alerts?.loader ? <LoaderRed /> : null
+                    }
                     {alerts?.text}
-                </div> */}
+                </div>
 
             </div>
 

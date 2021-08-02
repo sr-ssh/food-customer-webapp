@@ -105,12 +105,12 @@
 }
 
 .tooltip--location--detection {
-  font-size: 12px;
+  font-size: 15px;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 6%;
+  top: 20px;
   right: 0;
   height: 35px;
   border-top-left-radius: 12px;
