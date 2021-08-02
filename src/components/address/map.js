@@ -68,7 +68,7 @@ export const Map = ({ setAddress }) => {
                     onInit={(L, myMap) => {
                         let myIcon = L.icon({
                             iconUrl: markericon,
-                            iconSize: [33, 45]
+                            iconSize: [40, 50]
                         });
                         let marker = L.marker(position, { icon: myIcon })
                             .addTo(myMap);
@@ -88,11 +88,12 @@ export const Map = ({ setAddress }) => {
                         < img src={loctionicon} height="25px" alt="loction_icon" />
                     </Button>
                 </div>
-                <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
+                <div className="w-100 tooltip--location--detection" style={{ display: !alerts?.status ? "flex" : "none" }}>
                     {
-                        alerts?.loader ? <LoaderRed /> : null
+                        !alerts?.loader ? <LoaderRed /> : null
                     }
-                    {alerts?.text}
+                    {/* {alerts?.text} */}
+                    در حال دریافت موقعیت...
                 </div>
 
             </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col, Card, Form, Button, Spinner } from 'react-bootstrap';
-
+import { LoaderRed } from '../base/loader-bg-red'
 import { Map } from "./map";
 import { addressActions } from '../../actions/addressActions';
 
@@ -50,8 +50,8 @@ export const NewAddress = () => {
                     <Col className="col-12 px-0">
                         <Button type="submit" className="col-12 py-3 d-flex flex-row justify-content-center align-items-center btn--add--new--address btn--red--one" onClick={formHandler}>
                             {
-                                addressData.loading ?
-                                    <Spinner animation="grow" variant="light" />
+                                !addressData.loading ?
+                                    <LoaderRed />
                                     : <span className="ps-2">ادامه</span>
                             }
                         </Button>
