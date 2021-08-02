@@ -1,8 +1,8 @@
-.spinner--bg--red {
+.spinner--custom {
   width: 70px;
   text-align: center;
 }
-
+/* Spinner for BackGround Red */
 .spinner--bg--red > div {
   width: 10px;
   height: 10px;
@@ -13,7 +13,7 @@
   margin: 0 0.1rem;
   border-radius: 100%;
   display: inline-block;
-  /* -webkit-animation: spinner--bg--red 1.4s infinite ease-in-out both; */
+  -webkit-animation: spinner--bg--red 1.4s infinite ease-in-out both;
   animation: spinner--bg--red 1.4s infinite ease-in-out both;
 }
 
@@ -28,13 +28,14 @@
 }
 
 @-webkit-keyframes spinner--bg--red {
-  0%,
-  80%,
   100% {
-    -webkit-transform: scale(0);
+    background-color: #fef5f5;
   }
-  40% {
-    -webkit-transform: scale(1);
+  66% {
+    background-color: #fcc8c5;
+  }
+  33% {
+    background-color: #f77c73;
   }
 }
 @keyframes spinner--bg--red {
@@ -46,5 +47,52 @@
   }
   33% {
     background-color: #f77c73;
+  }
+}
+/* Spinner for BackGround White */
+.spinner--bg--white > div {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f44336;
+  margin: 0 0.1rem;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: spinner--bg--white 1s infinite ease-in-out both;
+  animation: spinner--bg--white 1s infinite ease-in-out both;
+}
+
+.spinner--bg--white .bounce1--bg--white {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner--bg--white .bounce2--bg--white {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes spinner--bg--white {
+  100% {
+    background-color: #f44336;
+  }
+  66% {
+    background-color: #f49089;
+  }
+  33% {
+    background-color: #f4b6b2;
+  }
+}
+@keyframes spinner--bg--white {
+  100% {
+    background-color: #f44336;
+  }
+  66% {
+    background-color: #f49089;
+  }
+  33% {
+    background-color: #f4b6b2;
   }
 }

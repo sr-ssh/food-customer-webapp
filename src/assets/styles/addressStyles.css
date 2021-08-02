@@ -3,6 +3,9 @@
   min-height: 100vh;
   background: var(--background-one);
 }
+.card--map {
+  border-radius: 14px;
+}
 .old--address-card {
   border-radius: 10px;
 }
