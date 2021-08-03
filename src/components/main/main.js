@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 import Sidebar from 'react-sidebar'
 import { history } from '../../helpers';
@@ -16,6 +16,8 @@ import waitingdoneIcon from './../../assets/images/main/waitingdone.svg'
 import deliverydoneIcon from './../../assets/images/main/deliverydone.svg'
 import coookingdoneIcon from './../../assets/images/main/coookingdone.svg'
 import chefdoneIcon from './../../assets/images/main/chefdone.svg'
+import { useDispatch, useSelector } from 'react-redux';
+import { orderAction } from '../../actions/orderAction';
 
 
 
@@ -24,7 +26,12 @@ import chefdoneIcon from './../../assets/images/main/chefdone.svg'
 export const Main = () => {
 
     const [isOpen, setIsOpen] = useState(false)
-
+    const dispatch = useDispatch()
+    const inLineOrders = useSelector(state => state.getInLineOrders.orders)
+    
+    useEffect(() => {
+        dispatch(orderAction.getInLineOrders())
+    }, [dispatch])
 
     return (
         <>
@@ -41,7 +48,7 @@ export const Main = () => {
                 shadow={true}
                 touch={false}
             >
-
+{inLineOrders &&  console.log(inLineOrders)}
                 <div className="form-page">
                     <div id="back-up"></div>
                     <div id="back-center">

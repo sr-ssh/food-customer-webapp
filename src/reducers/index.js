@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 import { authentication, register, verificationCode } from './authenticationReducer';
 import { alert } from './alertReducer';
 import { getAddresses, newAddress } from './addressReducer';
-import { getProduct } from "./orderReducer";
+import { getProduct, getInLineOrders } from "./orderReducer";
 export default combineReducers({
     authentication,
     register,
     verificationCode,
     alert,
-    getProduct,
+    getProduct,getInLineOrders,
     newAddress,
     getAddresses
 })
