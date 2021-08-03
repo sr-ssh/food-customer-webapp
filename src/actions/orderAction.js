@@ -1,11 +1,13 @@
 
 import { orderConstant } from '../constants/orderConstant';
+import { history } from '../helpers';
 import { orderService } from '../services';
 import { alertActions } from './alertActions';
 
 export const orderAction = { 
     getProduct,
-    getInLineOrders
+    getInLineOrders,
+    getOrderDetails
 };
 
 function getProduct(body) {
@@ -67,6 +69,41 @@ function getInLineOrders(body) {
                 },
                 error => {
                     dispatch(failure(orderConstant.GET_INLINE_ORDERS_FAILURE, error.toString()));
+                    console.log("occure error");
+                    console.log(error.toString());
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+}
+
+
+function getOrderDetails(body) {
+    return dispatch => {
+        dispatch(request(orderConstant.GET_ORDER_DETAILS_REQUEST));
+        orderService.getOrderDetails(body)
+            .then(
+                res => {
+                    if (res === undefined) {
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(failure(orderConstant.GET_ORDER_DETAILS_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
+                    }
+                    else if (res.success) {
+                        console.log("got the inline orders")
+                        dispatch(success(orderConstant.GET_ORDER_DETAILS_SUCCESS, res.data))
+                        dispatch(alertActions.success(res.message));
+                        history.push('/order/detail')
+                    } else if (res.success === false) {
+                        console.log("got the inline orders")
+                        dispatch(failure(orderConstant.GET_ORDER_DETAILS_FAILURE, res.message));
+                        dispatch(alertActions.error(res.message));
+                    }
+                    setTimeout(() => {
+                        dispatch(alertActions.clear());
+                    }, 1500);
+                },
+                error => {
+                    dispatch(failure(orderConstant.GET_ORDER_DETAILS_FAILURE, error.toString()));
                     console.log("occure error");
                     console.log(error.toString());
                     dispatch(alertActions.error(error.toString()));

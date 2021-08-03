@@ -17,7 +17,8 @@ axios.interceptors.request.use(request => {
 
 export const orderService = { 
     getProduct ,
-    getInLineOrders
+    getInLineOrders,
+    getOrderDetails
 }
 
 function getProduct(){
@@ -42,6 +43,24 @@ function getInLineOrders(){
     console.log("into getInLineOrders");
     return axios
         .get(`${baseRoute}/`)
+        .then(res => {
+            console.log("res.user >> ");
+            console.log(res.data.data);
+            return handleResponse(res)
+        })
+        .catch(error => {
+            if (error.response) {
+                console.log(error.response.data);
+                handleError(error.response.status)
+            }
+        });
+}
+
+
+function getOrderDetails(orderId){
+    console.log("into getInLineOrders");
+    return axios
+        .get(`${baseRoute}/${encodeURI(orderId)}`)
         .then(res => {
             console.log("res.user >> ");
             console.log(res.data.data);

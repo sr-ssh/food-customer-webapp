@@ -5,7 +5,8 @@ import { orderConstant } from "../constants";
 const initialState = {
   products: [],
   loading: false,
-  orders: []
+  orders: [],
+  orderDetails: {}
 }
 
 
@@ -47,6 +48,29 @@ export const getInLineOrders = (state = initialState, action) => {
         orders: action.data
       }
     case orderConstant.GET_INLINE_ORDERS_FAILURE:
+      return {
+        err: action.error,
+        loading: false
+      }
+    default:
+      return state;
+  }
+};
+
+export const getOrderDetails = (state = initialState, action) => {
+  switch (action.type) {
+    case orderConstant.GET_ORDER_DETAILS_REQUEST:
+      return {
+        ...state,
+        loading: true
+      }
+    case orderConstant.GET_ORDER_DETAILS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        orderDetails: action.data
+      }
+    case orderConstant.GET_ORDER_DETAILS_FAILURE:
       return {
         err: action.error,
         loading: false
