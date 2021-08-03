@@ -4,7 +4,7 @@ import { Header } from '../base/header2'
 
 
 
-export const OrderDetails = () => {
+export const OrderDetails = (props) => {
 
 
 
