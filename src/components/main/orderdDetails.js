@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Table, Form, Card, Button } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { orderAction } from '../../actions/orderAction';
 import { Header } from '../base/header2'
 
 
 
-export const OrderDetails = () => {
+export const OrderDetails = (props) => {
 
+   const order = useSelector(state => state.getOrderDetails.order)
+   const dispatch = useDispatch()
 
-
+    useEffect(()=> {
+        dispatch(orderAction.getOrderDetails(props.location.state))
+    })
     return (
         <>
+        
             <div className="order--details--page">
                 <Header title="جزییات سفارش" backLink="" backtext="خانه" />
                 <Container className="m-auto">
-                    <Card className="m-auto mt-3 bg-white border-0 lh-lg rounded-4">
+                   <Card className="m-auto mt-3 bg-white border-0 lh-lg rounded-4">
                         <Card.Body className="p-2 px-3 text-gray mb-2">
                             <Card.Title className="m-0 p-0 pe-2 pb-2 mt-2">
                                 <div className="card--title--order-details"><span></span>در حال پخت</div>

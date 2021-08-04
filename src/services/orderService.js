@@ -7,6 +7,7 @@ import { authHeader } from '../helpers';
 // let baseRoute = SERVER_LOCAL_SAEID + '/v1/order';
 let baseRoute = `${SERVER_URL}/order`;
 
+
 axios.interceptors.request.use(request => {
     console.log('Starting Request', request)
     // `req` is the Axios request config, so you can modify the `headers`.
@@ -14,8 +15,13 @@ axios.interceptors.request.use(request => {
     return request
 })
 
+export const orderService = { 
+    getProduct ,
+    getInLineOrders,
+    getOrderDetails
+}
 
-const getProduct = () => {
+function getProduct(){
     console.log("into getProduct");
     return axios
         .get(`${baseRoute}/product`)
@@ -31,7 +37,40 @@ const getProduct = () => {
             }
         });
 }
-export const orderService = { getProduct }
 
 
+function getInLineOrders(){
+    console.log("into getInLineOrders");
+    return axios
+        .get(`${baseRoute}/`)
+        .then(res => {
+            console.log("res.user >> ");
+            console.log(res.data.data);
+            return handleResponse(res)
+        })
+        .catch(error => {
+            if (error.response) {
+                console.log(error.response.data);
+                handleError(error.response.status)
+            }
+        });
+}
+
+
+function getOrderDetails(orderId){
+    console.log("into getInLineOrders");
+    return axios
+        .get(`${baseRoute}/${encodeURI(orderId)}`)
+        .then(res => {
+            console.log("res.user >> ");
+            console.log(res.data.data);
+            return handleResponse(res)
+        })
+        .catch(error => {
+            if (error.response) {
+                console.log(error.response.data);
+                handleError(error.response.status)
+            }
+        });
+}
 
