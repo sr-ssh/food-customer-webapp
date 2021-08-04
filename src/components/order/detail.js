@@ -9,12 +9,12 @@ export const Detail = (props) => {
             <Container>
                 <Row>
                     <Col className="col--container__title" >
-                         {props.detail.title}
+                         {props.detail?.name}
                     </Col>
-                    <Col className="col--container__price">{props.detail.price}</Col>
+                    <Col className="col--container__price">{props.detail?.size?.[0]?.price}</Col>
                 </Row>
                 <Row className="row--container__detailtext">
-                    <span className="span--container__detailtext">{props.detail.description}</span>
+                    <span className="span--container__detailtext">{props.detail?.description}</span>
                 </Row>
             </Container>
         </div>

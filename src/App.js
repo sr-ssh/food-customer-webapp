@@ -9,6 +9,7 @@ import { Login } from './components/login';
 import { Main } from './components/main/main';
 import { Address } from './components/address/address';
 import { orders } from './components/order/orders';
+import { Factor } from './components/factor/factors';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
         {/* please dont change the Order */}
         <Route exact path="/order" component={orders} />
-        {/* <PrivateRoute path="/order" component={orders}></PrivateRoute> */}
+        <Route path="/bill" component={Factor} />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>

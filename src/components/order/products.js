@@ -22,7 +22,7 @@ const data = [
 
 export const Products = () => {
   const dispatch = useDispatch()
-  const getProduct = useSelector(state => state.getProduct)
+  const getProduct = useSelector(state => state.getProduct.products)
   const [index, setIndex] = useState(0);
   const [number , setNumber] = useState(0)
   const [orderList,setOrderList] = useState([...data])
@@ -38,7 +38,6 @@ export const Products = () => {
     // }
     
     
-    
     const handleSelect = (selectedIndex, e) => {
       setIndex(selectedIndex);
       setNumber(0)
@@ -46,7 +45,7 @@ export const Products = () => {
     
     const handleOrderList = function(index,type){
       setOrderList( orderList.map((item,i)=>{
-        if(item===orderList[index])return type ==='+' ? {...item,number:item.number+1} : {...item,number:item.number-1}
+        if(item===orderList[index])return type ==='+' ? {...item,number:item?.number+1} : {...item,number:item?.number-1}
         return item
       }))
     }
@@ -71,8 +70,8 @@ export const Products = () => {
 </Carousel>
     <ToggleButton></ToggleButton>
     <Detail detail={data[index]}></Detail>
-    <ControlButton index={index} handleOrderList={handleOrderList} data={data[index]} number = {orderList[index].number} setNumber = {setNumber} orderList= {orderList} setOrderList = {setOrderList}></ControlButton>
-    <Dialog orderList={orderList[index]}></Dialog>
+    <ControlButton index={index} handleOrderList={handleOrderList} data={data[index]} number = {orderList[index]?.number} setNumber = {setNumber} orderList= {orderList} setOrderList = {setOrderList}></ControlButton>
+    <Dialog orderList={orderList[index]} data={orderList.filter(item=>item.number)}></Dialog>
         </div>
     )
 }

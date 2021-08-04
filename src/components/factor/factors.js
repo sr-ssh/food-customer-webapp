@@ -7,17 +7,16 @@ import { Header } from '../base/header2'
 //components
 import { OrderList } from "./orderList";
 
-
-
-export const Factor = () => {
-
-
+export const Factor = (props) => {
+    let total = props.location.state?.data.map(data=>data.price * data.number).reduce((a,b)=>(a * 1) + (b * 1) ,0)
+    let tax = props.location.state?.data.map(data=>data.price * (9 / 100)).reduce((a,b)=>a + b ,0)
+    const totalAmount = total + tax + 75
     return (
         <>
             <div className="factor-page">
                 <Header title="فاکتور" backLink="" backtext="سفارش" />
                 <Container className=" pt-2 px-4  d-flex flex-column factor-page-container" >
-                    <OrderList />
+                    <OrderList  data ={props.location.state}/>
                     <Row className="m-0 p-0 mt-2 factor-inputs">
                         <Col className="p-0 factor-description-input">
                             <Form.Group controlId="description">
@@ -37,7 +36,7 @@ export const Factor = () => {
                             </Col>
                             <Col dir="ltr" className="ps-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان</span> <span className="fw-bold">75</span>
+                                    <span className="factor--text--details">تومان</span> <span className="fw-bold">{total}</span>
                                 </Card.Text>
                             </Col>
                         </Row>
@@ -61,7 +60,7 @@ export const Factor = () => {
                             </Col>
                             <Col dir="ltr" className="ps-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان</span><span className="fw-bold">75</span>
+                                    <span className="factor--text--details">تومان</span><span className="fw-bold">{tax}</span>
                                 </Card.Text>
                             </Col>
                         </Row>
@@ -70,7 +69,7 @@ export const Factor = () => {
                         <Col className="col-12 px-0">
                             <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one ">
                                 <span className="pe-2">پرداخت</span>
-                                <span className="ps-2"> 230 تومان</span>
+                                <span className="ps-2"> {totalAmount} تومان</span>
                             </Button>
                         </Col>
                     </Row>

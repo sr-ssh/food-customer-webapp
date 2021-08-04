@@ -5,7 +5,9 @@ import { Row, Col, Table } from 'react-bootstrap';
 import deleteIcon from '../../assets/images/factor/delete.svg'
 
 
-export const OrderList = () => {
+export const OrderList = (props) => {
+    const {data:{data}} = props
+    console.log(data);
     return (
         <>
             <Row className="m-0 mt-3 p-0">
@@ -13,24 +15,12 @@ export const OrderList = () => {
                     <div className="table-wrapper-scroll-y my-custom-scrollbar">
                         <Table className="lh-lg p-0" borderless size="sm">
                             <tbody>
-                                <tr>
-                                    <td className="m-0 p-0 pb-1"><span className="fw-bold ms-5">رست بیف</span></td>
-                                    <td className="text-center m-0 p-0 ps-3"><span className="fw-bold">75</span><span className="factor--text--details">تومان</span></td>
-                                    <td className="m-0 p-0"><span className="fw-bold">2</span><span className="factor--text--details">عدد</span></td>
+                                {data.map(data=><tr>
+                                    <td className="m-0 p-0 pb-1"><span className="fw-bold ms-5">{data.title}</span></td>
+                                    <td className="text-center m-0 p-0 ps-3"><span className="fw-bold">{data.price}</span><span className="factor--text--details">تومان</span></td>
+                                    <td className="m-0 p-0"><span className="fw-bold">{data.number}</span><span className="factor--text--details">عدد</span></td>
                                     <td className="m-0 p-0"><img src={deleteIcon} className="" height="22px" alt="delete-icon" /></td>
-                                </tr>
-                                <tr>
-                                    <td className="m-0 p-0 pb-1"><span className="fw-bold ms-5">پپرونی</span></td>
-                                    <td className="text-center m-0 p-0 ps-3"><span className="fw-bold">60</span><span className="factor--text--details">تومان</span></td>
-                                    <td className="m-0 p-0"><span className="fw-bold">1</span><span className="factor--text--details">عدد</span></td>
-                                    <td className="m-0 p-0"><img src={deleteIcon} className="" height="22px" alt="delete-icon" /></td>
-                                </tr>
-                                <tr>
-                                    <td className="m-0 p-0 pb-1"><span className="fw-bold ms-5">نوشابه کوکا</span></td>
-                                    <td className="text-center m-0 p-0 ps-3"><span className="fw-bold">20</span><span className="factor--text--details">تومان</span></td>
-                                    <td className="m-0 p-0"><span className="fw-bold">2</span><span className="factor--text--details">عدد</span></td>
-                                    <td className="m-0 p-0"><img src={deleteIcon} className="" height="22px" alt="delete-icon" /></td>
-                                </tr>
+                                </tr>)}
                             </tbody>
                         </Table>
                     </div>

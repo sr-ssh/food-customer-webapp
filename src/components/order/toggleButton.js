@@ -20,7 +20,7 @@ export const ToggleButton = ({ sizeProduct }) => {
     return (
         <div className="div--container__togglebutton d-flex flex-row justify-content-around align-items-center px-2">
             {
-                option.map((item, index) => <p className={`col-6 d-flex justify-content-around align-items-center div--container__togglebutton-text m-0 ${activeOption == index ? "active-opstion" : null}`} onClick={() => optionHandler(index)}>{item.[index]}</p>)
+                option.map((item, index) => <p className={`col-6 d-flex justify-content-around align-items-center div--container__togglebutton-text m-0 ${activeOption == index ? "active-opstion" : null}`} onClick={() => optionHandler(index)}>{item[index]}</p>)
             }
         </div>
     )
