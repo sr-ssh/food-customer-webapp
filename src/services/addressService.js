@@ -3,12 +3,6 @@ import { SERVER_URL } from '../config';
 import { authHeader } from '../helpers';
 let baseRoute = SERVER_URL;
 
-axios.interceptors.request.use(request => {
-    console.log('Starting Request', request);
-    // `req` is the Axios request config, so you can modify the `headers`.
-    request.headers = authHeader();
-    return request
-})
 
 export const addressService = {
     newAddress,

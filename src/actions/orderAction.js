@@ -92,11 +92,11 @@ function getOrderDetails(body) {
                         console.log("got the inline orders")
                         dispatch(success(orderConstant.GET_ORDER_DETAILS_SUCCESS, res.data))
                         dispatch(alertActions.success(res.message));
-                        history.push('/order/detail')
                     } else if (res.success === false) {
                         console.log("got the inline orders")
                         dispatch(failure(orderConstant.GET_ORDER_DETAILS_FAILURE, res.message));
                         dispatch(alertActions.error(res.message));
+                        
                     }
                     setTimeout(() => {
                         dispatch(alertActions.clear());

@@ -5,10 +5,6 @@ import { authHeader } from '../helpers';
 
 let baseRoute = SERVER_URL;
 
-axios.interceptors.request.use(request => {
-    console.log('Starting Request', request)
-    return request
-})
 
 export const userService = {
     login,
