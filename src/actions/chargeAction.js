@@ -3,6 +3,7 @@ import { chargeConstant } from '../constants';
 import { chargeService } from '../services';
 import { alertActions } from './alertActions';
 
+
 export const chargeAction = { 
     getCharge
 };
@@ -20,7 +21,6 @@ function getCharge() {
                     else if (res.success) {
                         console.log("got charge")
                         dispatch(success(chargeConstant.GET_CHARGE_SUCCESS, res.data))
-                        dispatch(alertActions.success(res.message));
                     } else if (res.success === false) {
                         dispatch(failure(chargeConstant.GET_CHARGE_FAILURE, res.message));
                         dispatch(alertActions.error(res.message));

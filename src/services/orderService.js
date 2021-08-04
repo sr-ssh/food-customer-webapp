@@ -18,7 +18,8 @@ axios.interceptors.request.use(request => {
 export const orderService = { 
     getProduct ,
     getInLineOrders,
-    getOrderDetails
+    getOrderDetails,
+    cancelOrder
 }
 
 function getProduct(){
@@ -61,6 +62,25 @@ function getOrderDetails(orderId){
     console.log("into getInLineOrders");
     return axios
         .get(`${baseRoute}/${encodeURI(orderId)}`)
+        .then(res => {
+            console.log("res.user >> ");
+            console.log(res.data.data);
+            return handleResponse(res)
+        })
+        .catch(error => {
+            if (error.response) {
+                console.log(error.response.data);
+                handleError(error.response.status)
+            }
+        });
+}
+
+
+function cancelOrder(orderId){
+    console.log("into cancelOrder");
+    
+    return axios
+        .delete(`${baseRoute}`, { data: {orderId: orderId}})
         .then(res => {
             console.log("res.user >> ");
             console.log(res.data.data);

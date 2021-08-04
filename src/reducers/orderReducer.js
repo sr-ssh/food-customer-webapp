@@ -79,3 +79,27 @@ export const getOrderDetails = (state = initialState, action) => {
       return state;
   }
 };
+
+
+
+export const cancelOrder = (state = initialState, action) => {
+  switch (action.type) {
+    case orderConstant.GET_ORDER_DETAILS_REQUEST:
+      return {
+        ...state,
+        loading: true
+      }
+    case orderConstant.GET_ORDER_DETAILS_SUCCESS:
+      return {
+        ...state,
+        loading: false
+      }
+    case orderConstant.GET_ORDER_DETAILS_FAILURE:
+      return {
+        err: action.error,
+        loading: false
+      }
+    default:
+      return state;
+  }
+};

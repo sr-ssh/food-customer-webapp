@@ -1,13 +1,15 @@
 
 import { orderConstant } from '../constants/orderConstant';
-import { history } from '../helpers';
 import { orderService } from '../services';
 import { alertActions } from './alertActions';
+import { history } from '../helpers';
+
 
 export const orderAction = { 
     getProduct,
     getInLineOrders,
-    getOrderDetails
+    getOrderDetails,
+    cancelOrder
 };
 
 function getProduct(body) {
@@ -57,7 +59,6 @@ function getInLineOrders(body) {
                     else if (res.success) {
                         console.log("got the inline orders")
                         dispatch(success(orderConstant.GET_INLINE_ORDERS_SUCCESS, res.data))
-                        dispatch(alertActions.success(res.message));
                     } else if (res.success === false) {
                         console.log("got the inline orders")
                         dispatch(failure(orderConstant.GET_INLINE_ORDERS_FAILURE, res.message));
@@ -91,7 +92,6 @@ function getOrderDetails(body) {
                     else if (res.success) {
                         console.log("got the inline orders")
                         dispatch(success(orderConstant.GET_ORDER_DETAILS_SUCCESS, res.data))
-                        dispatch(alertActions.success(res.message));
                     } else if (res.success === false) {
                         console.log("got the inline orders")
                         dispatch(failure(orderConstant.GET_ORDER_DETAILS_FAILURE, res.message));
@@ -104,6 +104,41 @@ function getOrderDetails(body) {
                 },
                 error => {
                     dispatch(failure(orderConstant.GET_ORDER_DETAILS_FAILURE, error.toString()));
+                    console.log("occure error");
+                    console.log(error.toString());
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+}
+
+function cancelOrder(body) {
+    return dispatch => {
+        dispatch(request(orderConstant.CANCEL_ORDER_REQUEST));
+        orderService.cancelOrder(body)
+            .then(
+                res => {
+                    if (res === undefined) {
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(failure(orderConstant.CANCEL_ORDER_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
+                    }
+                    else if (res.success) {
+                        console.log("order canceled")
+                        dispatch(success(orderConstant.CANCEL_ORDER_SUCCESS, res.data))
+                        dispatch(alertActions.success(res.message));
+                        if(res.data.status)
+                            history.go(0)
+                    } else if (res.success === false) {
+                        dispatch(failure(orderConstant.CANCEL_ORDER_FAILURE, res.message));
+                        dispatch(alertActions.error(res.message));
+                        
+                    }
+                    setTimeout(() => {
+                        dispatch(alertActions.clear());
+                    }, 1500);
+                },
+                error => {
+                    dispatch(failure(orderConstant.CANCEL_ORDER_FAILURE, error.toString()));
                     console.log("occure error");
                     console.log(error.toString());
                     dispatch(alertActions.error(error.toString()));

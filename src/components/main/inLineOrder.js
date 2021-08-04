@@ -3,20 +3,27 @@ import { Button, Row, Col, Card } from 'react-bootstrap';
 import { history } from '../../helpers';
 import moment from 'jalali-moment';
 import persianJs from 'persianjs/persian.min';
+import { useDispatch } from 'react-redux';
 
-//icons
+//components
 import { InLineOrderHeader } from './inLineOrderHeader';
 import { InLineOrderText } from './inLineOrderText';
+import { orderAction } from '../../actions/orderAction';
 
 
 
 export const InLineOrder = ({order}) => {
+
+    const dispatch = useDispatch()
 
     const orderDetails = (orderId) => {
         localStorage.setItem('orderId', orderId)
         history.push('/order/detail')
     }
 
+    const cancelOrder = (orderId) => {
+        dispatch(orderAction.cancelOrder(orderId))
+    }
 
 
     return (
@@ -43,6 +50,15 @@ export const InLineOrder = ({order}) => {
                                 <span className="">جزییات سفارش</span>
                             </Button>
                         </Col>
+                        { 
+                            order.status.status === 0 ?
+                            <Col onClick={() => cancelOrder(order._id)}>
+                                <Button className="col-11 main-card-btn-order-detail btn--red--two ">
+                                    <span className="">کنسل کردن</span>
+                                </Button>
+                            </Col>
+                            : null
+                        }
                         {
                             !order.paid ?
                             <Col>
@@ -52,11 +68,6 @@ export const InLineOrder = ({order}) => {
                             </Col> 
                             : null
                         }
-                        <Col>
-                            <Button className="col-11 main-card-btn-order-detail btn--red--two ">
-                                <span className="">لغو سفارش</span>
-                            </Button>
-                        </Col>
                     </Col>
                 </Row>
             </Card.Body>

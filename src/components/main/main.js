@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Button, Row, Col, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Button, Row, Col, Alert } from 'react-bootstrap';
 import Sidebar from 'react-sidebar'
 import { history } from '../../helpers';
+import { useSelector } from 'react-redux';
+
 
 //icons
 import menuIcon from './../../assets/images/base/menu.svg'
 import logo from './../../assets/images/base/happy-pizza.png'
 import addIcon from './../../assets/images/main/add.svg'
-import waitingIcon from './../../assets/images/main/waiting.svg'
-import peymentIcon from './../../assets/images/main/peyment.svg'
-import deliveryIcon from './../../assets/images/main/delivery.svg'
-import coookingIcon from './../../assets/images/main/coooking.svg'
-import chefIcon from './../../assets/images/main/chef.svg'
-import waitingdoneIcon from './../../assets/images/main/waitingdone.svg'
-import deliverydoneIcon from './../../assets/images/main/deliverydone.svg'
-import coookingdoneIcon from './../../assets/images/main/coookingdone.svg'
-import chefdoneIcon from './../../assets/images/main/chefdone.svg'
-
 
 //components 
 import { InLineOrders } from './inLineOrders';
@@ -29,7 +21,8 @@ import { Charge } from './charge';
 export const Main = () => {
 
     const [isOpen, setIsOpen] = useState(false)
-
+    let alertMessage = useSelector(state => state.alert.message);
+    let alerType = useSelector(state => state.alert.type);
 
     return (
         <>
@@ -47,11 +40,19 @@ export const Main = () => {
                 touch={false}
             >
                 <div className="form-page">
-
+                    {
+                        alertMessage &&
+                        <>
+                            <Row className="justify-content-center text-center ">
+                                <Alert variant={alerType}>
+                                    {alertMessage}
+                                </Alert>
+                            </Row>
+                        </>
+                    }
                     <Charge />
                     <div id="back-up"></div>
                     <div id="back-center" className="back-center-main">
-
                         <div className="main-scroll-card-order">
                             <Container className="mb-auto mt-5 d-flex flex-column">
                                 <InLineOrders />
@@ -75,7 +76,6 @@ export const Main = () => {
                             </Col>
                         </Row>
                     </Container>
-
                 </div>
             </Sidebar>
         </>
