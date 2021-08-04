@@ -9,6 +9,7 @@ import { Login } from './components/login';
 import { Main } from './components/main/main';
 import { Address } from './components/address/address';
 import { orders } from './components/order/orders';
+import { OrderDetails } from './components/main/orderdDetails';
 import { Factor } from './components/factor/factors';
 
 
@@ -18,6 +19,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Login} />
         <PrivateRoute path="/main" component={Main}></PrivateRoute>
+        <PrivateRoute path="/order/detail" component={OrderDetails}></PrivateRoute>
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
         {/* please dont change the Order */}
         <Route exact path="/order" component={orders} />
