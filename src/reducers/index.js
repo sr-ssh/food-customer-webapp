@@ -3,6 +3,7 @@ import { authentication, register, verificationCode } from './authenticationRedu
 import { alert } from './alertReducer';
 import { getAddresses, newAddress } from './addressReducer';
 import { getProduct, getInLineOrders, getOrderDetails } from "./orderReducer";
+import { getCharge } from './chargeReducer';
 export default combineReducers({
     authentication,
     register,
@@ -10,5 +11,6 @@ export default combineReducers({
     alert,
     getProduct, getInLineOrders, getOrderDetails,
     newAddress,
-    getAddresses
+    getAddresses,
+    getCharge
 })

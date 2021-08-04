@@ -20,6 +20,7 @@ import chefdoneIcon from './../../assets/images/main/chefdone.svg'
 
 //components 
 import { InLineOrders } from './inLineOrders';
+import { Charge } from './charge';
 
 
 
@@ -47,12 +48,7 @@ export const Main = () => {
             >
                 <div className="form-page">
 
-                    <Row className="col-7 col-sm-5 user--charge--account">
-                        <Col className="user--charge--account--col fw-bold">
-                            <div>شارژ شما :</div>
-                            <div> <span className="text-danger display-7">65000</span> تومان</div>
-                        </Col>
-                    </Row>
+                    <Charge />
                     <div id="back-up"></div>
                     <div id="back-center" className="back-center-main">
 

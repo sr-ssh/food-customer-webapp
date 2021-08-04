@@ -1,0 +1,8 @@
+export const chargeConstant = {
+
+    GET_CHARGE_REQUEST: "GET_CHARGE_REQUEST",
+    GET_CHARGE_SUCCESS: "GET_CHARGE_SUCCESS",
+    GET_CHARGE_FAILURE: "GET_CHARGE_FAILURE"
+    
+  };
+  
