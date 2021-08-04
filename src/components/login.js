@@ -73,6 +73,7 @@ export const Login = () => {
             <div id="back-down"></div>
             <Container fluid className="p-0 d-flex flex-column">
                 {
+                    mobile &&
                     alertMessage &&
                     <>
                         <div className="modal-backdrop show"></div>

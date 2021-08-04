@@ -53,9 +53,6 @@ export const Main = () => {
                             <div> <span className="text-danger display-7">65000</span> تومان</div>
                         </Col>
                     </Row>
-                    {/* <div >
-
-                    </div> */}
                     <div id="back-up"></div>
                     <div id="back-center" className="back-center-main">
 
