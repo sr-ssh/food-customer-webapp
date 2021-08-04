@@ -43,8 +43,19 @@ export const Main = () => {
             >
 
                 <div className="form-page">
+
+                    <Row className="col-7 col-sm-5 user--charge--account">
+                        <Col className="user--charge--account--col fw-bold">
+                            <div>شارژ شما :</div>
+                            <div> <span className="text-danger display-7">65000</span> تومان</div>
+                        </Col>
+                    </Row>
+                    {/* <div >
+
+                    </div> */}
                     <div id="back-up"></div>
                     <div id="back-center">
+
                         <div className="main-scroll-card-order">
                             <Container className="mb-auto mt-5 d-flex flex-column">
                                 <Card className="mt-4 main-card-order border-0">
