@@ -150,6 +150,11 @@
 .carousel-control-next-icon {
   filter: invert(100%);
 }
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: #f9f3ee;
+  opacity: 1 !important;
+}
 
 /* ------------------------------------- DIALOG IN ORDER --------------------------------------- */
 
