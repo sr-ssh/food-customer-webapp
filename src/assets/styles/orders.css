@@ -95,14 +95,14 @@
   font-size: 2rem;
   color: #f8f2ed;
   text-align: center;
-  width: 47%;
-  height: 3.8rem;
+  width: 55px;
+  height: 55px;
   margin-right: 50%;
   border-radius: 500px;
   background-color: #f24333;
-}
-.div--container__addButton > img {
-  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .col--container__minuseButton {
@@ -113,14 +113,14 @@
   font-size: 2rem;
   color: #f8f2ed;
   text-align: center;
-  width: 47%;
-  height: 3.8rem;
+  width: 55px;
+  height: 55px;
   margin-right: 0%;
   border-radius: 500px;
   background-color: #f4c7c2;
-}
-.div--container__minuseButton > img {
-  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .col--container__productPrice {
   text-align: center;
