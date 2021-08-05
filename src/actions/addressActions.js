@@ -96,20 +96,3 @@ function newAddress(address) {
     function success(address) { console.log("into success"); return { type: addressConstants.NEW_ADDRESS_SUCCESS, address } }
     function failure(error) { return { type: addressConstants.NEW_ADDRESS_FAILURE, error } }
 }
-
-/*
-
-{
-    provider: {
-        status: false
-    }
-}
-{
-    deliveryCost: 5000,
-    provider: {
-        status: true,
-        kitchenArea: 'هنرستان'
-    }
-}
-
-*/

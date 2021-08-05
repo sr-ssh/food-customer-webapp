@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { addressActions } from '../../actions';
+import { addressActions, alertActions } from '../../actions';
 import { LoaderRed } from '../base/loader-bg-red'
 
 
@@ -19,7 +19,13 @@ export const OldAddress = ({addresses, setNewAddress}) => {
 
     const selectAddress = () => {
         if(address.address)
-            dispatch(addressActions.newAddress({lng: address.GPS.coordinates[0], lat: address.GPS.coordinates[1]}));
+            dispatch(addressActions.newAddress({lng: address.GPS.coordinates[0], lat: address.GPS.coordinates[1]}))
+        else{
+            dispatch(alertActions.error('یک ادرس را انتخاب کنید'))
+            setTimeout(() => {
+                dispatch(alertActions.clear());
+            }, 1500);
+        }
     }
 
     return (
