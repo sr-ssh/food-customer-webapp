@@ -9,9 +9,9 @@ export const ToggleButton = ({ sizeProduct }) => {
 
     let optionHandler = (e) => {
         if (e == 0)
-            sizeProduct("meduim")
+            sizeProduct("medium")
         else if (e == 1)
-            sizeProduct("larg");
+            sizeProduct("large");
         setActiveOption(e)
     }
 
