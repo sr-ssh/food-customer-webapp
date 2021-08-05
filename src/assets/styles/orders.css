@@ -54,7 +54,7 @@
   height: 2.1rem;
   margin-top: 1rem;
   border-radius: 8px;
-  width: 35%;
+  width: auto;
   position: relative;
 }
 
@@ -63,6 +63,7 @@
   font-size: 0.7rem;
   font-weight: 800;
   cursor: pointer;
+  width: 65px;
 }
 
 .active-opstion {
