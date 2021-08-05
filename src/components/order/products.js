@@ -21,7 +21,7 @@ export const Products = ({ productsCategory }) => {
   const [index, setIndex] = useState(0);
   const [number, setNumber] = useState(0)
   const [orderList, setOrderList] = useState([...data])
-  const [productSize, setProductSize] = useState('');
+  const [productSize, setProductSize] = useState("medium");
 
   // function toFarsiNumber(n) {
   //   const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
@@ -67,14 +67,12 @@ export const Products = ({ productsCategory }) => {
               alt="First slide"
             />
           </Carousel.Item>
-
         )}
-
       </Carousel>
       <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 ">
         <ToggleButton sizeProduct={setProductSize}></ToggleButton>
       </Row>
-      <Detail detail={orderList[index]}></Detail>
+      <Detail detail={orderList[index]} productSize={productSize}></Detail>
       <ControlButton index={index} handleOrderList={handleOrderList} data={data[index]} number={orderList[index]?.number} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
       <Dialog orderList={orderList[index]} data={orderList.filter(item => item.number)}></Dialog>
     </div>
