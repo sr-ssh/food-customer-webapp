@@ -13,13 +13,6 @@ import { Dialog } from './dialog';
 import pizza from '../../assets/images/order/products/picc_pizza.png'
 
 
-
-// const data = [
-//   {title:'نان سیر',img:pizza,price:"30",number:0,description:"سیر . خمیر تازه . اویشن"},
-//   {title:'پپرونی',img:"https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg",price:"45",number:0,description:"گوشت گوساله . پنیر . قارچ . فلفل دلمه ای . پیازجه"},
-//   {title:'رست بیف',img:"https://iranmakimah.com/wp-content/uploads/2021/01/phut_0.jpg",price:"25",number:0,description:"کالباس پپرونی . پنیر . قارچ . فلفل دلمه ای"}
-// ]
-
 export const Products = ({ productsCategory }) => {
 
 
@@ -70,7 +63,7 @@ export const Products = ({ productsCategory }) => {
           <Carousel.Item className="carousal--item__prouduct">
             <img
               className="d-block w-100"
-              src={pizza}
+              src={item.img}
               alt="First slide"
             />
           </Carousel.Item>
