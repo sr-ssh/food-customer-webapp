@@ -4,6 +4,7 @@ import { orderConstant } from "../constants";
 
 const initialState = {
   products: [],
+  productCategory: [],
   loading: false,
   orders: [],
   orderDetails: {}
@@ -95,6 +96,28 @@ export const cancelOrder = (state = initialState, action) => {
         loading: false
       }
     case orderConstant.GET_ORDER_DETAILS_FAILURE:
+      return {
+        err: action.error,
+        loading: false
+      }
+    default:
+      return state;
+  }
+};
+export const getOrderProductsTypes = (state = initialState, action) => {
+  switch (action.type) {
+    case orderConstant.GET_ORDER_PRODUCTS_TYPES_REQUEST:
+      return {
+        ...state,
+        loading: true
+      }
+    case orderConstant.GET_ORDER_PRODUCTS_TYPES_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        productCategory: action.data
+      }
+    case orderConstant.GET_ORDER_PRODUCTS_TYPES_FAILUREE:
       return {
         err: action.error,
         loading: false

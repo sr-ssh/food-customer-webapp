@@ -20,8 +20,7 @@ import pizza from '../../assets/images/order/products/picc_pizza.png'
 //   {title:'رست بیف',img:"https://iranmakimah.com/wp-content/uploads/2021/01/phut_0.jpg",price:"25",number:0,description:"کالباس پپرونی . پنیر . قارچ . فلفل دلمه ای"}
 // ]
 
-export const Products = () => {
-
+export const Products = ({ productsCategory }) => {
   const dispatch = useDispatch()
   const data = useSelector(state => state.getProduct.products)
   const [index, setIndex] = useState(0);
@@ -52,11 +51,21 @@ export const Products = () => {
     }))
   }
 
+  // useEffect(() => {
+  //   if (data.length > 0)
+  //     setOrderList([...data])
+  // }, [data]);
+  // useEffect(() => {
+  //   let products = data.filter(item => { return (item.type.name === productsCategory) });
+  //   setOrderList([...products])
+  //   setIndex(0)
+  // }, [productsCategory, data])
+
   useEffect(() => dispatch(orderAction.getProduct()), [dispatch])
   return (
     <div className="div--container__product">
       <Carousel activeIndex={index} nextLabel={false} prevLabel={false} onSelect={handleSelect} interval={null} className="carousal--product" >
-        {data.map(item =>
+        {data?.map(item =>
           <Carousel.Item className="carousal--item__prouduct">
             <img
               className="d-block w-100"
@@ -71,7 +80,6 @@ export const Products = () => {
       <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 ">
         <ToggleButton sizeProduct={setProductSize}></ToggleButton>
       </Row>
-
       <Detail detail={data[index]}></Detail>
       <ControlButton index={index} handleOrderList={handleOrderList} data={data[index]} number={orderList[index]?.number} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
       <Dialog orderList={orderList[index]} data={orderList.filter(item => item.number)}></Dialog>

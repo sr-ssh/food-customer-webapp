@@ -5,11 +5,12 @@ import { alertActions } from './alertActions';
 import { history } from '../helpers';
 
 
-export const orderAction = { 
+export const orderAction = {
     getProduct,
     getInLineOrders,
     getOrderDetails,
-    cancelOrder
+    cancelOrder,
+    getOrderProductsTypes
 };
 
 function getProduct(body) {
@@ -96,7 +97,7 @@ function getOrderDetails(body) {
                         console.log("got the inline orders")
                         dispatch(failure(orderConstant.GET_ORDER_DETAILS_FAILURE, res.message));
                         dispatch(alertActions.error(res.message));
-                        
+
                     }
                     setTimeout(() => {
                         dispatch(alertActions.clear());
@@ -126,12 +127,12 @@ function cancelOrder(body) {
                         console.log("order canceled")
                         dispatch(success(orderConstant.CANCEL_ORDER_SUCCESS, res.data))
                         dispatch(alertActions.success(res.message));
-                        if(res.data.status)
+                        if (res.data.status)
                             history.go(0)
                     } else if (res.success === false) {
                         dispatch(failure(orderConstant.CANCEL_ORDER_FAILURE, res.message));
                         dispatch(alertActions.error(res.message));
-                        
+
                     }
                     setTimeout(() => {
                         dispatch(alertActions.clear());
@@ -147,6 +148,37 @@ function cancelOrder(body) {
     };
 }
 
+function getOrderProductsTypes() {
+    return dispatch => {
+        dispatch(request(orderConstant.GET_ORDER_PRODUCTS_TYPES_REQUEST));
+        orderService.getOrderProductsTypes()
+            .then(
+                res => {
+                    if (res === undefined) {
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(failure(orderConstant.GET_ORDER_PRODUCTS_TYPES_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
+                    }
+                    else if (res.success) {
+                        console.log("order product types")
+                        dispatch(success(orderConstant.GET_ORDER_PRODUCTS_TYPES_SUCCESS, res.data))
+                        dispatch(alertActions.success(res.message));
+                    } else if (res.success === false) {
+                        dispatch(failure(orderConstant.GET_ORDER_PRODUCTS_TYPES_FAILURE, res.message));
+                        dispatch(alertActions.error(res.message));
+                    }
+                    setTimeout(() => {
+                        dispatch(alertActions.clear());
+                    }, 1500);
+                },
+                error => {
+                    dispatch(failure(orderConstant.GET_ORDER_PRODUCTS_TYPES_FAILURE, error.toString()));
+                    console.log("occure error");
+                    console.log(error.toString());
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+}
 
 const request = type => { return { type: type } }
 const success = (type, data) => { return { type: type, data } }

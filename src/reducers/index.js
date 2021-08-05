@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { authentication, register, verificationCode } from './authenticationReducer';
 import { alert } from './alertReducer';
 import { getAddresses, newAddress } from './addressReducer';
-import { getProduct, getInLineOrders, getOrderDetails, cancelOrder } from "./orderReducer";
+import { getProduct, getInLineOrders, getOrderDetails, cancelOrder, getOrderProductsTypes } from "./orderReducer";
 import { getCharge } from './chargeReducer';
 export default combineReducers({
     authentication,
@@ -12,5 +12,6 @@ export default combineReducers({
     getProduct, getInLineOrders, getOrderDetails, cancelOrder,
     newAddress,
     getAddresses,
-    getCharge
+    getCharge,
+    getOrderProductsTypes
 })
