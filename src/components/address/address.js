@@ -45,10 +45,10 @@ export const Address = () => {
                 {
                     !addresses.loading ?
                         addresses.addresses?.length ?
-                            !newAddress ? 
+                            !newAddress ?
                                 <OldAddress addresses={addresses.addresses} setNewAddress={setNewAddress} />
                                 : <NewAddress />
-                            :null
+                            : <NewAddress />
                         : null
                 }
             </div>
