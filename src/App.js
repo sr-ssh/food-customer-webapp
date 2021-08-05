@@ -11,6 +11,7 @@ import { Address } from './components/address/address';
 import { orders } from './components/order/orders';
 import { OrderDetails } from './components/main/orderdDetails';
 import { Factor } from './components/factor/factors';
+import { NewAddress } from './components/address/newAddress';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <PrivateRoute path="/main" component={Main}></PrivateRoute>
         <PrivateRoute path="/order/detail" component={OrderDetails}></PrivateRoute>
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
+        <PrivateRoute path="/address/new" component={NewAddress}></PrivateRoute>
         {/* please dont change the Order */}
         <Route exact path="/order" component={orders} />
         <Route path="/bill" component={Factor} />
