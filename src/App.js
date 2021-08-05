@@ -8,9 +8,10 @@ import PrivateRoute from './components/base/privateRoute';
 import { Login } from './components/login';
 import { Main } from './components/main/main';
 import { Address } from './components/address/address';
-import { orders } from './components/order/orders';
+import { Orders } from './components/order/orders';
 import { OrderDetails } from './components/main/orderdDetails';
 import { Factor } from './components/factor/factors';
+import { NewAddress } from './components/address/newAddress';
 
 
 function App() {
@@ -21,8 +22,9 @@ function App() {
         <PrivateRoute path="/main" component={Main}></PrivateRoute>
         <PrivateRoute path="/order/detail" component={OrderDetails}></PrivateRoute>
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
+        <PrivateRoute path="/address/new" component={NewAddress}></PrivateRoute>
         {/* please dont change the Order */}
-        <Route exact path="/order" component={orders} />
+        <Route exact path="/order" component={Orders} />
         <Route path="/bill" component={Factor} />
         <Redirect from="*" to="/" />
       </Switch>

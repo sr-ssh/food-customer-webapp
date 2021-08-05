@@ -4,8 +4,8 @@ import { SERVER_LOCAL_SAEID, SERVER_URL } from '../config';
 import { handleResponse, handleError } from '../helpers/util';
 import { authHeader } from '../helpers';
 
-let baseRoute = SERVER_LOCAL_SAEID + '/v1/order';
-// let baseRoute = `${SERVER_LOCAL_SAEID}/order`;
+// let baseRoute = SERVER_LOCAL_SAEID + '/v1/order';
+let baseRoute = `${SERVER_URL}/order`;
 
 
 axios.interceptors.request.use(request => {
@@ -15,14 +15,15 @@ axios.interceptors.request.use(request => {
     return request
 })
 
-export const orderService = { 
-    getProduct ,
+export const orderService = {
+    getProduct,
     getInLineOrders,
     getOrderDetails,
-    cancelOrder
+    cancelOrder,
+    getOrderProductsTypes
 }
 
-function getProduct(){
+function getProduct() {
     console.log("into getProduct");
     return axios
         .get(`${baseRoute}/product`)
@@ -40,7 +41,7 @@ function getProduct(){
 }
 
 
-function getInLineOrders(){
+function getInLineOrders() {
     console.log("into getInLineOrders");
     return axios
         .get(`${baseRoute}/`)
@@ -58,7 +59,7 @@ function getInLineOrders(){
 }
 
 
-function getOrderDetails(orderId){
+function getOrderDetails(orderId) {
     console.log("into getInLineOrders");
     return axios
         .get(`${baseRoute}/${encodeURI(orderId)}`)
@@ -76,11 +77,11 @@ function getOrderDetails(orderId){
 }
 
 
-function cancelOrder(orderId){
+function cancelOrder(orderId) {
     console.log("into cancelOrder");
-    
+
     return axios
-        .delete(`${baseRoute}`, { data: {orderId: orderId}})
+        .delete(`${baseRoute}`, { data: { orderId: orderId } })
         .then(res => {
             console.log("res.user >> ");
             console.log(res.data.data);
@@ -93,4 +94,19 @@ function cancelOrder(orderId){
             }
         });
 }
-
+function getOrderProductsTypes() {
+    console.log("into getOrderProductsTypes");
+    return axios
+        .get(`${baseRoute}/product/type`)
+        .then(res => {
+            console.log("res.user >> ");
+            console.log(res.data.data);
+            return handleResponse(res)
+        })
+        .catch(error => {
+            if (error.response) {
+                console.log(error.response.data);
+                handleError(error.response.status)
+            }
+        });
+}

@@ -62,7 +62,6 @@ function appInfo() {
                     }
                     else if (res.success) {
                         console.log("user entered")
-                        dispatch(alertActions.success(res.message));
                     } else if (res.success === false) {
                         dispatch(alertActions.error(res.message));
                     }

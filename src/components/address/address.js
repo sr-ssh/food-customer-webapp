@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Alert, Container } from 'react-bootstrap';
 
@@ -11,13 +11,16 @@ import { NewAddress } from "./newAddress"
 
 export const Address = () => {
 
+    const [newAddress, setNewAddress] = useState(false)
     let alertMessage = useSelector(state => state.alert.message);
     let alerType = useSelector(state => state.alert.type);
     let addresses = useSelector(state => state.getAddresses);
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(addressActions.getAddresses())
-    }, [])
+    }, [dispatch])
+
     return (
         <>
             <div className="address--page">
@@ -41,8 +44,10 @@ export const Address = () => {
                 }
                 {
                     !addresses.loading ?
-                        addresses.length > 0 ?
-                            <OldAddress />
+                        addresses.addresses?.length ?
+                            !newAddress ?
+                                <OldAddress addresses={addresses.addresses} setNewAddress={setNewAddress} />
+                                : <NewAddress />
                             : <NewAddress />
                         : null
                 }

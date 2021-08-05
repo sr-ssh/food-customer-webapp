@@ -43,7 +43,7 @@ export const InLineOrder = ({order}) => {
                     </Col>
                     <InLineOrderText order={order} />
                 </Row>
-                <Row className="me-2 g-0">
+                <Row className="me-2 ms-0 g-0">
                     <Col className="d-flex flex-row">
                         <Col onClick={() => orderDetails(order._id)}>
                             <Button className="col-11 main-card-btn-order-detail btn--red--two px-0">
@@ -52,17 +52,21 @@ export const InLineOrder = ({order}) => {
                         </Col>
                         { 
                             order.status.status === 0 ?
-                            <Col onClick={() => cancelOrder(order._id)}>
+                            <Col className="text-center ps-1" onClick={() => cancelOrder(order._id)}>
                                 <Button className="col-11 main-card-btn-order-detail btn--red--two ">
                                     <span className="">کنسل کردن</span>
                                 </Button>
                             </Col>
                             : null
                         }
+                    </Col>
+                </Row>
+                <Row className="me-2 ms-2 g-0">
+                    <Col className="d-flex flex-row">
                         {
                             !order.paid ?
                             <Col>
-                                <Button className="col-11  main-card-btn-order-checkout btn btn-danger btn--red--one ">
+                                <Button className="col-12  main-card-btn-order-checkout btn btn-danger btn--red--one ">
                                     <span className="">پرداخت</span>
                                 </Button>
                             </Col> 
