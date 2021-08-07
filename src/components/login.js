@@ -68,10 +68,10 @@ export const Login = () => {
 
     return (
         <>
-            <div id="back-up"></div>
-            <div id="back-center" className="back-center-login"></div>
-            <div id="back-down"></div>
-            <Container fluid className="p-0 d-flex flex-column">
+            <div id="back-up" className=" ms-0 "></div>
+            <div id="back-center" className="back-center-login ms-0 me-0"></div>
+            <div id="back-down" className=" ms-0 "></div>
+            <Container fluid className="p-0 d-flex flex-column ms-0">
                 {
                     mobile &&
                     alertMessage &&
@@ -84,20 +84,20 @@ export const Login = () => {
                         </Row>
                     </>
                 }
-                <Row className="p-0 m-0 mzLogo">
+                <Row className="p-0 m-0 mzLogo ms-0">
                     <Col className="">
                         <img className="logo" src={logo} alt="logo" width="190px" />
                     </Col>
                 </Row>
-                <Row className="ms-0 loginForm">
-                    <Col>
-                        <Form className="d-flex flex-column justify-content-center" noValidate onSubmit={formHandeler} >
-                            <Row className="w-100 me-3 pe-2 inputs">
-                                <Col xs={8}>
-                                    <Form.Group controlId="family" >
-                                        <Image src={userLogo} width="17px" className="mx-2" />
+                <Row className="ms-0 loginForm  ms-0">
+                    <Col className="ms-0">
+                        <Form className="d-flex flex-column justify-content-center  ms-0" noValidate onSubmit={formHandeler} >
+                            <Row className="w-100 pe-2 inputs ms-0">
+                                <Col xs={8} className="me-4">
+                                    <Form.Group controlId="family" className="me-2">
+                                        <Image src={userLogo} width="17px" className="mx-2 ms-0" />
                                         <Form.Label>نام و نام خانوادگی</Form.Label>
-                                        <Form.Control className="form-input h-100 login-input" type="text"
+                                        <Form.Control className="form-input h-100 login-input ms-0" type="text"
                                             onChange={handleChange}
                                             isValid={family && validated && true}
                                             isInvalid={!family && validated && true}
@@ -108,12 +108,12 @@ export const Login = () => {
                                 </Col>
                             </Row>
 
-                            <Row className="w-100 me-3 mt-4 pe-2 inputs">
-                                <Col xs={8}>
-                                    <Form.Group controlId="mobile" >
-                                        <Image src={mobileLogo} width="17px" className="mx-2" />
+                            <Row className="w-100 mt-4 pe-2 ms-0 inputs">
+                                <Col xs={8} className="me-4">
+                                    <Form.Group controlId="mobile" className="me-2">
+                                        <Image src={mobileLogo} width="17px" className="mx-2 ms-0" />
                                         <Form.Label>موبایل</Form.Label>
-                                        <Form.Control className="form-input h-100 login-input" type="number"
+                                        <Form.Control className="form-input h-100 login-input ms-0" type="number"
                                             onChange={handleChange}
                                             isValid={mobile && mobileValited && true}
                                             isInvalid={!mobile && mobileValited && true}
@@ -122,12 +122,12 @@ export const Login = () => {
                                     </Form.Group>
                                 </Col>
                             </Row>
-                            <Row className="w-100 me-3 pe-2 inputs mt-4">
-                                <Col xs={8} className="ms-0">
-                                    <Form.Group controlId="code">
+                            <Row className="w-100 pe-2 ms-0 inputs mt-4">
+                                <Col xs={8} className="me-4">
+                                    <Form.Group controlId="code" className="me-2">
                                         <Image src={codeLogo} width="17px" className="mx-2" />
                                         <Form.Label>کد تایید</Form.Label>
-                                        <Form.Control className="form-input h-100 login-input" type="number"
+                                        <Form.Control className="form-input h-100 login-input ms-0" type="number"
                                             isValid={code && validated && true}
                                             isInvalid={!code && validated && true}
                                             onChange={handleChange}
@@ -135,14 +135,14 @@ export const Login = () => {
                                         <Form.Control.Feedback className="me-2" type="invalid">کد تایید را وارد کنید!</Form.Control.Feedback>
                                     </Form.Group>
                                 </Col>
-                                <Col className="mt-4 col-4 pe-0 me-0">
+                                <Col className="mt-4 col-3 pe-0 me-0 ms-0">
                                     <Button className="verification-btn mt-1" onClick={codeHandler}>{verificationCode.loading ? <Spinner animation="border" size="sm" /> : "ارسال کد"}</Button>
                                 </Col>
                             </Row>
 
                             <Row className="justify-content-center">
-                                <Col xs={7} className="justify-content-center">
-                                    <Button className="login-btn w-100 me-auto d-block fs-6 self-align-center" type="submit" >{loggingInLoading ? <Spinner animation="border" /> : "ورود"}</Button>
+                                <Col xs={7} className="justify-content-center ms-0">
+                                    <Button className="login-btn w-100 me-auto d-block fs-6 ms-0 self-align-center" type="submit" >{loggingInLoading ? <Spinner animation="border" /> : "ورود"}</Button>
                                 </Col>
                             </Row>
                         </Form>
