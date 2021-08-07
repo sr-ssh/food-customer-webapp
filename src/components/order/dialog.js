@@ -2,12 +2,9 @@ import React,{useState} from 'react';
 import { Container, Row ,Col} from 'react-bootstrap';
 import {history} from '../../helpers'
 
-
-
 export const Dialog = (props) => {
     let price;
-    (()=> price = props.orderList?.number * props.orderList?.price)()
-
+    (()=> price = props?.orderList?.map(data=>data.price).reduce((a,b)=>a + b,0))()    
     const handleBill = function(){
       history.push({
         pathname: '/bill',

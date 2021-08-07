@@ -4,8 +4,7 @@ import { SERVER_LOCAL_SAEID, SERVER_URL } from '../config';
 import { handleResponse, handleError } from '../helpers/util';
 import { authHeader } from '../helpers';
 
-// let baseRoute = SERVER_LOCAL_SAEID + '/v1/order';
-let baseRoute = `${SERVER_URL}/order`;
+let baseRoute = SERVER_LOCAL_SAEID + '/v1/order';
 
 
 axios.interceptors.request.use(request => {
@@ -24,19 +23,12 @@ export const orderService = {
 }
 
 function getProduct() {
-    console.log("into getProduct");
-    return axios
-        .get(`${baseRoute}/product`)
+    return axios.get(`${baseRoute}/product`)
         .then(res => {
-            console.log("res.user >> ");
-            console.log(res.data.data);
             return handleResponse(res)
         })
         .catch(error => {
-            if (error.response) {
-                console.log(error.response.data);
-                handleError(error.response.status)
-            }
+            if (error.response) handleError(error.response.status)
         });
 }
 

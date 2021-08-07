@@ -6,7 +6,7 @@ import addIcon from './../../assets/images/main/add.svg'
 
 export const ControlButton = (props) => {
 
-  const handleNumber = (e,i)=> props.handleOrderList(props.index,i)
+  const handleNumber = (_,i)=> props.handleOrderList(props.index,i)
 
  
     return (

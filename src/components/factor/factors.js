@@ -8,7 +8,7 @@ import { Header } from '../base/header2'
 import { OrderList } from "./orderList";
 
 export const Factor = (props) => {
-    let total = props.location.state?.data.map(data=>data.price * data.number).reduce((a,b)=>(a * 1) + (b * 1) ,0)
+    let total = props.location.state?.data.map(data=>data.price).reduce((a,b)=>a + b ,0)
     let tax = props.location.state?.data.map(data=>data.price * (9 / 100)).reduce((a,b)=>a + b ,0)
     const totalAmount = total + tax + 75
     return (
@@ -16,7 +16,7 @@ export const Factor = (props) => {
             <div className="factor-page">
                 <Header title="فاکتور" backLink="" backtext="سفارش" />
                 <Container className=" pt-2 px-4  d-flex flex-column factor-page-container" >
-                    <OrderList  data ={props.location.state}/>
+                    <OrderList  data ={props.location.state.data}/>
                     <Row className="m-0 p-0 mt-2 factor-inputs">
                         <Col className="p-0 factor-description-input">
                             <Form.Group controlId="description">
