@@ -39,16 +39,16 @@ export const InLineOrder = ({order}) => {
                     </Col>
                     <InLineOrderText order={order} />
                 </Row>
-                <Row className="me-2 ms-0 g-0">
+                <Row className="me-2 ms-2 g-0">
                     <Col className="d-flex flex-row">
                         <Col onClick={() => orderDetails(order._id)}>
-                            <Button className="col-11 main-card-btn-order-detail btn--red--two px-0">
+                            <Button className="col-12 main-card-btn-order-detail btn--red--two px-0">
                                 <span className="">جزییات سفارش</span>
                             </Button>
                         </Col>
                         { 
                             order.status.status === 0 ?
-                            <Col className="text-center ps-1" onClick={() => setmodalShow(true)}>
+                            <Col className="text-start ps-1" onClick={() => setmodalShow(true)}>
                                 <Button className="col-11 main-card-btn-order-detail btn--red--two ">
                                     <span className="">کنسل کردن</span>
                                 </Button>
