@@ -20,11 +20,11 @@ function App() {
       <Switch>
         <Route exact path="/" component={Login} />
         <PrivateRoute path="/main" component={Main}></PrivateRoute>
-        <PrivateRoute path="/order/detail" component={OrderDetails}></PrivateRoute>
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
         <PrivateRoute path="/address/new" component={NewAddress}></PrivateRoute>
         {/* please dont change the Order */}
-        <Route exact path="/order" component={Orders} />
+        <Route path="/order/detail" component={OrderDetails}></Route>
+        <Route path="/order" component={Orders} />  
         <Route path="/bill" component={Factor} />
         <Redirect from="*" to="/" />
       </Switch>

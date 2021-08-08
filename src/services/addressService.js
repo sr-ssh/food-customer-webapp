@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { SERVER_URL } from '../config';
+import { SERVER_LOCAL_SAEID,SERVER_URL } from '../config';
 import { authHeader } from '../helpers';
-let baseRoute = SERVER_URL;
+let baseRoute = SERVER_LOCAL_SAEID;
 
 
 export const addressService = {

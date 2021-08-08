@@ -35,7 +35,7 @@ export const Products = ({ productsCategory }) => {
   //     .join('');
   // }
 
-
+  
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
     setNumber(0)
