@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Button, Row, Col, Card } from 'react-bootstrap';
 import { history } from '../../helpers';
 import moment from 'jalali-moment';
@@ -9,22 +9,18 @@ import { useDispatch } from 'react-redux';
 import { InLineOrderHeader } from './inLineOrderHeader';
 import { InLineOrderText } from './inLineOrderText';
 import { orderAction } from '../../actions/orderAction';
+import { CancelOrder } from './cancelOrder';
 
 
 
 export const InLineOrder = ({order}) => {
 
-    const dispatch = useDispatch()
+    const [modalShow, setmodalShow] = useState(false)
 
     const orderDetails = (orderId) => {
         localStorage.setItem('orderId', orderId)
         history.push('/order/detail')
     }
-
-    const cancelOrder = (orderId) => {
-        dispatch(orderAction.cancelOrder(orderId))
-    }
-
 
     return (
         <>
@@ -52,7 +48,7 @@ export const InLineOrder = ({order}) => {
                         </Col>
                         { 
                             order.status.status === 0 ?
-                            <Col className="text-center ps-1" onClick={() => cancelOrder(order._id)}>
+                            <Col className="text-center ps-1" onClick={() => setmodalShow(true)}>
                                 <Button className="col-11 main-card-btn-order-detail btn--red--two ">
                                     <span className="">کنسل کردن</span>
                                 </Button>
@@ -75,6 +71,7 @@ export const InLineOrder = ({order}) => {
                     </Col>
                 </Row>
             </Card.Body>
+            <CancelOrder orderId={order._id} show={modalShow} onHide={() => { setmodalShow(false) }} />
         </Card>
         </>
     )
