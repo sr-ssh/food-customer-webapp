@@ -17,9 +17,8 @@ export const Orders = () => {
     const orderProductCategory = useSelector(state => state.getOrderProductsTypes.productCategory)
     const loader = useSelector(state => state.getOrderProductsTypes.loading)
     const [activeCategory, setActiveCategory] = useState(1)
-
-
-    let categoryHandler = (e,index) => {
+    const [basket, setbasket] = useState([])
+    let categoryHandler = (e, index) => {
         setActiveCategory(index)
     }
     useEffect(() => dispatch(orderAction.getOrderProductsTypes()), [dispatch])
@@ -38,10 +37,10 @@ export const Orders = () => {
                     <>
                         <section className="section--container__textlist-order">
                             <ul className="ul--container__order ">
-                                {orderProductCategory.map((item, index) => <li key={index} className={`li--order ${activeCategory == index ? "active--category" : null}`} onClick={(e) => categoryHandler(e,index)}>{item}</li>)}
+                                {orderProductCategory.map((item, index) => <li key={index} className={`li--order ${activeCategory == index ? "active--category" : null}`} onClick={(e) => categoryHandler(e, index)}>{item}</li>)}
                             </ul>
                         </section>
-                        <Products productsCategory={orderProductCategory[activeCategory]} />
+                        <Products productsCategory={orderProductCategory[activeCategory]} basket={basket} setbasket={setbasket} />
                     </>
 
                 }
