@@ -49,7 +49,7 @@ export const OrderDetails = () => {
                                     <span className="order--detailes--order">سفارش :</span>
                                 </Card.Text>
                                 <Card.Text>
-                                    <span className="fw-bold ps-2 text--order--details">یکشنبه</span>
+                                    <span className="fw-bold ps-2 text--order--details">{persianJs(moment.from(order.order.createdAt, 'YYYY/MM/DD').locale('fa').format('ddd')).englishNumber().toString()}</span>
                                     <span className="fw-bold ps-2 text--order--details">
                                         {persianJs(moment.from(order.order.createdAt, 'YYYY/MM/DD').locale('fa').format('DD MMMM')).englishNumber().toString()}
                                     </span>
