@@ -60,7 +60,7 @@ export const Products = ({ productsCategory }) => {
   }, [productsCategory, data])
 
 
-  console.log(orderList);
+  console.log(productsCategory);
 
   useEffect(() => dispatch(orderAction.getProduct()), [dispatch])
   return (
@@ -76,9 +76,13 @@ export const Products = ({ productsCategory }) => {
           </Carousel.Item>
         )}
       </Carousel>
-      <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 ">
-        <ToggleButton sizeProduct={setProductSize}></ToggleButton>
-      </Row>
+      {
+        productsCategory == "پیتزا" ?
+          <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 ">
+            <ToggleButton sizeProduct={setProductSize}></ToggleButton>
+          </Row>
+          : null
+      }
       <Detail detail={orderList[index]} productSize={productSize}></Detail>
       <ControlButton index={index} handleOrderList={handleOrderList} data={data[index]} number={orderList[index]?.number} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
       <Dialog orderList={orderList[index]} data={orderList.filter(item => item.number)}></Dialog>
