@@ -41,32 +41,43 @@ export const InLineOrderHeader = ({order}) => {
                         </div>
                     }
                     {
-                        order.status.status === 2
-                        ? <><p className="me-auto ms-1 main-text-card-queue-condition fw-bold">در حال پخت</p>
-                            <div className=" main-icon-cards main-icon-cards-pass ">
-                                <img className="img-fluid" src={coookingdoneIcon} height="35px" alt="coookingIcon" />
-                            </div></>
+                        order.status.status === 2 
+                        ? <p className="me-auto ms-1 main-text-card-queue-condition fw-bold">در حال پخت</p>
+                        : null
+                    }
+                    {
+                        order.status.status === 2 || order.status.status === 3 
+                        ? <div className=" main-icon-cards main-icon-cards-pass ">
+                            <img className="img-fluid" src={coookingdoneIcon} height="35px" alt="coookingIcon" />
+                        </div>
                         : <div className=" main-icon-cards ms-2 border border-1 border-dark">
                             <img className="img-fluid" src={coookingIcon} height="35px" alt="coookingIcon" />
                         </div>
                     }
                     {
-                        order.status.status === 5
-                        ? <><p className="display-6 me-auto ms-1 main-text-card-queue-condition fw-bold">در حال آماده سازی</p>
-                            <div className=" main-icon-cards main-icon-cards-pass ">
-                                <img className="img-fluid" src={chefdoneIcon} height="35px" alt="chefIcon" />
-                            </div></>
+                        order.status.status === 5 
+                        ?<p className="display-6 me-auto ms-1 main-text-card-queue-condition fw-bold">در حال آماده سازی</p>
+                        : null
+                    }
+                    {
+                        order.status.status === 2 || order.status.status === 3 || order.status.status === 5 
+                        ? <div className=" main-icon-cards main-icon-cards-pass ">
+                            <img className="img-fluid" src={chefdoneIcon} height="35px" alt="chefIcon" />
+                        </div>
                         : <div className=" main-icon-cards ms-2 border border-1 border-dark">
                             <img className="img-fluid" src={chefIcon} height="35px" alt="chefIcon" />
                         </div>
                     }
                     {
                         order.paid && order.status.status === 0
-                        ? <><p className="me-auto ms-1 main-text-card-queue-condition fw-bold">در صف انتظار</p>
-                            <div className="main-icon-cards main-icon-cards-pass ms-1">
+                        ?<p className="me-auto ms-1 main-text-card-queue-condition fw-bold">در صف انتظار</p>
+                        : null
+                    }
+                    { 
+                        order.status.status === 2 || order.status.status === 3 || order.status.status === 5 || (order.paid && order.status.status === 0)
+                        ? <div className="main-icon-cards main-icon-cards-pass ms-1">
                             <img className="img-fluid" src={waitingdoneIcon} alt="deliveryIcon" />
-                        </div></>
-
+                        </div>
                         : <div className="main-icon-cards ms-2 border border-1 border-dark">
                             <img className="img-fluid" src={waitingIcon} alt="deliveryIcon" />
                         </div>
