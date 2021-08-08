@@ -4,6 +4,8 @@ import { history } from '../../helpers';
 import moment from 'jalali-moment';
 import persianJs from 'persianjs/persian.min';
 import { useDispatch } from 'react-redux';
+import commaNumber from 'comma-number'
+
 
 //components
 import { InLineOrderHeader } from './inLineOrderHeader';
@@ -29,7 +31,7 @@ export const InLineOrder = ({order}) => {
                 <InLineOrderHeader order={order} />
                 <Row className="d-flex flex-column mx-2 mt-2">
                     <Col className="p-0 py-2">
-                        <span className="ps-2 ">شنبه</span>
+                        <span className="ps-2 ">{persianJs(moment.from(order.createdAt, 'YYYY/MM/DD').locale('fa').format('ddd')).englishNumber().toString()}</span>
                         <span className="ps-2 ">
                             {persianJs(moment.from(order.createdAt, 'YYYY/MM/DD').locale('fa').format('DD MMMM')).englishNumber().toString()}
                         </span>
@@ -63,7 +65,11 @@ export const InLineOrder = ({order}) => {
                             !order.paid ?
                             <Col>
                                 <Button className="col-12  main-card-btn-order-checkout btn btn-danger btn--red--one ">
-                                    <span className="">پرداخت</span>
+                                    <Row className="px-3">
+                                        <Col className="text-end">پرداخت </Col>
+                                        <Col className="text-start"> {persianJs(commaNumber(order.total)).englishNumber().toString()} تومان</Col>
+                                    </Row>
+                                    
                                 </Button>
                             </Col> 
                             : null
