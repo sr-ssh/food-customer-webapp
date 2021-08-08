@@ -3,7 +3,7 @@ import { SERVER_LOCAL_SAEID,SERVER_URL } from '../config';
 import { history } from '../helpers';
 import { authHeader } from '../helpers';
 
-let baseRoute = SERVER_LOCAL_SAEID;
+let baseRoute = SERVER_URL;
 
 
 export const userService = {

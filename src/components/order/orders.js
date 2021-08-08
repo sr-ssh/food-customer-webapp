@@ -38,7 +38,7 @@ export const Orders = () => {
                     <>
                         <section className="section--container__textlist-order">
                             <ul className="ul--container__order ">
-                                {orderProductCategory.map((item, index) => <li className={`li--order ${activeCategory == index ? "active--category" : null}`} onClick={(e) => categoryHandler(e,index)}>{item}</li>)}
+                                {orderProductCategory.map((item, index) => <li key={index} className={`li--order ${activeCategory == index ? "active--category" : null}`} onClick={(e) => categoryHandler(e,index)}>{item}</li>)}
                             </ul>
                         </section>
                         <Products productsCategory={orderProductCategory[activeCategory]} />

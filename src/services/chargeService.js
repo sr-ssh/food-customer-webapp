@@ -3,7 +3,7 @@ import axios from 'axios';
 import { SERVER_LOCAL_SAEID,SERVER_URL } from '../config';
 import { handleResponse, handleError } from '../helpers/util';
 
-let baseRoute = `${SERVER_LOCAL_SAEID}/charge`;
+let baseRoute = `${SERVER_URL}/charge`;
 
 export const chargeService = { 
     getCharge 
