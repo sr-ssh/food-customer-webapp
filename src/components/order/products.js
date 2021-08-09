@@ -20,7 +20,7 @@ export const Products = ({ productsCategory, basket, setbasket }) => {
   const data = useSelector(state => state.getProduct.products)
   const [index, setIndex] = useState(0);
   const [activeOrder, setActiveOrder] = useState({})
-  const [number, setNumber] = useState(0)
+  const [quantity, setNumber] = useState(0)
   const [orderList, setOrderList] = useState([...data])
   const [productSize, setProductSize] = useState("medium");
   let priceAsSize = orderList[index]?.size?.filter(data => data?.name === productSize)
@@ -47,7 +47,7 @@ export const Products = ({ productsCategory, basket, setbasket }) => {
         map._id = obj._id;
         map.name = obj.name;
         map.price = obj?.price + priceAsSize[0].price;
-        map.number = permission ? obj.number + 1 : obj.number;
+        map.quantity = permission ? obj.quantity + 1 : obj.quantity;
         map.size = priceAsSize[0].name
         return map;
       }, {});
@@ -61,13 +61,13 @@ export const Products = ({ productsCategory, basket, setbasket }) => {
     if (product.length > 0) {
       let updatedOrder = basket.map((item, indexArray) => {
         if (item._id === id && item.size === productSize) {
-          item.number = (type == '+') ? item.number + 1 : item.number - 1
-          if (item.number !== 0)
-            return { ...item, number: item.number };
+          item.quantity = (type == '+') ? item.quantity + 1 : item.quantity - 1
+          if (item.quantity !== 0)
+            return { ...item, quantity: item.quantity };
         }
         return item;
       });
-      updatedOrder = updatedOrder.filter(item => item.number !== 0)
+      updatedOrder = updatedOrder.filter(item => item.quantity !== 0)
       setbasket(updatedOrder);
     } else {
       let currentOrder = orderList.filter(item => item._id == id);
@@ -77,7 +77,7 @@ export const Products = ({ productsCategory, basket, setbasket }) => {
   }
 
   useEffect(() => {
-    let products = data.filter(item => { return (item.type.name === productsCategory) }).map(data => { return { ...data, number: 0, price: 0 } });
+    let products = data.filter(item => { return (item.type.name === productsCategory) }).map(data => { return { ...data, quantity: 0, price: 0 } });
     setOrderList([...products])
     setIndex(0)
   }, [productsCategory, data])
@@ -112,7 +112,7 @@ export const Products = ({ productsCategory, basket, setbasket }) => {
         <ToggleButton sizeProduct={setProductSize}></ToggleButton>
       </Row>
       <Detail detail={orderList[index]} price={priceAsSize?.[0]}></Detail>
-      <ControlButton index={index} data={orderList[index]} activeOrder={activeOrder} handleOrderList={handleOrderList} number={orderList[index]?.number} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
+      <ControlButton index={index} data={orderList[index]} activeOrder={activeOrder} handleOrderList={handleOrderList} quantity={orderList[index]?.quantity} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
       <Dialog basket={basket} ></Dialog>
     </div>
   )

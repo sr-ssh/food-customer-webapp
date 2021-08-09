@@ -54,7 +54,7 @@ export const OrderDetails = () => {
                                         {persianJs(moment.from(order.order.createdAt, 'YYYY/MM/DD').locale('fa').format('DD MMMM')).englishNumber().toString()}
                                     </span>
                                     <span className="fw-bold ps-2 text--order--details">
-                                        {persianJs(moment.from(order.order.createdAt, 'YYYY/MM/DD').locale('fa').format('HH:MM')).englishNumber().toString()}
+                                        {persianJs(moment.from(order.order.createdAt, 'YYYY/MM/DD').locale('fa').format('HH:mm')).englishNumber().toString()}
                                     </span>
                                 </Card.Text>
                             </Col>
@@ -128,7 +128,7 @@ export const OrderDetails = () => {
                         </Row>
                         <Row className="m-0 mt-2">
                             <Col className="d-flex ">
-                                <Card.Text className="m-0 mb-1 col-3">
+                                <Card.Text className="m-0 mb-1 col-4">
                                     <span className="order--detailes--order">توضیحات :</span>
                                 </Card.Text>
                                 <Card.Text>

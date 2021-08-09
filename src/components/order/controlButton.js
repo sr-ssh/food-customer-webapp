@@ -20,7 +20,7 @@ export const ControlButton = (props) => {
           </Col>
           <Col className="col--container__productPrice" xs={3}>
             <div className="div--container__controltext">
-              <span className="span--container__price">{props.activeOrder.number && persianJs(props.activeOrder.number).englishNumber().toString() || persianJs('0').englishNumber().toString()}</span>
+              <span className="span--container__price">{props.activeOrder.quantity && persianJs(props.activeOrder.quantity).englishNumber().toString() || persianJs('0').englishNumber().toString()}</span>
             </div>
           </Col>
           <Col className="col--container__minuseButton">

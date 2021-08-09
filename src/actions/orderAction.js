@@ -10,7 +10,8 @@ export const orderAction = {
     getInLineOrders,
     getOrderDetails,
     cancelOrder,
-    getOrderProductsTypes
+    getOrderProductsTypes,
+    addOrder
 };
 
 function getProduct(body) {
@@ -172,6 +173,40 @@ function getOrderProductsTypes() {
                 },
                 error => {
                     dispatch(failure(orderConstant.GET_ORDER_PRODUCTS_TYPES_FAILURE, error.toString()));
+                    console.log("occure error");
+                    console.log(error.toString());
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+}
+
+
+function addOrder(body) {
+    return dispatch => {
+        dispatch(request(orderConstant.ADD_ORDER_REQUEST));
+        orderService.addOrder(body)
+            .then(
+                res => {
+                    if (res === undefined) {
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(failure(orderConstant.ADD_ORDER_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
+                    }
+                    else if (res.success) {
+                        console.log("order product types")
+                        dispatch(success(orderConstant.ADD_ORDER_SUCCESS, res.data))
+                        dispatch(alertActions.success(res.message));
+                        history.push('/main')
+                    } else if (res.success === false) {
+                        dispatch(failure(orderConstant.ADD_ORDER_FAILURE, res.message));
+                        dispatch(alertActions.error(res.message));
+                    }
+                    setTimeout(() => {
+                        dispatch(alertActions.clear());
+                    }, 1500);
+                },
+                error => {
+                    dispatch(failure(orderConstant.ADD_ORDER_FAILURE, error.toString()));
                     console.log("occure error");
                     console.log(error.toString());
                     dispatch(alertActions.error(error.toString()));

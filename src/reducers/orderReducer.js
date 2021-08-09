@@ -7,7 +7,8 @@ const initialState = {
   productCategory: [],
   loading: false,
   orders: [],
-  orderDetails: {}
+  orderDetails: {},
+  order: {}
 }
 
 
@@ -104,6 +105,8 @@ export const cancelOrder = (state = initialState, action) => {
       return state;
   }
 };
+
+
 export const getOrderProductsTypes = (state = initialState, action) => {
   switch (action.type) {
     case orderConstant.GET_ORDER_PRODUCTS_TYPES_REQUEST:
@@ -118,6 +121,29 @@ export const getOrderProductsTypes = (state = initialState, action) => {
         productCategory: action.data
       }
     case orderConstant.GET_ORDER_PRODUCTS_TYPES_FAILUREE:
+      return {
+        err: action.error,
+        loading: false
+      }
+    default:
+      return state;
+  }
+};
+
+export const addOrder = (state = initialState, action) => {
+  switch (action.type) {
+    case orderConstant.ADD_ORDER_REQUEST:
+      return {
+        ...state,
+        loading: true
+      }
+    case orderConstant.ADD_ORDER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        order: action.data
+      }
+    case orderConstant.ADD_ORDER_FAILUREE:
       return {
         err: action.error,
         loading: false

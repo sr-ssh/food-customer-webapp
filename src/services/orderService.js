@@ -19,7 +19,8 @@ export const orderService = {
     getInLineOrders,
     getOrderDetails,
     cancelOrder,
-    getOrderProductsTypes
+    getOrderProductsTypes,
+    addOrder
 }
 
 function getProduct() {
@@ -86,10 +87,28 @@ function cancelOrder(orderId) {
             }
         });
 }
+
 function getOrderProductsTypes() {
     console.log("into getOrderProductsTypes");
     return axios
         .get(`${baseRoute}/product/type`)
+        .then(res => {
+            console.log("res.user >> ");
+            console.log(res.data.data);
+            return handleResponse(res)
+        })
+        .catch(error => {
+            if (error.response) {
+                console.log(error.response.data);
+                handleError(error.response.status)
+            }
+        });
+}
+
+function addOrder(body) {
+    console.log("into addOrder");
+    return axios
+        .post(`${baseRoute}/`, body)
         .then(res => {
             console.log("res.user >> ");
             console.log(res.data.data);
