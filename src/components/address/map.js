@@ -1,11 +1,14 @@
 import React, { useState, useRef } from 'react';
 import NeshanMap from 'react-neshan-map-leaflet'
 
-import markericon from "../../assets/images/address/marker.svg";
+import markericon from "../../assets/images/address/destination.svg";
+import searchIcon from "../../assets/images/address/search.svg";
 import loctionicon from "../../assets/images/address/loction.svg";
-import { Button } from 'react-bootstrap';
+import { Button, FormControl, InputGroup, Col, Row, Form, Image } from 'react-bootstrap';
 import { LoaderRed } from '../base/loader-bg-red'
 import "../../assets/styles/leaflet.css"
+import { useDispatch } from 'react-redux';
+import { addressActions } from '../../actions/addressActions';
 
 
 // YOUR_API_KEY_GOES_BELOW
@@ -19,7 +22,7 @@ export const Map = ({ setAddress }) => {
     const target = useRef();
     const ZOME_LEVEL = 13;
 
-
+    const dispatch = useDispatch()
 
     let alertHandler = (txt, status, loader) => {
         setAlert({ text: txt, status: status, loader: loader })
@@ -53,11 +56,15 @@ export const Map = ({ setAddress }) => {
         });
     }
 
+    const searchAddress = (e) => {
+        console.log(e.target.value)
+        dispatch(addressActions.searchAddress())
+    }
+
 
 
     return (
         <>
-            <div className="map">
                 <NeshanMap
                     options={{
                         key: API_KEY,
@@ -68,7 +75,7 @@ export const Map = ({ setAddress }) => {
                     onInit={(L, myMap) => {
                         let myIcon = L.icon({
                             iconUrl: markericon,
-                            iconSize: [40, 50]
+                            iconSize: [80, 90]
                         });
                         let marker = L.marker(position, { icon: myIcon })
                             .addTo(myMap);
@@ -82,7 +89,19 @@ export const Map = ({ setAddress }) => {
                         });
                     }}
                 />
-
+                <Col className="justify-content-center map--search--col">
+                    <Form className="d-flex flex-column justify-content-center" noValidate >
+                        <Row className="w-100 justify-content-center inputs">
+                            <Col xs={12} className="justify-content-center pe-4 ps-0">
+                                <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
+                                    <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon me-3 mt-2" />
+                                    <Form.Control className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress}
+                                    />
+                                </Form.Group>
+                            </Col>
+                        </Row>
+                    </Form>
+                </Col>
                 <div>
                     <Button ref={target} className="btn btn-danger border-0  icon--location--detection" onClick={locateUserHandler}>
                         < img src={loctionicon} height="25px" alt="loction_icon" />
@@ -95,7 +114,6 @@ export const Map = ({ setAddress }) => {
                     {alerts?.text}
                 </div>
 
-            </div>
 
         </>
     )

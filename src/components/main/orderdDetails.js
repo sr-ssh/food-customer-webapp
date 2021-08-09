@@ -92,7 +92,10 @@ export const OrderDetails = () => {
                                                                 <tr key={index}>
                                                                     <td>{product._id.name}</td>
                                                                     <td className="text-center">{persianJs(commaNumber(product.price)).englishNumber().toString()}</td>
-                                                                    <td className="text-center">{translate(persianJs(product.size).englishNumber().toString())}</td>
+                                                                    <td className="text-center">
+                                                                        { 
+                                                                        translate(persianJs(product.size).englishNumber().toString())}
+                                                                    </td>
                                                                     <td className="pe-3">{persianJs(commaNumber(product.quantity)).englishNumber().toString()}</td>
                                                                 </tr>
                                                                 )

@@ -48,3 +48,25 @@ export function newAddress(state = initialState, action) {
             return state
     }
 }
+
+export function searchAddress(state = initialState, action) {
+    switch (action.type) {
+        case addressConstants.SEARCH_ADDRESS_REQUEST:
+            return {
+                loading: true,
+                address: action.address
+            };
+        case addressConstants.SEARCH_ADDRESS_SUCCESS:
+            return {
+                loading: false,
+                address: action.address
+            };
+        case addressConstants.SEARCH_ADDRESS_FAILURE:
+            return {
+                loading: false,
+                error: action.error
+            };
+        default:
+            return state
+    }
+}

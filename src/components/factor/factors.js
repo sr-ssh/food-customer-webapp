@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Table, Form, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { Header } from '../base/header2'
 import {toFarsiNumber} from '../../helpers/util'
 
@@ -7,18 +7,18 @@ import {toFarsiNumber} from '../../helpers/util'
 import { OrderList } from "./orderList";
 import { useDispatch } from 'react-redux';
 import { orderAction } from '../../actions/orderAction';
+import { history } from '../../helpers';
 
 export const Factor = (props) => {
 
     const [total , setTotal]= useState(props.location.state.data?.map(data=>data.price * data.quantity).reduce((a,b)=>a + b ,0))
     const [tax,setTax] = useState(props.location.state?.data?.map(data=>data.price * data.quantity * (9 / 100)).reduce((a,b)=>a + b ,0))
-    let deliveryCost = JSON.parse(localStorage.getItem('addressVerify')).deliveryCost
-    const totalAmount = total + tax + deliveryCost
-
     let userAddress = JSON.parse(localStorage.getItem('userAddress'))
     const [products, setProducts] = useState(props.location.state.data)
+    let deliveryCost = JSON.parse(localStorage.getItem('addressVerify')).deliveryCost
     const [order, setOrder] = useState({products, deliveryCost, lat: userAddress.lat, lng: userAddress.lng, address: userAddress.address})
     const dispatch = useDispatch()
+    const totalAmount = total + tax + deliveryCost
 
    
     const descHandler = e => {
@@ -27,6 +27,14 @@ export const Factor = (props) => {
 
     const addOrder = () => {
         dispatch(orderAction.addOrder(order))
+    }
+
+    let removeProduct = (e, product) => {
+        e.preventDefault();
+        let updatedProducts = products.filter(item => item._id !== product._id);
+        if(!updatedProducts.length)
+            history.push('/order')
+        setProducts(updatedProducts)
     }
 
     return (

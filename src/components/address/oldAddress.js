@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addressActions, alertActions } from '../../actions';
 import { LoaderRed } from '../base/loader-bg-red'
@@ -8,7 +8,6 @@ import { LoaderRed } from '../base/loader-bg-red'
 // Assets
 import addIcon from '../../assets/images/main/add-red.svg'
 import { AddressCard } from './AddressCard';
-import { history } from '../../helpers';
 
 
 export const OldAddress = ({addresses, setNewAddress}) => {

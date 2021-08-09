@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Row, Col, Card, Form, Button, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { LoaderRed } from '../base/loader-bg-red'
 import { Map } from "./map";
 import { addressActions } from '../../actions/addressActions';
@@ -34,17 +34,12 @@ export const NewAddress = () => {
     return (
         <>
             <Container className="m-0 mx-auto new--address--container d-flex flex-column justify-content-between">
-                <Row className="m-0 mt-2" style={{ height: "57vh" }}>
-                    <Col className="p-0 " style={{ height: "57vh" }}>
-                        <Card className="border-0 bg-transparent text-light" style={{ height: "57vh" }} >
-                            <Card.Title className="pe-2 card--title--new--address">موقعیت تان را انتخاب  کنید</Card.Title>
-                            <Card.Body className={`p-0 card--map ${validate ? "border border-danger" : null} `}>
-                                <Map setAddress={setAddress} />
-                            </Card.Body>
-                        </Card>
+                <Row style={{ height: "61vh" }}>
+                    <Col style={{ height: "61vh" }}  className={`p-0 ${validate ? "border border-danger" : null} `}>
+                        <Map className="map" setAddress={setAddress} />
                     </Col>
                 </Row>
-                <Row className="m-0 mb-auto   new--address--inputs">
+                <Row className="m-0 mt-3 mb-auto new--address--inputs">
                     <Col className="p-0 new--address--description-input">
                         <Form.Group controlId="description">
                             <Form.Label className="pe-2">لطفا آدرس دقیق را بنویسید</Form.Label>

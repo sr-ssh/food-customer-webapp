@@ -1,12 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Button, Row, Col, Card } from 'react-bootstrap';
-import Sidebar from 'react-sidebar'
-import { history } from '../../helpers';
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
 
 //icons
-import menuIcon from './../../assets/images/base/menu.svg'
-import logo from './../../assets/images/base/happy-pizza.png'
-import addIcon from './../../assets/images/main/add.svg'
 import waitingIcon from './../../assets/images/main/waiting.svg'
 import peymentIcon from './../../assets/images/main/peyment.svg'
 import deliveryIcon from './../../assets/images/main/delivery.svg'
@@ -16,8 +11,6 @@ import waitingdoneIcon from './../../assets/images/main/waitingdone.svg'
 import deliverydoneIcon from './../../assets/images/main/deliverydone.svg'
 import coookingdoneIcon from './../../assets/images/main/coookingdone.svg'
 import chefdoneIcon from './../../assets/images/main/chefdone.svg'
-import { useDispatch, useSelector } from 'react-redux';
-import { orderAction } from '../../actions/orderAction';
 
 
 
