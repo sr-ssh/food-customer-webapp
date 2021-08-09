@@ -3,14 +3,12 @@ import { Button, Row, Col, Card } from 'react-bootstrap';
 import { history } from '../../helpers';
 import moment from 'jalali-moment';
 import persianJs from 'persianjs/persian.min';
-import { useDispatch } from 'react-redux';
 import commaNumber from 'comma-number'
 
 
 //components
 import { InLineOrderHeader } from './inLineOrderHeader';
 import { InLineOrderText } from './inLineOrderText';
-import { orderAction } from '../../actions/orderAction';
 import { CancelOrder } from './cancelOrder';
 
 
@@ -44,7 +42,7 @@ export const InLineOrder = ({order}) => {
                 <Row className="me-2 ms-2 g-0">
                     <Col className="d-flex flex-row">
                         <Col onClick={() => orderDetails(order._id)}>
-                            <Button className="col-12 main-card-btn-order-detail btn--red--two px-0">
+                            <Button className={`col-12 main-card-btn-order-detail px-0 ${order.paid ? 'btn--red--one' : 'btn--red--two'}`}>
                                 <span className="">جزییات سفارش</span>
                             </Button>
                         </Col>

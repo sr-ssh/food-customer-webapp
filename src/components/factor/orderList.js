@@ -1,4 +1,5 @@
 import React from 'react';
+import persianJs from 'persianjs/persian.min';
 import { Row, Col, Table } from 'react-bootstrap';
 
 // Assets
@@ -17,8 +18,8 @@ export const OrderList = (props) => {
                             <tbody>
                                 {data.map(data=><tr>
                                     <td className="m-0 p-0 pb-1"><span className="fw-bold ms-5">{data.name}</span></td>
-                                    <td className="text-center m-0 p-0 ps-3"><span className="fw-bold">{data.price}</span><span className="factor--text--details">تومان</span></td>
-                                    <td className="m-0 p-0"><span className="fw-bold">{data.number}</span><span className="factor--text--details">عدد</span></td>
+                                    <td className="text-center m-0 p-0 ps-3"><span className="fw-bold">{persianJs(data.price).englishNumber().toString()}</span><span className="factor--text--details">تومان</span></td>
+                                    <td className="m-0 p-0"><span className="fw-bold">{persianJs(data.number).englishNumber().toString()}</span><span className="factor--text--details">عدد</span></td>
                                     <td className="m-0 p-0"><img src={deleteIcon} className="" height="22px" alt="delete-icon" /></td>
                                 </tr>)}
                             </tbody>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import persianJs from 'persianjs/persian.min';
 
 export const Detail = ({ detail, price }) => {
 
@@ -11,7 +12,7 @@ export const Detail = ({ detail, price }) => {
                         <Col className="col--container__title" >
                             {detail?.name}
                         </Col>
-                        <Col className="col--container__price">{price?.price}<span className="label--container__price fw-bold">تومان</span></Col>
+                        <Col className="col--container__price">{price && persianJs(price.price).englishNumber().toString()}<span className="label--container__price fw-bold">تومان</span></Col>
                     </Row>
                     <Row className="row--container__detailtext">
                         <span className="span--container__detailtext">{detail?.description}</span>

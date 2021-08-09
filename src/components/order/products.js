@@ -76,14 +76,14 @@ export const Products = ({ productsCategory, basket, setbasket }) => {
     }
   }
 
-  useEffect(async () => {
-    let products = await data.filter(item => { return (item.type.name === productsCategory) }).map(data => { return { ...data, number: 0, price: 0 } });
+  useEffect(() => {
+    let products = data.filter(item => { return (item.type.name === productsCategory) }).map(data => { return { ...data, number: 0, price: 0 } });
     setOrderList([...products])
     setIndex(0)
   }, [productsCategory, data])
 
-  useEffect(async () => {
-    let activeProduct = await basket.filter(item => {
+  useEffect(() => {
+    let activeProduct = basket.filter(item => {
       if (item._id === orderList[index]?._id && item.size === priceAsSize[0]?.name) return item
     })
     setActiveOrder(getObjCurrentProduct(activeProduct, false));
