@@ -26,6 +26,13 @@ export function handleResponse(response) {
     // return Promise.reject(error);
     // return response;
 }
+export function toFarsiNumber(n) {
+    const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+    return n
+        .toString()
+        .replace(/\d/g, x => farsiDigits[x]);
+}
 
 export function camelCase(str) {
     return str.substring(0, 1).toUpperCase() + str.substring(1);
