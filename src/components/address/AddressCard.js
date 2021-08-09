@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { addressActions } from '../../actions';
+import React from 'react';
+import { Row, Col, Card } from 'react-bootstrap';
 
 // Assets
 import editIcon from '../../assets/images/main/edit.svg'
@@ -13,7 +11,7 @@ export const AddressCard = ({address, setAddress, selected}) => {
     return (
         
         <Col onClick={() => setAddress(address)}>
-            <Card className={`m-auto mt-4 bg-white old--address-card lh-lg pb-2  ${selected ? "address--red--border" : null}`} >
+            <Card className={`m-auto mx-2 mt-4 bg-white old--address-card lh-lg pb-2  ${selected ? "address--red--border" : null}`} >
                 <Card.Body className="p-0 pe-2 py-2 text-gray">
                     <Row className="pe-2">
                         <Row className="mt-2 d-flex flex-nowrap align-items-center">

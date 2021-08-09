@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Table, Form, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { Header } from '../base/header2'
 import persianJs from 'persianjs/persian.min';
 
@@ -7,18 +7,19 @@ import persianJs from 'persianjs/persian.min';
 import { OrderList } from "./orderList";
 import { useDispatch } from 'react-redux';
 import { orderAction } from '../../actions/orderAction';
+import { history } from '../../helpers';
 
 export const Factor = (props) => {
 
-    let total = props.location.state.data?.map(data=>data.price * data.quantity).reduce((a,b)=>a + b ,0)
-    let tax = props.location.state?.data?.map(data=>data.price * data.quantity * (9 / 100)).reduce((a,b)=>a + b ,0)
-    let deliveryCost = JSON.parse(localStorage.getItem('addressVerify')).deliveryCost
-    const totalAmount = total + tax + deliveryCost
-
+    
     let userAddress = JSON.parse(localStorage.getItem('userAddress'))
     const [products, setProducts] = useState(props.location.state.data)
+    let deliveryCost = JSON.parse(localStorage.getItem('addressVerify')).deliveryCost
     const [order, setOrder] = useState({products, deliveryCost, lat: userAddress.lat, lng: userAddress.lng, address: userAddress.address})
     const dispatch = useDispatch()
+    let total = products?.map(data=>data.price * data.quantity).reduce((a,b)=>a + b ,0)
+    let tax = products?.map(data=>data.price * data.quantity * (9 / 100)).reduce((a,b)=>a + b ,0)
+    const totalAmount = total + tax + deliveryCost
 
     const descHandler = e => {
         setOrder({ ...order, description: e.target.value })
@@ -28,12 +29,20 @@ export const Factor = (props) => {
         dispatch(orderAction.addOrder(order))
     }
 
+    let removeProduct = (e, product) => {
+        e.preventDefault();
+        let updatedProducts = products.filter(item => item._id !== product._id);
+        if(!updatedProducts.length)
+            history.push('/order')
+        setProducts(updatedProducts)
+    }
+
     return (
         <>{console.log(props)}
             <div className="factor-page">
                 <Header title="فاکتور" backLink="/order" backtext="سفارش" />
                 <Container className=" pt-2 px-4  d-flex flex-column factor-page-container" >
-                    <OrderList  data ={products}/>
+                    <OrderList  data ={products} removeProduct={removeProduct}/>
                     <Row className="m-0 p-0 mt-2 factor-inputs">
                         <Col className="p-0 factor-description-input">
                             <Form.Group controlId="description">

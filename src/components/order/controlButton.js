@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Low_off from './../../assets/images/order/Low-off.svg'
 import addIcon from './../../assets/images/main/add.svg'

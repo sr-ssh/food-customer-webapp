@@ -9,8 +9,6 @@ import { Detail } from './detail';
 import { ToggleButton } from './toggleButton';
 import { Dialog } from './dialog';
 
-// Assets
-import pizza from '../../assets/images/order/products/picc_pizza.png'
 
 
 export const Products = ({ productsCategory, basket, setbasket }) => {
@@ -24,7 +22,7 @@ export const Products = ({ productsCategory, basket, setbasket }) => {
   const [orderList, setOrderList] = useState([...data])
   const [productSize, setProductSize] = useState("medium");
   let priceAsSize = orderList[index]?.size?.filter(data => data?.name === productSize)
-
+console.log(productsCategory)
   // function toFarsiNumber(n) {
   //   const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 
@@ -71,7 +69,7 @@ export const Products = ({ productsCategory, basket, setbasket }) => {
       setbasket(updatedOrder);
     } else {
       let currentOrder = orderList.filter(item => item._id == id);
-      currentOrder = getObjCurrentProduct(currentOrder, true);
+        currentOrder = getObjCurrentProduct(currentOrder, true);
       setbasket([...basket, currentOrder]);
     }
   }
@@ -108,9 +106,13 @@ export const Products = ({ productsCategory, basket, setbasket }) => {
           </Carousel.Item>
         )}
       </Carousel>
-      <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 ">
-        <ToggleButton sizeProduct={setProductSize}></ToggleButton>
-      </Row>
+      {
+        productsCategory === "پیتزا" 
+        ? <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 ">
+          <ToggleButton sizeProduct={setProductSize}></ToggleButton>
+        </Row>
+        : null
+      }
       <Detail detail={orderList[index]} price={priceAsSize?.[0]}></Detail>
       <ControlButton index={index} data={orderList[index]} activeOrder={activeOrder} handleOrderList={handleOrderList} quantity={orderList[index]?.quantity} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
       <Dialog basket={basket} ></Dialog>

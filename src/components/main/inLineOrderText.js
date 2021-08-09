@@ -1,29 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Button, Row, Col, Card } from 'react-bootstrap';
-import Sidebar from 'react-sidebar'
-import { history } from '../../helpers';
-import moment from 'jalali-moment';
-import persianJs from 'persianjs/persian.min';
-
-//icons
-import menuIcon from './../../assets/images/base/menu.svg'
-import logo from './../../assets/images/base/happy-pizza.png'
-import addIcon from './../../assets/images/main/add.svg'
-import waitingIcon from './../../assets/images/main/waiting.svg'
-import peymentIcon from './../../assets/images/main/peyment.svg'
-import deliveryIcon from './../../assets/images/main/delivery.svg'
-import coookingIcon from './../../assets/images/main/coooking.svg'
-import chefIcon from './../../assets/images/main/chef.svg'
-import waitingdoneIcon from './../../assets/images/main/waitingdone.svg'
-import deliverydoneIcon from './../../assets/images/main/deliverydone.svg'
-import coookingdoneIcon from './../../assets/images/main/coookingdone.svg'
-import chefdoneIcon from './../../assets/images/main/chefdone.svg'
-import { useDispatch, useSelector } from 'react-redux';
-import { orderAction } from '../../actions/orderAction';
-import { InLineOrderHeader } from './inLineOrderHeader';
-
-
-
+import React from 'react';
+import { Col } from 'react-bootstrap';
 
 
 export const InLineOrderText = ({order}) => {

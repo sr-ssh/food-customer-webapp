@@ -3,9 +3,6 @@
   min-height: 100vh;
   background: var(--background-one);
 }
-.card--map {
-  border-radius: 14px;
-}
 .old--address-card {
   border-radius: 10px;
   border: none
@@ -82,7 +79,7 @@
   min-height: 25vh;
 }
 .map {
-  height: 53vh;
+  height: 61vh;
 }
 .loader--map {
   position: absolute;
@@ -94,8 +91,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 5%;
-  right: 8px;
+  top: 62%;
+  right: 21px;
   height: 35px;
   width: 35px;
   border-radius: 50%;
@@ -125,4 +122,31 @@
   background-color: var(--red-one);
   z-index: 950;
   transition: 0.5s;
+}
+
+.map--search--col{
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  z-index: 1000;
+}
+
+.map--search--group{
+  height: 7vh;
+}
+
+.map--search--input{
+  border-radius: 13px;
+  box-shadow: 1px 1px 12px rgb(182, 182, 182);
+  padding-right: 3.5rem;
+  font-size: 15px;
+}
+
+.map--search--input.form-control:focus {
+  border: none;
+  box-shadow: 1px 1px 12px rgb(182, 182, 182);
+}
+
+.map--search--icon{
+  position: absolute;
 }
