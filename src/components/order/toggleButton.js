@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export const ToggleButton = ({ sizeProduct }) => {
+export const ToggleButton = ({ sizeProduct, activeOptions }) => {
 
     const [activeOption, setActiveOption] = useState(0)
     const option = [{ 0: "1 نفره" }, { 1: "2 نفره" }]
@@ -14,7 +14,9 @@ export const ToggleButton = ({ sizeProduct }) => {
             sizeProduct("large");
         setActiveOption(e)
     }
-
+    useEffect(() => {
+        setActiveOption(0)
+    }, [activeOptions])
 
     return (
         <div className="div--container__togglebutton d-flex flex-row justify-content-around align-items-center px-2">

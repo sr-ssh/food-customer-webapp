@@ -19,6 +19,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   const [index, setIndex] = useState(0);
   const [activeOrder, setActiveOrder] = useState({})
   const [quantity, setNumber] = useState(0)
+  const [activeOption, setActiveOption] = useState(true)
   const [orderList, setOrderList] = useState([...data])
   const [productSize, setProductSize] = useState("medium");
   let priceAsSize = orderList[index]?.size?.filter(data => data?.name === productSize)
@@ -38,8 +39,9 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
     setNumber(0)
+    setActiveOption(!activeOption)
   };
-  
+
   let getObjCurrentProduct = (value, permission) => {
     if (value.length > 0)
       return value.reduce((map, obj) => {
@@ -70,7 +72,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
       setbasket(updatedOrder);
     } else {
       let currentOrder = orderList.filter(item => item._id == id);
-        currentOrder = getObjCurrentProduct(currentOrder, true);
+      currentOrder = getObjCurrentProduct(currentOrder, true);
       setbasket([...basket, currentOrder]);
     }
   }
@@ -85,7 +87,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   }, [productsCategory, data])
 
   useEffect(() => {
-    if(props.location.state && props.location.state.state[0]){
+    if (props.location.state && props.location.state.state[0]) {
       setbasket(props.location.state.state)
       props.location.state = null
     }
@@ -114,11 +116,11 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
         )}
       </Carousel>
       {
-        productsCategory === "پیتزا" 
-        ? <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 ">
-          <ToggleButton sizeProduct={setProductSize}></ToggleButton>
-        </Row>
-        : null
+        productsCategory === "پیتزا"
+          ? <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 ">
+            <ToggleButton sizeProduct={setProductSize} activeOptions={activeOption}></ToggleButton>
+          </Row>
+          : null
       }
       <Detail detail={orderList[index]} price={priceAsSize?.[0]}></Detail>
       <ControlButton index={index} data={orderList[index]} activeOrder={activeOrder} handleOrderList={handleOrderList} quantity={orderList[index]?.quantity} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
