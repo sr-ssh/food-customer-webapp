@@ -28,6 +28,13 @@ export const Map = ({ setAddress }) => {
         setAlert({ text: txt, status: status, loader: loader })
     }
 
+
+    mapPropeties?.myMap.on('drag', function (e) {
+        console.log(e);
+        mapPropeties.marker.setLatLng(mapPropeties?.myMap.getCenter());
+    });
+
+
     let locateUserHandler = () => {
         // Call mapPropeties.locate() for find Usre Location 
         mapPropeties.myMap?.locate();
@@ -85,7 +92,11 @@ export const Map = ({ setAddress }) => {
                     myMap.on('click', function (e) {
                         marker.setLatLng(e.latlng)
                         setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
-
+                    });
+                    myMap.on('tap', function (e) {
+                        // marker.setLatLng(e.latlng)
+                        // setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
+                        console.log(e);
                     });
                 }}
             />
