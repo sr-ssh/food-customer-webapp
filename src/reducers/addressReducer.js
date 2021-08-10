@@ -54,12 +54,11 @@ export function searchAddress(state = initialState, action) {
         case addressConstants.SEARCH_ADDRESS_REQUEST:
             return {
                 loading: true,
-                address: action.address
             };
         case addressConstants.SEARCH_ADDRESS_SUCCESS:
             return {
                 loading: false,
-                address: action.address
+                searchAddress: action.data
             };
         case addressConstants.SEARCH_ADDRESS_FAILURE:
             return {

@@ -97,22 +97,22 @@ function newAddress(address) {
     function failure(error) { return { type: addressConstants.NEW_ADDRESS_FAILURE, error } }
 }
 
-function searchAddress() {
+function searchAddress(body) {
     return dispatch => {
         dispatch(request(addressConstants.SEARCH_ADDRESS_REQUEST));
-        addressService.searchAddress()
+        addressService.searchAddress(body)
             .then(
                 res => {
                     if (res === undefined) {
                         dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
                         dispatch(failure(addressConstants.SEARCH_ADDRESS_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
-                    else if (res.success) {
+                    else if (res) {
                         console.log("got charge")
-                        dispatch(success(addressConstants.SEARCH_ADDRESS_SUCCESS, res.data))
-                    } else if (res.success === false) {
-                        dispatch(failure(addressConstants.SEARCH_ADDRESS_FAILURE, res.message));
-                        dispatch(alertActions.error(res.message));
+                        dispatch(success(addressConstants.SEARCH_ADDRESS_SUCCESS, res))
+                    } else if (!res) {
+                        dispatch(failure(addressConstants.SEARCH_ADDRESS_FAILURE, res));
+                        dispatch(alertActions.error(res));
                     }
                     setTimeout(() => {
                         dispatch(alertActions.clear());

@@ -48,10 +48,10 @@ function newAddress(body) {
 function searchAddress(body) {
     console.log("into addressService");
     return axios
-        .get(`https://api.neshan.org/v1/search?term=${encodeURI('حرم')}&lat=${encodeURI('36.297920')}&lng=${encodeURI("59.605933")}`, {headers: "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2"})
+        .get(`https://api.neshan.org/v1/search?term=${encodeURI(body)}&lat=${encodeURI('36.297920')}&lng=${encodeURI("59.605933")}`, {headers: "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2"})
         .then(res => {
             console.log("res.user >> ");
-            console.log(res.data.data);
+            console.log(res.data);
 
             return res.data
         })

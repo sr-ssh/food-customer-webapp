@@ -4,10 +4,10 @@ import NeshanMap from 'react-neshan-map-leaflet'
 import markericon from "../../assets/images/address/destination.svg";
 import searchIcon from "../../assets/images/address/search.svg";
 import loctionicon from "../../assets/images/address/loction.svg";
-import { Button, FormControl, InputGroup, Col, Row, Form, Image } from 'react-bootstrap';
+import { Button, FormControl, InputGroup, Col, Row, Form, Image, Dropdown } from 'react-bootstrap';
 import { LoaderRed } from '../base/loader-bg-red'
 import "../../assets/styles/leaflet.css"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addressActions } from '../../actions/addressActions';
 
 
@@ -15,6 +15,10 @@ import { addressActions } from '../../actions/addressActions';
 const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
 export const Map = ({ setAddress }) => {
+
+    const [dimStatus, setDimStatus] = useState(false)
+    const [selectedItem, setItem] = useState("")
+    const searchedAdrs = useSelector(state => state.searchAddress.searchAddress)
 
     const [position, setPosition] = useState({ lat: 36.297920, lng: 59.605933 })
     const [mapPropeties, setMapPropeties] = useState()
@@ -57,8 +61,8 @@ export const Map = ({ setAddress }) => {
     }
 
     const searchAddress = (e) => {
-        console.log(e.target.value)
-        dispatch(addressActions.searchAddress())
+        setItem(e.target.value)
+        dispatch(addressActions.searchAddress(e.target.value))
     }
 
 
@@ -90,17 +94,39 @@ export const Map = ({ setAddress }) => {
                     }}
                 />
                 <Col className="justify-content-center map--search--col">
-                    <Form className="d-flex flex-column justify-content-center" noValidate >
+                    <Dropdown onToggle={(e) => setDimStatus(!dimStatus)} onClick={(e) => searchAddress(e)}>
+                        <Form className="d-flex flex-column justify-content-center" noValidate >
                         <Row className="w-100 justify-content-center inputs">
                             <Col xs={12} className="justify-content-center pe-4 ps-0">
                                 <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
                                     <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon me-3 mt-2" />
-                                    <Form.Control className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress}
+                                    <Form.Control className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={selectedItem}
                                     />
+                                    <Dropdown.Menu className={`${dimStatus ? "dim" : ""} dropdownProductMenu`}>
+                            {searchedAdrs
+                                ? searchedAdrs.items.map((item, index) => {
+                                    return (
+                                        item.active && (
+                                            <Col key={index}>
+                                                {index ? <Dropdown.Divider /> : null}
+                                                <Dropdown.Item onClick={() => setItem(item.title)}>
+                                                    <Row>
+                                                        <Col className="text-end basket-dropdown-border-left pe-1">{item.title}</Col>
+                                                        <Col>{item.address}</Col>
+                                                    </Row>
+                                                </Dropdown.Item>
+                                            </Col>
+                                        ))
+                                })
+                                : null
+                            }
+                        </Dropdown.Menu>
                                 </Form.Group>
                             </Col>
                         </Row>
                     </Form>
+                        
+                    </Dropdown>
                 </Col>
                 <div>
                     <Button ref={target} className="btn btn-danger border-0  icon--location--detection" onClick={locateUserHandler}>

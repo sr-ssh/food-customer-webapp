@@ -10,8 +10,9 @@ let baseRoute =SERVER_URL + '/order';
 axios.interceptors.request.use(request => {
     console.log('Starting Request', request)
     // `req` is the Axios request config, so you can modify the `headers`.
-    console.log(request.url)
-    if(request.url === "https://api.neshan.org/v1/search?term=%D8%AD%D8%B1%D9%85&lat=36.297920&lng=59.605933")
+    console.log(request.url.substr(0, 22))
+    let baseURL = request.url.substr(0, 22)
+    if(baseURL === "https://api.neshan.org")
         request.headers = {"Api-Key" :"service.inx5NEKTw7qXPjrMFQsKLSF18UFuZVawIV5TCwjH"}
     else request.headers = authHeader();
     return request
