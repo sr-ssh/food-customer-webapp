@@ -5,6 +5,7 @@ import { Row, Col, Table } from 'react-bootstrap';
 // Assets
 import deleteIcon from '../../assets/images/factor/delete.svg'
 import { Refresh } from '@material-ui/icons';
+import { translate } from '../../helpers';
 
 
 export const OrderList = (props) => {
@@ -41,7 +42,10 @@ export const OrderList = (props) => {
                                     products.map(data=>
                                         data && data._id && <tr>
                                         <td className="m-0 p-0 pb-1">
-                                            <span className="fw-bold ms-5">{data?.name}</span>
+                                            <span className="fw-bold ms-4">{data?.name}</span>
+                                        </td>
+                                        <td className="text-end m-0 p-0 pb-1">
+                                            <span className="factor--text--details">{translate(data?.size)}</span>
                                         </td>
                                         <td className="text-center m-0 p-0 ps-3">
                                             <span className="fw-bold">{data?.price && toFarsiNumber(data?.price)}</span>

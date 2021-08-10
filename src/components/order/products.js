@@ -85,7 +85,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   }, [productsCategory, data])
 
   useEffect(() => {
-    if(props.location.state){
+    if(props.location.state && props.location.state.state[0]){
       setbasket(props.location.state.state)
       props.location.state = null
     }
