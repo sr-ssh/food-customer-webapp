@@ -34,7 +34,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   //     .join('');
   // }
 
-
+  console.log(orderList);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -83,6 +83,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
       .map(data => { return { ...data, quantity: 0, price: 0 } });
 
     setOrderList([...products])
+    setProductSize("medium")
     setIndex(0)
   }, [productsCategory, data])
 
