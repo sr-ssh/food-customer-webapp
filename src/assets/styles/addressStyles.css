@@ -138,7 +138,7 @@
 .map--search--input {
   border-radius: 13px;
   box-shadow: 1px 1px 12px rgb(182, 182, 182);
-  padding-right: 3.5rem;
+  padding-right: 2.8rem;
   font-size: 15px;
 }
 
@@ -149,4 +149,8 @@
 
 .map--search--icon {
   position: absolute;
+}
+.leaflet-marker-icon {
+  margin-top: -75px !important;
+  margin-left: -20px !important;
 }

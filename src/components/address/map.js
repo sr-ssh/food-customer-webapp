@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import NeshanMap from 'react-neshan-map-leaflet'
 
 import markericon from "../../assets/images/address/destination.svg";
@@ -14,7 +14,7 @@ import { addressActions } from '../../actions/addressActions';
 // YOUR_API_KEY_GOES_BELOW
 const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
-export const Map = ({ setAddress }) => {
+export const Map = ({ setAddress, getLocation }) => {
 
     const [position, setPosition] = useState({ lat: 36.297920, lng: 59.605933 })
     const [mapPropeties, setMapPropeties] = useState()
@@ -35,6 +35,7 @@ export const Map = ({ setAddress }) => {
     mapPropeties?.myMap.on('move', function (e) {
         mapPropeties.marker.setLatLng(e.target.getCenter());
     })
+
 
 
     let locateUserHandler = () => {
@@ -70,7 +71,9 @@ export const Map = ({ setAddress }) => {
         dispatch(addressActions.searchAddress())
     }
 
-
+    useEffect(() => {
+        setAddress((prevState) => ({ ...prevState, lat: mapPropeties?.myMap.getCenter().lat, lng: mapPropeties?.myMap.getCenter().lng }))
+    }, [getLocation])
 
     return (
         <>
@@ -84,7 +87,8 @@ export const Map = ({ setAddress }) => {
                 onInit={(L, myMap) => {
                     let myIcon = L.icon({
                         iconUrl: markericon,
-                        iconSize: [60, 75]
+                        iconSize: [60, 75],
+                        zIndexOffset: 1000
                     });
                     let marker = L.marker(position, { icon: myIcon })
                         .addTo(myMap);
