@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
-import { Header } from '../base/header2'
+import { Header } from '../base/stateHeader'
 import {toFarsiNumber} from '../../helpers/util'
 
 //components
@@ -40,7 +40,7 @@ export const Factor = (props) => {
     return (
         <>
             <div className="factor-page">
-                <Header title="فاکتور" backLink="/order" backtext="سفارش" />
+                <Header title="فاکتور" backLink="/order" state={products} backtext="سفارش" />
                 <Container className=" pt-2 px-4  d-flex flex-column factor-page-container" >
                     <OrderList  products ={products} total={total} setTotal={setTotal} setProducts={setProducts} tax={tax} setTax={setTax}/>
                     <Row className="m-0 p-0 mt-2 factor-inputs">

@@ -7,7 +7,6 @@ export const Dialog = (props) => {
     let price;
     (() => price = props?.basket?.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0))()
     const handleBill = () => {
-        console.log(props)
         if (props.basket.length > 0) {
             history.push({
                 pathname: '/bill',

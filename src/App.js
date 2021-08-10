@@ -22,10 +22,9 @@ function App() {
         <PrivateRoute path="/main" component={Main}></PrivateRoute>
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
         <PrivateRoute path="/address/new" component={NewAddress}></PrivateRoute>
-        {/* please dont change the Order */}
-        <Route path="/order/detail" component={OrderDetails}></Route>
-        <Route path="/order" component={Orders} />  
-        <Route path="/bill" component={Factor} />
+        <PrivateRoute path="/order/detail" component={OrderDetails}></PrivateRoute>
+        <PrivateRoute path="/order" component={Orders}></PrivateRoute>
+        <PrivateRoute path="/bill" component={Factor}></PrivateRoute>
         <Redirect from="*" to="/" />
       </Switch>
     </Router>

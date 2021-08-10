@@ -8,7 +8,6 @@ export const ControlButton = (props) => {
 
   const handleNumber = (_, i, id) => props.handleOrderList(props.index, i, id)
 
-  console.log(props.activeOrder);
   return (
     <>
       <Container>

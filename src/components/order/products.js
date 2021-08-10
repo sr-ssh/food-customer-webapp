@@ -11,7 +11,7 @@ import { Dialog } from './dialog';
 
 
 
-export const Products = ({ productsCategory, basket, setbasket }) => {
+export const Products = ({ productsCategory, basket, setbasket, props }) => {
 
 
   const dispatch = useDispatch()
@@ -22,7 +22,7 @@ export const Products = ({ productsCategory, basket, setbasket }) => {
   const [orderList, setOrderList] = useState([...data])
   const [productSize, setProductSize] = useState("medium");
   let priceAsSize = orderList[index]?.size?.filter(data => data?.name === productSize)
-console.log(productsCategory)
+
   // function toFarsiNumber(n) {
   //   const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 
@@ -39,6 +39,7 @@ console.log(productsCategory)
     setIndex(selectedIndex);
     setNumber(0)
   };
+  
   let getObjCurrentProduct = (value, permission) => {
     if (value.length > 0)
       return value.reduce((map, obj) => {
@@ -75,12 +76,19 @@ console.log(productsCategory)
   }
 
   useEffect(() => {
-    let products = data.filter(item => { return (item.type.name === productsCategory) }).map(data => { return { ...data, quantity: 0, price: 0 } });
+    let products = data
+      .filter(item => { return (item.type.name === productsCategory) })
+      .map(data => { return { ...data, quantity: 0, price: 0 } });
+
     setOrderList([...products])
     setIndex(0)
   }, [productsCategory, data])
 
   useEffect(() => {
+    if(props.location.state){
+      setbasket(props.location.state.state)
+      props.location.state = null
+    }
     let activeProduct = basket.filter(item => {
       if (item._id === orderList[index]?._id && item.size === priceAsSize[0]?.name) return item
     })
@@ -88,7 +96,6 @@ console.log(productsCategory)
     setNumber(0)
   }, [productSize, basket, orderList, index])
 
-  console.log(orderList);
   useEffect(() => dispatch(orderAction.getProduct()), [dispatch])
 
 

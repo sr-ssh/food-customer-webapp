@@ -11,7 +11,7 @@ import { LoaderWhite } from '../base/loader-bg-white'
 
 
 
-export const Orders = () => {
+export const Orders = (props) => {
 
     const dispatch = useDispatch()
     const orderProductCategory = useSelector(state => state.getOrderProductsTypes.productCategory)
@@ -40,7 +40,7 @@ export const Orders = () => {
                                 {orderProductCategory.map((item, index) => <li key={index} className={`li--order ${activeCategory == index ? "active--category" : null}`} onClick={(e) => categoryHandler(e, index)}>{item}</li>)}
                             </ul>
                         </section>
-                        <Products productsCategory={orderProductCategory[activeCategory]} basket={basket} setbasket={setbasket} />
+                        <Products productsCategory={orderProductCategory[activeCategory]} basket={basket} setbasket={setbasket} props={props}/>
                     </>
 
                 }
