@@ -1,0 +1,57 @@
+
+.map--search--col.dropdown-toggle {
+    border: none;
+    background-color: var(--body-bachground);
+    color: var(--text-color-one);
+    font-size: 13px;
+    border-radius: 10px;
+    width: 100%;
+    text-align: right;
+  }
+  
+  .map--search--col.dropdown-toggle::after {
+    content: "";
+    border: none;
+  }
+  
+  .map--search--col.dropdown-item {
+    font-size: 13px;
+  }
+  
+  .map--search--col.btn-primary:not(:disabled):not(.disabled):active,
+  .map--search--col.btn-primary:not(:disabled):not(.disabled).active,
+  .map--search--col.show > .map--search--col.btn-primary.dropdown-toggle {
+    color: var(--text-color-one);
+    background-color: var(--body-bachground);
+    border: none;
+  }
+  
+  .map--search--col.btn-primary:not(:disabled):not(.disabled):active:focus,
+  .map--search--col.btn-primary:not(:disabled):not(.disabled).active:focus,
+  .map--search--col.show > .map--search--col.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+  }
+  
+.map--search--col .btn-primary:hover {
+    background-color: transparent; 
+    border-color: transparent;
+}
+
+.map--search--col .btn-primary {
+    background-color: transparent; 
+    border-color: transparent;
+}
+
+.map--search--col .dropdown-toggle::after {
+    border: none
+}
+
+.map--search--col .btn-check:focus + .map--search--col .btn-primary, .map--search--col .btn-primary:focus {
+    background-color: transparent; 
+    border-color: transparent; 
+    box-shadow: 0 0 0 0.25rem transparent;
+}
+    
+.dropdown--address--Menu{
+    transform: translate3d(42px, 58px, 0px) !important;
+}

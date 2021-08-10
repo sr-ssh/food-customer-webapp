@@ -133,6 +133,7 @@
 
 .map--search--group{
   height: 7vh;
+  width: 91vw;
 }
 
 .map--search--input{
@@ -149,4 +150,5 @@
 
 .map--search--icon{
   position: absolute;
+  right: 34px;
 }

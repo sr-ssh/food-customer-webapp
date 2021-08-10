@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import NeshanMap from 'react-neshan-map-leaflet'
 
 import markericon from "../../assets/images/address/destination.svg";
@@ -63,9 +63,13 @@ export const Map = ({ setAddress }) => {
     const searchAddress = (e) => {
         setItem(e.target.value)
         dispatch(addressActions.searchAddress(e.target.value))
+        console.log(searchedAdrs)
     }
 
-
+    useEffect(() => {
+        console.log(searchedAdrs)
+        console.log(selectedItem)
+    }, [selectItem, searchedAdrs])
 
     return (
         <>
@@ -95,36 +99,38 @@ export const Map = ({ setAddress }) => {
                 />
                 <Col className="justify-content-center map--search--col">
                     <Dropdown onToggle={(e) => setDimStatus(!dimStatus)} onClick={(e) => searchAddress(e)}>
-                        <Form className="d-flex flex-column justify-content-center" noValidate >
                         <Row className="w-100 justify-content-center inputs">
-                            <Col xs={12} className="justify-content-center pe-4 ps-0">
+                            <Col xs={12} className="justify-content-center pe-3 ps-0">
                                 <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
-                                    <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon me-3 mt-2" />
-                                    <Form.Control className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={selectedItem}
-                                    />
-                                    <Dropdown.Menu className={`${dimStatus ? "dim" : ""} dropdownProductMenu`}>
-                            {searchedAdrs
-                                ? searchedAdrs.items.map((item, index) => {
-                                    return (
-                                        item.active && (
-                                            <Col key={index}>
-                                                {index ? <Dropdown.Divider /> : null}
-                                                <Dropdown.Item onClick={() => setItem(item.title)}>
-                                                    <Row>
-                                                        <Col className="text-end basket-dropdown-border-left pe-1">{item.title}</Col>
-                                                        <Col>{item.address}</Col>
-                                                    </Row>
-                                                </Dropdown.Item>
-                                            </Col>
-                                        ))
-                                })
-                                : null
-                            }
-                        </Dropdown.Menu>
+                                    <Dropdown.Toggle className="d-flex">
+                                        <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
+                                        <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon mt-2" />
+                                        <Form.Control autocomplete="off" className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={selectedItem}
+                                        />
+                                        </Form.Group>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu  className={`w-75 ${dimStatus ? "dim" : ""} dropdown--address--Menu `} styles={{transform: "translate3d(42px, 58px, 0px)"}}>
+                                            {searchedAdrs
+                                                ? searchedAdrs.items.map((item, index) => {
+                                                    return (
+                                                        (
+                                                            <Col key={index}>
+                                                                {index ? <Dropdown.Divider /> : null}
+                                                                <Dropdown.Item onClick={() => setItem(item.title)}>
+                                                                    <Row>
+                                                                        <Col className="text-end basket-dropdown-border-left pe-1">{item.title}</Col>
+                                                                        <Col>{item.address}</Col>
+                                                                    </Row>
+                                                                </Dropdown.Item>
+                                                            </Col>
+                                                        ))
+                                                })
+                                                : null
+                                            }
+                                    </Dropdown.Menu>
                                 </Form.Group>
                             </Col>
                         </Row>
-                    </Form>
                         
                     </Dropdown>
                 </Col>

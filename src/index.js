@@ -17,6 +17,7 @@ import './assets/styles/orderdetailsStyle.css'
 import './assets/styles/addressStyles.css'
 import './assets/styles/leaflet.css'
 import './assets/styles/loaderStyle.css'
+import './assets/styles/mapDropDown.css'
 
 
 
