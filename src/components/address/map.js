@@ -30,9 +30,11 @@ export const Map = ({ setAddress }) => {
 
 
     mapPropeties?.myMap.on('drag', function (e) {
-        console.log(e);
-        mapPropeties.marker.setLatLng(mapPropeties?.myMap.getCenter());
+        mapPropeties.marker.setLatLng(e.target.getCenter());
     });
+    mapPropeties?.myMap.on('move', function (e) {
+        mapPropeties.marker.setLatLng(e.target.getCenter());
+    })
 
 
     let locateUserHandler = () => {
@@ -82,22 +84,17 @@ export const Map = ({ setAddress }) => {
                 onInit={(L, myMap) => {
                     let myIcon = L.icon({
                         iconUrl: markericon,
-                        iconSize: [80, 90]
+                        iconSize: [60, 75]
                     });
                     let marker = L.marker(position, { icon: myIcon })
                         .addTo(myMap);
 
                     setMapPropeties({ myMap, marker })
 
-                    myMap.on('click', function (e) {
-                        marker.setLatLng(e.latlng)
-                        setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
-                    });
-                    myMap.on('tap', function (e) {
-                        // marker.setLatLng(e.latlng)
-                        // setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
-                        console.log(e);
-                    });
+                    // myMap.on('click', function (e) {
+                    //     marker.setLatLng(e.latlng)
+                    //     setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
+                    // });
                 }}
             />
             <Col className="justify-content-center map--search--col">
