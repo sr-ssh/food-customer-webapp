@@ -11,6 +11,7 @@ import logo from './../../assets/images/base/happy-pizza.png'
 import addIcon from './../../assets/images/main/add.svg'
 
 //components 
+import { SidebarItems } from './sidebarItems'
 import { InLineOrders } from './inLineOrders';
 import { Charge } from './charge';
 
@@ -28,7 +29,7 @@ export const Main = () => {
     return (
         <>
             <Sidebar
-                // sidebar={}
+                sidebar={<SidebarItems />}
                 open={isOpen}
                 onSetOpen={setIsOpen}
                 pullRight={true}
