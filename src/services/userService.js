@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SERVER_LOCAL_SAEID,SERVER_URL } from '../config';
+import { SERVER_URL } from '../config';
 import { history } from '../helpers';
 import { authHeader } from '../helpers';
 

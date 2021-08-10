@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { Header } from '../base/header2'
-import persianJs from 'persianjs/persian.min';
+import {toFarsiNumber} from '../../helpers/util'
 
 //components
 import { OrderList } from "./orderList";
@@ -11,16 +11,16 @@ import { history } from '../../helpers';
 
 export const Factor = (props) => {
 
-    
+    const [total , setTotal]= useState(props.location.state.data?.map(data=>data.price * data.quantity).reduce((a,b)=>a + b ,0))
+    const [tax,setTax] = useState(props.location.state?.data?.map(data=>data.price * data.quantity * (9 / 100)).reduce((a,b)=>a + b ,0))
     let userAddress = JSON.parse(localStorage.getItem('userAddress'))
     const [products, setProducts] = useState(props.location.state.data)
     let deliveryCost = JSON.parse(localStorage.getItem('addressVerify')).deliveryCost
     const [order, setOrder] = useState({products, deliveryCost, lat: userAddress.lat, lng: userAddress.lng, address: userAddress.address})
     const dispatch = useDispatch()
-    let total = products?.map(data=>data.price * data.quantity).reduce((a,b)=>a + b ,0)
-    let tax = products?.map(data=>data.price * data.quantity * (9 / 100)).reduce((a,b)=>a + b ,0)
     const totalAmount = total + tax + deliveryCost
 
+   
     const descHandler = e => {
         setOrder({ ...order, description: e.target.value })
     }
@@ -38,11 +38,11 @@ export const Factor = (props) => {
     }
 
     return (
-        <>{console.log(props)}
+        <>
             <div className="factor-page">
                 <Header title="فاکتور" backLink="/order" backtext="سفارش" />
                 <Container className=" pt-2 px-4  d-flex flex-column factor-page-container" >
-                    <OrderList  data ={products} removeProduct={removeProduct}/>
+                    <OrderList  products ={products} total={total} setTotal={setTotal} setProducts={setProducts} tax={tax} setTax={setTax}/>
                     <Row className="m-0 p-0 mt-2 factor-inputs">
                         <Col className="p-0 factor-description-input">
                             <Form.Group controlId="description">
@@ -62,7 +62,7 @@ export const Factor = (props) => {
                             </Col>
                             <Col dir="ltr" className="ps-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان </span> <span className="fw-bold">{persianJs(total).englishNumber().toString()}</span>
+                                    <span className="factor--text--details">تومان </span> <span className="fw-bold">{toFarsiNumber(total)}</span>
                                 </Card.Text>
                             </Col>
                         </Row>
@@ -74,7 +74,7 @@ export const Factor = (props) => {
                             </Col>
                             <Col dir="ltr" className="ps-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان</span><span className="fw-bold">{persianJs(deliveryCost).englishNumber().toString()}</span>
+                                    <span className="factor--text--details">تومان</span><span className="fw-bold">{toFarsiNumber(deliveryCost)}</span>
                                 </Card.Text>
                             </Col>
                         </Row>
@@ -86,7 +86,7 @@ export const Factor = (props) => {
                             </Col>
                             <Col dir="ltr" className="ps-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان</span><span className="fw-bold">{persianJs(tax).englishNumber().toString()}</span>
+                                    <span className="factor--text--details">تومان</span><span className="fw-bold">{toFarsiNumber(tax)}</span>
                                 </Card.Text>
                             </Col>
                         </Row>
@@ -95,7 +95,7 @@ export const Factor = (props) => {
                         <Col className="col-12 px-0" onClick={() => addOrder()}>
                             <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one ">
                                 <span className="pe-2">پرداخت</span>
-                                <span className="ps-2"> {persianJs(totalAmount).englishNumber().toString()} تومان</span>
+                                <span className="ps-2"> {toFarsiNumber(totalAmount)} تومان</span>
                             </Button>
                         </Col>
                     </Row>
