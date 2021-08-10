@@ -2,4 +2,4 @@
 // export const SERVER_URL = "http://192.168.1.44:3010/api/customer";
 
 // export const SERVER_URL = "http://127.0.0.1:3010/api/customer/v1";
-export const SERVER_URL = "http://192.168.43.159:3010/api/customer/v1";
+export const SERVER_URL = "http://192.168.1.181:3010/api/customer/v1";
