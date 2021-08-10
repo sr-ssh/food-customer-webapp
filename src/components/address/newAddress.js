@@ -22,7 +22,7 @@ export const NewAddress = () => {
 
     const formHandler = (e) => {
         e.preventDefault()
-        if (address.lat && address.lng) {
+        if (address.lat && address.lng && address.address) {
             dispatch(addressActions.newAddress(address));
             setValidate(false)
         }
@@ -44,7 +44,7 @@ export const NewAddress = () => {
                         <Form.Group controlId="description">
                             <Form.Label className="pe-2">لطفا آدرس دقیق را بنویسید</Form.Label>
                             <Card className="border-0 bg-transparent" >
-                                <Form.Control as="textarea" name="description" onChange={addressHandler} className="new--address--exact--text-container" />
+                                <Form.Control as="textarea" name="description" onChange={addressHandler} className="new--address--exact--text-container" isValid={address.description && validate && true} isInvalid={!address.description && validate && true} required/>
                             </Card>
                         </Form.Group>
                     </Col>
