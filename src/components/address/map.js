@@ -65,54 +65,54 @@ export const Map = ({ setAddress }) => {
 
     return (
         <>
-                <NeshanMap
-                    options={{
-                        key: API_KEY,
-                        center: position,
-                        maptype: 'dreamy-gold',
-                        zoom: ZOME_LEVEL
-                    }}
-                    onInit={(L, myMap) => {
-                        let myIcon = L.icon({
-                            iconUrl: markericon,
-                            iconSize: [80, 90]
-                        });
-                        let marker = L.marker(position, { icon: myIcon })
-                            .addTo(myMap);
+            <NeshanMap
+                options={{
+                    key: API_KEY,
+                    center: position,
+                    maptype: 'dreamy-gold',
+                    zoom: ZOME_LEVEL
+                }}
+                onInit={(L, myMap) => {
+                    let myIcon = L.icon({
+                        iconUrl: markericon,
+                        iconSize: [80, 90]
+                    });
+                    let marker = L.marker(position, { icon: myIcon })
+                        .addTo(myMap);
 
-                        setMapPropeties({ myMap, marker })
+                    setMapPropeties({ myMap, marker })
 
-                        myMap.on('click', function (e) {
-                            marker.setLatLng(e.latlng)
-                            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
+                    myMap.on('click', function (e) {
+                        marker.setLatLng(e.latlng)
+                        setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
 
-                        });
-                    }}
-                />
-                <Col className="justify-content-center map--search--col">
-                    <Form className="d-flex flex-column justify-content-center" noValidate >
-                        <Row className="w-100 justify-content-center inputs">
-                            <Col xs={12} className="justify-content-center pe-4 ps-0">
-                                <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
-                                    <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon me-3 mt-2" />
-                                    <Form.Control className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress}
-                                    />
-                                </Form.Group>
-                            </Col>
-                        </Row>
-                    </Form>
-                </Col>
-                <div>
-                    <Button ref={target} className="btn btn-danger border-0  icon--location--detection" onClick={locateUserHandler}>
-                        < img src={loctionicon} height="25px" alt="loction_icon" />
-                    </Button>
-                </div>
-                <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
-                    {
-                        alerts?.loader ? <LoaderRed /> : null
-                    }
-                    {alerts?.text}
-                </div>
+                    });
+                }}
+            />
+            <Col className="justify-content-center map--search--col">
+                <Form className="d-flex flex-column justify-content-center" noValidate >
+                    <Row className="w-100 justify-content-center inputs">
+                        <Col xs={12} className="justify-content-center pe-4 ps-0">
+                            <Form.Group controlId="family" className="d-flex justify-content-statrt align-items-center map--search--group">
+                                <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon mx-2" />
+                                <Form.Control className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress}
+                                />
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                </Form>
+            </Col>
+            <div>
+                <Button ref={target} className="btn btn-danger border-0  icon--location--detection" onClick={locateUserHandler}>
+                    < img src={loctionicon} height="25px" alt="loction_icon" />
+                </Button>
+            </div>
+            <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
+                {
+                    alerts?.loader ? <LoaderRed /> : null
+                }
+                {alerts?.text}
+            </div>
 
 
         </>

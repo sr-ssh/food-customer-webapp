@@ -24,6 +24,7 @@ export const Main = () => {
     let alertMessage = useSelector(state => state.alert.message);
     let alerType = useSelector(state => state.alert.type);
 
+
     return (
         <>
             <Sidebar
@@ -41,14 +42,16 @@ export const Main = () => {
             >
                 <div className="form-page">
                     {
-                        alertMessage &&
-                        <>
-                            <Row className="justify-content-center text-center ">
-                                <Alert variant={alerType}>
-                                    {alertMessage}
-                                </Alert>
-                            </Row>
-                        </>
+                        alerType === 'success' ?
+                            alertMessage &&
+                            <>
+                                <Row className="justify-content-center text-center ">
+                                    <Alert variant={alerType}>
+                                        {alertMessage}
+                                    </Alert>
+                                </Row>
+                            </>
+                            : null
                     }
                     <Charge />
                     <div id="back-up"></div>

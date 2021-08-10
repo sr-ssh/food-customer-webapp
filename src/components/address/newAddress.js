@@ -34,8 +34,8 @@ export const NewAddress = () => {
     return (
         <>
             <Container className="m-0 mx-auto new--address--container d-flex flex-column justify-content-between">
-                <Row style={{ height: "61vh" }}>
-                    <Col style={{ height: "61vh" }}  className={`p-0 ${validate ? "border border-danger" : null} `}>
+                <Row style={{ height: "61vh", position: "relative" }}>
+                    <Col style={{ height: "61vh" }} className={`p-0 ${validate ? "border border-danger" : null} `}>
                         <Map className="map" setAddress={setAddress} />
                     </Col>
                 </Row>
@@ -49,7 +49,7 @@ export const NewAddress = () => {
                         </Form.Group>
                     </Col>
                 </Row>
-                <Row className="m-0 mt-3 w-100  ">
+                <Row className="m-0 w-100">
                     <Col className="col-12 px-0">
                         <Button type="submit" className="col-12 py-3 d-flex flex-row justify-content-center align-items-center btn--add--new--address btn--red--one" onClick={formHandler}>
                             {
