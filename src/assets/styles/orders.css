@@ -51,7 +51,7 @@
 }
 .div--container__togglebutton {
   background-color: #f4c7c2;
-  height: 2.1rem;
+  height: 2.2rem;
   margin-top: 1rem;
   border-radius: 8px;
   width: auto;
@@ -61,15 +61,16 @@
 .div--container__togglebutton-text {
   color: #4e4d49;
   font-size: 0.7rem;
+  white-space: nowrap;
   font-weight: 800;
   cursor: pointer;
-  width: 65px;
+  width: 70px;
 }
 
 .active-opstion {
-  background-color: #f9f3ee;
+  background-color: #f9f3ee !important;
   color: #ec5e4e !important;
-  padding: 0.3rem;
+  padding: 0.3rem !important;
   border-radius: 5px;
 }
 

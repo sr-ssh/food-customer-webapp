@@ -108,10 +108,10 @@ export const Map = ({ setAddress }) => {
                 </Button>
             </div>
             <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
-                {
+                {/* {
                     alerts?.loader ? <LoaderRed /> : null
                 }
-                {alerts?.text}
+                {alerts?.text} */}
             </div>
 
 
