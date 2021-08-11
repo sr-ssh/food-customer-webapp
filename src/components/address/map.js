@@ -4,7 +4,7 @@ import NeshanMap from 'react-neshan-map-leaflet'
 import markericon from "../../assets/images/address/destination.svg";
 import searchIcon from "../../assets/images/address/search.svg";
 import loctionicon from "../../assets/images/address/loction.svg";
-import { Button, FormControl, InputGroup, Col, Row, Form, Image, Dropdown } from 'react-bootstrap';
+import { Button, Col, Row, Form, Image, Dropdown } from 'react-bootstrap';
 import { LoaderRed } from '../base/loader-bg-red'
 import "../../assets/styles/leaflet.css"
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,16 +14,16 @@ import { addressActions } from '../../actions/addressActions';
 // YOUR_API_KEY_GOES_BELOW
 const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
-export const Map = ({ setAddress, getLocation, setItem, selectedItem, itemLocation, setItemLocation }) => {
+export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLocation }) => {
 
     const [dimStatus, setDimStatus] = useState(false)
     const searchedAdrs = useSelector(state => state.searchAddress.searchAddress)
 
-    const [position, setPosition] = useState({ lat: 36.297920, lng: 59.605933 })
     const [mapPropeties, setMapPropeties] = useState()
     const [alerts, setAlert] = useState({});
     const target = useRef();
     const ZOME_LEVEL = 13;
+    const ZOME_LEVEL2 = 17;
 
     const dispatch = useDispatch()
 
@@ -70,95 +70,93 @@ export const Map = ({ setAddress, getLocation, setItem, selectedItem, itemLocati
     const searchAddress = (e) => {
         setItem(e.target.value)
         dispatch(addressActions.searchAddress(e.target.value))
-        console.log(searchedAdrs)
     }
 
     useEffect(() => {
-        console.log(searchedAdrs)
-        console.log(selectedItem)
         setAddress((prevState) => ({ ...prevState, lat: mapPropeties?.myMap.getCenter().lat, lng: mapPropeties?.myMap.getCenter().lng }))
-    }, [searchedAdrs, getLocation])
+        setAddress((prevState) => ({ ...prevState, lat: itemLocation.lat, lng: itemLocation.lng }))
+        mapPropeties?.myMap.flyTo(itemLocation, ZOME_LEVEL2)
+        mapPropeties?.marker.setLatLng(itemLocation);
+    }, [itemLocation])
 
     return (
         <>
-            <NeshanMap
-                options={{
-                    key: API_KEY,
-                    center: position,
-                    maptype: 'dreamy-gold',
-                    zoom: ZOME_LEVEL
-                }}
-                onInit={(L, myMap) => {
-                    let myIcon = L.icon({
-                        iconUrl: markericon,
-                        iconSize: [60, 75],
-                        zIndexOffset: 1000
-                    });
-                    let marker = L.marker(position, { icon: myIcon })
-                        .addTo(myMap);
+        <NeshanMap
+            options={{
+                key: API_KEY,
+                center: itemLocation,
+                maptype: 'dreamy-gold',
+                zoom: ZOME_LEVEL
+            }}
+            onInit={(L, myMap) => {
+                let myIcon = L.icon({
+                    iconUrl: markericon,
+                    iconSize: [60, 75],
+                    zIndexOffset: 1000
+                });
+                let marker = L.marker(itemLocation, { icon: myIcon })
+                    .addTo(myMap);
 
-                    setMapPropeties({ myMap, marker })
+                setMapPropeties({ myMap, marker })
 
-                    // myMap.on('click', function (e) {
-                    //     marker.setLatLng(e.latlng)
-                    //     setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
-                    // });
-                }}
-            />
-                <Col className="justify-content-center map--search--col">
-                    <Dropdown onToggle={(e) => setDimStatus(!dimStatus)}>
-                        <Row className="w-100 justify-content-center inputs">
-                            <Col xs={12} className="justify-content-center pe-3 ps-0">
-                                <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
-                                    <Dropdown.Toggle className="d-flex">
-                                        <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
-                                        <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon mt-2" />
-                                        <Form.Control autocomplete="off" className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={selectedItem}
-                                        />
-                                        </Form.Group>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu  className={`w-75 ${dimStatus ? "dim" : ""} dropdown--address--Menu `} styles={{transform: "translate3d(42px, 58px, 0px)"}}>
-                                            {searchedAdrs
-                                                ? searchedAdrs.items.map((item, index) => {
-                                                    return (
-                                                        (
-                                                            <Col key={index}>
-                                                                {index ? <Dropdown.Divider /> : null}
-                                                                <Dropdown.Item onClick={() => setItem(item.title)}>
-                                                                    <Row>
-                                                                        <Col className="text-end basket-dropdown-border-left pe-1">
-                                                                            {item.title}
-                                                                        </Col>
-                                                                        <Col>
-                                                                            {item.address}
-                                                                        </Col>
-                                                                    </Row>
-                                                                </Dropdown.Item>
+                // myMap.on('click', function (e) {
+                //     marker.setLatLng(e.latlng)
+                //     setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
+                // });
+            }}
+        />
+            <Col className="justify-content-center map--search--col">
+                <Dropdown onToggle={(e) => setDimStatus(!dimStatus)}>
+                    <Row className="w-100 justify-content-center inputs">
+                        <Col xs={12} className="justify-content-center pe-3 ps-0">
+                            <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
+                                <Dropdown.Toggle className="d-flex">
+                                    <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
+                                    <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon mt-2" />
+                                    <Form.Control autocomplete="off" className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={selectedItem}
+                                    />
+                                    </Form.Group>
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu  className={`w-75 ${dimStatus ? "dim" : ""} dropdown--address--Menu `} styles={{transform: "translate3d(42px, 58px, 0px)"}}>
+                                    {searchedAdrs
+                                        ? searchedAdrs.items.map((item, index) => {
+                                            return (
+                                                (
+                                                <Col key={index}>
+                                                    {index ? <Dropdown.Divider /> : null}
+                                                    <Dropdown.Item onClick={() => {setItem(item.title);setItemLocation({lat: item.location.y, lng: item.location.x});}}>
+                                                        <Row>
+                                                            <Col className="text-end basket-dropdown-border-left pe-1">
+                                                                {item.title}
                                                             </Col>
-                                                        ))
-                                                })
-                                                : null
-                                            }
-                                    </Dropdown.Menu>
-                                </Form.Group>
-                            </Col>
-                        </Row>
-                        
-                    </Dropdown>
-                </Col>
-                <div>
-                    <Button ref={target} className="btn btn-danger border-0  icon--location--detection" onClick={locateUserHandler}>
-                        < img src={loctionicon} height="25px" alt="loction_icon" />
-                    </Button>
-                </div>
-                <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
-                    {
-                        alerts?.loader ? <LoaderRed /> : null
-                    }
-                    {alerts?.text}
-                </div>
-
-
+                                                            <Col>
+                                                                {item.address}
+                                                            </Col>
+                                                        </Row>
+                                                    </Dropdown.Item>
+                                                </Col>
+                                                ))
+                                        })
+                                        : null
+                                    }
+                                </Dropdown.Menu>
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                    
+                </Dropdown>
+            </Col>
+            <div>
+                <Button ref={target} className="btn btn-danger border-0  icon--location--detection" onClick={locateUserHandler}>
+                    < img src={loctionicon} height="25px" alt="loction_icon" />
+                </Button>
+            </div>
+            <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
+                {
+                    alerts?.loader ? <LoaderRed /> : null
+                }
+                {alerts?.text}
+            </div>
         </>
     )
 }

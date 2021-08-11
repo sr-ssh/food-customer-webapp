@@ -11,9 +11,8 @@ export const NewAddress = () => {
 
     const [address, setAddress] = useState({ lat: "", lng: "", address: "" });
     const [validate, setValidate] = useState(false);
-    const [getLocation, setGetLocation] = useState(false)
     const [selectedItem, setItem] = useState("")
-    const [itemLocation, setItemLocation] = useState({})
+    const [itemLocation, setItemLocation] = useState({ lat: 36.297920, lng: 59.605933 })
 
     const dispatch = useDispatch()
     const addressData = useSelector(state => state.newAddress);
@@ -23,7 +22,7 @@ export const NewAddress = () => {
     }
 
     const formHandler = (e) => {
-        setGetLocation(!getLocation)
+        
         e.preventDefault()
         if (address.lat && address.lng && address.address) {
             dispatch(addressActions.newAddress(address));
@@ -32,14 +31,13 @@ export const NewAddress = () => {
         else
             setValidate(true)
     }
-    console.log(address);
-    console.log(selectedItem)
+
     return (
         <>
             <Container className="m-0 mx-auto new--address--container d-flex flex-column justify-content-between">
                 <Row style={{ height: "61vh", position: "relative" }}>
                     <Col style={{ height: "61vh" }} className={`p-0 ${validate ? "border border-danger" : null} `}>
-                        <Map className="map" setAddress={setAddress} getLocation={getLocation} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation}/>
+                        <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation}/>
                     </Col>
                 </Row>
                 <Row className="m-0 mt-3 mb-auto new--address--inputs">
