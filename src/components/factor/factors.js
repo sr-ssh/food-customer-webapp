@@ -79,7 +79,9 @@ export const Factor = (props) => {
                             </Col>
                             <Col dir="ltr" className="ps-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان</span><span className="fw-bold">{toFarsiNumber(tax)}</span>
+                                    <span className="factor--text--details">تومان</span><span className="fw-bold">
+                                        {toFarsiNumber(Number(tax).toFixed(3))}
+                                    </span>
                                 </Card.Text>
                             </Col>
                         </Row>
