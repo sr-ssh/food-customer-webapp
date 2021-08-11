@@ -7,6 +7,7 @@ import HappyPizzaLogo from '../../assets/images/base/happy-pizza.svg'
 import accountIcon from '../../assets/images/drawer/account.svg'
 import exitIcon from '../../assets/images/drawer/exit.svg'
 import callIcon from '../../assets/images/drawer/call.svg'
+import { userActions } from '../../actions'
 
 
 export const SidebarItems = () => {
@@ -47,7 +48,7 @@ export const SidebarItems = () => {
 
                 <Row className="m-0 p-0 d-flex justify-content-center align-items-center mt-auto dashboardIcons">
                     <Col className="my-3 col-5">
-                        <Col >
+                        <Col onClick={() => userActions.logout()}>
                             <img className="m-auto d-block" src={exitIcon} height="40px" alt="exit-icon" />
 
                         </Col>
