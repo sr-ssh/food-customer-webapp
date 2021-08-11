@@ -10,6 +10,7 @@ import { Main } from './components/main/main';
 import { Address } from './components/address/address';
 import { Orders } from './components/order/orders';
 import { OrderDetails } from './components/main/orderdDetails';
+import { HistoryOrder } from './components/order/history/historyOrder'
 import { Factor } from './components/factor/factors';
 import { NewAddress } from './components/address/newAddress';
 
@@ -23,6 +24,7 @@ function App() {
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
         <PrivateRoute path="/address/new" component={NewAddress}></PrivateRoute>
         <PrivateRoute path="/order/detail" component={OrderDetails}></PrivateRoute>
+        <PrivateRoute path="/order/history" component={HistoryOrder}></PrivateRoute>
         <PrivateRoute path="/order" component={Orders}></PrivateRoute>
         <PrivateRoute path="/bill" component={Factor}></PrivateRoute>
         <Redirect from="*" to="/" />

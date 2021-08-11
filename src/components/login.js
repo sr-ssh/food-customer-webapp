@@ -36,6 +36,20 @@ export const Login = () => {
         }
 
     }
+    var
+    persianNumbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g],
+    arabicNumbers  = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g],
+    fixNumbers = function (str)
+    {
+      if(typeof str === 'string')
+      {
+        for(var i=0; i<10; i++)
+        {
+          str = str.replace(persianNumbers[i], i).replace(arabicNumbers[i], i);
+        }
+      }
+      return str;
+    };
 
     const codeHandler = (e) => {
         e.preventDefault()
@@ -47,9 +61,12 @@ export const Login = () => {
     const handleChange = (e) => {
         let { id, value } = e.target;
         if (id === "mobile" && value) {
-            value = persianJs(value).toEnglishNumber().toString();
+            console.log(value);
+            // value = persianJs(value).toEnglishNumber().toString();
+            value = fixNumbers(value);
             value = mobileValidation(value)
         }
+
 
         setInputs(inputs => ({ ...inputs, [id]: value }));
     }
@@ -113,7 +130,7 @@ export const Login = () => {
                                     <Form.Group controlId="mobile" className="me-2">
                                         <Image src={mobileLogo} width="17px" className="mx-2 ms-0" />
                                         <Form.Label>موبایل</Form.Label>
-                                        <Form.Control className="form-input h-100 login-input ms-0" type="text"
+                                        <Form.Control className="form-input h-100 login-input ms-0" type="number"
                                             onChange={handleChange}
                                             isValid={mobile && mobileValited && true}
                                             isInvalid={!mobile && mobileValited && true}

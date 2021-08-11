@@ -21,7 +21,7 @@ export const SidebarItems = () => {
             </Row>
             <Row>
                 <Col xs={10} sm={10} md={10} lg={10} className="py-3 mx-auto fw-bold sidebarItem">
-                    <Link to="/order/add">تاریخچه سفارشات</Link>
+                    <Link to="/order/history">تاریخچه سفارشات</Link>
                 </Col>
                 <Col xs={10} sm={10} md={10} lg={10} className="py-3 mx-auto fw-bold sidebarItem">
                     <Link to="/order/add">تخفیف ها</Link>

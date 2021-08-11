@@ -18,7 +18,6 @@ export const OrderList = (props) => {
             console.log(products)
             if(data && data._id===id && data.quantity && data.size === size){
                 setTotal(total - data.price)
-                console.log(total)
                 setTax(tax - data.price * (9 / 100))
                 setRefresh(!refresh)
                 if(!(data.quantity - 1))
@@ -36,7 +35,7 @@ export const OrderList = (props) => {
             <Row className="m-0 mt-3 p-0">
                 <Col className="p-0">
                     <div className="table-wrapper-scroll-y my-custom-scrollbar">
-                        <Table className="lh-lg p-0" borderless size="sm">
+                        <Table className="lh-lg p-0" borderless size="sm" responsive>
                             <tbody>
                                 {
                                     products.map(data=>

@@ -1,0 +1,118 @@
+.div--container__historyOrder{
+    position: relative;
+    height: 100vh;
+    background-color: #F3EEEA;
+    overflow: auto;
+}
+.div--container__inner-historyOrder{
+    position: relative;
+}
+.div--container__card-history{
+  background-color: #ffffff;
+  height: 50vh;
+  margin: 1rem;
+  margin-top: 1.5rem !important;
+  overflow: hidden; 
+  border-radius: 15px;
+  z-index: 1;
+
+}
+.div--container__card-history-inner{
+    margin-top: 1.4rem !important;
+    background-color: #F8D9D7;
+    height: 28vh;
+    margin: 0 1rem;
+    padding: 0 .8rem;
+    border-radius: 15px;
+
+}
+.logo--historyDetail{
+    width: 4.5rem;
+    position: absolute;
+    top: -1.4rem;
+    z-index: 999;
+}
+.row--container__historyDetail{
+    height: 2rem;
+    margin-top: .7rem;
+    position: relative;
+
+}
+.col--status__historyDetail{
+    position: absolute;
+    left: 76%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: large;
+    color: #4AAE50;
+    font-weight: 600;
+}
+.col--successStatus__historyDetail{
+    position: absolute;
+    left: 76%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: large;
+    color: #F34334;
+    font-weight: 600;
+}
+
+.col--date__historyDetail{
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translate(-52%, -50%);
+    font-weight: 600;
+}
+.row--container__address-historyDetail{
+    height: 10vh;
+    padding:  1rem 15px;
+    font-weight: 600;
+}
+.table--container__historyDetail{
+    margin-bottom: 3px;
+}
+
+
+.th--container__historyDetail{
+    color: #F34335;
+    font-weight: 500;
+
+}
+.td--container__historyDetail{
+    font-weight: 700;
+}
+.hr--historyDetail{
+    display: block;
+    border-top: 1px solid #ff1100;
+    margin: 0em 0rem;
+    padding: 0 0px;
+}
+.row--container__tatal-historyDetail{
+    position: relative;
+    margin-top: 1.2rem;
+
+}
+.col--text__total-historyDetail{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #898180;
+    font-weight: 700;
+    
+}
+.col--price__total-historyDetail{
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+
+}
+.span--container__toman-historyDetail{
+    color: #F34335;
+    font-weight: 700;
+}
