@@ -183,3 +183,36 @@
   font-size: 1rem;
   font-weight: bold;
 }
+
+.cancel--order-but{
+  border-radius: 10px;
+}
+
+.success--color{
+  background-color: var(--success-color);
+}
+
+.danger--color{
+  background-color: var(--danger-color);
+}
+
+.danger--color.btn-check:checked + .danger--color.btn-primary, .danger--color.btn-check:active + .danger--color.btn-primary, .danger--color.btn-primary:active, .danger--color.btn-primary.active, .danger--color.show > .danger--color.btn-primary.dropdown-toggle {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.danger--color.btn-check:focus + .danger--color.btn-primary, .danger--color.btn-primary:focus {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  box-shadow: 0 0 0 0.25rem rgb(244 67 54 / 50%);
+}
+
+.danger--color.btn-primary:hover {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.cancel--order--modal{
+  background-color: var(--background-one);
+  border-radius: 10px;
+}
