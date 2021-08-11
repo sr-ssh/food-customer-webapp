@@ -58,6 +58,8 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
 
   const handleOrderList = (index, type, id) => {
 
+
+
     let product = basket.filter(item => { return item?._id === id && item?.size == productSize })
     if (product.length > 0) {
       let updatedOrder = basket.map((item, indexArray) => {
@@ -71,9 +73,11 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
       updatedOrder = updatedOrder.filter(item => item.quantity !== 0)
       setbasket(updatedOrder);
     } else {
-      let currentOrder = orderList.filter(item => item._id == id);
-      currentOrder = getObjCurrentProduct(currentOrder, true);
-      setbasket([...basket, currentOrder]);
+      if (type === '+') {
+        let currentOrder = orderList.filter(item => item._id == id);
+        currentOrder = getObjCurrentProduct(currentOrder, true);
+        setbasket([...basket, currentOrder]);
+      }
     }
   }
 
@@ -88,13 +92,13 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   }, [productsCategory, data])
 
   useEffect(() => {
-    
+
     if (props.location.state) {
       props.location.state.state = props.location.state?.state.filter(item => item !== null)
       setbasket(props.location.state.state)
       props.location.state = null
     }
-    
+
     let activeProduct = basket.filter(item => {
       if (item._id === orderList[index]?._id && item.size === priceAsSize[0]?.name) return item
     })
