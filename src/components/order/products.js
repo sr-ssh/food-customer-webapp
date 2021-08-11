@@ -88,10 +88,13 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   }, [productsCategory, data])
 
   useEffect(() => {
-    if (props.location.state && props.location.state.state[0]) {
+    
+    if (props.location.state) {
+      props.location.state.state = props.location.state?.state.filter(item => item !== null)
       setbasket(props.location.state.state)
       props.location.state = null
     }
+    
     let activeProduct = basket.filter(item => {
       if (item._id === orderList[index]?._id && item.size === priceAsSize[0]?.name) return item
     })

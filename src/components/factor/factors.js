@@ -29,13 +29,6 @@ export const Factor = (props) => {
         dispatch(orderAction.addOrder(order))
     }
 
-    let removeProduct = (e, product) => {
-        e.preventDefault();
-        let updatedProducts = products.filter(item => item._id !== product._id);
-        if(!updatedProducts.length)
-            history.push('/order')
-        setProducts(updatedProducts)
-    }
 
     return (
         <>
