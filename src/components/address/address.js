@@ -5,7 +5,7 @@ import { Row, Alert, Container } from 'react-bootstrap';
 import { addressActions } from '../../actions';
 import { LoaderWhite } from '../base/loader-bg-white'
 // Components
-import { Header } from '../base/header2'
+import { Header } from '../base/addressHeader'
 import { OldAddress } from "./oldAddress"
 import { NewAddress } from "./newAddress"
 
@@ -15,6 +15,7 @@ export const Address = () => {
     let alertMessage = useSelector(state => state.alert.message);
     let alerType = useSelector(state => state.alert.type);
     let addresses = useSelector(state => state.getAddresses);
+    const [locating, setLocating] = useState(false)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,7 +25,7 @@ export const Address = () => {
     return (
         <>
             <div className="address--page">
-                <Header title="آدرس" backLink="/main" backtext="خانه" />
+                <Header title="آدرس" backLink="/main" backtext="خانه" locating={locating} />
                 {
                     alertMessage &&
                     <>
@@ -47,8 +48,8 @@ export const Address = () => {
                         addresses.addresses?.length ?
                             !newAddress ?
                                 <OldAddress addresses={addresses.addresses} setNewAddress={setNewAddress} />
-                                : <NewAddress />
-                            : <NewAddress />
+                                : <NewAddress setLocating={setLocating} />
+                            : <NewAddress setLocating={setLocating} />
                         : null
                 }
             </div>

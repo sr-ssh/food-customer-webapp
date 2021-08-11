@@ -96,3 +96,54 @@
     background-color: #f4b6b2;
   }
 }
+
+.spinner--address > div {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f44336;
+  margin: 0 0.1rem;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: spinner--address 1.4s infinite ease-in-out both;
+  animation: spinner--address 1.4s infinite ease-in-out both;
+}
+
+.spinner--address .bounce1--address {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s;
+}
+
+.spinner--address .bounce2--address {
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s;
+}
+
+@-webkit-keyframes spinner--address {
+  100% {
+    background-color: #f44336;
+    transform: scale(1);
+  }
+  66% {
+    background-color: #f49089;
+  }
+  33% {
+    background-color: #f4b6b2;
+    transform: scale(0);
+  }
+}
+@keyframes spinner--address {
+  100% {
+    background-color: #f44336;
+    transform: scale(1);
+  }
+  66% {
+    background-color: #f49089;
+  }
+  33% {
+    background-color: #f4b6b2;
+    transform: scale(0);
+  }
+}

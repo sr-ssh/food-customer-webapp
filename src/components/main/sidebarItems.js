@@ -32,14 +32,8 @@ export const SidebarItems = () => {
                 <Row className="m-0 p-0 mx-auto ">
                     <a href="tel:+62896706255135" className="link--call-sidebar">
                         <Col className="d-flex align-items-center px-0 my-3" >
-
-
                             <img className="m-0 d-block" src={callIcon} height="30px" alt="exit-icon" />
                             <span className="fw-bold">تماس با پشتیبانی</span>
-
-
-
-
                         </Col>
                     </a>
                 </Row>

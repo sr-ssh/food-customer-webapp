@@ -14,7 +14,7 @@ import { addressActions } from '../../actions/addressActions';
 // YOUR_API_KEY_GOES_BELOW
 const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
-export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLocation }) => {
+export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLocation, setLocating }) => {
 
     const [dimStatus, setDimStatus] = useState(false)
     const searchedAdrs = useSelector(state => state.searchAddress.searchAddress)
@@ -42,17 +42,19 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
         // Call mapPropeties.locate() for find Usre Location 
         mapPropeties.myMap?.locate();
         alertHandler("در حال دریافت موقعیت...", true, true);
+        setLocating(true)
 
         // ON locationfound set Userlocate state of latlng result
         mapPropeties.myMap.on('locationfound', e => {
 
             alertHandler("موقعیت شما یافت شد", true, false);
+            setLocating(false)
             setTimeout(() => {
                 setAlert(null);
             }, 3000)
 
             setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
-            mapPropeties.myMap.flyTo(e.latlng, ZOME_LEVEL)
+            mapPropeties.myMap.flyTo(e.latlng, 18)
             mapPropeties.marker.setLatLng(e.latlng);
 
         });
@@ -60,6 +62,7 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
         // ON locationerror set Userlocate state of null
         mapPropeties.myMap?.on('locationerror', e => {
             alertHandler("خطا در دریافت موقعیت شما!", true, false);
+            setLocating(false)
             setTimeout(() => {
                 setAlert(null);
             }, 3000)
@@ -81,30 +84,30 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
 
     return (
         <>
-        <NeshanMap
-            options={{
-                key: API_KEY,
-                center: itemLocation,
-                maptype: 'dreamy-gold',
-                zoom: ZOME_LEVEL
-            }}
-            onInit={(L, myMap) => {
-                let myIcon = L.icon({
-                    iconUrl: markericon,
-                    iconSize: [60, 75],
-                    zIndexOffset: 1000
-                });
-                let marker = L.marker(itemLocation, { icon: myIcon })
-                    .addTo(myMap);
+            <NeshanMap
+                options={{
+                    key: API_KEY,
+                    center: itemLocation,
+                    maptype: 'dreamy-gold',
+                    zoom: ZOME_LEVEL
+                }}
+                onInit={(L, myMap) => {
+                    let myIcon = L.icon({
+                        iconUrl: markericon,
+                        iconSize: [60, 75],
+                        zIndexOffset: 1000
+                    });
+                    let marker = L.marker(itemLocation, { icon: myIcon })
+                        .addTo(myMap);
 
-                setMapPropeties({ myMap, marker })
+                    setMapPropeties({ myMap, marker })
 
-                // myMap.on('click', function (e) {
-                //     marker.setLatLng(e.latlng)
-                //     setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
-                // });
-            }}
-        />
+                    // myMap.on('click', function (e) {
+                    //     marker.setLatLng(e.latlng)
+                    //     setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
+                    // });
+                }}
+            />
             <Col className="justify-content-center map--search--col">
                 <Dropdown onToggle={(e) => setDimStatus(!dimStatus)}>
                     <Row className="w-100 justify-content-center inputs">
@@ -112,29 +115,29 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
                             <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
                                 <Dropdown.Toggle className="d-flex">
                                     <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
-                                    <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon mt-2" />
-                                    <Form.Control autocomplete="off" className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={selectedItem}
-                                    />
+                                        <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon mt-2" />
+                                        <Form.Control autocomplete="off" className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={selectedItem}
+                                        />
                                     </Form.Group>
                                 </Dropdown.Toggle>
-                                <Dropdown.Menu  className={`w-75 ${dimStatus ? "dim" : ""} dropdown--address--Menu `} styles={{transform: "translate3d(42px, 58px, 0px)"}}>
+                                <Dropdown.Menu className={`w-75 ${dimStatus ? "dim" : ""} dropdown--address--Menu `} styles={{ transform: "translate3d(42px, 58px, 0px)" }}>
                                     {searchedAdrs
                                         ? searchedAdrs.items.map((item, index) => {
                                             return (
                                                 (
-                                                <Col key={index}>
-                                                    {index ? <Dropdown.Divider /> : null}
-                                                    <Dropdown.Item onClick={() => {setItem(item.title);setItemLocation({lat: item.location.y, lng: item.location.x});}}>
-                                                        <Row>
-                                                            <Col className="text-end basket-dropdown-border-left pe-1">
-                                                                {item.title}
-                                                            </Col>
-                                                            <Col>
-                                                                {item.address}
-                                                            </Col>
-                                                        </Row>
-                                                    </Dropdown.Item>
-                                                </Col>
+                                                    <Col key={index}>
+                                                        {index ? <Dropdown.Divider /> : null}
+                                                        <Dropdown.Item onClick={() => { setItem(item.title); setItemLocation({ lat: item.location.y, lng: item.location.x }); }}>
+                                                            <Row>
+                                                                <Col className="text-end basket-dropdown-border-left pe-1">
+                                                                    {item.title}
+                                                                </Col>
+                                                                <Col>
+                                                                    {item.address}
+                                                                </Col>
+                                                            </Row>
+                                                        </Dropdown.Item>
+                                                    </Col>
                                                 ))
                                         })
                                         : null
@@ -143,7 +146,7 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
                             </Form.Group>
                         </Col>
                     </Row>
-                    
+
                 </Dropdown>
             </Col>
             <div>
@@ -151,12 +154,12 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
                     < img src={loctionicon} height="25px" alt="loction_icon" />
                 </Button>
             </div>
-            <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
+            {/* <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
                 {
                     alerts?.loader ? <LoaderRed /> : null
                 }
                 {alerts?.text}
-            </div>
+            </div> */}
         </>
     )
 }

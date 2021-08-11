@@ -7,7 +7,7 @@ import { addressActions } from '../../actions/addressActions';
 
 
 
-export const NewAddress = () => {
+export const NewAddress = ({ setLocating }) => {
 
     const [address, setAddress] = useState({ lat: "", lng: "", address: "" });
     const [validate, setValidate] = useState(false);
@@ -22,7 +22,7 @@ export const NewAddress = () => {
     }
 
     const formHandler = (e) => {
-        
+
         e.preventDefault()
         if (address.lat && address.lng && address.address) {
             dispatch(addressActions.newAddress(address));
@@ -37,7 +37,7 @@ export const NewAddress = () => {
             <Container className="m-0 mx-auto new--address--container d-flex flex-column justify-content-between">
                 <Row style={{ height: "61vh", position: "relative" }}>
                     <Col style={{ height: "61vh" }} className={`p-0 ${validate ? "border border-danger" : null} `}>
-                        <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation}/>
+                        <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation} setLocating={setLocating} />
                     </Col>
                 </Row>
                 <Row className="m-0 mt-3 mb-auto new--address--inputs">
