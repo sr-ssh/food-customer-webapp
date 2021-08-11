@@ -24,7 +24,8 @@ export const orderService = {
     getOrderDetails,
     cancelOrder,
     getOrderProductsTypes,
-    addOrder
+    addOrder,
+    getFinishedOrders
 }
 
 function getProduct() {
@@ -113,6 +114,23 @@ function addOrder(body) {
     console.log("into addOrder");
     return axios
         .post(`${baseRoute}/`, body)
+        .then(res => {
+            console.log("res.user >> ");
+            console.log(res.data.data);
+            return handleResponse(res)
+        })
+        .catch(error => {
+            if (error.response) {
+                console.log(error.response.data);
+                handleError(error.response.status)
+            }
+        });
+}
+
+function getFinishedOrders() {
+    console.log("into getFinishedOrders");
+    return axios
+        .get(`${baseRoute}/finished`)
         .then(res => {
             console.log("res.user >> ");
             console.log(res.data.data);

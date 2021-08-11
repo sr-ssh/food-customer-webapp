@@ -11,7 +11,8 @@ export const orderAction = {
     getOrderDetails,
     cancelOrder,
     getOrderProductsTypes,
-    addOrder
+    addOrder,
+    getFinishedOrders
 };
 
 function getProduct(body) {
@@ -207,6 +208,39 @@ function addOrder(body) {
                 },
                 error => {
                     dispatch(failure(orderConstant.ADD_ORDER_FAILURE, error.toString()));
+                    console.log("occure error");
+                    console.log(error.toString());
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+}
+
+
+function getFinishedOrders() {
+    return dispatch => {
+        dispatch(request(orderConstant.GET_FINISHED_ORDERS_REQUEST));
+        orderService.getFinishedOrders()
+            .then(
+                res => {
+                    if (res === undefined) {
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(failure(orderConstant.GET_FINISHED_ORDERS_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
+                    }
+                    else if (res.success) {
+                        console.log("got the inline orders")
+                        dispatch(success(orderConstant.GET_FINISHED_ORDERS_SUCCESS, res.data))
+                    } else if (res.success === false) {
+                        console.log("got the inline orders")
+                        dispatch(failure(orderConstant.GET_FINISHED_ORDERS_FAILURE, res.message));
+                        dispatch(alertActions.error(res.message));
+                    }
+                    setTimeout(() => {
+                        dispatch(alertActions.clear());
+                    }, 1500);
+                },
+                error => {
+                    dispatch(failure(orderConstant.GET_FINISHED_ORDERS_FAILURE, error.toString()));
                     console.log("occure error");
                     console.log(error.toString());
                     dispatch(alertActions.error(error.toString()));
