@@ -14,10 +14,9 @@ import { addressActions } from '../../actions/addressActions';
 // YOUR_API_KEY_GOES_BELOW
 const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
-export const Map = ({ setAddress, getLocation }) => {
+export const Map = ({ setAddress, getLocation, setItem, selectedItem, itemLocation, setItemLocation }) => {
 
     const [dimStatus, setDimStatus] = useState(false)
-    const [selectedItem, setItem] = useState("")
     const searchedAdrs = useSelector(state => state.searchAddress.searchAddress)
 
     const [position, setPosition] = useState({ lat: 36.297920, lng: 59.605933 })
@@ -78,7 +77,7 @@ export const Map = ({ setAddress, getLocation }) => {
         console.log(searchedAdrs)
         console.log(selectedItem)
         setAddress((prevState) => ({ ...prevState, lat: mapPropeties?.myMap.getCenter().lat, lng: mapPropeties?.myMap.getCenter().lng }))
-    }, [selectedItem, searchedAdrs, getLocation])
+    }, [searchedAdrs, getLocation])
 
     return (
         <>
@@ -107,7 +106,7 @@ export const Map = ({ setAddress, getLocation }) => {
                 }}
             />
                 <Col className="justify-content-center map--search--col">
-                    <Dropdown onToggle={(e) => setDimStatus(!dimStatus)} onClick={(e) => searchAddress(e)}>
+                    <Dropdown onToggle={(e) => setDimStatus(!dimStatus)}>
                         <Row className="w-100 justify-content-center inputs">
                             <Col xs={12} className="justify-content-center pe-3 ps-0">
                                 <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
@@ -127,8 +126,12 @@ export const Map = ({ setAddress, getLocation }) => {
                                                                 {index ? <Dropdown.Divider /> : null}
                                                                 <Dropdown.Item onClick={() => setItem(item.title)}>
                                                                     <Row>
-                                                                        <Col className="text-end basket-dropdown-border-left pe-1">{item.title}</Col>
-                                                                        <Col>{item.address}</Col>
+                                                                        <Col className="text-end basket-dropdown-border-left pe-1">
+                                                                            {item.title}
+                                                                        </Col>
+                                                                        <Col>
+                                                                            {item.address}
+                                                                        </Col>
                                                                     </Row>
                                                                 </Dropdown.Item>
                                                             </Col>
