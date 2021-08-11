@@ -14,7 +14,7 @@ import { addressActions } from '../../actions/addressActions';
 // YOUR_API_KEY_GOES_BELOW
 const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
-export const Map = ({ setAddress }) => {
+export const Map = ({ setAddress, getLocation }) => {
 
     const [dimStatus, setDimStatus] = useState(false)
     const [selectedItem, setItem] = useState("")
@@ -31,6 +31,13 @@ export const Map = ({ setAddress }) => {
     let alertHandler = (txt, status, loader) => {
         setAlert({ text: txt, status: status, loader: loader })
     }
+
+    mapPropeties?.myMap.on('drag', function (e) {
+        mapPropeties.marker.setLatLng(e.target.getCenter());
+    });
+    mapPropeties?.myMap.on('move', function (e) {
+        mapPropeties.marker.setLatLng(e.target.getCenter());
+    })
 
     let locateUserHandler = () => {
         // Call mapPropeties.locate() for find Usre Location 
@@ -60,6 +67,7 @@ export const Map = ({ setAddress }) => {
         });
     }
 
+
     const searchAddress = (e) => {
         setItem(e.target.value)
         dispatch(addressActions.searchAddress(e.target.value))
@@ -69,34 +77,35 @@ export const Map = ({ setAddress }) => {
     useEffect(() => {
         console.log(searchedAdrs)
         console.log(selectedItem)
-    }, [selectItem, searchedAdrs])
+        setAddress((prevState) => ({ ...prevState, lat: mapPropeties?.myMap.getCenter().lat, lng: mapPropeties?.myMap.getCenter().lng }))
+    }, [selectedItem, searchedAdrs, getLocation])
 
     return (
         <>
-                <NeshanMap
-                    options={{
-                        key: API_KEY,
-                        center: position,
-                        maptype: 'dreamy-gold',
-                        zoom: ZOME_LEVEL
-                    }}
-                    onInit={(L, myMap) => {
-                        let myIcon = L.icon({
-                            iconUrl: markericon,
-                            iconSize: [80, 90]
-                        });
-                        let marker = L.marker(position, { icon: myIcon })
-                            .addTo(myMap);
+            <NeshanMap
+                options={{
+                    key: API_KEY,
+                    center: position,
+                    maptype: 'dreamy-gold',
+                    zoom: ZOME_LEVEL
+                }}
+                onInit={(L, myMap) => {
+                    let myIcon = L.icon({
+                        iconUrl: markericon,
+                        iconSize: [60, 75],
+                        zIndexOffset: 1000
+                    });
+                    let marker = L.marker(position, { icon: myIcon })
+                        .addTo(myMap);
 
-                        setMapPropeties({ myMap, marker })
+                    setMapPropeties({ myMap, marker })
 
-                        myMap.on('click', function (e) {
-                            marker.setLatLng(e.latlng)
-                            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
-
-                        });
-                    }}
-                />
+                    // myMap.on('click', function (e) {
+                    //     marker.setLatLng(e.latlng)
+                    //     setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
+                    // });
+                }}
+            />
                 <Col className="justify-content-center map--search--col">
                     <Dropdown onToggle={(e) => setDimStatus(!dimStatus)} onClick={(e) => searchAddress(e)}>
                         <Row className="w-100 justify-content-center inputs">

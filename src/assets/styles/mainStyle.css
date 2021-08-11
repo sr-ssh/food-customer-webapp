@@ -96,3 +96,28 @@
   justify-content: space-between;
   align-items: center;
 }
+.sidebarItem {
+  border-bottom: 1px solid var(--btn-active-one);
+}
+
+.sidebarItem a {
+  font-size: 14px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.dashboardIcons {
+  background-color: var(--background-two);
+  height: 10vh;
+}
+.link--call-sidebar {
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9rem !important;
+  text-shadow: 0px 0px 25px #4caf50 !important;
+}
+.link--call-sidebar:hover,
+.link--call-sidebar:active {
+  color: #000;
+  text-decoration: none;
+}

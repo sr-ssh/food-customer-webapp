@@ -30,8 +30,8 @@ body {
 #back-up {
   top: 0;
   left: 0;
-  z-index: -2;
-  position: absolute;
+  z-index: -1;
+  position: fixed;
   border-left: 368px solid var(--background-two);
   border-right: 368px solid var(--background-two);
   border-top: 50vh solid var(--background-two);

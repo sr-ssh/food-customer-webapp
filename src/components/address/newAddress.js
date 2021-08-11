@@ -11,6 +11,7 @@ export const NewAddress = () => {
 
     const [address, setAddress] = useState({ lat: "", lng: "", address: "" });
     const [validate, setValidate] = useState(false);
+    const [getLocation, setGetLocation] = useState(false)
 
 
     const dispatch = useDispatch()
@@ -21,6 +22,7 @@ export const NewAddress = () => {
     }
 
     const formHandler = (e) => {
+        setGetLocation(!getLocation)
         e.preventDefault()
         if (address.lat && address.lng && address.address) {
             dispatch(addressActions.newAddress(address));
@@ -28,15 +30,14 @@ export const NewAddress = () => {
         }
         else
             setValidate(true)
-
-
     }
+    console.log(address);
     return (
         <>
             <Container className="m-0 mx-auto new--address--container d-flex flex-column justify-content-between">
-                <Row style={{ height: "61vh" }}>
-                    <Col style={{ height: "61vh" }}  className={`p-0 ${validate ? "border border-danger" : null} `}>
-                        <Map className="map" setAddress={setAddress} />
+                <Row style={{ height: "61vh", position: "relative" }}>
+                    <Col style={{ height: "61vh" }} className={`p-0 ${validate ? "border border-danger" : null} `}>
+                        <Map className="map" setAddress={setAddress} getLocation={getLocation} />
                     </Col>
                 </Row>
                 <Row className="m-0 mt-3 mb-auto new--address--inputs">
@@ -44,12 +45,12 @@ export const NewAddress = () => {
                         <Form.Group controlId="description">
                             <Form.Label className="pe-2">لطفا آدرس دقیق را بنویسید</Form.Label>
                             <Card className="border-0 bg-transparent" >
-                                <Form.Control as="textarea" name="description" onChange={addressHandler} className="new--address--exact--text-container" isValid={address.description && validate && true} isInvalid={!address.description && validate && true} required/>
+                                <Form.Control as="textarea" name="description" onChange={addressHandler} className="new--address--exact--text-container" isValid={address.description && validate && true} isInvalid={!address.description && validate && true} required />
                             </Card>
                         </Form.Group>
                     </Col>
                 </Row>
-                <Row className="m-0 mt-3 w-100  ">
+                <Row className="m-0 w-100">
                     <Col className="col-12 px-0">
                         <Button type="submit" className="col-12 py-3 d-flex flex-row justify-content-center align-items-center btn--add--new--address btn--red--one" onClick={formHandler}>
                             {

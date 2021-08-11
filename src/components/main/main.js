@@ -11,6 +11,7 @@ import logo from './../../assets/images/base/happy-pizza.png'
 import addIcon from './../../assets/images/main/add.svg'
 
 //components 
+import { SidebarItems } from './sidebarItems'
 import { InLineOrders } from './inLineOrders';
 import { Charge } from './charge';
 
@@ -24,10 +25,11 @@ export const Main = () => {
     let alertMessage = useSelector(state => state.alert.message);
     let alerType = useSelector(state => state.alert.type);
 
+
     return (
         <>
             <Sidebar
-                // sidebar={}
+                sidebar={<SidebarItems />}
                 open={isOpen}
                 onSetOpen={setIsOpen}
                 pullRight={true}
@@ -41,14 +43,16 @@ export const Main = () => {
             >
                 <div className="form-page">
                     {
-                        alertMessage &&
-                        <>
-                            <Row className="justify-content-center text-center ">
-                                <Alert variant={alerType}>
-                                    {alertMessage}
-                                </Alert>
-                            </Row>
-                        </>
+                        alerType === 'success' ?
+                            alertMessage &&
+                            <>
+                                <Row className="justify-content-center text-center ">
+                                    <Alert variant={alerType}>
+                                        {alertMessage}
+                                    </Alert>
+                                </Row>
+                            </>
+                            : null
                     }
                     <Charge />
                     <div id="back-up"></div>
