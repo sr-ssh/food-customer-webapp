@@ -8,6 +8,8 @@
   --text-grey: #868381;
   --btn-active-one: #f87f77;
   --btn-active-two: #c4a3a0;
+  --success-color: #4caf50;
+  --danger-color: #e53935
 }
 
 @font-face {

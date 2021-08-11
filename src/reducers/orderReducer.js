@@ -152,3 +152,26 @@ export const addOrder = (state = initialState, action) => {
       return state;
   }
 };
+
+export const getFinishedOrders = (state = initialState, action) => {
+  switch (action.type) {
+    case orderConstant.GET_FINISHED_ORDERS_REQUEST:
+      return {
+        ...state,
+        loading: true
+      }
+    case orderConstant.GET_FINISHED_ORDERS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        orders: action.data
+      }
+    case orderConstant.GET_FINISHED_ORDERS_FAILURE:
+      return {
+        err: action.error,
+        loading: false
+      }
+    default:
+      return state;
+  }
+};

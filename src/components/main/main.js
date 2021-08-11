@@ -34,7 +34,7 @@ export const Main = () => {
                 onSetOpen={setIsOpen}
                 pullRight={true}
                 styles={{
-                    sidebar: { background: "white", width: "42vw", "zIndex": "1040" },
+                    sidebar: { background: "#f8f3ef", width: "42vw", "zIndex": "1040" },
                     overlay: { zIndex: "1030" }
                 }}
                 overlayClassName="test3"

@@ -29,13 +29,6 @@ export const Factor = (props) => {
         dispatch(orderAction.addOrder(order))
     }
 
-    let removeProduct = (e, product) => {
-        e.preventDefault();
-        let updatedProducts = products.filter(item => item._id !== product._id);
-        if(!updatedProducts.length)
-            history.push('/order')
-        setProducts(updatedProducts)
-    }
 
     return (
         <>
@@ -86,7 +79,9 @@ export const Factor = (props) => {
                             </Col>
                             <Col dir="ltr" className="ps-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان</span><span className="fw-bold">{toFarsiNumber(tax)}</span>
+                                    <span className="factor--text--details">تومان</span><span className="fw-bold">
+                                        {toFarsiNumber(Number(tax).toFixed(3))}
+                                    </span>
                                 </Card.Text>
                             </Col>
                         </Row>

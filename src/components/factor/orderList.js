@@ -20,6 +20,7 @@ export const OrderList = (props) => {
                 setTotal(total - data.price)
                 setTax(tax - data.price * (9 / 100))
                 setRefresh(!refresh)
+                console.log(data)
                 if(!(data.quantity - 1))
                     return null
                 return {...data,quantity:data.quantity - 1}
