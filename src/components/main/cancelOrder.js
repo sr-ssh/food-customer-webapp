@@ -28,7 +28,7 @@ export const CancelOrder = (props) => {
                     <>
                         <Row>
                             <Col className="text-center pt-2">
-                                <span className="">آیا از کنسل کردن این سفارش مطمئنید؟</span>
+                                <span className="fw-bold">آیا از <span className="danger--color--text">کنسل</span> کردن سفارش مطمئن هستید؟</span>
                             </Col>
                         </Row>
                         <Form onSubmit={formHandler} className="d-flex justify-content-around">
@@ -45,7 +45,7 @@ export const CancelOrder = (props) => {
                                         در حال حذف...
                                     </Button>
                                 ) : (
-                                    <Button className="border-0 cancel--order-but success--color text-light w-100 mt-4 ms-2" size="lg" type="submit" block>
+                                    <Button className="border-0 cancel--order-but py-3 success--color text-light w-100 mt-4 ms-2" size="lg" type="submit" block>
                                         بله
                                     </Button>
                                 )

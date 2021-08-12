@@ -34,7 +34,6 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   //     .join('');
   // }
 
-  console.log(orderList);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);

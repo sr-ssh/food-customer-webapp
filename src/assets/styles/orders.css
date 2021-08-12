@@ -186,10 +186,27 @@
 
 .cancel--order-but{
   border-radius: 10px;
+  font-size: 17px;
 }
 
 .success--color{
   background-color: var(--success-color);
+}
+
+.success--color.btn-check:checked + .success--color.btn-primary, .success--color.btn-check:active + .success--color.btn-primary, .success--color.btn-primary:active, .success--color.btn-primary.active, .success--color.show > .success--color.btn-primary.dropdown-toggle {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.success--color.btn-check:focus + .success--color.btn-primary, .success--color.btn-primary:focus {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  box-shadow: 0 0 0 0.25rem rgb(76 175 80 / 50%);
+}
+
+.success--color.btn-primary:hover {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
 }
 
 .danger--color{
@@ -212,7 +229,15 @@
   border-color: var(--danger-color);
 }
 
+.danger--color--text{
+  color: var(--danger-color);
+}
+
 .cancel--order--modal{
   background-color: var(--background-one);
   border-radius: 10px;
+}
+
+.modal-content{
+  border-radius: 1.3rem;
 }
