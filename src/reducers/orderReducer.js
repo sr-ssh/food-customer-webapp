@@ -153,7 +153,7 @@ export const addOrder = (state = initialState, action) => {
   }
 };
 
-export const getFinishedOrders = (state = initialState, action) => {
+export const getFinishedOrders = (state = {}, action) => {
   switch (action.type) {
     case orderConstant.GET_FINISHED_ORDERS_REQUEST:
       return {
