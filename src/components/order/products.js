@@ -57,15 +57,12 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
 
   const handleOrderList = (index, type, id) => {
 
-
-
     let product = basket.filter(item => { return item?._id === id && item?.size == productSize })
+
     if (product.length > 0) {
       let updatedOrder = basket.map((item, indexArray) => {
         if (item._id === id && item.size === productSize) {
-          item.quantity = (type == '+') ? item.quantity + 1 : item.quantity - 1
-          if (item.quantity !== 0)
-            return { ...item, quantity: item.quantity };
+          item.quantity = (type == '+') ? item.quantity + 1 : item.quantity - 1;
         }
         return item;
       });
@@ -90,6 +87,11 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
     setIndex(0)
   }, [productsCategory, data])
 
+
+  useEffect(() => {
+    setProductSize("medium")
+  }, [index])
+
   useEffect(() => {
 
     if (props.location.state) {
@@ -107,31 +109,38 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
 
   useEffect(() => dispatch(orderAction.getProduct()), [dispatch])
 
-
-
   return (
     <div className="div--container__product">
       <Carousel activeIndex={index} nextLabel={false} prevLabel={false} onSelect={handleSelect} interval={null} className="carousal--product" >
         {orderList?.map(item =>
           <Carousel.Item className="carousal--item__prouduct">
+            {item.supply !== 0 ?
+              null :
+              <>
+                <Carousel.Caption className="w-100">
+                  <span className="text--product--unavailable w-100 fw-bold">تموم شد</span>
+                </Carousel.Caption>
+              </>
+            }
             <img
               className="d-block w-100"
               src={item.img}
               alt="First slide"
             />
+
           </Carousel.Item>
         )}
       </Carousel>
       {
         productsCategory === "پیتزا"
           ? <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 ">
-            <ToggleButton sizeProduct={setProductSize} activeOptions={activeOption}></ToggleButton>
+            <ToggleButton sizeProduct={setProductSize} activeOptions={activeOption} activeOrder={orderList[index]} ></ToggleButton>
           </Row>
           : null
       }
       <Detail detail={orderList[index]} price={priceAsSize?.[0]}></Detail>
-      <ControlButton index={index} data={orderList[index]} activeOrder={activeOrder} handleOrderList={handleOrderList} quantity={orderList[index]?.quantity} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
+      <ControlButton index={index} productSize={productSize} data={orderList[index]} activeOrder={activeOrder} handleOrderList={handleOrderList} quantity={orderList[index]?.quantity} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
       <Dialog basket={basket} ></Dialog>
-    </div>
+    </div >
   )
 }

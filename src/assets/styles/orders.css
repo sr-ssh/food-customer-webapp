@@ -94,10 +94,6 @@
   font-size: 0.7rem;
   color: #666666;
 }
-
-.col--container__addButton {
-  height: 8vh;
-}
 .div--container__addButton {
   position: relative;
   font-size: 2rem;
@@ -111,10 +107,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.col--container__minuseButton {
-  height: 8vh;
 }
 .div--container__minuseButton {
   position: relative;
@@ -147,6 +139,9 @@
   width: 25rem;
   height: 15rem;
   margin: auto;
+}
+.carousel-inner {
+  min-height: 100%;
 }
 .carousal--item__prouduct {
   width: 70%;
@@ -184,21 +179,26 @@
   font-weight: bold;
 }
 
-.cancel--order-but{
+.cancel--order-but {
   border-radius: 10px;
   font-size: 17px;
 }
 
-.success--color{
+.success--color {
   background-color: var(--success-color);
 }
 
-.success--color.btn-check:checked + .success--color.btn-primary, .success--color.btn-check:active + .success--color.btn-primary, .success--color.btn-primary:active, .success--color.btn-primary.active, .success--color.show > .success--color.btn-primary.dropdown-toggle {
+.success--color.btn-check:checked + .success--color.btn-primary,
+.success--color.btn-check:active + .success--color.btn-primary,
+.success--color.btn-primary:active,
+.success--color.btn-primary.active,
+.success--color.show > .success--color.btn-primary.dropdown-toggle {
   background-color: var(--success-color);
   border-color: var(--success-color);
 }
 
-.success--color.btn-check:focus + .success--color.btn-primary, .success--color.btn-primary:focus {
+.success--color.btn-check:focus + .success--color.btn-primary,
+.success--color.btn-primary:focus {
   background-color: var(--success-color);
   border-color: var(--success-color);
   box-shadow: 0 0 0 0.25rem rgb(76 175 80 / 50%);
@@ -209,16 +209,21 @@
   border-color: var(--success-color);
 }
 
-.danger--color{
+.danger--color {
   background-color: var(--danger-color);
 }
 
-.danger--color.btn-check:checked + .danger--color.btn-primary, .danger--color.btn-check:active + .danger--color.btn-primary, .danger--color.btn-primary:active, .danger--color.btn-primary.active, .danger--color.show > .danger--color.btn-primary.dropdown-toggle {
+.danger--color.btn-check:checked + .danger--color.btn-primary,
+.danger--color.btn-check:active + .danger--color.btn-primary,
+.danger--color.btn-primary:active,
+.danger--color.btn-primary.active,
+.danger--color.show > .danger--color.btn-primary.dropdown-toggle {
   background-color: var(--danger-color);
   border-color: var(--danger-color);
 }
 
-.danger--color.btn-check:focus + .danger--color.btn-primary, .danger--color.btn-primary:focus {
+.danger--color.btn-check:focus + .danger--color.btn-primary,
+.danger--color.btn-primary:focus {
   background-color: var(--danger-color);
   border-color: var(--danger-color);
   box-shadow: 0 0 0 0.25rem rgb(244 67 54 / 50%);
@@ -229,15 +234,47 @@
   border-color: var(--danger-color);
 }
 
-.danger--color--text{
+.danger--color--text {
   color: var(--danger-color);
 }
 
-.cancel--order--modal{
+.cancel--order--modal {
   background-color: var(--background-one);
   border-radius: 10px;
 }
 
-.modal-content{
+.modal-content {
   border-radius: 1.3rem;
+}
+.carousel-caption {
+  right: 0;
+  left: 0;
+}
+.text--product--unavailable {
+  background-color: var(--red-two);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--background-two);
+  border-radius: 14px;
+  opacity: 0.9;
+  right: 0;
+  left: 0;
+  top: -12px;
+  height: 35px;
+}
+.out--of--stock {
+  color: var(--red-one);
+}
+
+.toggle--btn--unavailable {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: black;
+  right: 0;
+  opacity: 0.5;
+  border-radius: 8px;
 }
