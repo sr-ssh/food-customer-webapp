@@ -123,7 +123,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
             }
             <img
               className="d-block w-100"
-              src={pizzaPic}
+              src={item.img}
               alt="First slide"
             />
 
