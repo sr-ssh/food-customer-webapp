@@ -8,7 +8,6 @@ import { ControlButton } from './controlButton';
 import { Detail } from './detail';
 import { ToggleButton } from './toggleButton';
 import { Dialog } from './dialog';
-import pizzaPic from './../../assets/images/order/products/picc_pizza.png'
 
 export const Products = ({ productsCategory, basket, setbasket, props }) => {
 
@@ -123,7 +122,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
             }
             <img
               className="d-block w-100"
-              src={pizzaPic}
+              src={item.img}
               alt="First slide"
             />
 
