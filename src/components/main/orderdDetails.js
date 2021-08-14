@@ -9,11 +9,14 @@ import commaNumber from 'comma-number'
 //components
 import { Header } from '../base/header2'
 import { translate } from '../../helpers';
+import { LoaderWhite } from '../base/loader-bg-white'
 
 
 export const OrderDetails = () => {
 
    const order = useSelector(state => state.getOrderDetails.orderDetails)
+   let loading = useSelector(state => state.getOrderDetails.loading)
+
    const dispatch = useDispatch()
 
    const totalPrice = (order) => {
@@ -37,7 +40,14 @@ export const OrderDetails = () => {
         <div className="order--details--page">
             <Header title="جزییات سفارش" backLink="/main" backtext="خانه" />
             <Container className="m-auto">
-                {order.order &&
+                {
+                loading ?
+                    <Container className="d-flex justify-content-center mt-6 ">
+                        <div className="d-flex justify-content-center align-items-center">
+                            <LoaderWhite />
+                        </div>
+                    </Container>
+                :order.order &&
                 <Card className="m-auto mt-3 bg-white border-0 lh-lg rounded-4">
                     <Card.Body className="p-2 px-3 text-gray mb-2">
                         <Card.Title className="m-0 p-0 pe-2 pb-2 mt-2">
