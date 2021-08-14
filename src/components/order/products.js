@@ -8,7 +8,6 @@ import { ControlButton } from './controlButton';
 import { Detail } from './detail';
 import { ToggleButton } from './toggleButton';
 import { Dialog } from './dialog';
-import pizzaPic from './../../assets/images/order/products/picc_pizza.png'
 
 export const Products = ({ productsCategory, basket, setbasket, props }) => {
 
@@ -109,8 +108,8 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   useEffect(() => dispatch(orderAction.getProduct()), [dispatch])
 
   return (
-    <div className="div--container__product">
-      <Carousel activeIndex={index} nextLabel={false} prevLabel={false} onSelect={handleSelect} interval={null} className="carousal--product" >
+    <div className="div--container__product mt-4">
+      <Carousel activeIndex={index} nextLabel={false} prevLabel={false} onSelect={handleSelect} interval={null} className="carousal--product mb-2" >
         {orderList?.map(item =>
           <Carousel.Item className="carousal--item__prouduct">
             {item.supply !== 0 ?
@@ -132,7 +131,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
       </Carousel>
       {
         productsCategory === "پیتزا"
-          ? <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 ">
+          ? <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 mt-4 ">
             <ToggleButton sizeProduct={setProductSize} activeOptions={activeOption} activeOrder={orderList[index]} ></ToggleButton>
           </Row>
           : null
