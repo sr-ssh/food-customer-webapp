@@ -21,13 +21,12 @@ function login(body) {
                     console.log("user into userAction");
 
                     if (user === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'));
-                        dispatch(failure("ارتباط با سرور برقرار نیست"))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'));
+                        dispatch(failure("ارتباط با سرور برقرار نمی شود"))
                     }
                     else if (user.success) {
                         console.log("user entered")
                         dispatch(success(user));
-                        dispatch(alertActions.success(user.message));
                         history.push('/dashboard');
                     } else if (user.success === false) {
                         dispatch(alertActions.error(user.message));
@@ -58,7 +57,7 @@ function appInfo() {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'));
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'));
                     }
                     else if (res.success) {
                         console.log("user entered")
@@ -91,8 +90,8 @@ function verificationCode(mobile) {
                     console.log("user into userAction");
                     console.log(res)
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'));
-                        dispatch(failure('ارتباط با سرور برقرار نیست'))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'));
+                        dispatch(failure('ارتباط با سرور برقرار نمی شود'))
                     }
                     else if (res.success) {
                         console.log("verification code sent")

@@ -15,7 +15,7 @@ function getCharge() {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(chargeConstant.GET_CHARGE_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
                     else if (res.success) {
