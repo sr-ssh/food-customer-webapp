@@ -1,0 +1,8 @@
+export const payConstant = {
+
+    PAY_ORDER_REQUEST: "PAY_ORDER_REQUEST",
+    PAY_ORDER_SUCCESS: "PAY_ORDER_SUCCESS",
+    PAY_ORDER_FAILURE: "PAY_ORDER_FAILURE"
+    
+  };
+  

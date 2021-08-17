@@ -4,12 +4,12 @@ import logo2 from './../../assets/images/payment/Payment-online-was-unsuccessful
 import { history } from '../../helpers'
 
 
-export const StausPay = (props) => {
+export const FailPay = (props) => {
 
     const success= false
     const handleReturnToApp = function(){
         history.push({
-                pathname: '/bill'
+                pathname: '/main'
             })
     }
 
