@@ -22,7 +22,7 @@ function getProduct(body) {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(orderConstant.GET_PRODUCT_ORDER_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
                     else if (res.success) {
@@ -56,7 +56,7 @@ function getInLineOrders(body) {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(orderConstant.GET_INLINE_ORDERS_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
                     else if (res.success) {
@@ -89,7 +89,7 @@ function getOrderDetails(body) {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(orderConstant.GET_ORDER_DETAILS_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
                     else if (res.success) {
@@ -122,7 +122,7 @@ function cancelOrder(body) {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(orderConstant.CANCEL_ORDER_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
                     else if (res.success) {
@@ -157,7 +157,7 @@ function getOrderProductsTypes() {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(orderConstant.GET_ORDER_PRODUCTS_TYPES_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
                     else if (res.success) {
@@ -190,7 +190,7 @@ function addOrder(body) {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(orderConstant.ADD_ORDER_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
                     else if (res.success) {
@@ -224,7 +224,7 @@ function getFinishedOrders() {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(orderConstant.GET_FINISHED_ORDERS_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
                     else if (res.success) {

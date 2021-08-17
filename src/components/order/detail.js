@@ -4,7 +4,6 @@ import persianJs from 'persianjs/persian.min';
 
 export const Detail = ({ detail, price }) => {
 
-    console.log(price);
     return (
         <>
             <div className="div--container__detail">

@@ -17,8 +17,8 @@ function getAddresses() {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'));
-                        dispatch(failure("ارتباط با سرور برقرار نیست"))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'));
+                        dispatch(failure("ارتباط با سرور برقرار نمی شود"))
                     } else if (res.success) {
                         console.log("orders received")
                         console.log(res.data);
@@ -59,8 +59,8 @@ function newAddress(address) {
                     console.log("address into addressAction");
 
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'));
-                        dispatch(failure("ارتباط با سرور برقرار نیست"))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'));
+                        dispatch(failure("ارتباط با سرور برقرار نمی شود"))
                     }
                     else if (res.success) {
                         console.log("address successfully save!")
@@ -104,7 +104,7 @@ function searchAddress(body) {
             .then(
                 res => {
                     if (res === undefined) {
-                        dispatch(alertActions.error('ارتباط با سرور برقرار نیست'))
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(addressConstants.SEARCH_ADDRESS_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
                     else if (res) {
