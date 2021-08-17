@@ -98,7 +98,7 @@
   border-radius: 50%;
   background-color: var(--red-one);
   padding: 0.4rem;
-  z-index: 1000;
+  z-index: 999;
   cursor: pointer;
 }
 .icon--location--detection:hover,
@@ -141,6 +141,7 @@
   box-shadow: 1px 1px 12px rgb(182, 182, 182);
   padding-right: 2.8rem;
   font-size: 15px;
+  padding-left: 3rem;
 }
 
 .map--search--input.form-control:focus {
@@ -150,9 +151,21 @@
 
 .map--search--icon {
   position: absolute;
-  right: 34px;
+  right: 20px;
 }
 .leaflet-marker-icon {
   margin-top: -75px !important;
   margin-left: -20px !important;
+}
+.dropdown-menu.show {
+  transform: none !important;
+  width: 100% !important;
+  height: 100vh;
+  inset: -15px 0 auto 0 !important;
+}
+.close--btn {
+  position: absolute;
+  top: 28px;
+  left: 34px;
+  cursor: pointer;
 }
