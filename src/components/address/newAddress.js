@@ -40,7 +40,7 @@ export const NewAddress = ({ setLocating }) => {
                         <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation} setLocating={setLocating} />
                     </Col>
                 </Row>
-                <Row className="m-0 mt-3 mb-auto new--address--inputs">
+                <Row className="m-0 mt-2 mb-auto new--address--inputs">
                     <Col className="p-0 new--address--description-input">
                         <Form.Group controlId="description">
                             <Form.Label className="pe-2">لطفا آدرس دقیق را بنویسید</Form.Label>

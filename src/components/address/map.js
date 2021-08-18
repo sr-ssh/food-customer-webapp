@@ -94,7 +94,7 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
                     <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
                         <Dropdown.Toggle className="d-flex w-100">
                             <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group position-relative">
-                                <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon my-1 me-2" />
+                                <Image src={searchIcon} height="10px" alt="loction_icon" className="map--search--icon" />
                                 <Form.Control autocomplete="off" className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={selectedItem}
                                 />
                             </Form.Group>

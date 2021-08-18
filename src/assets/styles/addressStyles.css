@@ -153,6 +153,9 @@
 .map--search--icon {
   position: absolute;
   right: 0;
+  top: 0;
+  height: 100%;
+  padding: 9px;
 }
 .leaflet-marker-icon {
   margin-top: -75px !important;
