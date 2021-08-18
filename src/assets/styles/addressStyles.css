@@ -161,15 +161,3 @@
   margin-top: -75px !important;
   margin-left: -20px !important;
 }
-.dropdown-menu.show {
-  transform: none !important;
-  width: 100% !important;
-  height: 100vh;
-  inset: -15px 0 auto 0 !important;
-}
-.close--btn {
-  position: absolute;
-  top: 28px;
-  left: 34px;
-  cursor: pointer;
-}
