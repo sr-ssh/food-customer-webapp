@@ -36,7 +36,7 @@ export const NewAddress = ({ setLocating }) => {
         <>
             <Container className="m-0 mx-auto new--address--container d-flex flex-column justify-content-between">
                 <Row style={{ height: "61vh", position: "relative" }}>
-                    <Col style={{ height: "61vh" }} className="p-0">
+                    <Col style={{ height: "61vh", position: "relative" }} className="p-0">
                         <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation} setLocating={setLocating} />
                     </Col>
                 </Row>

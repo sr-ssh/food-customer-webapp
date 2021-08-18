@@ -7,7 +7,7 @@ import loctionicon from "../../assets/images/address/loction.svg";
 import deleteicon from "../../assets/images/factor/delete.svg";
 
 
-import { Button, Col, Row, Form, Image, Dropdown } from 'react-bootstrap';
+import { Container, Button, Col, Row, Form, Image, Dropdown } from 'react-bootstrap';
 import { LoaderRed } from '../base/loader-bg-red'
 import "../../assets/styles/leaflet.css"
 import { useDispatch, useSelector } from 'react-redux';
@@ -87,43 +87,19 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
 
     return (
         <>
-            <NeshanMap
-                options={{
-                    key: API_KEY,
-                    center: itemLocation,
-                    maptype: 'dreamy-gold',
-                    zoom: ZOME_LEVEL
-                }}
-                onInit={(L, myMap) => {
-                    let myIcon = L.icon({
-                        iconUrl: markericon,
-                        iconSize: [60, 75],
-                        zIndexOffset: 1000
-                    });
-                    let marker = L.marker(itemLocation, { icon: myIcon })
-                        .addTo(myMap);
-
-                    setMapPropeties({ myMap, marker })
-
-                    // myMap.on('click', function (e) {
-                    //     marker.setLatLng(e.latlng)
-                    //     setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
-                    // });
-                }}
-            />
-            <Col className="justify-content-center map--search--col">
-                <Dropdown onToggle={(e) => setDimStatus(!dimStatus)}>
-                    <Row className="w-100 justify-content-center inputs">
-                        <Col xs={12} className="justify-content-center pe-3 ps-0">
-                            <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
-                                <Dropdown.Toggle className="d-flex">
-                                    <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
-                                        <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon me-2 my-3" />
-                                        <Form.Control autocomplete="off" className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={selectedItem}
-                                        />
-                                    </Form.Group>
-                                </Dropdown.Toggle>
-                                <Dropdown.Menu className={`w-75 ${dimStatus ? "dim" : ""} dropdown--address--Menu `} styles={{ transform: "translate3d(42px, 58px, 0px)" }}>
+            <Col className="px-2 map--search--col ">
+                <Dropdown onToggle={(e) => setDimStatus(!dimStatus)} className="">
+                    {/* <Row className="w-100 justify-content-center inputs"> */}
+                    {/* <Col className="justify-content-center pe-3 ps-0 w-100"> */}
+                    <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group">
+                        <Dropdown.Toggle className="d-flex w-100">
+                            <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group position-relative">
+                                <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon my-1 me-2" />
+                                <Form.Control autocomplete="off" className="h-100 map--search--input" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={selectedItem}
+                                />
+                            </Form.Group>
+                        </Dropdown.Toggle>
+                        {/* <Dropdown.Menu className={`w-75 ${dimStatus ? "dim" : ""} dropdown--address--Menu `} styles={{ transform: "translate3d(42px, 58px, 0px)" }}>
 
                                     <Form.Group controlId="family" className="justify-content-center align-items-center map--search--group m-2">
                                         <Image src={searchIcon} height="30px" alt="loction_icon" className="map--search--icon my-3 " />
@@ -158,13 +134,38 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
                                         : null
                                     }
 
-                                </Dropdown.Menu>
-                            </Form.Group>
-                        </Col>
-                    </Row>
-
+                                </Dropdown.Menu> */}
+                    </Form.Group>
+                    {/* </Col> */}
+                    {/* </Row> */}
                 </Dropdown>
             </Col>
+
+            <NeshanMap
+                options={{
+                    key: API_KEY,
+                    center: itemLocation,
+                    maptype: 'dreamy-gold',
+                    zoom: ZOME_LEVEL
+                }}
+                onInit={(L, myMap) => {
+                    let myIcon = L.icon({
+                        iconUrl: markericon,
+                        iconSize: [60, 75],
+                        zIndexOffset: 1000
+                    });
+                    let marker = L.marker(itemLocation, { icon: myIcon })
+                        .addTo(myMap);
+
+                    setMapPropeties({ myMap, marker })
+
+                    // myMap.on('click', function (e) {
+                    //     marker.setLatLng(e.latlng)
+                    //     setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
+                    // });
+                }}
+            />
+
             <div>
                 <Button ref={target} className="btn btn-danger border-0  icon--location--detection" onClick={locateUserHandler}>
                     < img src={loctionicon} height="25px" alt="loction_icon" />
