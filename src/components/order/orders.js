@@ -16,7 +16,7 @@ export const Orders = (props) => {
     const dispatch = useDispatch()
     const orderProductCategory = useSelector(state => state.getOrderProductsTypes.productCategory)
     const loader = useSelector(state => state.getOrderProductsTypes.loading)
-    const [activeCategory, setActiveCategory] = useState(1)
+    const [activeCategory, setActiveCategory] = useState(0)
     const [basket, setbasket] = useState([])
     let categoryHandler = (e, index) => {
         setActiveCategory(index)
