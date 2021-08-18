@@ -10,16 +10,23 @@ import commaNumber from 'comma-number'
 import { InLineOrderHeader } from './inLineOrderHeader';
 import { InLineOrderText } from './inLineOrderText';
 import { CancelOrder } from './cancelOrder';
+import { useDispatch } from 'react-redux';
+import { payAction } from '../../actions';
 
 
 
 export const InLineOrder = ({order}) => {
 
     const [modalShow, setmodalShow] = useState(false)
+    const dispatch = useDispatch()
 
     const orderDetails = (orderId) => {
         localStorage.setItem('orderId', orderId)
         history.push('/order/detail')
+    }
+
+    const payOrder = (orderId) => {
+        dispatch(payAction.payOrder({orderId: orderId}))
     }
 
     return (
@@ -61,7 +68,7 @@ export const InLineOrder = ({order}) => {
                     <Col className="d-flex flex-row">
                         {
                             !order.paid ?
-                            <Col>
+                            <Col onClick={() => payOrder(order._id)}>
                                 <Button className="col-12  main-card-btn-order-checkout btn btn-danger btn--red--one ">
                                     <Row className="px-3">
                                         <Col className="text-end">پرداخت </Col>

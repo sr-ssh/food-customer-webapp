@@ -12,8 +12,9 @@ import { Orders } from './components/order/orders';
 import { OrderDetails } from './components/main/orderdDetails';
 import { HistoryOrder } from './components/order/history/historyOrder'
 import { Factor } from './components/factor/factors';
-import { StausPay } from './components/payment/statusPay';
+import { SuccessfullPay } from './components/payment/successfullPay';
 import { NewAddress } from './components/address/newAddress';
+import { FailPay } from './components/payment/failPay';
 
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
         <PrivateRoute path="/order/history" component={HistoryOrder}></PrivateRoute>
         <PrivateRoute path="/order" component={Orders}></PrivateRoute>
         <PrivateRoute path="/bill" component={Factor}></PrivateRoute>
-        <PrivateRoute path="/statusPay" component={StausPay}></PrivateRoute>
+        <Route path="/pay/success" component={SuccessfullPay} />
+        <Route path="/pay/fail" component={FailPay} />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>

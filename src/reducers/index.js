@@ -4,6 +4,8 @@ import { alert } from './alertReducer';
 import { getAddresses, newAddress, searchAddress } from './addressReducer';
 import { getProduct, getInLineOrders, getOrderDetails, cancelOrder, getOrderProductsTypes, addOrder, getFinishedOrders } from "./orderReducer";
 import { getCharge } from './chargeReducer';
+import { payOrder } from './payReducer';
+
 export default combineReducers({
     authentication,
     register,
@@ -12,5 +14,6 @@ export default combineReducers({
     getProduct, getInLineOrders, getOrderDetails, cancelOrder, addOrder, getFinishedOrders,
     newAddress, getAddresses, searchAddress,
     getCharge,
-    getOrderProductsTypes
+    getOrderProductsTypes,
+    payOrder
 })
