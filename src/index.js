@@ -19,7 +19,7 @@ import './assets/styles/leaflet.css'
 import './assets/styles/loaderStyle.css'
 import './assets/styles/mapDropDown.css'
 import './assets/styles/historyOrder.css'
-import './assets/styles/statusPay.css'
+import './assets/styles/statusPay.scss'
 
 
 
