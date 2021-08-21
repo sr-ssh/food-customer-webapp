@@ -36,7 +36,7 @@ export const ControlButton = (props) => {
                     </div>
                   </Col>
                 }
-                <Col className="col--container__productPrice" xs={3}>
+                <Col className="col--container__productPrice px-0" xs={2}>
                   <div className="div--container__controltext">
                     <span className="span--container__price">{props.activeOrder.quantity && persianJs(props.activeOrder.quantity).englishNumber().toString() || persianJs('0').englishNumber().toString()}</span>
                   </div>

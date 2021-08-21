@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { Header } from '../base/stateHeader'
 import {toFarsiNumber} from '../../helpers/util'
+import commaNumber from 'comma-number'
+import persianJs from 'persianjs/persian.min';
 
 //components
 import { OrderList } from "./orderList";
@@ -55,7 +57,7 @@ export const Factor = (props) => {
                             </Col>
                             <Col dir="ltr" className="ps-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان </span> <span className="fw-bold">{toFarsiNumber(total)}</span>
+                                    <span className="factor--text--details">تومان </span> <span className="fw-bold">{total && persianJs(commaNumber(total)).englishNumber().toString()}</span>
                                 </Card.Text>
                             </Col>
                         </Row>
@@ -67,7 +69,7 @@ export const Factor = (props) => {
                             </Col>
                             <Col dir="ltr" className="ps-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان</span><span className="fw-bold">{toFarsiNumber(deliveryCost)}</span>
+                                    <span className="factor--text--details">تومان</span><span className="fw-bold">{deliveryCost && persianJs(commaNumber(deliveryCost)).englishNumber().toString()}</span>
                                 </Card.Text>
                             </Col>
                         </Row>
@@ -80,7 +82,7 @@ export const Factor = (props) => {
                             <Col dir="ltr" className="ps-0">
                                 <Card.Text className="d-flex">
                                     <span className="factor--text--details">تومان</span><span className="fw-bold">
-                                        {toFarsiNumber(Number(tax).toFixed(3))}
+                                        {tax && persianJs(commaNumber(tax)).englishNumber().toString()}
                                     </span>
                                 </Card.Text>
                             </Col>
@@ -90,7 +92,7 @@ export const Factor = (props) => {
                         <Col className="col-12 px-0" onClick={() => addOrder()}>
                             <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one ">
                                 <span className="pe-2">پرداخت</span>
-                                <span className="ps-2"> {toFarsiNumber(totalAmount)} تومان</span>
+                                <span className="ps-2"> {totalAmount && persianJs(commaNumber(totalAmount)).englishNumber().toString()} تومان</span>
                             </Button>
                         </Col>
                     </Row>

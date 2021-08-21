@@ -80,7 +80,6 @@
   height: 15vh;
 }
 .col--container__title {
-  font-weight: 700;
   text-align: center;
 }
 .col--container__price {
@@ -89,9 +88,9 @@
 }
 .span--container__detailtext {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-weight: 100;
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   color: #666666;
 }
 .div--container__addButton {

@@ -44,7 +44,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
       return value.reduce((map, obj) => {
         map._id = obj._id;
         map.name = obj.name;
-        map.price = obj?.price + priceAsSize[0].price;
+        map.price = parseInt(obj?.price) + parseInt(priceAsSize[0].price);
         map.quantity = permission ? obj.quantity + 1 : obj.quantity;
         map.size = priceAsSize[0].name
         return map;
@@ -129,13 +129,13 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
           </Carousel.Item>
         )}
       </Carousel>
-      {
+      {/* {
         productsCategory === "پیتزا"
           ? <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 mt-4 ">
             <ToggleButton sizeProduct={setProductSize} activeOptions={activeOption} activeOrder={orderList[index]} ></ToggleButton>
           </Row>
           : null
-      }
+      } */}
       <Detail detail={orderList[index]} price={priceAsSize?.[0]}></Detail>
       <ControlButton index={index} productSize={productSize} data={orderList[index]} activeOrder={activeOrder} handleOrderList={handleOrderList} quantity={orderList[index]?.quantity} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
       <Dialog basket={basket} ></Dialog>

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import {toFarsiNumber} from '../../helpers/util'
 import { Row, Col, Table } from 'react-bootstrap';
+import commaNumber from 'comma-number'
+import persianJs from 'persianjs/persian.min';
+
 
 // Assets
 import deleteIcon from '../../assets/images/factor/delete.svg'
@@ -44,11 +47,8 @@ export const OrderList = (props) => {
                                         <td className="m-0 p-0 pb-1">
                                             <span className="fw-bold ms-4">{data?.name}</span>
                                         </td>
-                                        <td className="text-end m-0 p-0 pb-1">
-                                            <span className="factor--text--details">{translate(data?.size)}</span>
-                                        </td>
                                         <td className="text-center m-0 p-0 ps-3">
-                                            <span className="fw-bold">{data?.price && toFarsiNumber(data?.price)}</span>
+                                            <span className="fw-bold">{(data?.price && persianJs(commaNumber(data.price)).englishNumber().toString()) || persianJs("0").englishNumber().toString()}</span>
                                             <span className="factor--text--details">تومان</span>
                                         </td>
                                         <td className="m-0 p-0">
