@@ -9,6 +9,8 @@ import { Detail } from './detail';
 import { ToggleButton } from './toggleButton';
 import { Dialog } from './dialog';
 
+import pizaaIcon from './../../assets/images/order/products/pizza-banner-1.png'
+
 export const Products = ({ productsCategory, basket, setbasket, props }) => {
 
 
@@ -45,6 +47,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
         map._id = obj._id;
         map.name = obj.name;
         map.price = parseInt(obj?.price) + parseInt(priceAsSize[0].price);
+        map.discount = parseInt(obj?.discount) + parseInt(priceAsSize[0].discount);
         map.quantity = permission ? obj.quantity + 1 : obj.quantity;
         map.size = priceAsSize[0].name
         return map;
@@ -108,10 +111,10 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   useEffect(() => dispatch(orderAction.getProduct()), [dispatch])
 
   return (
-    <div className="div--container__product mt-4">
+    <div className="div--container__product mt-4 ms-0">
       <Carousel activeIndex={index} nextLabel={false} prevLabel={false} onSelect={handleSelect} interval={null} wrap={false} className="carousal--product mb-2" >
         {orderList?.map(item =>
-          <Carousel.Item className="carousal--item__prouduct">
+          <Carousel.Item className="carousal--item__prouduct text-center">
             {item.supply !== 0 ?
               null :
               <>
@@ -121,21 +124,22 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
               </>
             }
             <img
-              className="d-block w-100"
-              src={item.img}
+              className="d-block carousel--img"
+              // src={item.img}
+              src={pizaaIcon}
               alt="First slide"
             />
 
           </Carousel.Item>
         )}
       </Carousel>
-      {
+      {/* {
         productsCategory === "پیتزا"
           ? <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 mt-4 ">
-            {/* <ToggleButton sizeProduct={setProductSize} activeOptions={activeOption} activeOrder={orderList[index]} ></ToggleButton> */}
+            <ToggleButton sizeProduct={setProductSize} activeOptions={activeOption} activeOrder={orderList[index]} ></ToggleButton>
           </Row>
           : null
-      }
+      } */}
       <Detail detail={orderList[index]} price={priceAsSize?.[0]}></Detail>
       <ControlButton index={index} productSize={productSize} data={orderList[index]} activeOrder={activeOrder} handleOrderList={handleOrderList} quantity={orderList[index]?.quantity} setNumber={setNumber} orderList={orderList} setOrderList={setOrderList}></ControlButton>
       <Dialog basket={basket} ></Dialog>
