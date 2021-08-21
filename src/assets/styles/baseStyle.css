@@ -9,7 +9,7 @@
   --btn-active-one: #f87f77;
   --btn-active-two: #c4a3a0;
   --success-color: #4caf50;
-  --danger-color: #e53935
+  --danger-color: #e53935;
 }
 
 @font-face {
@@ -51,7 +51,7 @@ body {
 
   left: 0;
   right: 0;
-  border-radius: 0 100px 0 100px;
+  border-radius: 0 50px 0 100px;
   overflow-y: hidden;
 }
 .back-center-login {
@@ -157,4 +157,7 @@ body {
 }
 .rounded-4 {
   border-radius: 14px;
+}
+.position-relative {
+  position: relative !important ;
 }

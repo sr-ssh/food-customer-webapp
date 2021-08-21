@@ -11,9 +11,9 @@
   border: 1px solid var(--red-one);
 }
 #old--address-scroller-container {
-  height: 70%;
+  height: 100%;
   min-height: 70vh;
-  position: fixed;
+  position: absolute;
   top: 62px;
   right: 0;
   left: 0;
@@ -125,15 +125,17 @@
 }
 
 .map--search--col {
-  position: fixed;
-  top: 75px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 15px;
   width: 100%;
   z-index: 1000;
 }
 
 .map--search--group {
   height: 7vh;
-  width: 91vw;
+  width: 100%;
 }
 
 .map--search--input {
@@ -141,7 +143,6 @@
   box-shadow: 1px 1px 12px rgb(182, 182, 182);
   padding-right: 2.8rem;
   font-size: 15px;
-  padding-left: 3rem;
 }
 
 .map--search--input.form-control:focus {
@@ -151,21 +152,12 @@
 
 .map--search--icon {
   position: absolute;
-  right: 20px;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding: 9px;
 }
 .leaflet-marker-icon {
   margin-top: -75px !important;
   margin-left: -20px !important;
-}
-.dropdown-menu.show {
-  transform: none !important;
-  width: 100% !important;
-  height: 100vh;
-  inset: -15px 0 auto 0 !important;
-}
-.close--btn {
-  position: absolute;
-  top: 28px;
-  left: 34px;
-  cursor: pointer;
 }

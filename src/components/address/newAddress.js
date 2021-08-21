@@ -36,11 +36,11 @@ export const NewAddress = ({ setLocating }) => {
         <>
             <Container className="m-0 mx-auto new--address--container d-flex flex-column justify-content-between">
                 <Row style={{ height: "61vh", position: "relative" }}>
-                    <Col style={{ height: "61vh" }} className="p-0">
+                    <Col style={{ height: "61vh", position: "relative" }} className="p-0">
                         <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation} setLocating={setLocating} />
                     </Col>
                 </Row>
-                <Row className="m-0 mt-3 mb-auto new--address--inputs">
+                <Row className="m-0 mt-2 mb-auto new--address--inputs">
                     <Col className="p-0 new--address--description-input">
                         <Form.Group controlId="description">
                             <Form.Label className="pe-2">لطفا آدرس دقیق را بنویسید</Form.Label>

@@ -132,7 +132,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
       {/* {
         productsCategory === "پیتزا"
           ? <Row className="d-flex justify-content-center aling-align-items-center col-12 m-0 mt-4 ">
-            <ToggleButton sizeProduct={setProductSize} activeOptions={activeOption} activeOrder={orderList[index]} ></ToggleButton>
+            {/* <ToggleButton sizeProduct={setProductSize} activeOptions={activeOption} activeOrder={orderList[index]} ></ToggleButton> */}
           </Row>
           : null
       } */}

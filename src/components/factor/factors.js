@@ -13,16 +13,16 @@ import { history } from '../../helpers';
 
 export const Factor = (props) => {
 
-    const [total , setTotal]= useState(props.location.state.data?.map(data=>data.price * data.quantity).reduce((a,b)=>a + b ,0))
-    const [tax,setTax] = useState(props.location.state?.data?.map(data=>data.price * data.quantity * (9 / 100)).reduce((a,b)=>a + b ,0))
+    const [total, setTotal] = useState(props.location.state.data?.map(data => data.price * data.quantity).reduce((a, b) => a + b, 0))
+    const [tax, setTax] = useState(props.location.state?.data?.map(data => data.price * data.quantity * (9 / 100)).reduce((a, b) => a + b, 0))
     let userAddress = JSON.parse(localStorage.getItem('userAddress'))
     const [products, setProducts] = useState(props.location.state.data)
     let deliveryCost = JSON.parse(localStorage.getItem('addressVerify')).deliveryCost
-    const [order, setOrder] = useState({products, deliveryCost, lat: userAddress.lat, lng: userAddress.lng, address: userAddress.address})
+    const [order, setOrder] = useState({ products, deliveryCost, lat: userAddress.lat, lng: userAddress.lng, address: userAddress.address })
     const dispatch = useDispatch()
     const totalAmount = total + tax + deliveryCost
 
-   
+
     const descHandler = e => {
         setOrder({ ...order, description: e.target.value })
     }
@@ -37,13 +37,13 @@ export const Factor = (props) => {
             <div className="factor-page">
                 <Header title="فاکتور" backLink="/order" state={products} backtext="سفارش" />
                 <Container className=" pt-2 px-4  d-flex flex-column factor-page-container" >
-                    <OrderList  products ={products} total={total} setTotal={setTotal} setProducts={setProducts} tax={tax} setTax={setTax}/>
+                    <OrderList products={products} total={total} setTotal={setTotal} setProducts={setProducts} tax={tax} setTax={setTax} />
                     <Row className="m-0 p-0 mt-2 factor-inputs">
                         <Col className="p-0 factor-description-input">
                             <Form.Group controlId="description">
                                 <Form.Label className="pe-2">توضیحات</Form.Label>
                                 <Card className="border-0 bg-transparent" >
-                                    <Form.Control as="textarea" name="description" className="description-text-container" onChange={descHandler}/>
+                                    <Form.Control as="textarea" name="description" className="description-text-container" onChange={descHandler} />
                                 </Card>
                             </Form.Group>
                         </Col>
@@ -88,7 +88,7 @@ export const Factor = (props) => {
                             </Col>
                         </Row>
                     </Row>
-                    <Row className="mt-auto align-self-center w-100">
+                    <Row className="mt-auto mx-0 align-self-center w-100">
                         <Col className="col-12 px-0" onClick={() => addOrder()}>
                             <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one ">
                                 <span className="pe-2">پرداخت</span>

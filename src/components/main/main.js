@@ -58,7 +58,7 @@ export const Main = () => {
                     <div id="back-up"></div>
                     <div id="back-center" className="back-center-main">
                         <div className="main-scroll-card-order">
-                            <Container className="mb-auto mt-5 d-flex flex-column">
+                            <Container className="mb-auto mt-2 d-flex flex-column">
                                 <InLineOrders />
                             </Container>
                         </div>
