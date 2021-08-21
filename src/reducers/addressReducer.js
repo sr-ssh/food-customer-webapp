@@ -55,6 +55,12 @@ export function searchAddress(state = initialState, action) {
             return {
                 loading: true,
             };
+
+        case addressConstants.SEARCH_ADDRESS_CLEAR:
+            return {
+                loading: false,
+                searchAddress: {}
+            };
         case addressConstants.SEARCH_ADDRESS_SUCCESS:
             return {
                 loading: false,

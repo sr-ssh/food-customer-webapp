@@ -6,7 +6,8 @@ import { history } from '../helpers';
 export const addressActions = {
     newAddress,
     getAddresses,
-    searchAddress
+    searchAddress,
+    searchAddressClear
 };
 
 function getAddresses() {
@@ -125,6 +126,12 @@ function searchAddress(body) {
                     dispatch(alertActions.error(error.toString()));
                 }
             );
+    };
+}
+
+function searchAddressClear() {
+    return dispatch => {
+        dispatch(request(addressConstants.SEARCH_ADDRESS_CLEAR));
     };
 }
 

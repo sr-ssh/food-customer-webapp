@@ -87,4 +87,9 @@
 }
 .basket-dropdown-border-left {
   white-space: normal;
+  font-size: 14px;
+}
+.text--result-search--address {
+  color: var(--text-grey);
+  font-size: 13px;
 }

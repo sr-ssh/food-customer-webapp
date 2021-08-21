@@ -127,7 +127,7 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
                 }
                 {alerts?.text}
             </div> */}
-            <SearchAddressBar show={showAddressBar} onHide={() => { setShowAddressbar(false) }} setItem={setItem} selectedItem={selectedItem} setItemLocation={setItemLocation} />
+            <SearchAddressBar show={showAddressBar} onHide={() => { setShowAddressbar(false) }} setItem={setItem} selectedItem={selectedItem} itemLocation={itemLocation} setItemLocation={setItemLocation} />
         </>
     )
 }

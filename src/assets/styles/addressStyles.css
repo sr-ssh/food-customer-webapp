@@ -149,6 +149,21 @@
   border: none;
   box-shadow: 1px 1px 12px rgb(182, 182, 182);
 }
+.map--search--input--dropdown {
+  border-radius: 13px;
+  box-shadow: 1px 1px 12px rgb(182, 182, 182);
+  padding-right: 2.8rem;
+  padding-left: 2.8rem;
+  font-size: 15px;
+}
+.divider--result-search--address {
+  border-top: 1px solid #f87f77;
+  opacity: 0.5;
+}
+.map--search--input--dropdown.form-control:focus {
+  border: none;
+  box-shadow: 1px 1px 12px rgb(182, 182, 182);
+}
 
 .map--search--icon {
   position: absolute;
@@ -156,6 +171,13 @@
   top: 0;
   height: 100%;
   padding: 9px;
+}
+.map--search--icon-delete {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding: 13px;
 }
 .leaflet-marker-icon {
   margin-top: -75px !important;
