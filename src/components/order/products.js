@@ -45,6 +45,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
         map._id = obj._id;
         map.name = obj.name;
         map.price = parseInt(obj?.price) + parseInt(priceAsSize[0].price);
+        map.discount = parseInt(obj?.discount) + parseInt(priceAsSize[0].discount);
         map.quantity = permission ? obj.quantity + 1 : obj.quantity;
         map.size = priceAsSize[0].name
         return map;

@@ -279,3 +279,22 @@
   opacity: 0.5;
   border-radius: 8px;
 }
+
+.strikethrough {
+  position: relative;
+}
+.strikethrough:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 2px solid ;
+  border-color: var(--red-one);
+  
+  -webkit-transform:rotate(-17deg);
+  -moz-transform:rotate(-17deg);
+  -ms-transform:rotate(-17deg);
+  -o-transform:rotate(-17deg);
+  transform:rotate(-17deg);
+}
