@@ -51,7 +51,7 @@ export const OrderDetails = () => {
                 <Card className="m-auto mt-3 bg-white border-0 lh-lg rounded-4">
                     <Card.Body className="p-2 px-3 text-gray mb-2">
                         <Card.Title className="m-0 p-0 pe-2 pb-2 mt-2">
-                            <div className="card--title--order-details">{order.order.status.name}</div>
+                            <div className="card--title--order-details fw-bold">{order.order.status.name}</div>
                         </Card.Title>
                         <Row className="m-0 mt-2">
                             <Col className="d-flex ">
@@ -91,7 +91,6 @@ export const OrderDetails = () => {
                                                             <tr>
                                                                 <th className="fw-bold">سفارش</th>
                                                                 <th className="fw-bold text-center">قیمت <span className="order--detailes--order--cards">(تومان)</span></th>
-                                                                <th className="fw-bold text-center">سایز</th>
                                                                 <th className="fw-bold text-center">تعداد</th>
 
                                                             </tr>
@@ -102,10 +101,6 @@ export const OrderDetails = () => {
                                                                 <tr key={index}>
                                                                     <td>{product._id.name}</td>
                                                                     <td className="text-center">{persianJs(commaNumber(product.price)).englishNumber().toString()}</td>
-                                                                    <td className="text-center">
-                                                                        { 
-                                                                        translate(persianJs(product.size).englishNumber().toString())}
-                                                                    </td>
                                                                     <td className="pe-3">{persianJs(commaNumber(product.quantity)).englishNumber().toString()}</td>
                                                                 </tr>
                                                                 )

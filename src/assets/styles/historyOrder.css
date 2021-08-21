@@ -3,6 +3,7 @@
     height: 100vh;
     background-color: #F3EEEA;
     overflow: auto;
+    font-size: 0.9rem;
 }
 .div--container__inner-historyOrder{
     position: relative;
@@ -25,16 +26,15 @@
 }
 
 .logo--historyDetail{
-    width: 4.5rem;
+    width: 3.8rem;
     position: absolute;
-    top: -1.4rem;
+    top: -1.2rem;
     z-index: 999;
 }
 .row--container__historyDetail{
     height: 2rem;
     margin-top: .7rem;
     position: relative;
-
 }
 .col--status__historyDetail{
     position: absolute;
@@ -59,8 +59,8 @@
 
 .col--date__historyDetail{
     position: absolute;
-    left: 0%;
     top: 50%;
+    left: 33%;
     transform: translate(-52%, -50%);
     font-weight: 600;
 }

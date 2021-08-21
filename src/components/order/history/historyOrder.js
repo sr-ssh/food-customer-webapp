@@ -4,6 +4,7 @@ import Completed  from '../../../assets/images/order/Completed.svg';
 import Canceled  from '../../../assets/images/order/Canceled.svg';
 import moment from 'jalali-moment';
 import persianJs from 'persianjs/persian.min';
+import commaNumber from 'comma-number'
 
 // Components
 import { Header } from '../../base/addressHeader'
@@ -14,14 +15,6 @@ export const HistoryOrder = (props) => {
 
   const finishedOrders = useSelector(state => state.getFinishedOrders.orders)
   const dispatch = useDispatch()
-
-  const totalPrice = (order) => {
-    let total = 0
-    order.products.map(item => {
-        total += item.price * item.quantity
-    })
-    return total
-}
 
   useEffect(() => {
     dispatch(orderAction.getFinishedOrders())
@@ -41,13 +34,13 @@ export const HistoryOrder = (props) => {
             />
             <div className="div--container__card-history pb-4">
               <Container>
-                  <Row className="row--container__historyDetail">
-                      <Col className="col--status__historyDetail">
+                  <Row className="row--container__historyDetail ms-0">
+                      <Col xs={4} className="col--status__historyDetail">
                       {
                         item.order.status.status === 1 ? <span className="danger--color--text">کنسل شده</span> : item.order.status.status === 4 ? 'اتمام یافته' : null
                       }
                       </Col>
-                      <Col className="ms-3 py-2 col--date__historyDetail">
+                      <Col xs={8} className="py-2 px-0 col--date__historyDetail text-start">
                           <span className="ps-2 ">{persianJs(moment.from(item.order.finishDate, 'YYYY/MM/DD').locale('fa').format('ddd')).englishNumber().toString()}</span>
                           <span className="ps-2 ">
                               {persianJs(moment.from(item.order.finishDate, 'YYYY/MM/DD').locale('fa').format('DD MMMM')).englishNumber().toString()}
@@ -88,13 +81,26 @@ export const HistoryOrder = (props) => {
                     }
                   </tbody>
                 </Table>
-                <hr className="hr--historyDetail"></hr>
-                <Container>
-                  <Row className="row--container__tatal-historyDetail">
-                      <Col className="col--text__total-historyDetail">جمع کل :</Col>
-                      <Col className="col--price__total-historyDetail">{totalPrice(item.order) && persianJs(totalPrice(item.order)).englishNumber().toString()}<span className="span--container__toman-historyDetail me-2">تومان</span></Col>
-                  </Row>
-                </Container>
+                <Row className="border-top-red pt-2 mt-auto ms-auto">
+                  <Col className="col-6 col-sm-7 ms-3 pe-1">
+                      <span className="order--detailes--order--cards order--details--text--footer-cards--order">هزینه ارسال :</span>
+                  </Col>
+                  <Col className="px-1 fw-bold">
+                      {persianJs(commaNumber(item.order.deliveryCost)).englishNumber().toString()}
+                  </Col>
+                  <Col className="col-6 col-sm-7 ms-3 pe-1">
+                      <span className="order--detailes--order--cards order--details--text--footer-cards--order">مالیات :</span>
+                  </Col>
+                  <Col className="px-1 fw-bold">
+                      {persianJs(commaNumber(item.tax)).englishNumber().toString()}
+                  </Col>
+                  <Col className="col-6 col-sm-7 ms-3 pe-1">
+                      <span className="order--detailes--order--cards order--details--text--footer-cards--order">جمع کل :</span>
+                  </Col>
+                  <Col className="px-1 fw-bold">
+                      {item.total && persianJs(commaNumber(item.total)).englishNumber().toString()}<span className="me-2  txt--color--red--one">تومان</span>
+                  </Col>
+              </Row>
               </div>
             </div>
           </div>

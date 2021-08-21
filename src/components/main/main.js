@@ -75,7 +75,7 @@ export const Main = () => {
                         <Row>
                             <Col className="d-flex justify-content-center ">
                                 <Button type="button" className="main-add-btn border-0 p-2 mt-4" onClick={() => history.push('/address')}>
-                                    <img src={addIcon} height="48px" alt="menu-icon" />
+                                    <img src={addIcon} height="54px" alt="menu-icon" />
                                 </Button>
                             </Col>
                         </Row>
