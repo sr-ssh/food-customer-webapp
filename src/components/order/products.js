@@ -109,7 +109,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
 
   return (
     <div className="div--container__product mt-4">
-      <Carousel activeIndex={index} nextLabel={false} prevLabel={false} onSelect={handleSelect} interval={null} className="carousal--product mb-2" >
+      <Carousel activeIndex={index} nextLabel={false} prevLabel={false} onSelect={handleSelect} interval={null} wrap={false} className="carousal--product mb-2" >
         {orderList?.map(item =>
           <Carousel.Item className="carousal--item__prouduct">
             {item.supply !== 0 ?

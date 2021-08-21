@@ -18,8 +18,6 @@ export const InLineOrders = () => {
         dispatch(orderAction.getInLineOrders())
     }, [dispatch])
 
-    console.log(loading);
-
     return (
         <>
             {
