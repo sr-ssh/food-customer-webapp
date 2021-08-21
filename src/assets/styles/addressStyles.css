@@ -141,7 +141,7 @@
 .map--search--input {
   border-radius: 13px;
   box-shadow: 1px 1px 12px rgb(182, 182, 182);
-  padding-right: 2.8rem;
+  padding-right: 3rem;
   font-size: 15px;
 }
 
@@ -152,7 +152,7 @@
 .map--search--input--dropdown {
   border-radius: 13px;
   box-shadow: 1px 1px 12px rgb(182, 182, 182);
-  padding-right: 2.8rem;
+  padding-right: 3rem;
   padding-left: 2.8rem;
   font-size: 15px;
 }
@@ -170,14 +170,14 @@
   right: 0;
   top: 0;
   height: 100%;
-  padding: 9px;
+  padding: 0.75rem !important;
 }
 .map--search--icon-delete {
   position: absolute;
   left: 0;
   top: 0;
   height: 100%;
-  padding: 13px;
+  padding: 1rem;
 }
 .leaflet-marker-icon {
   margin-top: -75px !important;

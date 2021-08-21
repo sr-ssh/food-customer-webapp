@@ -45,13 +45,15 @@ export const SearchAddressBar = (props) => {
                     <Navbar.Text className="me-auto ps-3 d-flex justify-content-center align-items-center" onClick={() => props.onHide(false)}><span className="text-light nav--link--header--back">آدرس</span><img src={backIcon} height="30px" alt="back-icon" /></Navbar.Text>
                 </Nav>
             </Modal.Header>
-            <Form.Group controlId="family" className="justify-content-center align-items-center  position-relative m-2">
-                <Image src={searchIcon} height="10px" alt="loction_icon" className="map--search--icon my-1" />
-                <Form.Control autocomplete="off" className="h-100 map--search--input--dropdown my-1" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={props.selectedItem}
-                />
-                <Image src={deleteIcon} height="5px" alt="loction_icon" className="map--search--icon-delete my-1" onClick={searchAddressClear} />
-            </Form.Group>
-            <Modal.Body>
+            <Col className="col--input--search--address">
+                <Form.Group controlId="family" className="justify-content-center align-items-center position-relative m-2 " style={{ height: "55px" }}>
+                    <Image src={searchIcon} height="5px" alt="loction_icon" className="map--search--icon " />
+                    <Form.Control autocomplete="off" className="h-100 map--search--input--dropdown my-1" type="text" placeholder="محل مورد نظرتان کجاست؟" onChange={searchAddress} value={props.selectedItem}
+                    />
+                    <Image src={deleteIcon} height="5px" alt="loction_icon" className="map--search--icon-delete " onClick={searchAddressClear} />
+                </Form.Group>
+            </Col>
+            <Modal.Body className="modal--body--result--address">
                 {
                     searchedAdrssLoading ?
                         <Col className="d-flex justify-content-center align-items-center mt-4">
