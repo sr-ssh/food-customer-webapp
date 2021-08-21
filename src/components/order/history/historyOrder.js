@@ -36,7 +36,7 @@ export const HistoryOrder = (props) => {
         finishedOrders.map((item, index) =>
           <div className="div--container__inner-historyOrder">
             <img className="logo--historyDetail" 
-              src={`${item.status.status === 1 ? Canceled : item.status.status === 4 ? Completed : null}`} 
+              src={`${item.order.status.status === 1 ? Canceled : item.order.status.status === 4 ? Completed : null}`} 
               alt="logo"
             />
             <div className="div--container__card-history pb-4">
@@ -44,21 +44,21 @@ export const HistoryOrder = (props) => {
                   <Row className="row--container__historyDetail">
                       <Col className="col--status__historyDetail">
                       {
-                        item.status.status === 1 ? <span className="danger--color--text">کنسل شده</span> : item.status.status === 4 ? 'اتمام یافته' : null
+                        item.order.status.status === 1 ? <span className="danger--color--text">کنسل شده</span> : item.order.status.status === 4 ? 'اتمام یافته' : null
                       }
                       </Col>
                       <Col className="ms-3 py-2 col--date__historyDetail">
-                          <span className="ps-2 ">{persianJs(moment.from(item.finishDate, 'YYYY/MM/DD').locale('fa').format('ddd')).englishNumber().toString()}</span>
+                          <span className="ps-2 ">{persianJs(moment.from(item.order.finishDate, 'YYYY/MM/DD').locale('fa').format('ddd')).englishNumber().toString()}</span>
                           <span className="ps-2 ">
-                              {persianJs(moment.from(item.finishDate, 'YYYY/MM/DD').locale('fa').format('DD MMMM')).englishNumber().toString()}
+                              {persianJs(moment.from(item.order.finishDate, 'YYYY/MM/DD').locale('fa').format('DD MMMM')).englishNumber().toString()}
                           </span>
                           <span className="ps-2 ">
-                              {persianJs(moment.from(item.finishDate, 'YYYY/MM/DD').locale('fa').format('HH:mm')).englishNumber().toString()}
+                              {persianJs(moment.from(item.order.finishDate, 'YYYY/MM/DD').locale('fa').format('HH:mm')).englishNumber().toString()}
                           </span>
                       </Col>
                   </Row>
                   <Row className="row--container__address-historyDetail align-items-center me-2">
-                      {item.address && persianJs(item.address).englishNumber().toString()}
+                      {item.order.address && persianJs(item.order.address).englishNumber().toString()}
                   </Row>
               </Container>
               <div className="div--container__card-history-inner pb-4">
@@ -72,7 +72,7 @@ export const HistoryOrder = (props) => {
                   </thead>
                   <tbody>
                     {
-                      item.products?.map((pro, index) => 
+                      item.order.products?.map((pro, index) => 
                         <tr key={index}>
                           <td className="td--container__historyDetail">
                             {pro.name}
@@ -92,7 +92,7 @@ export const HistoryOrder = (props) => {
                 <Container>
                   <Row className="row--container__tatal-historyDetail">
                       <Col className="col--text__total-historyDetail">جمع کل :</Col>
-                      <Col className="col--price__total-historyDetail">{totalPrice(item) && persianJs(totalPrice(item)).englishNumber().toString()}<span className="span--container__toman-historyDetail me-2">تومان</span></Col>
+                      <Col className="col--price__total-historyDetail">{totalPrice(item.order) && persianJs(totalPrice(item.order)).englishNumber().toString()}<span className="span--container__toman-historyDetail me-2">تومان</span></Col>
                   </Row>
                 </Container>
               </div>
