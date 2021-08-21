@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 //icons
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,12 +11,13 @@ import { LoaderWhite } from '../base/loader-bg-white'
 
 export const InLineOrders = () => {
 
+    const [refresh, setRefresh] = useState(false)
     const dispatch = useDispatch()
     let { loading, orders: inLineOrders } = useSelector(state => state.getInLineOrders)
 
     useEffect(() => {
         dispatch(orderAction.getInLineOrders())
-    }, [dispatch])
+    }, [dispatch, refresh])
 
     return (
         <>
@@ -29,7 +30,7 @@ export const InLineOrders = () => {
                     </Container>
                     : inLineOrders &&
                     inLineOrders.map((order, index) =>
-                        <InLineOrder order={order} key={index} />
+                        <InLineOrder order={order} key={index} refresh={refresh} setRefresh={setRefresh}/>
                     )
 
             }

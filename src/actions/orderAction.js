@@ -129,8 +129,8 @@ function cancelOrder(body) {
                         console.log("order canceled")
                         dispatch(success(orderConstant.CANCEL_ORDER_SUCCESS, res.data))
                         dispatch(alertActions.success(res.message));
-                        if (res.data.status)
-                            history.go(0)
+                        // if (res.data.status)
+                        //     history.go(0)
                     } else if (res.success === false) {
                         dispatch(failure(orderConstant.CANCEL_ORDER_FAILURE, res.message));
                         dispatch(alertActions.error(res.message));

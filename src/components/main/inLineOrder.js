@@ -15,7 +15,7 @@ import { payAction } from '../../actions';
 
 
 
-export const InLineOrder = ({order}) => {
+export const InLineOrder = ({order, refresh, setRefresh}) => {
 
     const [modalShow, setmodalShow] = useState(false)
     const dispatch = useDispatch()
@@ -82,7 +82,7 @@ export const InLineOrder = ({order}) => {
                     </Col>
                 </Row>
             </Card.Body>
-            <CancelOrder orderId={order._id} show={modalShow} onHide={() => { setmodalShow(false) }} />
+            <CancelOrder orderId={order._id} show={modalShow} onHide={() => { setmodalShow(false); setRefresh(!refresh); }} />
         </Card>
         </>
     )
