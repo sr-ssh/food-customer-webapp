@@ -113,11 +113,22 @@
 .link--call-sidebar {
   color: #000;
   text-decoration: none;
-  font-size: 0.9rem !important;
+  font-size: 12px !important;
   text-shadow: 0px 0px 25px #4caf50 !important;
 }
 .link--call-sidebar:hover,
 .link--call-sidebar:active {
   color: #000;
   text-decoration: none;
+}
+.call--icon--sidebar {
+  height: 25px;
+}
+@media (min-width: 394px) {
+  .call--icon--sidebar {
+    height: 30px;
+  }
+  .link--call-sidebar {
+    font-size: 1rem !important;
+  }
 }

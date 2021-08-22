@@ -21,7 +21,7 @@ export const SidebarItems = () => {
                 </Col>
             </Row>
             <Row>
-                <Col xs={10} sm={10} md={10} lg={10} className="py-3 mx-auto fw-bold sidebarItem">
+                <Col xs={10} sm={10} md={10} lg={10} className="py-3 mx-auto fw-bold sidebarItem" style={{ padding: '0', whiteSpace: 'nowrap' }}>
                     <Link to="/order/history">تاریخچه سفارشات</Link>
                 </Col>
                 <Col xs={10} sm={10} md={10} lg={10} className="py-3 mx-auto fw-bold sidebarItem">
@@ -31,9 +31,9 @@ export const SidebarItems = () => {
 
             <Row className=" mt-auto">
                 <Row className="m-0 p-0 mx-auto ">
-                    <a href="tel:+62896706255135" className="link--call-sidebar">
-                        <Col className="d-flex align-items-center px-0 my-3" >
-                            <img className="m-0 d-block" src={callIcon} height="30px" alt="exit-icon" />
+                    <a href="tel:+62896706255135" className="link--call-sidebar px-1">
+                        <Col className="d-flex align-items-center justify-content-center px-0 my-3" >
+                            <img className="m-0 d-block call--icon--sidebar" src={callIcon} height="30px" alt="call-icon" />
                             <span className="fw-bold">تماس با پشتیبانی</span>
                         </Col>
                     </a>
