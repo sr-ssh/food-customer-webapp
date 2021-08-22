@@ -143,6 +143,7 @@
 }
 .carousal--item__prouduct {
   width: 70%;
+  justify-content: center;
   margin-left: 15%;
 }
 
@@ -158,7 +159,6 @@
 
 .carousel--img {
   height: 27vh;
-  margin-right: 30px;
 }
 
 /* ------------------------------------- DIALOG IN ORDER --------------------------------------- */
