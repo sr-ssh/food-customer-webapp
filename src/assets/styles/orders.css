@@ -135,7 +135,7 @@
 }
 
 .carousal--product {
-  width: 22rem;
+  /* width: 22rem; */
   margin: auto;
 }
 .carousel-inner {
@@ -156,7 +156,7 @@
   opacity: 1 !important;
 }
 
-.carousel--img{
+.carousel--img {
   height: 27vh;
   margin-right: 30px;
 }
@@ -165,10 +165,10 @@
 
 .div--container__dialog-order {
   margin: 30px 12px;
-  position: fixed;
+  /* position: fixed;
   right: 0;
   left: 0;
-  bottom: 0;
+  bottom: 0; */
   height: 3.5rem;
   border-radius: 10px;
   background-color: #f24333;
@@ -294,12 +294,12 @@
   left: 0;
   top: 50%;
   right: 0;
-  border-top: 2px solid ;
+  border-top: 2px solid;
   border-color: var(--red-one);
-  
-  -webkit-transform:rotate(-17deg);
-  -moz-transform:rotate(-17deg);
-  -ms-transform:rotate(-17deg);
-  -o-transform:rotate(-17deg);
-  transform:rotate(-17deg);
+
+  -webkit-transform: rotate(-17deg);
+  -moz-transform: rotate(-17deg);
+  -ms-transform: rotate(-17deg);
+  -o-transform: rotate(-17deg);
+  transform: rotate(-17deg);
 }
