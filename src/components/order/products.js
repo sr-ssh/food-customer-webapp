@@ -112,7 +112,15 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
 
   return (
     <div className="div--container__product mt-4 ms-0">
-      <Carousel activeIndex={index} nextLabel={false} prevLabel={false} onSelect={handleSelect} interval={null} wrap={false} className="carousal--product mb-2" >
+      <Carousel
+        fade
+        activeIndex={index}
+        nextLabel={false}
+        prevLabel={false}
+        onSelect={handleSelect}
+        interval={null}
+        wrap={false}
+        className="carousal--product mb-2" >
         {orderList?.map(item =>
           <Carousel.Item className="carousal--item__prouduct text-center">
             {item.supply !== 0 ?
@@ -124,7 +132,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
               </>
             }
             <img
-              className="d-block carousel--img"
+              className="carousel--img"
               // src={item.img}
               src={pizaaIcon}
               alt="First slide"
