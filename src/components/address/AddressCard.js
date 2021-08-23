@@ -8,7 +8,7 @@ import deleteIcon from '../../assets/images/address/delet.svg'
 import { history } from '../../helpers';
 
 
-export const AddressCard = ({ address, setAddress, selected }) => {
+export const AddressCard = ({ address, setAddress, selected, setDeleteAddressModal }) => {
 
     const editAddress = (address) => {
         history.push({
@@ -16,8 +16,9 @@ export const AddressCard = ({ address, setAddress, selected }) => {
             state: { address }
         })
     }
-
-
+    let deleteAddressHandler = () => {
+        setDeleteAddressModal(true)
+    }
     return (
 
         <Col onClick={() => setAddress(address)}>
@@ -37,7 +38,7 @@ export const AddressCard = ({ address, setAddress, selected }) => {
                                     <img src={editIcon} height="35px" alt="edit-icon" />
                                 </Card.Link>
                             </Col>
-                            <Col className="ps-0 me-1 col-auto d-flex justify-content-end">
+                            <Col className="ps-0 me-1 col-auto d-flex justify-content-end" onClick={deleteAddressHandler}>
                                 <Card.Link>
                                     <img src={deleteIcon} height="35px" alt="edit-icon" />
                                 </Card.Link>

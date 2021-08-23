@@ -5,14 +5,19 @@ import { addressActions, alertActions } from '../../actions';
 import { LoaderRed } from '../base/loader-bg-red'
 
 
+
+
 // Assets
 import addIcon from '../../assets/images/main/add-red.svg'
+// Components 
 import { AddressCard } from './AddressCard';
+import { DeleteAddress } from './deleteAddress';
 
 
 export const OldAddress = ({ addresses, setNewAddress }) => {
 
     const [address, setAddress] = useState({})
+    const [deleteAddressModal, setDeleteAddressModal] = useState(false);
     const addressData = useSelector(state => state.newAddress);
     const dispatch = useDispatch()
 
@@ -27,6 +32,7 @@ export const OldAddress = ({ addresses, setNewAddress }) => {
         }
     }
 
+
     return (
         <>
             <div id="old--address-scroller-container">
@@ -35,7 +41,7 @@ export const OldAddress = ({ addresses, setNewAddress }) => {
                         <Row className="d-flex flex-column" >
 
                             {
-                                addresses.map((addresss, index) => <AddressCard key={index} address={addresss} setAddress={setAddress} selected={address === addresss ? true : false} />)
+                                addresses.map((addresss, index) => <AddressCard key={index} address={addresss} setAddress={setAddress} setDeleteAddressModal={setDeleteAddressModal} selected={address === addresss ? true : false} />)
                             }
 
                         </Row>
@@ -62,6 +68,7 @@ export const OldAddress = ({ addresses, setNewAddress }) => {
                     </Col>
                 </Row>
             </Container>
+            <DeleteAddress show={deleteAddressModal} onHide={() => { setDeleteAddressModal(false) }} address={address} />
         </>
     )
 }

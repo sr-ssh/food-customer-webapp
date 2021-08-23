@@ -26,7 +26,7 @@ export const Address = () => {
         <>
             <div className="address--page">
                 <Header title="آدرس" backLink="/main" backtext="خانه" locating={locating} />
-                {
+                {/* {
                     alertMessage &&
                     <>
                         <Row className="justify-content-center text-center ">
@@ -35,7 +35,7 @@ export const Address = () => {
                             </Alert>
                         </Row>
                     </>
-                }
+                } */}
                 {
                     addresses.loading ?
                         <Container className="d-flex justify-content-center align-items-center mt-4">

@@ -8,7 +8,8 @@ export const addressService = {
     newAddress,
     getAddresses,
     searchAddress,
-    editAddress
+    editAddress,
+    deleteAddress
 };
 
 function getAddresses() {
@@ -81,3 +82,20 @@ function editAddress(body) {
             }
         });
 }
+function deleteAddress(body) {
+    console.log("into addressService(Delete Address)");
+    return axios
+        .delete(`${baseRoute}/location`, { data: body })
+        .then(res => {
+            console.log("res.user >> ");
+            console.log(res.data);
+            return res.data
+        })
+        .catch(function (error) {
+            if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+            }
+        });
+}
+
