@@ -2,6 +2,7 @@
 import { orderConstant } from '../constants/orderConstant';
 import { orderService } from '../services';
 import { alertActions } from './alertActions';
+import { payAction } from './payAction';
 import { history } from '../helpers';
 
 
@@ -197,7 +198,7 @@ function addOrder(body) {
                         console.log("order product types")
                         dispatch(success(orderConstant.ADD_ORDER_SUCCESS, res.data))
                         dispatch(alertActions.success(res.message));
-                        history.push('/main')
+                        dispatch(payAction.payOrder({orderId: res.data.orderId}))
                     } else if (res.success === false) {
                         dispatch(failure(orderConstant.ADD_ORDER_FAILURE, res.message));
                         dispatch(alertActions.error(res.message));
