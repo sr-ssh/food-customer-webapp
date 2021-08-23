@@ -146,6 +146,17 @@ body {
   box-shadow: none;
 }
 
+.btn--dark--one {
+  background-color: var(--background-two) !important;
+  color: var(--red-one) !important;
+}
+.btn--dark--one:active,
+.btn--dark--one:focus,
+.btn--dark--one:focus:active {
+  background-color: var(--background-two);
+  box-shadow: none;
+}
+
 .navbar--factor {
   background-color: var(--background-two);
 }
