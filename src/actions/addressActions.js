@@ -147,15 +147,19 @@ function editAddress(body) {
                         dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(addressConstants.EDIT_ADDRESS_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
-                    else if (res) {
+                    else if (res.success) {
                         console.log("address edited")
-                        dispatch(success(addressConstants.EDIT_ADDRESS_SUCCESS, res))
-                    } else if (!res) {
-                        dispatch(failure(addressConstants.EDIT_ADDRESS_FAILURE, res));
+                        dispatch(alertActions.success(res.message));
+                        dispatch(success(addressConstants.EDIT_ADDRESS_SUCCESS, res.message))
+                    } else if (res.success === false) {
+                        dispatch(failure(addressConstants.EDIT_ADDRESS_FAILURE, res.message));
                         dispatch(alertActions.error(res));
                     }
+
+
                     setTimeout(() => {
                         dispatch(alertActions.clear());
+                        history.replace('/address')
                     }, 1500);
                 },
                 error => {

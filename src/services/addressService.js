@@ -66,13 +66,12 @@ function searchAddress(body) {
 }
 
 function editAddress(body) {
-    console.log("into addressService");
+    console.log("into addressService(Edit Address)");
     return axios
         .put(`${baseRoute}/location`, body)
         .then(res => {
             console.log("res.user >> ");
             console.log(res.data);
-
             return res.data
         })
         .catch(function (error) {
