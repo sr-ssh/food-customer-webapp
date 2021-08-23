@@ -3,9 +3,17 @@ import { Row, Col, Card } from 'react-bootstrap';
 
 // Assets
 import editIcon from '../../assets/images/main/edit.svg'
+import { history } from '../../helpers';
 
 
 export const AddressCard = ({address, setAddress, selected}) => {
+
+    const editAddress = (address) => {
+        history.push({
+            pathname: '/address/edit',
+            state: { address }
+        })
+    }
 
 
     return (
@@ -20,7 +28,9 @@ export const AddressCard = ({address, setAddress, selected}) => {
                                     {address.address}
                                 </Card.Text>
                             </Col>
-                            <Col className="ps-0 me-1 col-auto d-flex justify-content-end">
+                        </Row>
+                        <Row>
+                            <Col className="ps-0 me-1 col-auto d-flex justify-content-end" onClick={() => editAddress(address)}>
                                 <Card.Link>
                                     <img src={editIcon} height="35px" alt="edit-icon" />
                                 </Card.Link>

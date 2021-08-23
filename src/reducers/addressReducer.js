@@ -75,3 +75,23 @@ export function searchAddress(state = initialState, action) {
             return state
     }
 }
+
+export function editAddress(state = {}, action) {
+    switch (action.type) {
+        case addressConstants.EDIT_ADDRESS_REQUEST:
+            return {
+                loading: true,
+            };
+        case addressConstants.EDIT_ADDRESS_SUCCESS:
+            return {
+                loading: false,
+            };
+        case addressConstants.EDIT_ADDRESS_FAILURE:
+            return {
+                loading: false,
+                error: action.error
+            };
+        default:
+            return state
+    }
+}

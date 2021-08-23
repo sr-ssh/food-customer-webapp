@@ -16,6 +16,7 @@ import { SuccessfullPay } from './components/payment/successfullPay';
 import { NewAddress } from './components/address/newAddress';
 import { FailPay } from './components/payment/failPay';
 import { AddressSaved } from './components/address/addressSaved';
+import { EditAddress } from './components/address/editAddress';
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <PrivateRoute path="/main" component={Main}></PrivateRoute>
         <PrivateRoute path="/address/saved" component={AddressSaved} ></PrivateRoute>
+        <PrivateRoute path="/address/edit" component={EditAddress}></PrivateRoute>
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
         <PrivateRoute path="/address/new" component={NewAddress}></PrivateRoute>
         <PrivateRoute path="/order/detail" component={OrderDetails}></PrivateRoute>
