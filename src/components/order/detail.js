@@ -15,8 +15,8 @@ export const Detail = ({ detail, price }) => {
                                 {detail?.name}
                             </Col>
                             <Col>
-                                <Col className="col--container__price fs-5 order--detailes--order--cards">
-                                    <span className="strikethrough px-2">
+                                <Col className="col--container__price fs-5 ">
+                                    <span className={`${price?.discount !== '0' ? 'strikethrough order--detailes--order--cards' : null } px-2`}>
                                         {price && persianJs(commaNumber(price.price)).englishNumber().toString() || 0}
                                         <span className="label--container__price fw-bold">تومان</span>
                                     </span>
