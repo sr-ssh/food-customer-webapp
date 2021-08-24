@@ -192,6 +192,9 @@
 .success--color {
   background-color: var(--success-color);
 }
+.success--color:disabled {
+  background-color: var(--success-color);
+}
 
 .success--color.btn-check:checked + .success--color.btn-primary,
 .success--color.btn-check:active + .success--color.btn-primary,

@@ -6,7 +6,7 @@ import searchIcon from "../../assets/images/address/search.svg";
 import loctionicon from "../../assets/images/address/loction.svg";
 
 
-import { Container, Button, Col, Row, Form, Image, Dropdown } from 'react-bootstrap';
+import { Button, Col, Form, Image, Dropdown } from 'react-bootstrap';
 import "../../assets/styles/leaflet.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { SearchAddressBar } from './searchAddressBar'
@@ -15,11 +15,10 @@ import { SearchAddressBar } from './searchAddressBar'
 // YOUR_API_KEY_GOES_BELOW
 const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
-export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLocation, setLocating }) => {
+export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLocation, setLocating, isFormSubmited }) => {
 
     const [dimStatus, setDimStatus] = useState(false)
     const [showAddressBar, setShowAddressbar] = useState(false);
-
     const [mapPropeties, setMapPropeties] = useState()
     const [alerts, setAlert] = useState({});
     const target = useRef();
@@ -27,6 +26,10 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
     const ZOME_LEVEL2 = 17;
 
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        setAddress((prevState) => ({ ...prevState, lat: mapPropeties?.myMap.getCenter().lat, lng: mapPropeties?.myMap.getCenter().lng }))
+    }, [isFormSubmited])
 
     let alertHandler = (txt, status, loader) => {
         setAlert({ text: txt, status: status, loader: loader })

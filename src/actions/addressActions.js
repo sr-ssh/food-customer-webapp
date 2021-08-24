@@ -8,7 +8,8 @@ export const addressActions = {
     getAddresses,
     searchAddress,
     searchAddressClear,
-    editAddress
+    editAddress,
+    deleteAddress
 };
 
 function getAddresses() {
@@ -146,15 +147,19 @@ function editAddress(body) {
                         dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
                         dispatch(failure(addressConstants.EDIT_ADDRESS_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
                     }
-                    else if (res) {
+                    else if (res.success) {
                         console.log("address edited")
-                        dispatch(success(addressConstants.EDIT_ADDRESS_SUCCESS, res))
-                    } else if (!res) {
-                        dispatch(failure(addressConstants.EDIT_ADDRESS_FAILURE, res));
+                        dispatch(alertActions.success(res.message));
+                        dispatch(success(addressConstants.EDIT_ADDRESS_SUCCESS, res.message))
+                    } else if (res.success === false) {
+                        dispatch(failure(addressConstants.EDIT_ADDRESS_FAILURE, res.message));
                         dispatch(alertActions.error(res));
                     }
+
+
                     setTimeout(() => {
                         dispatch(alertActions.clear());
+                        history.replace('/address')
                     }, 1500);
                 },
                 error => {
@@ -165,6 +170,44 @@ function editAddress(body) {
                 }
             );
     };
+}
+
+function deleteAddress(body) {
+    return dispatch => {
+        dispatch(request())
+        addressService.deleteAddress({ address: body.address, GPS: body.GPS })
+            .then(
+                res => {
+                    if (res === undefined) {
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'));
+                        dispatch(failure("ارتباط با سرور برقرار نمی شود"))
+                    } else if (res.success) {
+
+                        console.log("Delete Address Response")
+                        console.log(res.message);
+                        dispatch(alertActions.success(res.message));
+                        dispatch(success(res.message));
+
+                    } else if (res.success === false) {
+                        dispatch(alertActions.error(res.message));
+                        dispatch(failure(res.message));
+                    }
+
+
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                    console.log("occure error");
+                    console.log(error.toString());
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+
+
+    }
+    function request() { console.log("into request Delete Address"); return { type: addressConstants.DELETE_ADDRESS_REQUEST } }
+    function success(address) { console.log("into success Delete Address"); return { type: addressConstants.DELETE_ADDRESS_SUCCESS, address } }
+    function failure(error) { return { type: addressConstants.DELETE_ADDRESS_FAILURE, error } }
 }
 
 

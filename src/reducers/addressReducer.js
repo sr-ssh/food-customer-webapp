@@ -95,3 +95,25 @@ export function editAddress(state = {}, action) {
             return state
     }
 }
+
+export function deleteAddress(state = {}, action) {
+    switch (action.type) {
+        case addressConstants.DELETE_ADDRESS_REQUEST:
+            return {
+                loading: true,
+                ...state
+            };
+        case addressConstants.DELETE_ADDRESS_SUCCESS:
+            return {
+                loading: false,
+                message: action.message
+            };
+        case addressConstants.DELETE_ADDRESS_FAILURE:
+            return {
+                loading: false,
+                error: action.error
+            };
+        default:
+            return state
+    }
+}

@@ -183,3 +183,20 @@
   margin-top: -75px !important;
   margin-left: -20px !important;
 }
+.modal--delete--address .modal-content {
+  border: 0;
+}
+.delete--address-modalBody {
+  background-color: #ececec;
+  border-radius: 14px;
+  border: none;
+}
+.card-delete-address {
+  border-radius: 15px;
+  border: none;
+  text-align: center;
+}
+.alert-cancel-product-order {
+  position: relative !important;
+  bottom: 0;
+}
