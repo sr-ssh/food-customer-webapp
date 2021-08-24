@@ -33,6 +33,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   //     .map(x => farsiDigits[x])
   //     .join('');
   // }
+  console.log(basket, orderList)
 
 
   const handleSelect = (selectedIndex, e) => {
@@ -42,12 +43,15 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
   };
 
   let getObjCurrentProduct = (value, permission) => {
+    console.log(value)
     if (value.length > 0)
       return value.reduce((map, obj) => {
+        console.log(map, obj);
         map._id = obj._id;
         map.name = obj.name;
         map.price = parseInt(obj?.price) + parseInt(priceAsSize[0].price);
         map.discount = parseInt(obj?.discount) + parseInt(priceAsSize[0].discount);
+        console.log(obj, priceAsSize[0], parseInt(obj?.discount) + parseInt(priceAsSize[0].discount))
         map.quantity = permission ? obj.quantity + 1 : obj.quantity;
         map.size = priceAsSize[0].name
         return map;
@@ -72,6 +76,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
     } else {
       if (type === '+') {
         let currentOrder = orderList.filter(item => item._id == id);
+        console.log("currentOrder",currentOrder)
         currentOrder = getObjCurrentProduct(currentOrder, true);
         setbasket([...basket, currentOrder]);
       }
@@ -82,7 +87,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
     let products = data
       .filter(item => { return (item.type.name === productsCategory) })
       .map(data => { return { ...data, quantity: 0, price: 0 } });
-
+      
     setOrderList([...products])
     setProductSize("medium")
     setIndex(0)
@@ -104,6 +109,7 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
     let activeProduct = basket.filter(item => {
       if (item._id === orderList[index]?._id && item.size === priceAsSize[0]?.name) return item
     })
+    console.log("activeProduct", activeProduct)
     setActiveOrder(getObjCurrentProduct(activeProduct, false));
     setNumber(0)
   }, [productSize, basket, orderList, index])
