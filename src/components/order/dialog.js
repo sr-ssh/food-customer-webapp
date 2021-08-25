@@ -7,7 +7,7 @@ import commaNumber from 'comma-number'
 
 export const Dialog = (props) => {
     let price;
-    (() => price = props?.basket?.map(item => item.quantity * item.price).reduce((a, b) => a + b, 0))()
+    (() => price = props?.basket?.map(item => item.quantity * (item.price - item.discount)).reduce((a, b) => a + b, 0))()
     const handleBill = () => {
         if (props.basket.length > 0) {
             history.push({
