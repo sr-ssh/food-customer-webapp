@@ -8,7 +8,7 @@
   font-size: 1.1rem;
 }
 .order--detailes--order {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-grey);
 }
 .order--detailes--order--cards {
@@ -39,7 +39,7 @@
   font-weight: 600;
 }
 .order--details--text--footer-cards--order {
-  font-size: 14px;
+  font-size: 12px;
 }
 .order--details--btn--checkout--order {
   font-size: 14px;
@@ -51,4 +51,10 @@
 .label--container__price {
   font-size: 11px;
   padding-right: 0.3rem;
+}
+
+.discount--span{
+  font-size: 9px;
+  color: var(--red-one);
+  font-weight: 600;
 }

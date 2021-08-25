@@ -48,7 +48,7 @@ export const OrderList = (props) => {
                                             <span className="fw-bold ms-4">{data?.name}</span>
                                         </td>
                                         <td className="text-center m-0 p-0 ps-3">
-                                            <span className="fw-bold">{(data?.price && persianJs(commaNumber(data.price)).englishNumber().toString()) || persianJs("0").englishNumber().toString()}</span>
+                                            <span className="fw-bold">{(data?.price && persianJs(commaNumber(data.price - data.discount)).englishNumber().toString()) || persianJs("0").englishNumber().toString()}</span>
                                             <span className="factor--text--details">تومان</span>
                                         </td>
                                         <td className="m-0 p-0">

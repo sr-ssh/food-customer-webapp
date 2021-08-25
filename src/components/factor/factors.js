@@ -13,8 +13,8 @@ import { history } from '../../helpers';
 
 export const Factor = (props) => {
 
-    const [total, setTotal] = useState(props.location.state.data?.map(data => data.price * data.quantity).reduce((a, b) => a + b, 0))
-    const [tax, setTax] = useState(props.location.state?.data?.map(data => data.price * data.quantity * (9 / 100)).reduce((a, b) => a + b, 0))
+    const [total, setTotal] = useState(props.location.state.data?.map(data => (data.price - data.discount) * data.quantity).reduce((a, b) => a + b, 0))
+    const [tax, setTax] = useState(props.location.state?.data?.map(data => (data.price - data.discount) * data.quantity * (9 / 100)).reduce((a, b) => a + b, 0))
     let userAddress = JSON.parse(localStorage.getItem('userAddress'))
     const [products, setProducts] = useState(props.location.state.data)
     let deliveryCost = JSON.parse(localStorage.getItem('addressVerify')).deliveryCost

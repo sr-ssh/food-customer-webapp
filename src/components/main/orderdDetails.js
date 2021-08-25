@@ -22,7 +22,7 @@ export const OrderDetails = () => {
    const totalPrice = (order) => {
         let total = 0
         order.order.products.map(item => {
-            total += item.price * item.quantity
+            total += (item.price - item.discount) * item.quantity
         })
         total += order.order.deliveryCost + order.tax;
         return total
@@ -92,7 +92,6 @@ export const OrderDetails = () => {
                                                                 <th className="fw-bold">سفارش</th>
                                                                 <th className="fw-bold text-center">قیمت <span className="order--detailes--order--cards">(تومان)</span></th>
                                                                 <th className="fw-bold text-center">تعداد</th>
-
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -100,7 +99,9 @@ export const OrderDetails = () => {
                                                             order.order.products.map((product, index) => 
                                                                 <tr key={index}>
                                                                     <td>{product._id.name}</td>
-                                                                    <td className="text-center">{persianJs(commaNumber(product.price)).englishNumber().toString()}</td>
+                                                                    <td className="text-center">
+                                                                        {persianJs(commaNumber(product.price - product.discount)).englishNumber().toString()}{product.discount !== 0 ? <span className="discount--span me-2">با تخفیف</span> : null}
+                                                                    </td>
                                                                     <td className="pe-3">{persianJs(commaNumber(product.quantity)).englishNumber().toString()}</td>
                                                                 </tr>
                                                                 )
@@ -109,22 +110,22 @@ export const OrderDetails = () => {
                                                     </Table>
                                                 </div>
                                                 <Row className="border-top-red pt-2 mt-auto">
-                                                    <Col className="col-6 col-sm-7 ms-3 pe-1">
+                                                    <Col className="col-4 col-sm-7 ms-3 pe-1">
                                                         <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">هزینه ارسال :</span>
                                                     </Col>
-                                                    <Col className="px-1 fw-bold">
+                                                    <Col className="col-7 px-1 fw-bold">
                                                         {persianJs(commaNumber(order.order.deliveryCost)).englishNumber().toString()}
                                                     </Col>
-                                                    <Col className="col-6 col-sm-7 ms-3 pe-1">
+                                                    <Col className="col-4 col-sm-7 ms-3 pe-1">
                                                         <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">مالیات :</span>
                                                     </Col>
-                                                    <Col className="px-1 fw-bold">
+                                                    <Col className="col-7 px-1 fw-bold">
                                                         {persianJs(commaNumber(order.tax)).englishNumber().toString()}
                                                     </Col>
-                                                    <Col className="col-6 col-sm-7 ms-3 pe-1">
+                                                    <Col className="col-4 col-sm-7 ms-3 pe-1">
                                                         <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">جمع کل :</span>
                                                     </Col>
-                                                    <Col className="px-1 fw-bold">
+                                                    <Col className="cool-7 px-1 fw-bold">
                                                         {persianJs(commaNumber(totalPrice(order))).englishNumber().toString()}<span className="me-2  txt--color--red--one">تومان</span>
                                                     </Col>
                                                 </Row>
