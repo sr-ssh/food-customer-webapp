@@ -20,7 +20,6 @@ export const EditAddress = (props) => {
     let alertMessage = useSelector(state => state.alert.message);
     let alerType = useSelector(state => state.alert.type);
 
-
     const dispatch = useDispatch()
     const addressData = useSelector(state => state.newAddress);
 

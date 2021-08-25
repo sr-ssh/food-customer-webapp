@@ -24,7 +24,6 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
     const target = useRef();
     const ZOME_LEVEL = 13;
     const ZOME_LEVEL2 = 17;
-
     const dispatch = useDispatch()
 
     useEffect(() => {
