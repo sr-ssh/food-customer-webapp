@@ -11,7 +11,7 @@ import { Header } from '../base/addressHeader'
 export const EditAddress = (props) => {
 
     const [oldLoc, setOldLoc] = useState({ lat: props?.location.state?.address.GPS.coordinates[1], lng: props?.location.state?.address.GPS.coordinates[0], address: props?.location.state?.address.address });
-    const [address, setAddress] = useState({ lat: '', lng: '', address: '' });
+    const [address, setAddress] = useState({ lat: props?.location.state?.address.GPS.coordinates[1], lng: props?.location.state?.address.GPS.coordinates[0], address: props?.location.state?.address.address });
     const [validate, setValidate] = useState(false);
     const [isFormSubmited, setIsFormSubmited] = useState(false)
     const [selectedItem, setItem] = useState("")
