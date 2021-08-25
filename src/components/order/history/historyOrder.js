@@ -59,7 +59,7 @@ export const HistoryOrder = (props) => {
                   <thead>
                     <tr className="tr--container__historyDetail" >
                       <th className="th--container__historyDetail">سفارش</th>
-                      <th className="th--container__historyDetail text-center">قیمت</th>
+                      <th className="th--container__historyDetail text-end">قیمت</th>
                       <th className="th--container__historyDetail text-start">تعداد</th>
                     </tr>
                   </thead>
@@ -70,10 +70,11 @@ export const HistoryOrder = (props) => {
                           <td className="td--container__historyDetail">
                             {pro.name}
                           </td>
-                          <td className="td--container__historyDetail text-center">
-                            {pro.price && persianJs(pro.price).englishNumber().toString()}
+                          <td className="td--container__historyDetail text-end">
+                            {pro.price && persianJs(commaNumber(pro.price - pro.discount)).englishNumber().toString()}
+                            {pro.discount !== 0 ? <span className="discount--span me-2">با تخفیف</span> : null}
                           </td>
-                          <td className="td--container__historyDetail text-start">
+                          <td className="td--container__historyDetail text-center">
                             {pro.quantity && persianJs(pro.quantity).englishNumber().toString()}
                           </td>
                         </tr>
@@ -82,23 +83,23 @@ export const HistoryOrder = (props) => {
                   </tbody>
                 </Table>
                 <Row className="border-top-red pt-2 mt-auto ms-auto">
-                  <Col className="col-6 col-sm-7 ms-3 pe-1">
-                      <span className="order--detailes--order--cards order--details--text--footer-cards--order">هزینه ارسال :</span>
+                  <Col className="col-4 col-sm-7 ms-3 pe-1">
+                    <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">هزینه ارسال :</span>
                   </Col>
-                  <Col className="px-1 fw-bold">
-                      {persianJs(commaNumber(item.order.deliveryCost)).englishNumber().toString()}
+                  <Col className="col-7 px-1 fw-bold">
+                    {persianJs(commaNumber(item.order.deliveryCost)).englishNumber().toString()}
                   </Col>
-                  <Col className="col-6 col-sm-7 ms-3 pe-1">
-                      <span className="order--detailes--order--cards order--details--text--footer-cards--order">مالیات :</span>
+                  <Col className="col-4 col-sm-7 ms-3 pe-1">
+                    <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">مالیات :</span>
                   </Col>
-                  <Col className="px-1 fw-bold">
-                      {persianJs(commaNumber(item.tax)).englishNumber().toString()}
+                  <Col className="col-7 px-1 fw-bold">
+                    {persianJs(commaNumber(item.tax)).englishNumber().toString()}
                   </Col>
-                  <Col className="col-6 col-sm-7 ms-3 pe-1">
-                      <span className="order--detailes--order--cards order--details--text--footer-cards--order">جمع کل :</span>
+                  <Col className="col-4 col-sm-7 ms-3 pe-1">
+                    <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">جمع کل :</span>
                   </Col>
-                  <Col className="px-1 fw-bold">
-                      {item.total && persianJs(commaNumber(item.total)).englishNumber().toString()}<span className="me-2  txt--color--red--one">تومان</span>
+                  <Col className="cool-7 px-1 fw-bold">
+                    {item.total && persianJs(commaNumber(item.total)).englishNumber().toString()}<span className="me-2  txt--color--red--one">تومان</span>
                   </Col>
               </Row>
               </div>
