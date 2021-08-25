@@ -14,6 +14,7 @@ import addIcon from './../../assets/images/main/add.svg'
 import { SidebarItems } from './sidebarItems'
 import { InLineOrders } from './inLineOrders';
 import { Charge } from './charge';
+import { LogOut } from './logOut'
 
 
 
@@ -22,6 +23,7 @@ import { Charge } from './charge';
 export const Main = () => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [logOutModal, setLogOutModal] = useState(false)
     let alertMessage = useSelector(state => state.alert.message);
     let alerType = useSelector(state => state.alert.type);
 
@@ -29,7 +31,7 @@ export const Main = () => {
     return (
         <>
             <Sidebar
-                sidebar={<SidebarItems />}
+                sidebar={<SidebarItems setLogOutModal={setLogOutModal} setIsOpen={setIsOpen} />}
                 open={isOpen}
                 onSetOpen={setIsOpen}
                 pullRight={true}
@@ -40,6 +42,7 @@ export const Main = () => {
                 overlayClassName="test3"
                 shadow={true}
                 touch={false}
+
             >
                 <div className="form-page">
                     {
@@ -81,6 +84,7 @@ export const Main = () => {
                         </Row>
                     </Container>
                 </div>
+                <LogOut show={logOutModal} onHide={() => { setLogOutModal(false) }} />
             </Sidebar>
         </>
     )
