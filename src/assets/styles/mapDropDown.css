@@ -111,3 +111,9 @@
 .modal--body--result--address {
   margin-top: 120px;
 }
+.modal--body--result--address .col .dropdown-item:hover,
+.modal--body--result--address .col .dropdown-item:focus,
+.modal--body--result--address .col .dropdown-item:active {
+  background-color: #e9ecef;
+  color: #000;
+}
