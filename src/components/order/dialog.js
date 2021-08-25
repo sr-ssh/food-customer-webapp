@@ -18,7 +18,7 @@ export const Dialog = (props) => {
     }
     return (
         <>
-            <div className="div--container__dialog-order">
+            <div className="div--container__dialog-order mt-0 mb-0">
                 <Container onClick={handleBill}>
                     <Row>
                         <Col className="col--container__dialog-order">
