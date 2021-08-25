@@ -74,11 +74,11 @@
   width: 47%;
 }
 .new--address--exact--text-container {
-  border-radius: 15px;
+  border-radius: 8px;
   height: 10vh;
   min-height: 25vh;
 }
-.new--address--exact--text-container.form-control:focus{
+.new--address--exact--text-container.form-control:focus {
   border-color: var(--red-two);
 }
 .map {
@@ -197,7 +197,6 @@
 .card-delete-address {
   border-radius: 15px;
   border: none;
-  text-align: center;
 }
 .alert-cancel-product-order {
   position: relative !important;

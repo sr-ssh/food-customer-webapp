@@ -24,7 +24,7 @@ export const Dialog = (props) => {
                         <Col className="col--container__dialog-order">
                             <span className="span--container__dialogo-order" >مشاهده فاکتور</span>
                         </Col>
-                        <Col className="col--container__dialog-order">
+                        <Col className="col--container__dialog-order text-start ms-2 ">
                             <span className="span--container__dialogo-order" >{(price && persianJs(commaNumber(price)).englishNumber().toString()) || persianJs("0").englishNumber().toString()} تومان</span>
                         </Col>
                     </Row>
