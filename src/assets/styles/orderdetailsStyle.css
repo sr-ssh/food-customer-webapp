@@ -40,6 +40,7 @@
 }
 .order--details--text--footer-cards--order {
   font-size: 12px;
+  white-space: nowrap;
 }
 .order--details--btn--checkout--order {
   font-size: 14px;
@@ -53,7 +54,7 @@
   padding-right: 0.3rem;
 }
 
-.discount--span{
+.discount--span {
   font-size: 9px;
   color: var(--red-one);
   font-weight: 600;

@@ -65,7 +65,7 @@ export const Factor = (props) => {
                         <Row className="mt-3">
                             <Col>
                                 <Card.Text>
-                                    <span className="factor--text--details">هزینه ارسال</span>
+                                    <span className="factor--text--details">هزینه ارسال:</span>
                                 </Card.Text>
                             </Col>
                             <Col dir="ltr" className="ps-0">
@@ -93,7 +93,7 @@ export const Factor = (props) => {
                         <Col className="col-12 px-0" >
                             {
 
-                                !isBtnSubmited ?
+                                isBtnSubmited ?
                                     <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one " disabled>
                                         <span className="pe-2">پرداخت</span>
                                         <span className="ps-2"> {totalAmount && persianJs(commaNumber(totalAmount)).englishNumber().toString()} تومان</span>
