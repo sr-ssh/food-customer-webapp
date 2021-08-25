@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
 import { Header } from '../base/stateHeader'
-import {toFarsiNumber} from '../../helpers/util'
+import { toFarsiNumber } from '../../helpers/util'
 import commaNumber from 'comma-number'
 import persianJs from 'persianjs/persian.min';
 
@@ -20,6 +20,7 @@ export const Factor = (props) => {
     let deliveryCost = JSON.parse(localStorage.getItem('addressVerify')).deliveryCost
     const [order, setOrder] = useState({ products, deliveryCost, lat: userAddress.lat, lng: userAddress.lng, address: userAddress.address })
     const dispatch = useDispatch()
+    const [isBtnSubmited, setIsBtnSubmited] = useState(false)
     const totalAmount = total + tax + deliveryCost
 
 
@@ -89,11 +90,20 @@ export const Factor = (props) => {
                         </Row>
                     </Row>
                     <Row className="mt-auto mx-0 align-self-center w-100">
-                        <Col className="col-12 px-0" onClick={() => addOrder()}>
-                            <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one ">
-                                <span className="pe-2">پرداخت</span>
-                                <span className="ps-2"> {totalAmount && persianJs(commaNumber(totalAmount)).englishNumber().toString()} تومان</span>
-                            </Button>
+                        <Col className="col-12 px-0" >
+                            {
+
+                                !isBtnSubmited ?
+                                    <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one " disabled>
+                                        <span className="pe-2">پرداخت</span>
+                                        <span className="ps-2"> {totalAmount && persianJs(commaNumber(totalAmount)).englishNumber().toString()} تومان</span>
+                                    </Button>
+                                    :
+                                    <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one " onClick={() => { addOrder(); setIsBtnSubmited(true) }}>
+                                        <span className="pe-2">پرداخت</span>
+                                        <span className="ps-2"> {totalAmount && persianJs(commaNumber(totalAmount)).englishNumber().toString()} تومان</span>
+                                    </Button>
+                            }
                         </Col>
                     </Row>
                 </Container>
