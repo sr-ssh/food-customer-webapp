@@ -21,6 +21,7 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
     const [showAddressBar, setShowAddressbar] = useState(false);
     const [mapPropeties, setMapPropeties] = useState()
     const [alerts, setAlert] = useState({});
+    const [address1, setAddress1] = useState('')
     const target = useRef();
     const ZOME_LEVEL = 13;
     const ZOME_LEVEL2 = 17;
@@ -34,42 +35,14 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
         setAlert({ text: txt, status: status, loader: loader })
     }
 
-    mapPropeties?.myMap.on('drag', function (e) {
-        mapPropeties.marker.setLatLng(e.target.getCenter());
-    });
-    mapPropeties?.myMap.on('move', function (e) {
-        mapPropeties.marker.setLatLng(e.target.getCenter());
-    })
+
 
     let locateUserHandler = () => {
         // Call mapPropeties.locate() for find Usre Location 
-        mapPropeties.myMap?.locate();
-        alertHandler("در حال دریافت موقعیت...", true, true);
+        mapPropeties.myMap?.locate({ setView: true });
+        // alertHandler("در حال دریافت موقعیت...", true, true);
         setLocating(true)
 
-        // ON locationfound set Userlocate state of latlng result
-        mapPropeties.myMap.on('locationfound', e => {
-
-            alertHandler("موقعیت شما یافت شد", true, false);
-            setLocating(false)
-            setTimeout(() => {
-                setAlert(null);
-            }, 3000)
-
-            setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
-            mapPropeties.myMap.flyTo(e.latlng, 18)
-            mapPropeties.marker.setLatLng(e.latlng);
-
-        });
-
-        // ON locationerror set Userlocate state of null
-        mapPropeties.myMap?.on('locationerror', e => {
-            alertHandler("خطا در دریافت موقعیت شما!", true, false);
-            setLocating(false)
-            setTimeout(() => {
-                setAlert(null);
-            }, 3000)
-        });
     }
     useEffect(() => {
         setAddress((prevState) => ({ ...prevState, lat: mapPropeties?.myMap.getCenter().lat, lng: mapPropeties?.myMap.getCenter().lng }))
@@ -108,6 +81,39 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
                     });
                     let marker = L.marker(itemLocation, { icon: myIcon })
                         .addTo(myMap);
+
+
+                    // ON locationfound set Userlocate state of latlng result
+                    myMap.on('locationfound', e => {
+                        // alertHandler("موقعیت شما یافت شد", true, false);
+                        setLocating(false)
+                        // setTimeout(() => {
+                        //     setAlert(null);
+                        // }, 3000)
+                        setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
+                        myMap.flyTo(e.latlng, 18)
+                        marker.setLatLng(e.latlng);
+                    });
+
+                    // ON locationerror set Userlocate state of null
+                    myMap.on('locationerror', e => {
+                        // alertHandler("خطا در دریافت موقعیت شما!", true, false);
+                        setLocating(false)
+                        console.log(1);
+                        // setTimeout(() => {
+                        //     setAlert(null);
+                        // }, 3000)
+                    });
+
+                    myMap.on('drag', function (e) {
+                        marker.setLatLng(e.target.getCenter());
+                    });
+                    myMap.on('move', function (e) {
+                        marker.setLatLng(e.target.getCenter());
+                    })
+                    myMap.on('dragend', function (e) {
+                        setAddress1(e.target.getCenter());
+                    });
 
                     setMapPropeties({ myMap, marker })
 
