@@ -36,7 +36,7 @@ export const OrderList = (props) => {
     
     return (
         <>
-            <Row className="m-0 mt-3 p-0">
+            <Row className="m-0 mt-3 p-0 px-3">
                 <Col className="p-0">
                     <div className="table-wrapper-scroll-y my-custom-scrollbar">
                         <Table className="lh-lg p-0" borderless size="sm" responsive>

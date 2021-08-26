@@ -19,7 +19,7 @@
 }
 
 .div--container__card-history-inner {
-  background-color: #f8d9d7;
+  background-color: var(--red-three);
   margin: 0 1rem;
   padding: 0 0.8rem;
   border-radius: 15px;

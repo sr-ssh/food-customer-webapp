@@ -29,7 +29,7 @@ function payOrder(body) {
                                 window.location.href = res.data.payURL
                         }else {
                             dispatch(alertActions.success(res.message));
-                            history.go(0)
+                            history.push('/main')
                         }
                     } else if (res.success === false) {
                         dispatch(failure(payConstant.PAY_ORDER_FAILURE, res.message));

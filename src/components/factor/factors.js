@@ -37,9 +37,9 @@ export const Factor = (props) => {
         <>
             <div className="factor-page">
                 <Header title="فاکتور" backLink="/order" state={products} backtext="سفارش" />
-                <Container className=" pt-2 px-4  d-flex flex-column factor-page-container" >
+                <Container className=" pt-2   d-flex flex-column factor-page-container" >
                     <OrderList products={products} total={total} setTotal={setTotal} setProducts={setProducts} tax={tax} setTax={setTax} />
-                    <Row className="m-0 p-0 mt-2 factor-inputs">
+                    <Row className="m-0 px-3 p-0 mt-1 factor-inputs">
                         <Col className="p-0 factor-description-input">
                             <Form.Group controlId="description">
                                 <Form.Label className="pe-2">توضیحات</Form.Label>
@@ -49,8 +49,8 @@ export const Factor = (props) => {
                             </Form.Group>
                         </Col>
                     </Row>
-                    <Row className=" mt-3 pe-2">
-                        <Row className="mt-3">
+                    <Row className="mt-1 px-3">
+                        <Row className="mt-3 ">
                             <Col>
                                 <Card.Text>
                                     <span className="factor--text--details">مجموع:</span>
@@ -94,12 +94,12 @@ export const Factor = (props) => {
                             {
 
                                 isBtnSubmited ?
-                                    <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one " disabled>
+                                    <Button className="py-3 col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one " disabled>
                                         <span className="pe-2">پرداخت</span>
                                         <span className="ps-2"> {totalAmount && persianJs(commaNumber(totalAmount)).englishNumber().toString()} تومان</span>
                                     </Button>
                                     :
-                                    <Button className="col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one " onClick={() => { addOrder(); setIsBtnSubmited(true) }}>
+                                    <Button className="py-3 col-12 d-flex flex-row justify-content-between align-items-center factor--btn--checkout--order btn--red--one " onClick={() => { addOrder(); setIsBtnSubmited(true) }}>
                                         <span className="pe-2">پرداخت</span>
                                         <span className="ps-2"> {totalAmount && persianJs(commaNumber(totalAmount)).englishNumber().toString()} تومان</span>
                                     </Button>
