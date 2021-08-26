@@ -9,9 +9,10 @@ export const CancelOrder = (props) => {
     let cancelLoading = useSelector(state => state.cancelOrder.loading)
 
 
-    const formHandler = (e) => {
-        e.preventDefault()
-        dispatch(orderAction.cancelOrder(props.orderId))
+    let formHandler = (value) => {
+        if (value === true)
+            dispatch(orderAction.cancelOrder(props.orderId))
+        props.onHide(false)
     }
 
     return (
@@ -25,36 +26,36 @@ export const CancelOrder = (props) => {
         >
             <Modal.Body className="cancel--order--modal px-4 py-4">
 
-                    <>
-                        <Row>
-                            <Col className="text-center pt-2">
-                                <span className="fw-bold">آیا از <span className="danger--color--text">کنسل</span> کردن سفارش مطمئن هستید؟</span>
-                            </Col>
-                        </Row>
-                        <Form onSubmit={formHandler} className="d-flex justify-content-around">
-                            {
-                                cancelLoading ? (
-                                    <Button className="cancel--order-but success--color border-0 w-100 mt-4 ms-1" size="lg" disabled>
-                                        <Spinner
-                                            as="span"
-                                            animation="grow"
-                                            size="sm"
-                                            role="status"
-                                            aria-hidden="true"
-                                        />
-                                        در حال حذف...
-                                    </Button>
-                                ) : (
-                                    <Button className="border-0 cancel--order-but py-3 success--color text-light w-100 mt-4 ms-2" size="lg" type="submit" block>
-                                        بله
-                                    </Button>
-                                )
-                            }
-                            <Button className="border-0 cancel--order-but danger--color w-100 mt-4 text-light me-2" onClick={e => props.onHide(false)} size="lg" block>
-                                خیر
-                            </Button>
-                        </Form>
-                    </>
+                <>
+                    <Row>
+                        <Col className="text-center pt-2">
+                            <span className="fw-bold">آیا از <span className="danger--color--text">کنسل</span> کردن سفارش مطمئن هستید؟</span>
+                        </Col>
+                    </Row>
+                    <Form className="d-flex justify-content-around">
+                        {
+                            cancelLoading ? (
+                                <Button className="cancel--order-but success--color border-0 w-100 mt-4 ms-1" size="lg" disabled>
+                                    <Spinner
+                                        as="span"
+                                        animation="grow"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                    />
+                                    در حال حذف...
+                                </Button>
+                            ) : (
+                                <Button className="border-0 cancel--order-but py-3 success--color text-light w-100 mt-4 ms-2" size="lg" type="submit" block onClick={e => formHandler(true)}>
+                                    بله
+                                </Button>
+                            )
+                        }
+                        <Button className="border-0 cancel--order-but danger--color w-100 mt-4 text-light me-2" onClick={e => formHandler(false)} size="lg" block>
+                            خیر
+                        </Button>
+                    </Form>
+                </>
             </Modal.Body>
         </Modal>
     )

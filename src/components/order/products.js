@@ -138,10 +138,10 @@ export const Products = ({ productsCategory, basket, setbasket, props }) => {
               </>
             }
             <img
-              className="d-block carousel--img"
+              className="carousel--img"
               src={item.img}
-              // src={pizaaIcon}
-              alt="First slide"
+              src={pizaaIcon}
+              // alt="First slide"
             />
 
           </Carousel.Item>

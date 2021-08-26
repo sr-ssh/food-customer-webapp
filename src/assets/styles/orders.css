@@ -7,7 +7,7 @@
 }
 .navbar--order {
   position: absolute;
-  top: 0.5rem;
+  top: 0rem;
   left: 1rem;
   background-color: #f9f3ee;
 }
@@ -21,7 +21,7 @@
   font-weight: 800;
 }
 .section--container__textlist-order {
-  margin-top: 4.2rem;
+  margin-top: 3.5rem;
   width: 100%;
   height: 2rem;
 }

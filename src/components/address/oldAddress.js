@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Button, Alert } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addressActions, alertActions } from '../../actions';
 import { LoaderRed } from '../base/loader-bg-red'
@@ -19,6 +19,8 @@ export const OldAddress = ({ addresses, setNewAddress }) => {
     const [address, setAddress] = useState({})
     const [deleteAddressModal, setDeleteAddressModal] = useState(false);
     const addressData = useSelector(state => state.newAddress);
+    let { message: alertMessage, type: alerType } = useSelector(state => state.alert)
+
     const dispatch = useDispatch()
 
     const selectAddress = () => {
@@ -32,10 +34,34 @@ export const OldAddress = ({ addresses, setNewAddress }) => {
         }
     }
 
+    useEffect(() => {
+        if (alerType === "success") {
+            setTimeout(() => {
+                dispatch(addressActions.getAddresses())
+                dispatch(alertActions.clear());
+            }, 1500);
+        } else {
+            setTimeout(() => {
+                dispatch(alertActions.clear());
+            }, 1500);
+        }
+    }, [alertMessage])
+
 
     return (
         <>
             <div id="old--address-scroller-container">
+                {
+                    alertMessage ?
+                        (
+                            <Row className="d-flex mx-1 justify-content-center ">
+                                <Alert className="m-0 w-100 alert-cancel-product-order mt-2" variant={alerType}>
+                                    {alertMessage}
+                                </Alert>
+                            </Row>
+                        ) :
+                        null
+                }
                 <div id="old--address-scroller-container-cards">
                     <Container className="m-0">
                         <Row className="d-flex flex-column" >

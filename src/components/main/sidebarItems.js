@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
 
 import HappyPizzaLogo from '../../assets/images/base/happy-pizza.svg'
 import accountIcon from '../../assets/images/drawer/account.svg'
 import exitIcon from '../../assets/images/drawer/exit.svg'
 import callIcon from '../../assets/images/drawer/call.svg'
-import { userActions } from '../../actions'
 
 
-export const SidebarItems = () => {
 
+export const SidebarItems = ({ setLogOutModal, setIsOpen }) => {
 
     return (
         <Container fluid className="d-flex flex-column h-100">
@@ -23,9 +21,6 @@ export const SidebarItems = () => {
             <Row>
                 <Col xs={10} sm={10} md={10} lg={10} className="py-3 mx-auto fw-bold sidebarItem" style={{ padding: '0', whiteSpace: 'nowrap' }}>
                     <Link to="/order/history">تاریخچه سفارشات</Link>
-                </Col>
-                <Col xs={10} sm={10} md={10} lg={10} className="py-3 mx-auto fw-bold sidebarItem">
-                    <Link to="/order/add">تخفیف ها</Link>
                 </Col>
             </Row>
 
@@ -42,7 +37,7 @@ export const SidebarItems = () => {
 
                 <Row className="m-0 p-0 d-flex justify-content-center align-items-center mt-auto dashboardIcons">
                     <Col className="my-3 col-5">
-                        <Col onClick={() => userActions.logout()}>
+                        <Col onClick={() => { setLogOutModal(true); setIsOpen(false) }}>
                             <img className="m-auto d-block" src={exitIcon} height="40px" alt="exit-icon" />
 
                         </Col>
