@@ -40,10 +40,13 @@
   height: 15vh;
   min-height: 35vh;
 }
+.description-text-container.description-text-container{
+  border-color: var(--red-two);
+}
 .factor--btn--checkout--order {
   font-size: 14px;
-  padding: 0.8rem 0.7rem;
+  /* padding: 0.8rem 0.7rem; */
   border: none;
-  margin-bottom: 0.5rem;
-  border-radius: 10px;
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
 }
