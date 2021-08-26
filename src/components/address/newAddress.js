@@ -11,7 +11,6 @@ export const NewAddress = ({ setLocating }) => {
 
     const [address, setAddress] = useState({ lat: "", lng: "", address: "" });
     const [validate, setValidate] = useState(false);
-    const [isFormSubmited, setIsFormSubmited] = useState(false)
     const [selectedItem, setItem] = useState("")
     const [itemLocation, setItemLocation] = useState({ lat: 36.297920, lng: 59.605933 })
 
@@ -24,7 +23,6 @@ export const NewAddress = ({ setLocating }) => {
 
     const formHandler = (e) => {
         e.preventDefault()
-        setIsFormSubmited(!isFormSubmited)
         if (address.lat && address.lng && address.address) {
             dispatch(addressActions.newAddress(address));
             setValidate(false)
@@ -38,7 +36,7 @@ export const NewAddress = ({ setLocating }) => {
             <Container className="m-0 mx-auto new--address--container d-flex flex-column justify-content-between">
                 <Row style={{ height: "61vh", position: "relative" }}>
                     <Col style={{ height: "61vh", position: "relative" }} className="p-0">
-                        <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation} setLocating={setLocating} isFormSubmited={isFormSubmited} />
+                        <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation} setLocating={setLocating} />
                     </Col>
                 </Row>
                 <Row className="m-0 mt-2 mb-auto new--address--inputs">

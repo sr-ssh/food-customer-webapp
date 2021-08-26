@@ -13,7 +13,6 @@ export const EditAddress = (props) => {
     const [oldLoc, setOldLoc] = useState({ lat: props?.location.state?.address.GPS.coordinates[1], lng: props?.location.state?.address.GPS.coordinates[0], address: props?.location.state?.address.address });
     const [address, setAddress] = useState({ lat: props?.location.state?.address.GPS.coordinates[1], lng: props?.location.state?.address.GPS.coordinates[0], address: props?.location.state?.address.address });
     const [validate, setValidate] = useState(false);
-    const [isFormSubmited, setIsFormSubmited] = useState(false)
     const [selectedItem, setItem] = useState("")
     const [itemLocation, setItemLocation] = useState({ lat: props?.location.state?.address.GPS.coordinates[1], lng: props?.location.state?.address.GPS.coordinates[0] })
     const [locating, setLocating] = useState(false)
@@ -29,7 +28,6 @@ export const EditAddress = (props) => {
 
     const formHandler = (e) => {
         e.preventDefault()
-        setIsFormSubmited(!isFormSubmited)
         if (address.lat && address.lng && address.address) {
             dispatch(addressActions.editAddress({ oldLoc, newLoc: address }));
             setValidate(false)
@@ -55,7 +53,7 @@ export const EditAddress = (props) => {
                 <Container className="m-0 mx-auto new--address--container d-flex flex-column justify-content-between">
                     <Row style={{ height: "61vh", position: "relative" }}>
                         <Col style={{ height: "61vh", position: "relative" }} className="p-0">
-                            <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation} setLocating={setLocating} isFormSubmited={isFormSubmited} />
+                            <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation} setLocating={setLocating} />
                         </Col>
                     </Row>
                     <Row className="m-0 mt-2 mb-auto new--address--inputs">

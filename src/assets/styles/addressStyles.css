@@ -94,7 +94,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 15px;
+  bottom: 60px;
   right: 21px;
   height: 35px;
   width: 35px;
@@ -107,6 +107,26 @@
 .icon--location--detection:hover,
 .icon--location--detection:active,
 .icon--location--detection:focus {
+  box-shadow: none;
+  background-color: var(--red-one);
+}
+.icon--location--detection--record {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 15px;
+  right: 21px;
+  height: 35px;
+  border-radius: 50px;
+  background-color: var(--red-one);
+  padding: 0.4rem;
+  z-index: 999;
+  cursor: pointer;
+}
+.icon--location--detection--record:hover,
+.icon--location--detection--record:active,
+.icon--location--detection--record:focus {
   box-shadow: none;
   background-color: var(--red-one);
 }
