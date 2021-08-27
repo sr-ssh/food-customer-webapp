@@ -10,8 +10,10 @@ export const CancelOrder = (props) => {
 
 
     let formHandler = (value) => {
-        if (value === true)
+        if (value === true) {
             dispatch(orderAction.cancelOrder(props.orderId))
+            dispatch(orderAction.getInLineOrders())
+        }
         props.onHide(false)
     }
 
