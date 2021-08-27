@@ -29,7 +29,6 @@ export const SearchAddressBar = (props) => {
     const searchAddressClear = () => {
         props.setItem("")
         dispatch(addressActions.searchAddressClear())
-
     }
     return (
         <Modal
