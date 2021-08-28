@@ -16,6 +16,13 @@
 @font-face {
   font-family: "IranSans";
   src: url("./../fonts/ir_sans.ttf");
+  src: url(../fonts/ir_sans.ttf) format("TrueType");
+}
+@font-face {
+  font-family: "IR-Sans";
+  src: url(../fonts/IRANSans.otf);
+  src: url(../fonts/IRANSans.otf) format("OpenType");
+  font-style: normal;
 }
 
 /* set scrollBar widht to 0 to dont't show scrollbar on scroll */
@@ -181,4 +188,9 @@ body {
 }
 .fs-9 {
   font-size: 0.25rem !important;
+}
+input[type="number"] {
+  font-family: "IR-Sans";
+  font-weight: 600;
+  font-size: 16px;
 }
