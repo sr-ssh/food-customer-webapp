@@ -25,7 +25,7 @@ export const InLineOrderHeader = ({ order }) => {
                 <Col className="d-flex p-2 mx-2 align-items-center justify-content-start flex-row-reverse">
                     {
                         order.status.status === 3
-                            ? <><p className="me-auto main-text-card-queue-condition fw-bold text-center">در حال ارسال</p>
+                            ? <><p className="me-auto main-text-card-queue-condition fw-bold text-center ms-2">در حال ارسال</p>
                                 <div className="main-icon-cards main-icon-cards-pass">
                                     <img className="img-fluid" src={deliverydoneIcon} height="35px" alt="deliveryIcon" style={{ transform: "scale(-1, 1)" }} />
                                 </div></>
