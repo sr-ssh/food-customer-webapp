@@ -12,7 +12,7 @@ export const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav " />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="align-items-end w-100">
-                    <Nav.Link href="/main" className="me-auto ps-41 me-auto--order"><p>خانه</p><img src={backIcon} height="35px" alt="back-icon" /></Nav.Link>
+                    <Nav.Link href="/" className="me-auto ps-41 me-auto--order"><p>خانه</p><img src={backIcon} height="35px" alt="back-icon" /></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

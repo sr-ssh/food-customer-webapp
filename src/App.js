@@ -23,9 +23,8 @@ function App() {
   return (
     <Router history={history}>
       <Switch>
-        <Route exact path="/" component={Login} />
-        <PrivateRoute path="/main" component={Main}></PrivateRoute>
-        <Route path="/home" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <PrivateRoute path="/order/detail" component={OrderDetails}></PrivateRoute>
         <PrivateRoute path="/address/edit" component={EditAddress}></PrivateRoute>
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
         <PrivateRoute path="/address/new" component={NewAddress}></PrivateRoute>
@@ -35,6 +34,8 @@ function App() {
         <PrivateRoute path="/bill" component={Factor}></PrivateRoute>
         <PrivateRoute path="/pay/success" component={SuccessfullPay} ></PrivateRoute>
         <PrivateRoute path="/pay/fail" component={FailPay} ></PrivateRoute>
+        <PrivateRoute path="/" component={Main}></PrivateRoute>
+        <Route path="/home" component={Home} />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>

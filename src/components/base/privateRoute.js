@@ -7,7 +7,7 @@ function PrivateRoute({ component:Component, ...rest }) {
             let user = JSON.parse(localStorage.getItem('user'));
             if (!(user && user.idToken)) {
                 // not logged in so redirect to login page with the return url
-                return <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+                return <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
             }
             console.log(props)
             // logged in so return component

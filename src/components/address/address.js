@@ -24,7 +24,7 @@ export const Address = () => {
     return (
         <>
             <div className="address--page">
-                <Header title="آدرس" backLink="/main" backtext="خانه" locating={false} />
+                <Header title="آدرس" backLink="/" backtext="خانه" locating={false} />
                 {/* {
                     alertMessage &&
                     <>

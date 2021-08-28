@@ -23,7 +23,7 @@ export const HistoryOrder = (props) => {
   return (
     <>
     <div className="div--container__historyOrder">
-    <Header title="تاریخچه سفارش" backLink="/main" backtext="خانه" />
+    <Header title="تاریخچه سفارش" backLink="/" backtext="خانه" />
     {
       finishedOrders?.length ?
         finishedOrders.map((item, index) =>

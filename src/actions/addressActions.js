@@ -77,7 +77,7 @@ function newAddress(address) {
                     } else if (res.success === false) {
                         dispatch(alertActions.error(res.message));
                         dispatch(failure(res.message));
-                        history.push('/main');
+                        history.push('/');
                     }
                     setTimeout(() => {
                         dispatch(alertActions.clear());

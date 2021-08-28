@@ -27,7 +27,7 @@ function login(body) {
                     else if (user.success) {
                         console.log("user entered")
                         dispatch(success(user));
-                        history.push('/dashboard');
+                        history.push('/');
                     } else if (user.success === false) {
                         dispatch(alertActions.error(user.message));
                         dispatch(failure(user.message))
