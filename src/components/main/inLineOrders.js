@@ -15,24 +15,34 @@ export const InLineOrders = () => {
     const dispatch = useDispatch()
     let { loading, orders: inLineOrders } = useSelector(state => state.getInLineOrders)
 
+
+    useEffect(() => {
+        
+        let timerFunc = setTimeout(() => {
+            dispatch(orderAction.getInLineOrders())
+        }, 15000);
+
+        return () => clearTimeout(timerFunc);
+    })
+
     useEffect(() => {
         dispatch(orderAction.getInLineOrders())
-    }, [dispatch, refresh])
+    }, [refresh, dispatch])
 
     return (
         <>
-            {
+            {/* {
                 loading ?
                     <Container className="d-flex justify-content-center mt-6 ">
                         <div className="d-flex justify-content-center align-items-center">
                             <LoaderWhite />
                         </div>
                     </Container>
-                    : inLineOrders &&
+                    : */
+                    inLineOrders &&
                     inLineOrders.map((order, index) =>
                         <InLineOrder order={order} key={index} refresh={refresh} setRefresh={setRefresh}/>
                     )
-
             }
         </>
     )
