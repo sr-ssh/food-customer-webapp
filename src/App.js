@@ -17,7 +17,7 @@ import { NewAddress } from './components/address/newAddress';
 import { FailPay } from './components/payment/failPay';
 import { AddressSaved } from './components/address/addressSaved';
 import { EditAddress } from './components/address/editAddress';
-
+import { Home } from './home/home'
 
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Login} />
         <PrivateRoute path="/main" component={Main}></PrivateRoute>
+        <Route path="/home" component={Home} />
         <PrivateRoute path="/address/saved" component={AddressSaved} ></PrivateRoute>
         <PrivateRoute path="/address/edit" component={EditAddress}></PrivateRoute>
         <PrivateRoute path="/address" component={Address}></PrivateRoute>
