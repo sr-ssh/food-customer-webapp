@@ -20,14 +20,14 @@ export const InLineOrders = () => {
         
         let timerFunc = setTimeout(() => {
             dispatch(orderAction.getInLineOrders())
-        }, 1000);
+        }, 15000);
 
         return () => clearTimeout(timerFunc);
     })
 
     useEffect(() => {
         dispatch(orderAction.getInLineOrders())
-    }, [refresh])
+    }, [refresh, dispatch])
 
     return (
         <>
@@ -38,7 +38,7 @@ export const InLineOrders = () => {
                             <LoaderWhite />
                         </div>
                     </Container>
-                    :  */
+                    : */
                     inLineOrders &&
                     inLineOrders.map((order, index) =>
                         <InLineOrder order={order} key={index} refresh={refresh} setRefresh={setRefresh}/>
