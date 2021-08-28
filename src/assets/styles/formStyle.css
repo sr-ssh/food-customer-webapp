@@ -12,3 +12,10 @@
     border: 0;
     border-bottom: 1px solid var(--text-grey);
 }
+
+.factor--button{
+    position: fixed;
+    bottom: 1px;
+    left: 9px;
+    right: 9px;
+}

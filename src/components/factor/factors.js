@@ -89,8 +89,8 @@ export const Factor = (props) => {
                             </Col>
                         </Row>
                     </Row>
-                    <Row className="mt-auto mx-0 align-self-center w-100">
-                        <Col className="col-12 px-0" >
+                    <Row className="mt-auto mx-0 align-self-center factor--button">
+                        <Col className="px-0 " >
                             {
 
                                 isBtnSubmited ?
