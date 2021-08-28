@@ -42,9 +42,9 @@ export const SidebarItems = ({ setLogOutModal, setIsOpen }) => {
 
                         </Col>
                     </Col>
-                    <Col className="my-3 col-5">
+                    {/* <Col className="my-3 col-5">
                         <Link to="/account"><img className="m-auto d-block" src={accountIcon} height="40px" alt="acount-icon" /></Link>
-                    </Col>
+                    </Col> */}
                 </Row>
             </Row>
         </Container >
