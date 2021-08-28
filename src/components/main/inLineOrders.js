@@ -39,8 +39,8 @@ export const InLineOrders = () => {
                         </div>
                     </Container>
                     : */
-                    inLineOrders &&
-                    inLineOrders.map((order, index) =>
+                    inLineOrders.orders &&
+                    inLineOrders.orders.map((order, index) =>
                         <InLineOrder order={order} key={index} refresh={refresh} setRefresh={setRefresh}/>
                     )
             }
