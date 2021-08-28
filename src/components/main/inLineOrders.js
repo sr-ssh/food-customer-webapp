@@ -41,7 +41,7 @@ export const InLineOrders = () => {
                     : */
                     inLineOrders.orders &&
                     inLineOrders.orders.map((order, index) =>
-                        <InLineOrder order={order} key={index} refresh={refresh} setRefresh={setRefresh}/>
+                        <InLineOrder order={order} key={index} refresh={refresh} setRefresh={setRefresh} cancelTime={inLineOrders.cancelTime}/>
                     )
             }
         </>

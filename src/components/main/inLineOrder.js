@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Button, Row, Col, Card } from 'react-bootstrap';
-import { history } from '../../helpers';
+import { getTimeDiff, history } from '../../helpers';
 import moment from 'jalali-moment';
 import persianJs from 'persianjs/persian.min';
 import commaNumber from 'comma-number'
@@ -15,9 +15,10 @@ import { payAction } from '../../actions';
 
 
 
-export const InLineOrder = ({order, refresh, setRefresh}) => {
+export const InLineOrder = ({order, refresh, setRefresh, cancelTime}) => {
 
     const [modalShow, setmodalShow] = useState(false)
+    const [canCancel, setCanCancel] = useState(true)
     const dispatch = useDispatch()
 
     const orderDetails = (orderId) => {
@@ -28,6 +29,24 @@ export const InLineOrder = ({order, refresh, setRefresh}) => {
     const payOrder = (orderId) => {
         dispatch(payAction.payOrder({orderId: orderId}))
     }
+
+    const calculateCancelTime = () => {
+        setCanCancel(
+            (order.status.status !== 0)
+            &&
+            (getTimeDiff(
+                order.createdAt,
+                new Date().toISOString(), 
+                'm')
+             < cancelTime)
+             )
+    }
+
+
+    useEffect(() => {
+        calculateCancelTime()
+    }, [calculateCancelTime])
+
 
     return (
         <>
@@ -54,7 +73,7 @@ export const InLineOrder = ({order, refresh, setRefresh}) => {
                             </Button>
                         </Col>
                         { 
-                            order.status.status === 0 ?
+                            canCancel && order.status.status === 0 ?
                             <Col className="text-start ps-1" onClick={() => setmodalShow(true)}>
                                 <Button className="col-11 main-card-btn-order-detail btn--red--two ">
                                     <span className="">کنسل کردن</span>
