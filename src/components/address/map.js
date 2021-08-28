@@ -1,62 +1,48 @@
 import React, { useState, useRef, useEffect } from 'react';
 import NeshanMap from 'react-neshan-map-leaflet'
 
-import markericon from "../../assets/images/address/destination.svg";
+import markericon from "../../assets/images/address/marker.svg";
 import searchIcon from "../../assets/images/address/search.svg";
 import loctionicon from "../../assets/images/address/loction.svg";
-import DoneAllIcon from '@material-ui/icons/DoneAll';
-import EditIcon from '@material-ui/icons/Edit';
+
 
 import { Button, Col, Form, Image, Dropdown } from 'react-bootstrap';
 import "../../assets/styles/leaflet.css"
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { SearchAddressBar } from './searchAddressBar'
-import { useMemo } from 'react';
 
 
 // YOUR_API_KEY_GOES_BELOW
 const API_KEY = "web.nRDwOvUSAb8WPJZKaJUgdLnXK4MxFukGcw0TieG2";
 
-export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLocation, setLocating }) => {
+export const Map = (props) => {
 
+    let { setloaderLocate, setAddress, setItem, selectedItem, itemLocation, setItemLocation } = props;
     const [dimStatus, setDimStatus] = useState(false)
     const [showAddressBar, setShowAddressbar] = useState(false);
-    const [isRecordLocation, setIsRecordLocation] = useState(false);
     const [mapPropeties, setMapPropeties] = useState()
-    const [alerts, setAlert] = useState({});
-    const [address1, setAddress1] = useState('')
     const target = useRef();
     const ZOME_LEVEL = 13;
     const ZOME_LEVEL2 = 17;
     const dispatch = useDispatch()
 
-    let alertHandler = (txt, status, loader) => {
-        setAlert({ text: txt, status: status, loader: loader })
-    }
 
     let locateUserHandler = () => {
+
         // Call mapPropeties.locate() for find Usre Location 
         mapPropeties.myMap?.locate({ setView: true });
-        // alertHandler("در حال دریافت موقعیت...", true, true);
-        setLocating(true)
+        setloaderLocate(true)
+
     }
 
-    let recordLocation = (situation) => {
-        if (situation === true) {
-            setIsRecordLocation(true)
-            mapPropeties?.myMap.off('move')
-            setAddress((prevState) => ({ ...prevState, lat: mapPropeties?.myMap.getCenter().lat, lng: mapPropeties?.myMap.getCenter().lng }))
-        } else if (situation === false) {
-            setIsRecordLocation(false)
-            mapPropeties?.myMap.on('move', function (e) {
-                mapPropeties?.marker.setLatLng(e.target.getCenter());
-            })
-        }
+    let recordLocation = () => {
+        setAddress((prevState) => ({ ...prevState, lat: mapPropeties?.myMap.getCenter().lat, lng: mapPropeties?.myMap.getCenter().lng }))
+        setItemLocation({ lat: mapPropeties?.myMap.getCenter().lat, lng: mapPropeties?.myMap.getCenter().lng })
+        props.hide(false)
+
     }
 
     useEffect(() => {
-        setAddress((prevState) => ({ ...prevState, lat: mapPropeties?.myMap.getCenter().lat, lng: mapPropeties?.myMap.getCenter().lng }))
-        setAddress((prevState) => ({ ...prevState, lat: itemLocation.lat, lng: itemLocation.lng }))
         mapPropeties?.myMap.flyTo(itemLocation, ZOME_LEVEL2)
         mapPropeties?.marker.setLatLng(itemLocation);
     }, [itemLocation])
@@ -75,7 +61,6 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
                     </Form.Group>
                 </Dropdown>
             </Col>
-
             <NeshanMap
                 options={{
                     key: API_KEY,
@@ -92,27 +77,19 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
                     let marker = L.marker(itemLocation, { icon: myIcon })
                         .addTo(myMap);
 
-
                     // ON locationfound set Userlocate state of latlng result
                     myMap.on('locationfound', e => {
-                        // alertHandler("موقعیت شما یافت شد", true, false);
-                        setLocating(false)
-                        // setTimeout(() => {
-                        //     setAlert(null);
-                        // }, 3000)
+                        // setLocating(false)
                         setAddress((prevState) => ({ ...prevState, lat: e.latlng.lat, lng: e.latlng.lng }))
                         myMap.flyTo(e.latlng, 18)
                         marker.setLatLng(e.latlng);
+                        setloaderLocate(false)
                     });
 
                     // ON locationerror set Userlocate state of null
                     myMap.on('locationerror', e => {
-                        // alertHandler("خطا در دریافت موقعیت شما!", true, false);
-                        setLocating(false)
-                        console.log(1);
-                        // setTimeout(() => {
-                        //     setAlert(null);
-                        // }, 3000)
+                        setloaderLocate(false)
+                        console.log(e);
                     });
 
                     myMap.on('move', function (e) {
@@ -122,36 +99,18 @@ export const Map = ({ setAddress, setItem, selectedItem, itemLocation, setItemLo
                     setMapPropeties({ myMap, marker })
                 }}
             />
-
             <div>
-                <Button ref={target} className="btn btn-danger border-0  icon--location--detection" onClick={locateUserHandler}>
-                    < img src={loctionicon} height="25px" alt="loction_icon" />
-                </Button>
+                <div>
+                    <Button ref={target} className="btn btn-danger border-0  icon--location--detection me-3" onClick={locateUserHandler}>
+                        < img src={loctionicon} className="img-fluid" alt="loction_icon" />
+                    </Button>
+                </div>
+                <div className="div--btn-recordLocation">
+                    <Button ref={target} className="btn btn-danger border-0  icon--location--detection--record mx-4" onClick={() => recordLocation()}>
+                        <span className="me-1">تایید موقعیت</span>
+                    </Button>
+                </div>
             </div>
-            <div>
-                {
-                    isRecordLocation ?
-                        <>
-                            <Button ref={target} className="btn btn-danger border-0  icon--location--detection--record" onClick={() => recordLocation(false)}>
-                                <EditIcon />
-                                <span className="me-1">ویرایش</span>
-                            </Button>
-                        </> :
-                        <>
-                            <Button ref={target} className="btn btn-danger border-0  icon--location--detection--record" onClick={() => recordLocation(true)}>
-                                <DoneAllIcon />
-                                <span className="me-1">ثبت</span>
-
-                            </Button>
-                        </>
-                }
-            </div>
-            {/* <div className="w-100 tooltip--location--detection" style={{ display: alerts?.status ? "flex" : "none" }}>
-                {
-                    alerts?.loader ? <LoaderRed /> : null
-                }
-                {alerts?.text}
-            </div> */}
             <SearchAddressBar show={showAddressBar} onHide={() => { setShowAddressbar(false) }} setItem={setItem} selectedItem={selectedItem} itemLocation={itemLocation} setItemLocation={setItemLocation} />
         </>
     )

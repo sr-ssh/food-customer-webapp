@@ -82,7 +82,7 @@
   border-color: var(--red-two);
 }
 .map {
-  height: 61vh;
+  height: 100vh;
 }
 .loader--map {
   position: absolute;
@@ -90,14 +90,13 @@
   top: 50%;
 }
 .icon--location--detection {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 60px;
-  right: 21px;
-  height: 35px;
-  width: 35px;
+  bottom: 70px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   background-color: var(--red-one);
   padding: 0.4rem;
@@ -110,17 +109,19 @@
   box-shadow: none;
   background-color: var(--red-one);
 }
+.icon--location--detection .img-fluid {
+  padding: 0;
+}
 .icon--location--detection--record {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   bottom: 15px;
-  right: 21px;
-  height: 35px;
-  border-radius: 50px;
+  height: 45px;
+  border-radius: 14px;
+  width: 93vw;
   background-color: var(--red-one);
-  padding: 0.4rem;
   z-index: 999;
   cursor: pointer;
 }
@@ -204,7 +205,7 @@
 }
 .leaflet-marker-icon {
   margin-top: -75px !important;
-  margin-left: -20px !important;
+  margin-left: -30px !important;
 }
 .modal--delete--address .modal-content {
   border: 0;
@@ -221,4 +222,28 @@
 .alert-cancel-product-order {
   position: relative !important;
   bottom: 0;
+}
+.row--static--map {
+  height: 35vh;
+  position: relative;
+  cursor: pointer;
+}
+.modal--body--pick--address {
+  margin-top: 62px;
+  padding: 0;
+}
+.row--static--map .col {
+  height: 35vh;
+  position: relative;
+}
+.label--maps {
+  font-size: 11px;
+  color: var(--text-grey);
+  font-family: "IranSans";
+  font-weight: bold;
+}
+.div--btn-recordLocation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

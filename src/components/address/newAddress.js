@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { LoaderRed } from '../base/loader-bg-red'
-import { Map } from "./map";
+
+// Components
+import { StaticMap } from './staticMap'
+import { Maps } from "./maps";
 import { addressActions } from '../../actions/addressActions';
 
 
 
-export const NewAddress = ({ setLocating }) => {
+export const NewAddress = () => {
 
     const [address, setAddress] = useState({ lat: "", lng: "", address: "" });
+    const [isPickAddress, setIsPickAddress] = useState(false)
     const [validate, setValidate] = useState(false);
     const [selectedItem, setItem] = useState("")
     const [itemLocation, setItemLocation] = useState({ lat: 36.297920, lng: 59.605933 })
@@ -30,15 +34,19 @@ export const NewAddress = ({ setLocating }) => {
         else
             setValidate(true)
     }
-
     return (
         <>
             <Container className="m-0 mx-auto new--address--container d-flex flex-column justify-content-between">
-                <Row style={{ height: "61vh", position: "relative" }}>
-                    <Col style={{ height: "61vh", position: "relative" }} className="p-0">
-                        <Map className="map" setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation} setLocating={setLocating} />
-                    </Col>
-                </Row>
+                <div className="m-0 px-3 mt-3 w-100">
+                    <Row className="mb-2">
+                        <span className="label--maps">لطفا موقعیت خود را انتخاب کنید</span>
+                    </Row>
+                    <Row className="row--static--map" onClick={() => setIsPickAddress(true)}>
+                        <Col className="p-0 w-100">
+                            <StaticMap address={address} />
+                        </Col>
+                    </Row>
+                </div>
                 <Row className="m-0 mt-2 mb-auto new--address--inputs">
                     <Col className="p-0 new--address--description-input">
                         <Form.Group controlId="description">
@@ -60,7 +68,7 @@ export const NewAddress = ({ setLocating }) => {
                         </Button>
                     </Col>
                 </Row>
-
+                <Maps show={isPickAddress} onHide={() => { setIsPickAddress(false) }} setAddress={setAddress} selectedItem={selectedItem} setItem={setItem} itemLocation={itemLocation} setItemLocation={setItemLocation} />
             </Container>
         </>
 
