@@ -16,6 +16,14 @@ export const HistoryOrder = (props) => {
   const finishedOrders = useSelector(state => state.getFinishedOrders.orders)
   const dispatch = useDispatch()
 
+  const discounts = (order) => {
+    let discount = 0
+    order.products.map(item => {
+      discount += item.discount * item.quantity
+    })
+    return discount
+}
+
   useEffect(() => {
     dispatch(orderAction.getFinishedOrders())
   }, [dispatch])
@@ -91,7 +99,8 @@ export const HistoryOrder = (props) => {
                           {persianJs(commaNumber(item.order.deliveryCost)).englishNumber().toString()}
                         </Col>
                       </Col>
-                      <Col className="d-flex flex-row m-0 p-0 mb-1">
+                      {/* add tax */}
+                      {/* <Col className="d-flex flex-row m-0 p-0 mb-1">
 
                         <Col className="col-4 col-sm-7 ms-3 pe-1">
                           <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">مالیات :</span>
@@ -99,13 +108,21 @@ export const HistoryOrder = (props) => {
                         <Col className="col-7 px-1 fw-bold">
                           {persianJs(commaNumber(item.tax)).englishNumber().toString()}
                         </Col>
-                      </Col>
+                      </Col> */}
+                      <Col className="d-flex flex-row m-0 p-0 mb-1">
+                        <Col className="col-4 col-sm-7 ms-3 pe-1">
+                          <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">تخفیفات :</span>
+                        </Col>
+                        <Col className="col-7 px-1 fw-bold">
+                          {persianJs(commaNumber(discounts(item.order))).englishNumber().toString()}
+                        </Col>
+                      </Col> 
                       <Col className="d-flex flex-row m-0 p-0 mb-1">
                         <Col className="col-4 col-sm-7 ms-3 pe-1">
                           <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">جمع کل :</span>
                         </Col>
                         <Col className="cool-7 px-1 fw-bold fs-6">
-                          {item.total && persianJs(commaNumber(item.total)).englishNumber().toString()}<span className="me-2  txt--color--red--one fs-7">تومان</span>
+                          {item.total && persianJs(commaNumber(item.total - item.tax)).englishNumber().toString()}<span className="me-2  txt--color--red--one fs-7">تومان</span>
                         </Col>
                       </Col>
                     </Row>

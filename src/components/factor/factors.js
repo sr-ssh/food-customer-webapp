@@ -21,7 +21,9 @@ export const Factor = (props) => {
     const [order, setOrder] = useState({ products, deliveryCost, lat: userAddress.lat, lng: userAddress.lng, address: userAddress.address })
     const dispatch = useDispatch()
     const [isBtnSubmited, setIsBtnSubmited] = useState(false)
-    const totalAmount = total + tax + deliveryCost
+    // add tax
+    // const totalAmount = total + tax + deliveryCost
+    const totalAmount = total + deliveryCost
 
 
     const descHandler = e => {
@@ -74,7 +76,8 @@ export const Factor = (props) => {
                                 </Card.Text>
                             </Col>
                         </Row>
-                        <Row className="mt-3">
+                        {/* add tax */}
+                        {/* <Row className="mt-3">
                             <Col>
                                 <Card.Text>
                                     <span className="factor--text--details">  مالیات: </span>
@@ -87,7 +90,7 @@ export const Factor = (props) => {
                                     </span>
                                 </Card.Text>
                             </Col>
-                        </Row>
+                        </Row> */}
                     </Row>
                     <Row className="mt-auto mx-0 align-self-center factor--button">
                         <Col className="px-0 " >
