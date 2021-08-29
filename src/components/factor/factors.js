@@ -14,6 +14,7 @@ import { history } from '../../helpers';
 export const Factor = (props) => {
 
     const [total, setTotal] = useState(props.location.state.data?.map(data => (data.price - data.discount) * data.quantity).reduce((a, b) => a + b, 0))
+    const [discounts, setDiscounts] = useState(props.location.state.data?.map(data => data.discount * data.quantity).reduce((a, b) => a + b, 0))
     const [tax, setTax] = useState(props.location.state?.data?.map(data => (data.price - data.discount) * data.quantity * (9 / 100)).reduce((a, b) => a + b, 0))
     let userAddress = JSON.parse(localStorage.getItem('userAddress'))
     const [products, setProducts] = useState(props.location.state.data)
@@ -40,11 +41,11 @@ export const Factor = (props) => {
             <div className="factor-page">
                 <Header title="فاکتور" backLink="/order" state={products} backtext="سفارش" />
                 <Container className=" pt-2   d-flex flex-column factor-page-container" >
-                    <OrderList products={products} total={total} setTotal={setTotal} setProducts={setProducts} tax={tax} setTax={setTax} />
-                    <Row className="m-0 px-3 p-0 mt-1 factor-inputs">
+                    <OrderList products={products} total={total} setTotal={setTotal} setDiscounts={setDiscounts} discounts={discounts} setProducts={setProducts} tax={tax} setTax={setTax} />
+                    <Row className="m-0 px-2 p-0 mt-1 factor-inputs">
                         <Col className="p-0 factor-description-input">
                             <Form.Group controlId="description">
-                                <Form.Label className="pe-2">توضیحات</Form.Label>
+                                <Form.Label className="pe-2 fs-7">توضیحات</Form.Label>
                                 <Card className="border-0 bg-transparent" >
                                     <Form.Control as="textarea" name="description" className="description-text-container" onChange={descHandler} />
                                 </Card>
@@ -52,27 +53,41 @@ export const Factor = (props) => {
                         </Col>
                     </Row>
                     <Row className="mt-1 px-3">
-                        <Row className="mt-3 ">
+                        
+                        <Row className="mt-3">
                             <Col>
                                 <Card.Text>
-                                    <span className="factor--text--details">مجموع:</span>
+                                    <span className="fs-7 text--grey fw-bold">هزینه ارسال:</span>
                                 </Card.Text>
                             </Col>
-                            <Col dir="ltr" className="ps-0">
+                            <Col className="pe-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان </span> <span className="fw-bold">{total && persianJs(commaNumber(total)).englishNumber().toString()}</span>
+                                    <span className="fw-bold">{deliveryCost && persianJs(commaNumber(deliveryCost)).englishNumber().toString()}</span>
                                 </Card.Text>
                             </Col>
                         </Row>
                         <Row className="mt-3">
                             <Col>
                                 <Card.Text>
-                                    <span className="factor--text--details">هزینه ارسال:</span>
+                                    <span className="fs-7 text--grey fw-bold">تخفیفات:</span>
                                 </Card.Text>
                             </Col>
-                            <Col dir="ltr" className="ps-0">
+                            <Col className="pe-0">
                                 <Card.Text className="d-flex">
-                                    <span className="factor--text--details">تومان</span><span className="fw-bold">{deliveryCost && persianJs(commaNumber(deliveryCost)).englishNumber().toString()}</span>
+                                    <span className="fw-bold">{deliveryCost && persianJs(commaNumber(discounts)).englishNumber().toString()}</span>
+                                </Card.Text>
+                            </Col>
+                        </Row>
+                        <Row className="mt-3 factor--padding--to--scroll">
+                            <Col>
+                                <Card.Text>
+                                    <span className="fs-7 text--grey fw-bold">جمع کل:</span>
+                                </Card.Text>
+                            </Col>
+                            <Col className="pe-0">
+                                <Card.Text className="d-flex">
+                                     <span className="fw-bold fs-5">{total && persianJs(commaNumber(total)).englishNumber().toString()}</span>
+                                     <span className="txt--color--red--one me-2">تومان </span>
                                 </Card.Text>
                             </Col>
                         </Row>
