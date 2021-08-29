@@ -21,7 +21,7 @@ import './assets/styles/mapDropDown.css'
 import './assets/styles/historyOrder.css'
 import './assets/styles/statusPay.scss'
 import './assets/styles/olderAddress.scss'
-
+import './assets/styles/payStyle.css'
 
 
 

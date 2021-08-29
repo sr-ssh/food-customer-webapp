@@ -12,9 +12,9 @@ import { Orders } from './components/order/orders';
 import { OrderDetails } from './components/main/orderdDetails';
 import { HistoryOrder } from './components/order/history/historyOrder'
 import { Factor } from './components/factor/factors';
-import { SuccessfullPay } from './components/payment/successfullPay';
+import { SuccessfullPay } from './components/payment/successfullPay2';
 import { NewAddress } from './components/address/newAddress';
-import { FailPay } from './components/payment/failPay';
+import { FailPay } from './components/payment/failPay2';
 import { EditAddress } from './components/address/editAddress';
 import { Home } from './home/home'
 

@@ -9,7 +9,7 @@ export const FailPay = (props) => {
     const success= false
     const handleReturnToApp = function(){
         history.push({
-                pathname: '/main'
+                pathname: '/'
             })
     }
 

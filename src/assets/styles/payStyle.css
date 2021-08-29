@@ -1,0 +1,47 @@
+.payment--unsuccessful{
+    background-color: var(--background-two);
+    height: auto;
+    min-height: 100vh;
+}
+
+.pay--return--button--fail{
+    background-color: var(--red-one);
+    border-radius: 10px;
+    border: none;
+}
+
+.pay--return--button--fail.btn-check:checked + .pay--return--button--fail.btn-primary, .pay--return--button--fail.btn-check:active + .pay--return--button--fail.btn-primary, .pay--return--button--fail.btn-primary:active, .pay--return--button--fail.btn-primary.active, .pay--return--button--fail.show > .pay--return--button--fail.btn-primary.dropdown-toggle {
+    background-color: var(--red-one);
+}
+
+.pay--return--button--fail.btn-check:focus + .pay--return--button--fail.btn-primary, .pay--return--button--fail.btn-primary:focus {
+    background-color: var(--red-one);
+    border-color: none;
+    box-shadow: 0 0 0 0.25rem rgb(244 67 54 / 50%);
+}
+
+.pay--return--button--fail.btn-primary:hover {
+    background-color: var(--red-one);
+    border-color: none
+}
+
+.pay--return--button--success{
+    background-color: var(--success-color);
+    border-radius: 10px;
+    border: none;
+}
+
+.pay--return--button--success.btn-check:checked + .pay--return--button--success.btn-primary, .pay--return--button--success.btn-check:active + .pay--return--button--success.btn-primary, .pay--return--button--success.btn-primary:active, .pay--return--button--success.btn-primary.active, .pay--return--button--success.show > .pay--return--button--success.btn-primary.dropdown-toggle {
+    background-color: var(--success-color);
+}
+
+.pay--return--button--success.btn-check:focus + .pay--return--button--success.btn-primary, .pay--return--button--success.btn-primary:focus {
+    background-color: var(--success-color);
+    border-color: none;
+    box-shadow: 0 0 0 0.25rem rgb(76 175 80 / 50%);
+}
+
+.pay--return--button--success.btn-primary:hover {
+    background-color: var(--success-color);
+    border-color: none
+}
