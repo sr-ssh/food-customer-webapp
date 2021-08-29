@@ -11,7 +11,7 @@ export const Detail = ({ detail, price }) => {
             <div className="div--container__detail">
                 <Container>
                         <Row>
-                            <Col className="col--container__title fw-bold fs-5" >
+                            <Col className={`${price?.discount !== '0' ? 'mt-2': null} col--container__title fw-bold fs-5`} >
                                 {detail?.name}
                             </Col>
                             <Col>

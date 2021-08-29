@@ -128,7 +128,7 @@ export const OrderDetails = () => {
                                                                 </Col>
                                                                 <Col className="d-flex flex-row m-0 p-0 my-1">
                                                                     <Col className="col-4 col-sm-7 ms-3 pe-1">
-                                                                        <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">تخفیف ها :</span>
+                                                                        <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">تخفیفات :</span>
                                                                     </Col>
                                                                     <Col className="col-7 px-1 fw-bold">
                                                                         {persianJs(commaNumber(order.discounts)).englishNumber().toString()}
