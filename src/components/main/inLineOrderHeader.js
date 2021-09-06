@@ -62,12 +62,12 @@ export const InLineOrderHeader = ({ order }) => {
                             </div>
                     }
                     {
-                        order.paid && order.status.status === 0
+                        order.status.status === 0
                             ? <p className="ms-auto me-1 main-text-card-queue-condition fw-bold">در صف انتظار</p>
                             : null
                     }
                     {
-                        order.status.status === 2 || order.status.status === 3 || order.status.status === 5 || (order.paid && order.status.status === 0)
+                        order.status.status === 2 || order.status.status === 3 || order.status.status === 5 || order.status.status === 0
                             ? <div className="main-icon-cards main-icon-cards-pass ">
                                 <img className="img-fluid" src={waitingdoneIcon} alt="deliveryIcon" />
                             </div>
@@ -76,7 +76,7 @@ export const InLineOrderHeader = ({ order }) => {
                             </div>
                     }
                     {
-                        (!order.paid) && order.status.status === 0
+                        order.status.status === 6
                             ? <p className="ms-auto me-1  main-text-card-queue-condition fw-bold">در انتظار پرداخت</p>
                             : null
                     }
