@@ -86,6 +86,7 @@ export const Login = () => {
     return (
         <>
             <div id="back-up" className=" ms-0 "></div>
+            <div id="back-up-over" className=" ms-0 "></div>
             <div id="back-center" className="back-center-login ms-0 me-0"></div>
             <div id="back-down" className=" ms-0 "></div>
             <Container fluid className="p-0 d-flex flex-column ms-0">
@@ -107,7 +108,7 @@ export const Login = () => {
                     </Col>
                 </Row>
                 <Row className="ms-0 loginForm  ms-0">
-                    <Col className="ms-0 loginForm--col">
+                    <Col className="ms-0">
                         <Form className="d-flex flex-column justify-content-center  ms-0" noValidate onSubmit={formHandeler} >
                             <Row className="w-100 pe-2 inputs ms-0">
                                 <Col xs={8} className="me-4">

@@ -47,6 +47,16 @@ body {
   border-top: 50vh solid var(--background-two);
 }
 
+#back-up-over {
+  top: 0;
+  left: 0;
+  z-index: 3;
+  position: fixed;
+  border-left: 368px solid var(--background-two);
+  border-right: 368px solid var(--background-two);
+  border-top: 65px solid var(--background-two);
+}
+
 #back-center {
   height: 100%;
   min-height: 100vh;
@@ -77,6 +87,10 @@ body {
 
 .mzLogo {
   max-height: 20vh;
+  z-index: 3;
+  position: fixed;
+  top: 3px;
+  left: 5px;
 }
 
 .inputs {

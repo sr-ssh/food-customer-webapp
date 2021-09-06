@@ -1,12 +1,7 @@
 .loginForm {
-    margin-top: 65px;
+    margin-top: 25vh;
     height: 40vh;
     z-index: 2;
-}
-.loginForm--col {
-    margin-top: 15vh;
-    height: 71vh;
-    overflow: scroll;
 }
 
 .login-input{
