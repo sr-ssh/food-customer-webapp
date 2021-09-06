@@ -107,7 +107,7 @@ export const Login = () => {
                     </Col>
                 </Row>
                 <Row className="ms-0 loginForm  ms-0">
-                    <Col className="ms-0">
+                    <Col className="ms-0 loginForm--col">
                         <Form className="d-flex flex-column justify-content-center  ms-0" noValidate onSubmit={formHandeler} >
                             <Row className="w-100 pe-2 inputs ms-0">
                                 <Col xs={8} className="me-4">
