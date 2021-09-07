@@ -8,7 +8,6 @@ import commaNumber from 'comma-number'
 
 //components
 import { Header } from '../base/header2'
-import { translate } from '../../helpers';
 import { LoaderWhite } from '../base/loader-bg-white'
 
 

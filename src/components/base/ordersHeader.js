@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar , Nav } from 'react-bootstrap';
+import { history } from '../../helpers';
 
 //icons
 import backIcon from './../../assets/images/order/back-page.svg'
@@ -12,7 +13,7 @@ export const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav " />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="align-items-end w-100">
-                    <Nav.Link href="/" className="me-auto ps-41 me-auto--order"><p>خانه</p><img src={backIcon} height="35px" alt="back-icon" /></Nav.Link>
+                    <Navbar.Text onClick={() => history.push('/')} className="me-auto ps-41 me-auto--order"><p>خانه</p><img src={backIcon} height="35px" alt="back-icon" /></Navbar.Text>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

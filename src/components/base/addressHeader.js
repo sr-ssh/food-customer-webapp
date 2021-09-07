@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Nav, Col } from 'react-bootstrap';
 
 import backIcon from '../../assets/images/factor/back-page-white.svg'
+import { history } from '../../helpers';
 import { LoaderAddress } from './loaderAddress'
 
 export const Header = ({ title, backLink, backtext, locating }) => {
@@ -17,8 +18,8 @@ export const Header = ({ title, backLink, backtext, locating }) => {
                         <Col className="d-flex align-items-center justify-content-center w-100">
                             <Navbar.Text className="fs-6 text-light">{title}</Navbar.Text>
                         </Col>
-                        <Col className="d-flex align-items-center justify-content-between w-100">
-                            <Nav.Link href={backLink} className="me-auto ps-3 d-flex justify-content-end align-items-center"><span className="text-light nav--link--header--back">{backtext}</span><img src={backIcon} height="30px" alt="back-icon" /></Nav.Link>
+                        <Col className="d-flex align-items-center justify-content-between w-100" onClick={() => history.push(backLink)}>
+                            <Navbar.Text  className="me-auto ps-3 d-flex justify-content-end align-items-center"><span className="text-light nav--link--header--back">{backtext}</span><img src={backIcon} height="30px" alt="back-icon" /></Navbar.Text>
                         </Col>
                     </Nav>
                 </Navbar.Collapse>
