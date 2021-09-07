@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import logo from './../../assets/images/payment/Payment-online-was-successful.png'
-import logo2 from './../../assets/images/payment/Payment-online-was-unsuccessful.svg'
+import React from 'react';
 import { history } from '../../helpers'
-import { Button, Col, Collapse, Container, Image, Row } from 'react-bootstrap';
+import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 
 // icon
 import payIcon from './../../assets/images/payment/Payment-online-was-successful.png'
