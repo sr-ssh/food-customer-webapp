@@ -34,8 +34,9 @@ function App() {
         <PrivateRoute path="/bill" component={Factor}></PrivateRoute>
         <PrivateRoute path="/pay/success" component={SuccessfullPay} ></PrivateRoute>
         <PrivateRoute path="/pay/fail" component={FailPay} ></PrivateRoute>
-        <PrivateRoute path="/" component={Main}></PrivateRoute>
         <Route path="/home" component={Home} />
+        <PrivateRoute path="/" component={Main}></PrivateRoute>
+        
         <Redirect from="*" to="/login" />
       </Switch>
     </Router>
