@@ -106,7 +106,7 @@ export const Map = (props) => {
                     </Button>
                 </div>
                 <div className="div--btn-recordLocation">
-                    <Button ref={target} className="btn btn-danger border-0  icon--location--detection--record mx-4" onClick={() => recordLocation()}>
+                    <Button ref={target} className="btn btn-danger border-0  icon--location--detection--record" onClick={() => recordLocation()}>
                         <span className="me-1">تایید موقعیت</span>
                     </Button>
                 </div>
