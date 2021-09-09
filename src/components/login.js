@@ -55,8 +55,7 @@ export const Login = () => {
         if(!mobile)
             setMobileValidated(true)
         else{
-            mobile = fixNumbers(mobile)
-            mobile && dispatch(userActions.verificationCode(mobile))
+            mobile && dispatch(userActions.verificationCode(fixNumbers(mobile)))
             setCounting(true)
         }
     }
