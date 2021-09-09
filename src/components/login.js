@@ -135,6 +135,7 @@ export const Login = () => {
                                         <Image src={mobileLogo} width="17px" className="mx-2 ms-0" />
                                         <Form.Label>موبایل</Form.Label>
                                         <Form.Control className="form-input h-100 login-input ms-0" type="number"
+                                            pattern="\d*"
                                             onChange={handleChange}
                                             isValid={mobile && mobileValited && true}
                                             isInvalid={!mobile && mobileValited && true}
