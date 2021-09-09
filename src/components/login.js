@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userActions } from '../actions/userActions';
-
 import { Spinner } from 'react-bootstrap'
 
 //css
@@ -10,11 +9,11 @@ import userLogo from './../assets/images/login/user.svg'
 import codeLogo from './../assets/images/login/password.svg'
 import mobileLogo from './../assets/images/login/phone.svg'
 import { Container, Button, Form, Row, Col, Image, Alert } from 'react-bootstrap';
-import persianJs from 'persianjs/persian.min';
-
+import {Counter} from './base/counter'
 
 export const Login = () => {
 
+    let [counting, setCounting] = useState(false)
     let alertMessage = useSelector(state => state.alert.message)
     let alerType = useSelector(state => state.alert.type)
     let loggingInLoading = useSelector(state => state.authentication.loading)
@@ -23,7 +22,7 @@ export const Login = () => {
     const [mobileValited, setMobileValidated] = useState(false);
     const [inputs, setInputs] = useState({});
     let verificationCode = useSelector(state => state.verificationCode)
-    const { family, mobile, code } = inputs;
+    let { family, mobile, code } = inputs;
     const dispatch = useDispatch()
 
     const mobileValidation = (value) => {
@@ -53,9 +52,13 @@ export const Login = () => {
 
     const codeHandler = (e) => {
         e.preventDefault()
-        mobile && dispatch(userActions.verificationCode(mobile))
-        console.log(inputs.mobile && mobileValited && validated && true)
-        console.log(!(inputs.mobile && mobileValited && validated && true))
+        if(!mobile)
+            setMobileValidated(true)
+        else{
+            mobile = fixNumbers(mobile)
+            mobile && dispatch(userActions.verificationCode(mobile))
+            setCounting(true)
+        }
     }
 
     const handleChange = (e) => {
@@ -154,7 +157,19 @@ export const Login = () => {
                                     </Form.Group>
                                 </Col>
                                 <Col className="mt-4 col-3 pe-0 me-0 ms-0">
-                                    <Button className="verification-btn mt-1" onClick={codeHandler}>{verificationCode.loading ? <Spinner animation="border" size="sm" /> : "ارسال کد"}</Button>
+                                    <Button className="verification-btn mt-1" onClick={codeHandler} disabled={counting}>
+                                        {!counting ? 
+                                            verificationCode.loading ? <Spinner animation="border" size="sm" /> : "ارسال کد"
+                                            : <Counter counting={counting} setCounting={setCounting} startpoint={2*60}/>   
+                                        }
+                                        {/* <Countdown date={Date.now() + 120000} renderer={({minutes, seconds}) => {
+                                            return (
+                                            <span>
+                                            {minutes}:{seconds}
+                                            </span>
+                                        );}} autoStart={false} ref={countdownref}>
+                                        </Countdown> */}
+                                        </Button>
                                 </Col>
                             </Row>
 

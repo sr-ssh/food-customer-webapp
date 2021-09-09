@@ -37,6 +37,12 @@
     border-color: none
 }
 
+.verification-btn.btn-primary:disabled, .verification-btn.btn-primary.disabled {
+    color: var(--red-one);
+    background-color: var(--red-two);
+    border-color: none;
+}
+
 .login-btn {
     background-color: var(--red-one);
     border: none;
