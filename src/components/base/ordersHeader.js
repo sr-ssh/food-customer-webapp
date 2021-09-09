@@ -13,7 +13,7 @@ export const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav " />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="align-items-end w-100">
-                    <Navbar.Text onClick={() => history.push('/')} className="me-auto ps-41 me-auto--order"><p>خانه</p><img src={backIcon} height="35px" alt="back-icon" /></Navbar.Text>
+                    <Navbar.Text onClick={() => history.push('/address')} className="me-auto ps-41 me-auto--order"><p>خانه</p><img src={backIcon} height="35px" alt="back-icon" /></Navbar.Text>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
