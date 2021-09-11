@@ -139,7 +139,7 @@ export const Login = () => {
                                             isValid={mobile && mobileValited && true}
                                             isInvalid={!mobile && mobileValited && true}
                                             required />
-                                        <Form.Control.Feedback className="me-2" type="invalid">شماره موبایل صحیح نیست!</Form.Control.Feedback>
+                                        <Form.Control.Feedback className="me-2" type="invalid">لطفا شماره موبایل خود را به حروف انگلیسی وارد کنید!</Form.Control.Feedback>
                                     </Form.Group>
                                 </Col>
                             </Row>
