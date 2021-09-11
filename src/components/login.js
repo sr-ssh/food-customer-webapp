@@ -149,6 +149,7 @@ export const Login = () => {
                                         <Image src={codeLogo} width="17px" className="mx-2" />
                                         <Form.Label>کد تایید</Form.Label>
                                         <Form.Control className="form-input h-100 login-input ms-0" type="number"
+                                            pattern="\d*"
                                             isValid={code && validated && true}
                                             isInvalid={!code && validated && true}
                                             onChange={handleChange}
