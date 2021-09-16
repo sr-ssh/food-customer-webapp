@@ -39,7 +39,7 @@ export const OrderDetails = () => {
         <>
 
             <div className="order--details--page">
-                <Header title="جزییات سفارش" backLink="/" backtext="خانه" />
+                <Header title="جزییات سفارش" backLink='/main' backtext="خانه" />
                 <Container className="m-auto">
                     {
                         loading ?

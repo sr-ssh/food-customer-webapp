@@ -76,7 +76,7 @@ function appInfo() {
             console.log("res.user >> "); 
             console.log(res.data);
             if(res.data.success)
-                history.push('/');
+                history.push('/main');
             return res.data
         })
         .catch(function (error) {

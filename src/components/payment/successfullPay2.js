@@ -16,7 +16,7 @@ export const SuccessfullPay = () => {
                 </Col>
                 
             </Row>
-            <Row onClick={() => history.push('/')}>
+            <Row onClick={() => history.push('/main')}>
                 <Col>
                     <Button className="fs-6 fw-bold py-3 px-5 pay--return--button--success">بازگشت به هپی پیتزا</Button>
                 </Col>

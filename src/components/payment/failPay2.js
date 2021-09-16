@@ -13,7 +13,7 @@ export const FailPay = () => {
             <Row>
                 <Image src={payIcon} alt="payIcon" height="380px"/>
             </Row>
-            <Row onClick={() => history.push('/')}>
+            <Row onClick={() => history.push('/main')}>
                 <Col>
                     <Button className="fs-6 fw-bold py-3 px-5 pay--return--button--fail">بازگشت به هپی پیتزا</Button>
                 </Col>

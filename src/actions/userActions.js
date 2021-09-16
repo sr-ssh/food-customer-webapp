@@ -27,7 +27,7 @@ function login(body) {
                     else if (user.success) {
                         console.log("user entered")
                         dispatch(success(user));
-                        history.push('/');
+                        history.push('/main');
                     } else if (user.success === false) {
                         dispatch(alertActions.error(user.message));
                         dispatch(failure(user.message))
@@ -127,5 +127,5 @@ function verificationCode(mobile) {
 function logout() {
     // remove user from local storage to log user out
     localStorage.clear()
-    history.push('/')
+    history.push('/main')
 }

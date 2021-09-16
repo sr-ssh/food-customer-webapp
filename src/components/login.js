@@ -163,13 +163,6 @@ export const Login = () => {
                                             verificationCode.loading ? <Spinner animation="border" size="sm" /> : "ارسال کد"
                                             : <Counter counting={counting} setCounting={setCounting} startpoint={2*60}/>   
                                         }
-                                        {/* <Countdown date={Date.now() + 120000} renderer={({minutes, seconds}) => {
-                                            return (
-                                            <span>
-                                            {minutes}:{seconds}
-                                            </span>
-                                        );}} autoStart={false} ref={countdownref}>
-                                        </Countdown> */}
                                         </Button>
                                 </Col>
                             </Row>

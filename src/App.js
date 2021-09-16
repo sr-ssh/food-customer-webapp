@@ -16,7 +16,7 @@ import { SuccessfullPay } from './components/payment/successfullPay2';
 import { NewAddress } from './components/address/newAddress';
 import { FailPay } from './components/payment/failPay2';
 import { EditAddress } from './components/address/editAddress';
-import { Home } from './home/home'
+import { Home } from './components/home/home'
 
 
 function App() {
@@ -34,9 +34,9 @@ function App() {
         <PrivateRoute path="/bill" component={Factor}></PrivateRoute>
         <PrivateRoute path="/pay/success" component={SuccessfullPay} ></PrivateRoute>
         <PrivateRoute path="/pay/fail" component={FailPay} ></PrivateRoute>
-        <Route path="/home" component={Home} />
-        <PrivateRoute path="/" component={Main}></PrivateRoute>
-        
+        <PrivateRoute path="/main" component={Main}></PrivateRoute>
+        <Route path='/' component={Home} />
+        <Route path="/home.html" component={Home} />
         <Redirect from="*" to="/login" />
       </Switch>
     </Router>
