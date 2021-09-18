@@ -82,7 +82,7 @@
   border-color: var(--red-two);
 }
 .map {
-  height: 100vh;
+  height: 90vh;
 }
 .loader--map {
   position: absolute;
