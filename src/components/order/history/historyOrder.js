@@ -63,7 +63,7 @@ export const HistoryOrder = (props) => {
                     </Row>
                   </Container>
                   <div className="div--container__card-history-inner pb-4">
-                    <Table className="table--container__historyDetail" borderless hover>
+                    <Table className="table--container__historyDetail" borderless>
                       <thead>
                         <tr className="tr--container__historyDetail" >
                           <th className="th--container__historyDetail fw-bold">سفارش</th>

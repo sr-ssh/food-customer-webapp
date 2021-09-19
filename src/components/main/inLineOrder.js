@@ -32,7 +32,7 @@ export const InLineOrder = ({order, refresh, setRefresh, cancelTime}) => {
 
     const calculateCancelTime = () => {
         setCanCancel(
-            (order.status.status !== 0)
+            (order.paid === false)
             &&
             (getTimeDiff(
                 order.createdAt,
@@ -73,7 +73,7 @@ export const InLineOrder = ({order, refresh, setRefresh, cancelTime}) => {
                             </Button>
                         </Col>
                         { 
-                            canCancel && order.status.status === 0 ?
+                            canCancel && (order.status.status === 0 || order.status.status === 6) ?
                             <Col className="text-start ps-1" onClick={() => setmodalShow(true)}>
                                 <Button className="col-11 main-card-btn-order-detail btn--red--two ">
                                     <span className="">کنسل کردن</span>

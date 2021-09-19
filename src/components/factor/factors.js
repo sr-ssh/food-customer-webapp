@@ -86,7 +86,7 @@ export const Factor = (props) => {
                             </Col>
                             <Col className="pe-0">
                                 <Card.Text className="d-flex">
-                                     <span className="fw-bold fs-5">{total && persianJs(commaNumber(total)).englishNumber().toString()}</span>
+                                     <span className="fw-bold fs-5">{totalAmount && persianJs(commaNumber(totalAmount)).englishNumber().toString()}</span>
                                      <span className="txt--color--red--one me-2">تومان </span>
                                 </Card.Text>
                             </Col>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Button, Row, Col, Alert } from 'react-bootstrap';
 import Sidebar from 'react-sidebar'
 import { history } from '../../helpers';
@@ -27,6 +27,10 @@ export const Main = () => {
     let alertMessage = useSelector(state => state.alert.message);
     let alerType = useSelector(state => state.alert.type);
 
+    // useEffect(() => {
+    //     // location.replace('http://www.happypizza.ir/main')
+    //     history.go(0)
+    // }, [])
 
     return (
         <>
