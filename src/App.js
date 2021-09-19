@@ -4,6 +4,7 @@ import { Redirect, Route, Router, Switch } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.css';
 import PrivateRoute from './components/base/privateRoute';
 
+
 //routes
 import { Login } from './components/login';
 import { Main } from './components/main/main';
@@ -17,6 +18,26 @@ import { NewAddress } from './components/address/newAddress';
 import { FailPay } from './components/payment/failPay2';
 import { EditAddress } from './components/address/editAddress';
 import { Home } from './components/home/home'
+
+
+
+//css
+import './assets/styles/baseStyle.css'
+import './assets/styles/loginStyle.css'
+import './assets/styles/formStyle.css'
+import './assets/styles/mainStyle.css'
+import './assets/styles/orders.css'
+import './assets/styles/factorStyle.css'
+import './assets/styles/orderdetailsStyle.css'
+import './assets/styles/addressStyles.css'
+import './assets/styles/leaflet.css'
+import './assets/styles/loaderStyle.css'
+import './assets/styles/mapDropDown.css'
+import './assets/styles/historyOrder.css'
+import './assets/styles/statusPay.scss'
+import './assets/styles/olderAddress.scss'
+import './assets/styles/payStyle.css'
+
 
 
 function App() {
@@ -39,8 +60,8 @@ function App() {
 
         <Route path='/' component={Home} />
         <Redirect from="*" to="/login" />
-      </Switch>
-    </Router>
+       </Switch>
+     </Router>
   );
 }
 

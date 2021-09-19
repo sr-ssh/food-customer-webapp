@@ -3,27 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { store } from './helpers';
 import { Provider } from 'react-redux';
-import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-
-//css
-import './assets/styles/baseStyle.css'
-import './assets/styles/loginStyle.css'
-import './assets/styles/formStyle.css'
-import './assets/styles/mainStyle.css'
-import './assets/styles/orders.css'
-import './assets/styles/factorStyle.css'
-import './assets/styles/orderdetailsStyle.css'
-import './assets/styles/addressStyles.css'
-import './assets/styles/leaflet.css'
-import './assets/styles/loaderStyle.css'
-import './assets/styles/mapDropDown.css'
-import './assets/styles/historyOrder.css'
-import './assets/styles/statusPay.scss'
-import './assets/styles/olderAddress.scss'
-import './assets/styles/payStyle.css'
-
 
 
 
