@@ -3863,3 +3863,32 @@ span.footer-close {
 .border-tab ul li.current a:before {
   width: 100%;
 }
+.btn-order-pizza{
+  background-color: #121619;
+  border-radius: 12px;
+  font-size: 17px;
+  box-shadow: 0px 0px 10px 0px #121619;
+  font-weight: bold;
+}
+.happy-title{
+  color: #fff;
+  font-weight: bold;
+  font-size: 17px;
+}
+.btn-order-pizza-tel{
+  background-color: #121619;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 32px;
+    width: 194px;
+}
+.btn-order-pizza-tel-seconed-span{
+  color: #91b842;
+  font-size: 18px;
+}
+.my-btn-green{
+  color: #fff !important;
+  background: var(--success);
+  border: none;
+  border-radius: 12px;
+}

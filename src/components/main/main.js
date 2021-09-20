@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Button, Row, Col, Alert } from 'react-bootstrap';
 import Sidebar from 'react-sidebar'
-import { history } from '../../helpers';
+import { history, useWindowSize } from '../../helpers';
 import { useSelector } from 'react-redux';
 
 
@@ -31,6 +31,8 @@ export const Main = () => {
     //     // location.replace('http://www.happypizza.ir/main')
     //     history.go(0)
     // }, [])
+    const size = useWindowSize();
+
 
     return (
         <>
@@ -63,7 +65,7 @@ export const Main = () => {
                     }
                     <Charge />
                     <div id="back-up"></div>
-                    <div id="back-center" className="back-center-main">
+                    <div id="back-center" className="back-center-main" style={{'height': `${size.height - 85}px`}}>
                         <div className="main-scroll-card-order">
                             <Container className="mb-auto mt-2 d-flex flex-column">
                                 <InLineOrders />
@@ -81,7 +83,7 @@ export const Main = () => {
                         </Row>
                         <Row>
                             <Col className="d-flex justify-content-center ">
-                                <Button type="button" className="main-add-btn border-0 p-2 mt-4" onClick={() => history.push('/address')}>
+                                <Button type="button" className="main-add-btn border-0 p-2 mt-4" style={{'top': `${size.height - 110}px`}} onClick={() => history.push('/address')}>
                                     <img src={addIcon} height="54px" alt="menu-icon" />
                                 </Button>
                             </Col>

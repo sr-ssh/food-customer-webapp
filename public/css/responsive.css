@@ -186,7 +186,7 @@
     font-size: 18px;
   }
   .banner {
-    min-height: 630px;
+    min-height: 228px;
   }
   .banner .owl-item {
     min-height: 630px;
@@ -840,10 +840,10 @@
     max-width: 150px;
   }
   .online-call {
-    font-size: 25px;
-    padding: 10px 10px 10px 40px;
+    font-size: 37px;
+    padding: 1px 10px 1px 10px;
     background-size: 25px;
-    width: unset;
+    width: 280px;
   }
   .online-booking .form-control {
     height: 42px;
@@ -2238,10 +2238,10 @@
     max-width: 30px;
   }
   .banner {
-    min-height: 300px;
+    min-height: 228px;
   }
   .banner .owl-item {
-    min-height: 300px;
+    min-height: 228px;
   }
 
   .banner-slide-2 .banner-box {
