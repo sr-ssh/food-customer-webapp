@@ -18,7 +18,7 @@ import { NewAddress } from './components/address/newAddress';
 import { FailPay } from './components/payment/failPay2';
 import { EditAddress } from './components/address/editAddress';
 import { Home } from './components/home/home'
-
+import { Menu } from './components/menu/menu';
 
 
 //css
@@ -56,7 +56,7 @@ function App() {
         <PrivateRoute path="/bill" component={Factor}></PrivateRoute>
         <PrivateRoute path="/pay/success" component={SuccessfullPay} ></PrivateRoute>
         <PrivateRoute path="/pay/fail" component={FailPay} ></PrivateRoute>
-        {/* <Route path="/home.html" component={Home} /> */}
+        <Route path="/menu" component={Menu} />
 
         <Route path='/' component={Home} />
         <Redirect from="*" to="/login" />
