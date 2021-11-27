@@ -18,7 +18,6 @@ import { NewAddress } from './components/address/newAddress';
 import { FailPay } from './components/payment/failPay2';
 import { EditAddress } from './components/address/editAddress';
 import { Home } from './components/home/home'
-import { Menu } from './components/menu/menu';
 
 
 //css
@@ -37,6 +36,7 @@ import './assets/styles/historyOrder.css'
 import './assets/styles/statusPay.scss'
 import './assets/styles/olderAddress.scss'
 import './assets/styles/payStyle.css'
+import { Menu } from './components/menu/menu';
 
 
 
@@ -58,7 +58,7 @@ function App() {
         <PrivateRoute path="/pay/fail" component={FailPay} ></PrivateRoute>
         <Route path="/menu" component={Menu} />
 
-        <Route path='/' component={Home} />
+        {/* <Route path='/' component={Home} /> */}
         <Redirect from="*" to="/login" />
        </Switch>
      </Router>
