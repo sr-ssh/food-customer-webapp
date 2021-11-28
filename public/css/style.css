@@ -139,7 +139,6 @@ textarea:focus {
 .headding-part .headding-sub {
   font-size: 30px;
   color: #fd9d3e;
-  font-family: "Pacifico", cursive;
 }
 .headding-part .headding-title {
   font-size: 60px;
@@ -260,7 +259,6 @@ button.owl-prev {
 }
 button.owl-prev:before {
   content: "\f104";
-  font-family: fontawesome;
   font-size: 80px;
 }
 button.owl-next {
@@ -268,7 +266,6 @@ button.owl-next {
 }
 button.owl-next:before {
   content: "\f105";
-  font-family: fontawesome;
   font-size: 80px;
 }
 a.btn.btn-green {
@@ -1436,9 +1433,10 @@ _______________________________________________________*/
 }
 .menu-des {
   font-size: 14px;
-  color: #999999;
+  color: #4e4c4b;
   letter-spacing: 1px;
   padding-bottom: 12px;
+  font-family: "IranSans";
 }
 .menu-price {
   font-size: 18px;
@@ -3866,14 +3864,18 @@ span.footer-close {
 .btn-order-pizza{
   background-color: #121619;
   border-radius: 12px;
-  font-size: 17px;
+  font-size: 26px;
   box-shadow: 0px 0px 10px 0px #121619;
   font-weight: bold;
+  padding-right: 60px;
+  padding-left: 60px;
+  padding-bottom: 27px;
+  padding-top: 27px;
 }
 .happy-title{
   color: #fff;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 28px;
 }
 .btn-order-pizza-tel{
   background-color: #121619;
@@ -3887,8 +3889,8 @@ span.footer-close {
   font-size: 18px;
 }
 .my-btn-green{
-  color: #fff !important;
   background: var(--success);
   border: none;
   border-radius: 12px;
+  font-size: 30px;
 }
