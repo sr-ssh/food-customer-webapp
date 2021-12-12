@@ -37,6 +37,7 @@ import './assets/styles/statusPay.scss'
 import './assets/styles/olderAddress.scss'
 import './assets/styles/payStyle.css'
 import { Menu } from './components/menu/menu';
+import { PayFactor } from './components/factor/payFactor';
 
 
 
@@ -54,8 +55,9 @@ function App() {
         <PrivateRoute path="/order/history" component={HistoryOrder}></PrivateRoute>
         <PrivateRoute path="/order" component={Orders}></PrivateRoute>
         <PrivateRoute path="/bill" component={Factor}></PrivateRoute>
-        <PrivateRoute path="/pay/success" component={SuccessfullPay} ></PrivateRoute>
-        <PrivateRoute path="/pay/fail" component={FailPay} ></PrivateRoute>
+        <Route path="/pay/success" component={SuccessfullPay} ></Route>
+        <Route path="/pay/fail" component={FailPay} ></Route>
+        <Route path="/factor/:orderId" component={PayFactor} ></Route>
         <Route path="/menu.html" component={Menu} />
 
         <Route path='/' component={Home} />

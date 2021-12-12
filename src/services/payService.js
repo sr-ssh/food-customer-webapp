@@ -12,7 +12,7 @@ export const payService = {
 function payOrder(body){
     console.log("into payOrder");
     return axios
-        .post(`${baseRoute}/`, body)
+        .post(`${baseRoute}`, body)
         .then(res => {
             console.log("res.user >> ");
             console.log(res.data.data);

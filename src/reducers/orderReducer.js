@@ -175,3 +175,26 @@ export const getFinishedOrders = (state = {}, action) => {
       return state;
   }
 };
+
+export const getFactor = (state = initialState, action) => {
+  switch (action.type) {
+    case orderConstant.GET_ORDER_FACTOR_REQUEST:
+      return {
+        ...state,
+        loading: true
+      }
+    case orderConstant.GET_ORDER_FACTOR_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        factor: action.data
+      }
+    case orderConstant.GET_ORDER_FACTOR_FAILURE:
+      return {
+        err: action.error,
+        loading: false
+      }
+    default:
+      return state;
+  }
+};

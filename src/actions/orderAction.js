@@ -13,7 +13,8 @@ export const orderAction = {
     cancelOrder,
     getOrderProductsTypes,
     addOrder,
-    getFinishedOrders
+    getFinishedOrders,
+    getOrderFactor
 };
 
 function getProduct(body) {
@@ -242,6 +243,37 @@ function getFinishedOrders() {
                 },
                 error => {
                     dispatch(failure(orderConstant.GET_FINISHED_ORDERS_FAILURE, error.toString()));
+                    console.log("occure error");
+                    console.log(error.toString());
+                    dispatch(alertActions.error(error.toString()));
+                }
+            );
+    };
+}
+
+function getOrderFactor(body) {
+    return dispatch => {
+        dispatch(request(orderConstant.GET_ORDER_FACTOR_REQUEST));
+        orderService.getFactor(body)
+            .then(
+                res => {
+                    if (res === undefined) {
+                        dispatch(alertActions.error('ارتباط با سرور برقرار نمی شود'))
+                        dispatch(failure(orderConstant.GET_ORDER_FACTOR_FAILURE, 'ارتباط با سرور برقرار نمیباشد'))
+                    }
+                    else if (res.success) {
+                        dispatch(success(orderConstant.GET_ORDER_FACTOR_SUCCESS, res.data))
+                    } else if (res.success === false) {
+                        dispatch(failure(orderConstant.GET_ORDER_FACTOR_FAILURE, res.message));
+                        dispatch(alertActions.error(res.message));
+
+                    }
+                    setTimeout(() => {
+                        dispatch(alertActions.clear());
+                    }, 1500);
+                },
+                error => {
+                    dispatch(failure(orderConstant.GET_ORDER_FACTOR_FAILURE, error.toString()));
                     console.log("occure error");
                     console.log(error.toString());
                     dispatch(alertActions.error(error.toString()));
