@@ -212,3 +212,6 @@ input[type="number"] {
 .text--grey{
   color: var(--text-grey);
 }
+.radius-10 {
+  border-radius: 10px;
+}

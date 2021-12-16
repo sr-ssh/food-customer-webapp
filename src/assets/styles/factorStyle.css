@@ -55,3 +55,27 @@
 .factor--padding--to--scroll{
   padding-bottom: 5rem;
 }
+
+.pizz-wallpaper{
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+}
+.pay-factor-page {
+  height: auto;
+  min-height: 100vh;
+  background: var(--background-one);
+  border-radius: 284px 0 0 0;
+  z-index: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 23px -4px var(--text-grey);
+}
+.pay--button{
+  position: fixed;
+  right: 38px;
+  bottom: 39px;
+}
