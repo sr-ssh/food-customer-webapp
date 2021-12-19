@@ -164,7 +164,7 @@ export const PayFactor = (props) => {
                                     )
                                       .englishNumber()
                                       .toString()}
-                                    {product.discount !== 0 ? (
+                                    {product.discount != "0" ? (
                                       <span className="discount--span me-2">
                                         با تخفیف
                                       </span>
