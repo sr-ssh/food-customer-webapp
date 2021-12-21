@@ -122,7 +122,7 @@ export const HistoryOrder = (props) => {
                           <span className="order--detailes--order--cards fw-bold order--details--text--footer-cards--order">جمع کل :</span>
                         </Col>
                         <Col className="cool-7 px-1 fw-bold fs-6">
-                          {item.total && persianJs(commaNumber(item.total - item.tax)).englishNumber().toString()}<span className="me-2  txt--color--red--one fs-7">تومان</span>
+                          {item.total && persianJs(commaNumber(item.total)).englishNumber().toString()}<span className="me-2  txt--color--red--one fs-7">تومان</span>
                         </Col>
                       </Col>
                     </Row>
