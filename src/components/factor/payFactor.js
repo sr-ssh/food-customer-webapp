@@ -28,11 +28,11 @@ export const PayFactor = (props) => {
   const totalPrice = (order) => {
     let total = 0;
     order.order.products.map((item) => {
-      total += (item.price - item.discount) * item.quantity;
+      total += (parseFloat(item.price) - parseFloat(item.discount)) * parseFloat(item.quantity);
     });
     // add tax
     // total += order.order.deliveryCost + order.tax;
-    total += order.order.deliveryCost;
+    total += parseFloat(order.order.deliveryCost);
     return total;
   };
 
