@@ -78,5 +78,9 @@
 .pay--button{
   position: fixed;
   right: 38px;
-  bottom: 39px;
+  bottom: 3vh;
+}
+.factor--container{
+  overflow: scroll;
+  max-height: 143vw;
 }

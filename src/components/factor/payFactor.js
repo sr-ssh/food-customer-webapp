@@ -66,6 +66,7 @@ export const PayFactor = (props) => {
           ) : (
             order?.order && (
               <>
+              <div className="factor--container">
                 <Row className="m-0 mt-3 lh-lg">
                   <Col className="d-flex">
                     <Card.Text className="m-0 mb-1 col-4">
@@ -226,6 +227,7 @@ export const PayFactor = (props) => {
                     </Row>
                   </Col>
                 </Row>
+                </div>
                 <Row className="me-2 ms-2 g-0 mt-4">
                   <Col className="d-flex flex-row mt-4">
                     {!order.paid ? (
