@@ -52,11 +52,11 @@ function getAddresses() {
 
 
 
-function newAddress(address) {
+function newAddress(address, id) {
     return dispatch => {
         dispatch(request({ address }));
 
-        addressService.newAddress({ lat: address.lat, lng: address.lng })
+        addressService.newAddress({ lat: address.lat, lng: address.lng }, id)
             .then(
                 res => {
                     console.log("address into addressAction");
@@ -71,6 +71,7 @@ function newAddress(address) {
                         // store user address details in local storage to pass data again in factor page
                         localStorage.setItem('addressVerify', JSON.stringify(res.data));
                         localStorage.setItem('userAddress', JSON.stringify(address));
+                        localStorage.setItem('isNewAddress', JSON.stringify(id));
                         dispatch(success(res));
                         dispatch(alertActions.success(res.message));
                         history.push('/order');

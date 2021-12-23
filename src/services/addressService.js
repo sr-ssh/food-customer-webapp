@@ -31,6 +31,7 @@ function getAddresses() {
 
 function newAddress(body) {
     console.log("into addressService");
+    console.log(body)
     return axios
         .post(`${baseRoute}/location`, body)
         .then(res => {

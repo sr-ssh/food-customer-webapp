@@ -28,7 +28,7 @@ export const NewAddress = () => {
     const formHandler = (e) => {
         e.preventDefault()
         if (address.lat && address.lng && address.address) {
-            dispatch(addressActions.newAddress(address));
+            dispatch(addressActions.newAddress(address, 0));
             setValidate(false)
         }
         else

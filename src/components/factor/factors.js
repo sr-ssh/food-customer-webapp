@@ -17,9 +17,10 @@ export const Factor = (props) => {
     const [discounts, setDiscounts] = useState(props.location.state.data?.map(data => data.discount * data.quantity).reduce((a, b) => a + b, 0))
     const [tax, setTax] = useState(props.location.state?.data?.map(data => (data.price - data.discount) * data.quantity * (9 / 100)).reduce((a, b) => a + b, 0))
     let userAddress = JSON.parse(localStorage.getItem('userAddress'))
+    let isNewAddress = JSON.parse(localStorage.getItem('isNewAddress'))
     const [products, setProducts] = useState(props.location.state.data)
     let deliveryCost = JSON.parse(localStorage.getItem('addressVerify')).deliveryCost
-    const [order, setOrder] = useState({ products, deliveryCost, lat: userAddress.lat, lng: userAddress.lng, address: userAddress.address })
+    const [order, setOrder] = useState({ products, deliveryCost, lat: userAddress.lat, lng: userAddress.lng, address: userAddress.address, isNewAddress: isNewAddress })
     const dispatch = useDispatch()
     const [isBtnSubmited, setIsBtnSubmited] = useState(false)
     // add tax

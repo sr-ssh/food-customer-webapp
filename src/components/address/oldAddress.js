@@ -25,7 +25,7 @@ export const OldAddress = ({ addresses, setNewAddress }) => {
 
     const selectAddress = () => {
         if (address.address)
-            dispatch(addressActions.newAddress({ lng: address.GPS.coordinates[0], lat: address.GPS.coordinates[1], address: address.address }))
+            dispatch(addressActions.newAddress({ lng: address.GPS.coordinates[0], lat: address.GPS.coordinates[1], address: address.address }, address._id))
         else {
             dispatch(alertActions.error('یک ادرس را انتخاب کنید'))
             setTimeout(() => {

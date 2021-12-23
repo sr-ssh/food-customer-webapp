@@ -14,7 +14,8 @@
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="js/menu.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,6 @@
                 <div class="col-xl-3 col-lg-2 col-md-4 col-3 p-0 text-right">
                     <div class="navbar-header">
                         <a class="navbar-brand page-scroll" href="home.html">
-                            <!-- <img alt="pizzon img-fluild" src="images/happy-pizza.png"> -->
                             <spna class="happy-title">هپی پیتزا</spna>
                         </a>
                     </div>
@@ -35,18 +35,10 @@
                     <div class="">
                         <ul>
                             <li class="call-icon mt-1">
-                                <!-- <a href="tel:+989376148583">
-                                    <span class="icon"></span>
-                                    <div class="link-text">8583 614 937 98+</div>
-                                </a> -->
                                 <img alt="pizzon img-fluild" src="images/happy-pizza.png" width="160px">
                             </li>
-                            <!-- <li class="order-online">
-                                <a href="/main" class="btn btn-green">سفارش آنلاین</a>
-                            </li> -->
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -57,7 +49,6 @@
             <div class="owl-stage-outer owl-height" style="height: 228px;" >
                 <div class="owl-stage"
                     style="transform: translate3d(-2040px, 0px, 0px); transition: all 0.25s ease 0s; width: 4760px;">
-                   
                     <div class="owl-item cloned" style="width: 680px;">
                         <div class="banner-slide-3">
                             <div class="container">
@@ -99,121 +90,32 @@
         </div>
     </section>
     <section class="special-menu ptb pt-140" style="background-color: #fff;">
-        
+
         <div class="container">
-            
+
             <div class="row ">
-                <div class="menu-top-bg"style="top: -50px; z-index: 2;" ><img src="images/menu-bottom-bg.png" alt="meu-bg"></div>
+                <div class="menu-top-bg" style="top: -2.5rem; z-index: 2;"><img src="images/menu-bottom-bg.png"
+                        alt="meu-bg"></div>
                 <div class="col-xl-12 col-lg-8 col-md-8 servose-box text-center padding-lf my-4">
                     <li class="order-online">
                         <a href="/main" class="btn-green btn-order-pizza">
                             <img src="images/Pizzabtn.svg" alt="order" class="order-img" width="55px">
                             <span class="px-3">سفارش آنلاین</span>
                         </a>
-                    </li> 
+                    </li>
                 </div>
-               
+
             </div>
             <div class="row mt-4 fs-5">
                 <div class="col-xl-12 col-lg-12 col-md-12">
                     <div class="special-tab text-center">
                         <ul id="tabs" class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="text-uppercase font-weight-bold tab-link current"
-                                data-tab="tab-1"><a href="#tab-1" role="tab" data-toggle="tab" class="active font-weight-normal" 
-                                style="color: black;font-size: 23px;"> پیتزا</a>
-                            </li>
-                            <li role="presentation" class="text-uppercase tab-link font-weight-normal" data-tab="tab-2"><a
-                                    href="#tab-2" role="tab" data-toggle="tab" 
-                                    style="color: black;font-size: 23px;"> پیش غذا</a></li>
-                            <li role="presentation" class="text-uppercase tab-link font-weight-normal" data-tab="tab-3"><a
-                                    href="#tab-3" role="tab" data-toggle="tab" 
-                                    style="color: black;font-size: 23px;"> نوشیدنی</a></li>
-                            <li role="presentation" class="text-uppercase tab-link font-weight-normal" data-tab="tab-4"><a
-                                    href="#tab-4" role="tab" data-toggle="tab" 
-                                    style="color: black;font-size: 23px;"> سالاد</a></li>
-                            <li role="presentation" class="text-uppercase tab-link font-weight-normal" data-tab="tab-5"><a
-                                    href="#tab-5" role="tab" data-toggle="tab" 
-                                    style="color: black;font-size: 23px;"> سس</a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="tab-content">
-                <div role="tabpanel" class="row pt-50 tab-pane fade in active show" id="tab-1">
-                    <div class="col-xl-3 col-lg-3 col-md-4 text-center pt-20 mx-4" style="
-                    border-bottom: 1px solid #fd9d3e;
-                ">
-                        <div class="menu-img"><a href="shop-detail.html"><img src="images/menu-1.png" alt="menu"
-                                    class="menu-image"></a></div>
-                        <a href="shop-detail.html" class="menu-title text-uppercase"  style="color: black;">پیتزا مارگاریتا</a>
-                        <p class="menu-des">سس مخصوص-فلفل دلمه -گوجه فرنگی-پنیر</p>
-                        <span class="menu-price">80.000 تومان</span>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 text-center pt-20 mx-4" style="
-                    border-bottom: 1px solid #fd9d3e;
-                ">
-                        <div class="menu-img"><a href="shop-detail.html"><img src="images/menu-6.png" alt="menu"
-                                    class="menu-image"></a></div>
-                        <a href="shop-detail.html" class="menu-title text-uppercase" style="color: black;">پیتزا پپرونی</a>
-                        <p class="menu-des">سس مخصوص-پپرونی---قارچ -فلفل دلمه ای-گوجه فرنگی-پنیر</p>
-                        <span class="menu-price">80.000 تومان</span>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 text-center pt-20 mx-4"  style="
-                    border-bottom: 1px solid #fd9d3e;
-                ">
-                        <div class="menu-img"><a href="shop-detail.html"><img src="images/menu-7.png" alt="menu"
-                                    class="menu-image"></a></div>
-                        <a href="shop-detail.html" class="menu-title text-uppercase"  style="color: black;">پیتزا رست بیف</a>
-                        <p class="menu-des">سس مخصوص-گوشت رست بیفف -قارچ -فلفل دلمه ای -گوجه فرنگی-پنیر</p>
-                        <span class="menu-price">80.000 تومان</span>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 text-center pt-20">
-                        <div class="menu-img"><a href="shop-detail.html" ><img src="images/menu-1.png" alt="menu"
-                                    class="menu-image"></a></div>
-                        <a href="shop-detail.html" class="menu-title text-uppercase" style="color: black;">پیتزا مخصوص</a>
-                        <p class="menu-des">سس مخصوص -ژامبون گوشت تنوری-ژامبون مرغ -هات داگ -قارج-فلفل دلمه ای-گوجه
-                            فرنگی -پنیر</p>
-                        <span class="menu-price">80.000 تومان</span>
-                    </div>
-                </div>
-                <div role="tabpanel" class="row pt-70 tab-pane fade" id="tab-2">
-                    <div class="col-xl-3 col-lg-3 col-md-4 text-center pt-20">
-                        <div class="menu-img"><a href="shop-detail.html"><img src="images/menu-8.png" alt="menu"
-                                    class="menu-image"></a></div>
-                        <a href="shop-detail.html" class="menu-title text-uppercase" style="color: black;">لازانیا ویژه</a>
-                        <p class="menu-des">سس مخصوص سبزیجات -لازانیا -گوشت رست بیف -قارچ -فلفل دلمه -گوجه فرنگی-ذرت
-                            -پنیر</p>
-                        <span class="menu-price">60.000تومان</span>
-                    </div>
-                </div>
-                <div role="tabpanel" class="row pt-70 tab-pane fade" id="tab-3">
-                    <div class="col-xl-3 col-lg-3 col-md-4 text-center pt-20">
-                        <div class="menu-img"><a href="shop-detail.html"><img src="images/menu-3.png" alt="menu"
-                                    class="menu-image"></a></div>
-                        <a href="shop-detail.html" class="menu-title text-uppercase" style="color: black;">کوکا</a>
-                        <pre class="menu-des"></pre>
-                        <span class="menu-price">60.000 تومان</span>
-                    </div>
-                </div>
-                <div role="tabpanel" class="row pt-70 tab-pane fade" id="tab-4">
-                    <div class="col-xl-3 col-lg-3 col-md-4 text-center pt-20">
-                        <div class="menu-img"><a href="shop-detail.html"><img src="images/menu-7.png" alt="menu"
-                                    class="menu-image"></a></div>
-                        <a href="shop-detail.html" class="menu-title text-uppercase" style="color: black;">سالاد سزار</a>
-                        <p class="menu-des">کاهو - سینه مرغ - نان باگت - روغن زیتون - لیمو ترش تازه - گوجه گیلاسی</p>
-                        <span class="menu-price">60.000 تومان</span>
-                    </div>
-                </div>
-                <div role="tabpanel" class="row pt-70 tab-pane fade" id="tab-5">
-                    <div class="col-xl-3 col-lg-3 col-md-4 text-center pt-20">
-                        <div class="menu-img"><a href="shop-detail.html"><img src="images/menu-1.png" alt="menu"
-                                    class="menu-image"></a></div>
-                        <a href="shop-detail.html" class="menu-title text-uppercase" style="color: black;">سس</a>
-                        <p class="menu-des"></p>
-                        <span class="menu-price">1.000 تومان</span>
-                    </div>
-                </div>
+            <div class="tab-content" id="my_menu">
             </div>
 
             <div class="row my-4" style="
@@ -228,7 +130,8 @@
             
         ">
                 <div class="col-xl-12 col-lg-12 col-md-12 text-center mt-4">
-                    <a href="/main" class="my-btn-green py-3 px-4" style="background-color: #121619; color: #91b842;">سفارش آنلاین</a>
+                    <a href="/main" class="my-btn-green py-3 px-4"
+                        style="background-color: #121619; color: #91b842;">سفارش آنلاین</a>
                 </div>
             </div>
         </div>
@@ -239,7 +142,7 @@
         <div class="container">
             <div class="row">
                 <div class="order-top"><img src="images/order-top.png" alt="layer"></div>
-               
+
                 <div class="col-xl-4 col-lg-4 col-md-4 servose-box text-center padding-lf mt-4">
                     <img src="images/order-1.svg" alt="order" class="order-img">
                     <h2 class="order-title text-uppercase">غذای خود را سفارش دهید</h2>
@@ -266,15 +169,13 @@
             </div>
         </div>
     </section>
-    <section class="about-pizzon ptb">
 
-        <!-- <div class="chef-top-bg"><img src="images/chef-top-bg.png" alt="chef-bg"></div> -->
+    <section class="about-pizzon ptb">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6">
                     <div class="max-w-390">
                         <div class="headding-part">
-                            <!-- <p class="headding-sub">Delicious Restaurant</p> -->
                             <h2 class="headding-title text-uppercase font-weight-bold">درباره ما</h2>
                         </div>
                         <p class="online-des">
@@ -301,7 +202,7 @@
                     </div>
                 </div>
             </div>
-           
+
         </div>
     </section>
 
@@ -310,7 +211,6 @@
     </div>
 
     <footer>
-
         <div class="container">
             <div class="footer">
                 <div class="row">
@@ -320,17 +220,14 @@
                                 <li class="d-flex justify-content-center align-items-start">
                                     <span class="ps-4">تلفن:</span>
                                     <a href="tel:1882">1882</a>
-
                                 </li>
                                 <li class="d-flex justify-content-center align-items-start">
                                     <span class="ps-4">ایمیل:</span>
                                     <a href="mailto:support@happypizza.com">support@pizzon.com</a>
-
                                 </li>
                                 <li class="d-flex justify-content-center align-items-start">
                                     <span class="ps-4">آدرس:</span>
                                     <a href="happypizza.ir">happypizza.ir</a>
-
                                 </li>
                             </ul>
                         </div>
@@ -340,22 +237,11 @@
         </div>
         </div>
     </footer>
-    
-<script type="text/javascript">
 
-    function order(){
-        // var testurl = document.URL;
-        // testurl ="http://localhost:3012/main";
-        // window.location.href = testurl;
-    }
-    
-  
-  </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
-
 </body>
 
 </html>
